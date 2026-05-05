@@ -162,7 +162,10 @@ function init(){
   wrap.innerHTML=`
     <div id="pdb-header">
   <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png"
-       style="height:20px;margin-right:6px;">
+     style="height:20px;margin-right:6px;
+            background:white;
+            padding:2px 4px;
+            border-radius:4px;">
   🚴 Poziomki 2.0
   <input id="pdb-search" placeholder="szukaj...">
 </div>
