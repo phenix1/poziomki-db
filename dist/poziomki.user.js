@@ -1,11 +1,10 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.6 STABLE
+// @name         Poziomki — baza 2.7 FIX UI
 // @namespace    https://poziomki.info
-// @version      2.6
+// @version      2.7
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
-// @exclude      https://greasyfork.org/*
 // @grant        GM_addStyle
 // @run-at       document-end
 // ==/UserScript==
@@ -15,18 +14,15 @@
 
 if (window.top !== window.self) return;
 
-// 🔥 CACHE BYPASS (ważne)
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json?v=" + Date.now();
 
 let DB = [];
 
-// ===== LOAD =====
 async function loadDB() {
   const res = await fetch(DB_URL);
   DB = await res.json();
 }
 
-// ===== STYLE (NAPRAWIONY GLOBALNIE) =====
 GM_addStyle(`
 #pdb {
   position: fixed;
@@ -46,18 +42,37 @@ GM_addStyle(`
   font-family: Arial, sans-serif;
 }
 
-/* 🔥 NAJWAŻNIEJSZE — blokuje style strony */
+/* 🔥 FIX DARK MODE + WIDTH */
 #pdb input,
 #pdb select {
   background: #ffffff !important;
   color: #222 !important;
   border: 1px solid #bbb !important;
+  width: auto !important;
+  flex: none !important;
+  min-width: 80px;
 }
 
-#pdb input::placeholder {
-  color: #777 !important;
+/* 🔥 KONTROLKI */
+#pdb-controls {
+  padding:6px;
+  background:#eef3fa;
+  display:flex !important;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+  border-bottom:1px solid #d0d8e5;
 }
 
+#pdb-controls select {
+  width: 130px !important;
+}
+
+#pdb-controls input[type="number"] {
+  width: 90px !important;
+}
+
+/* HEADER */
 #pdb-header {
   background:#1e3a5f;
   color:white;
@@ -73,15 +88,7 @@ GM_addStyle(`
   border-radius:4px;
 }
 
-#pdb-controls {
-  padding:6px;
-  background:#eef3fa;
-  display:flex;
-  gap:4px;
-  flex-wrap:wrap;
-  border-bottom:1px solid #d0d8e5;
-}
-
+/* TABLE */
 #pdb-table {
   width:100%;
   border-collapse:collapse;
@@ -107,6 +114,7 @@ GM_addStyle(`
   text-decoration:underline;
 }
 
+/* FOOTER */
 #pdb-footer {
   background:#dbe6f7;
   padding:6px;
@@ -117,7 +125,6 @@ GM_addStyle(`
 }
 `);
 
-// ===== STATE =====
 let state = {
   search:"",
   prod:"all",
@@ -126,7 +133,6 @@ let state = {
   noLink:false
 };
 
-// ===== FILTER =====
 function getData(){
   return DB.filter(r=>{
     const text = (r.p + " " + r.m + " " + r.type).toLowerCase();
@@ -141,7 +147,6 @@ function getData(){
   });
 }
 
-// ===== UI =====
 function init(){
 
   const wrap = document.createElement("div");
@@ -153,7 +158,7 @@ function init(){
     <div id="pdb-header">
       <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png"
            style="height:20px;margin-right:6px;background:white;padding:2px 4px;border-radius:4px;">
-      🚴 Poziomki 2.6
+      🚴 Poziomki 2.7
       <input id="pdb-search" placeholder="search...">
     </div>
 
@@ -212,7 +217,6 @@ function init(){
   render();
 }
 
-// ===== RENDER =====
 function render(){
   const data = getData();
 
@@ -226,7 +230,6 @@ function render(){
   `).join("");
 }
 
-// ===== START =====
 await loadDB();
 init();
 
