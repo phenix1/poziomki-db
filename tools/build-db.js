@@ -24,20 +24,22 @@ function isValid(r) {
 
   const text = (r.m + r.p).toLowerCase();
 
-  const bad = [
-    "${",
-    "type_label",
-    "rowclass",
-    ">",
-    "typ",
-    "model",
-    "producer",
-    "load kg",
-    "wszystkie",
-    "unknown"
-  ];
+  // śmieci / template / UI
+  if (text.includes("${")) return false;
+  if (text.includes("type_label")) return false;
+  if (text.includes("rowclass")) return false;
+  if (text.includes(">")) return false;
+  if (text.includes("typ")) return false;
+  if (text.includes("model")) return false;
+  if (text.includes("producer")) return false;
+  if (text.includes("unknown")) return false;
+  if (text.includes("wszystkie")) return false;
+  if (text.includes("load kg")) return false;
 
-  return !bad.some(b => text.includes(b));
+  // zbyt krótkie = śmieci
+  if (r.m.length < 2) return false;
+
+  return true;
 }
 
 // ===== NORMALIZE =====
@@ -64,7 +66,7 @@ for (const r of dataV11) {
   map.set(key, n);
 }
 
-// 2️⃣ potem v1 (nadpisuje linki)
+// 2️⃣ potem v1 (nadpisuje lepsze dane)
 for (const r of dataV1) {
   const n = normalize(r);
   if (!isValid(n)) continue;
@@ -74,7 +76,6 @@ for (const r of dataV1) {
   if (map.has(key)) {
     const existing = map.get(key);
 
-    // 🔥 nadpisujemy lepsze dane
     if (n.url) existing.url = n.url;
     if (n.kg) existing.kg = n.kg;
     if (n.type) existing.type = n.type;
@@ -87,7 +88,7 @@ for (const r of dataV1) {
 // ===== FINAL LIST =====
 const result = Array.from(map.values());
 
-// sortowanie (ładniej wygląda)
+// sortowanie
 result.sort((a, b) => {
   if (a.p === b.p) return a.m.localeCompare(b.m);
   return a.p.localeCompare(b.p);
