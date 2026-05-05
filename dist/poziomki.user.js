@@ -194,10 +194,11 @@ function init(){
       <tbody id="pdb-body"></tbody>
     </table>
 
-   <div id="pdb-footer">
-  ${DB.length} modeli
+ <div id="pdb-footer">
+  ${DB.length} modeli • zgłoś poprawki: 
+  <a href="mailto:twoj@email.pl">email</a>
 
-  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg"
+  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=2"
        style="height:26px; margin-left:8px; border-radius:50%; opacity:0.6; vertical-align:middle;">
 </div>
   `;
