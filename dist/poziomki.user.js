@@ -218,7 +218,7 @@ function init(){
   ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
 </select>
 
-      <input id="kg" placeholder="min kg" type="number">
+      <input id="kg" placeholder="${t('minKg')}" type="number">
     </div>
 
     <table id="pdb-table">
