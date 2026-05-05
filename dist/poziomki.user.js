@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.2 STABLE
+// @name         Poziomki — baza 2.3 STABLE
 // @namespace    https://poziomki.info
-// @version      2.2
+// @version      2.3
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -35,8 +35,20 @@ function t(key){
 if (window.top !== window.self) return;
 
 // ===== DB =====
-const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json";
+const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json?v=" + Date.now();
 let DB = [];
+
+// ===== COMPANY STATUS =====
+const COMPANY_STATUS = {
+  "HP Velotechnik": "verified",
+  "ICE": "verified",
+  "AZUB": "verified",
+
+  "KMX": "archived_all",
+
+  "Matix": "active",
+  "Dekers": "active"
+};
 
 // ===== LOAD =====
 async function loadDB() {
@@ -85,22 +97,12 @@ GM_addStyle(`
   color:#777;
 }
 
-#pdb-banner {
-  background:#dbe6f7;
-  padding:6px;
-  text-align:center;
-  font-size:12px;
-  color:#1e3a5f;
-  border-bottom:1px solid #cfd6e0;
-}
-
 #pdb-controls {
   padding:6px;
   background:#eef3fa;
   display:flex;
   gap:4px;
   flex-wrap:wrap;
-  border-bottom:1px solid #d0d8e5;
 }
 
 #pdb-controls input, 
@@ -118,7 +120,6 @@ GM_addStyle(`
 #pdb-table td {
   padding:6px;
   border-bottom:1px solid #e0e6ef;
-  color:#222;
 }
 
 #pdb-table tr:hover {
@@ -136,13 +137,6 @@ a {
   font-size:11px;
   text-align:right;
   color:#1e3a5f;
-  border-top:1px solid #cfd6e0;
-}
-
-#pdb-footer img:hover {
-  opacity:1;
-  transform:scale(1.1);
-  cursor:pointer;
 }
 `);
 
@@ -168,6 +162,17 @@ function getData(){
   });
 }
 
+// ===== COMPANY COLOR =====
+function getCompanyColor(p){
+  const s = COMPANY_STATUS[p] || "active";
+
+  if(s === "verified") return "#e6f4ea";
+  if(s === "archived_all") return "#fff8e1";
+  if(s === "defunct") return "#fdecea";
+
+  return "#ffffff";
+}
+
 // ===== UI =====
 function init(){
 
@@ -180,11 +185,9 @@ function init(){
     <div id="pdb-header">
       <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png?v=2"
            style="height:20px;margin-right:6px;background:white;padding:2px 4px;border-radius:4px;">
-      🚴 Poziomki 2.0
+      🚴 Poziomki 2.3
       <input id="pdb-search" placeholder="${t('search')}">
     </div>
-
-    <div id="pdb-banner"></div>
 
     <div id="pdb-controls">
       <select id="prod">
@@ -212,20 +215,16 @@ function init(){
       <a href="mailto:phenix29@gmail.com">${t('contact')}</a>
 
       <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=2"
-           style="height:26px;margin-left:8px;border-radius:50%;opacity:0.6;vertical-align:middle;">
+           style="height:26px;margin-left:8px;border-radius:50%;opacity:0.6;">
     </div>
   `;
 
   document.body.appendChild(wrap);
 
-// klik producent = filtr
-document.addEventListener("click", e=>{
-  if(e.target.classList.contains("pdb-producer")){
-    state.prod = e.target.dataset.p;
-    document.getElementById("prod").value = state.prod;
+  document.getElementById("pdb-search").oninput=e=>{
+    state.search=e.target.value.toLowerCase();
     render();
-  }
-});
+  };
 
   document.getElementById("prod").onchange=e=>{
     state.prod=e.target.value;
@@ -251,15 +250,30 @@ function render(){
 
   document.getElementById("pdb-body").innerHTML = data.map(r=>`
     <tr>
-      <td class="pdb-producer" data-p="${r.p}" style="cursor:pointer; font-weight:500;">
-  ${r.p}
-</td>
-      <td><a href="${r.url}" target="_blank">${r.m}</a></td>
+      <td class="pdb-producer" data-p="${r.p}"
+          style="cursor:pointer;font-weight:500;background:${getCompanyColor(r.p)};">
+        ${r.p}
+      </td>
+
+      <td>
+        ${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}
+        ${r.production === "discontinued" ? " 🕓" : ""}
+      </td>
+
       <td>${r.type}</td>
-      <td>${r.kg||"-"} kg</td>
+      <td>${r.kg || "-"}</td>
     </tr>
   `).join("");
 }
+
+// ===== CLICK FILTER =====
+document.addEventListener("click", e=>{
+  if(e.target.classList.contains("pdb-producer")){
+    state.prod = e.target.dataset.p;
+    document.getElementById("prod").value = state.prod;
+    render();
+  }
+});
 
 // ===== START =====
 await loadDB();
