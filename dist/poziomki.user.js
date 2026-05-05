@@ -218,10 +218,14 @@ function init(){
 
   document.body.appendChild(wrap);
 
-  document.getElementById("pdb-search").oninput=e=>{
-    state.search=e.target.value.toLowerCase();
+// klik producent = filtr
+document.addEventListener("click", e=>{
+  if(e.target.classList.contains("pdb-producer")){
+    state.prod = e.target.dataset.p;
+    document.getElementById("prod").value = state.prod;
     render();
-  };
+  }
+});
 
   document.getElementById("prod").onchange=e=>{
     state.prod=e.target.value;
