@@ -114,6 +114,12 @@ a {
   color:#1e3a5f;
   border-top:1px solid #cfd6e0;
 }
+
+#pdb-footer img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  cursor: pointer;
+}
 `);
 // ===== STATE =====
 let state = {
