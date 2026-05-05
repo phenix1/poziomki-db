@@ -3,7 +3,10 @@
 // @namespace    https://poziomki.info
 // @version      2.0
 // @description  Baza rowerów poziomych (GitHub DB)
-// @match        *://*/*
+// @match https://*/*
+// @exclude https://github.com/*
+// @exclude https://raw.githubusercontent.com/*
+// @exclude https://greasyfork.org/*
 // @grant        GM_addStyle
 // @run-at       document-end
 // ==/UserScript==
