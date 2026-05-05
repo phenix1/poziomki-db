@@ -226,8 +226,8 @@ function init(){
     </table>
 
  <div id="pdb-footer">
-  ${DB.length} modeli • zgłoś poprawki: 
-  <a href="mailto:phenix29@gmail.com">email</a>
+  ${DB.length} ${t('models')} • 
+  <a href="mailto:phenix29@gmail.com">${t('contact')}</a>
 
   <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=2"
        style="height:26px; margin-left:8px; border-radius:50%; opacity:0.6; vertical-align:middle;">
