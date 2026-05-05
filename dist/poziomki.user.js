@@ -51,13 +51,18 @@ GM_addStyle(`
   display:flex;
   align-items:center;
 }
-
 #pdb-search {
   margin-left:10px;
   flex:1;
   padding:5px;
   border-radius:4px;
   border:1px solid #ccc;
+  color:#222;              /* tekst wpisywany */
+  background:#fff;
+}
+
+#pdb-search::placeholder {
+  color:#777;              /* placeholder — teraz czytelny */
 }
 
 #pdb-banner {
