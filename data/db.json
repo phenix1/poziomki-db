@@ -1,4772 +1,3554 @@
 [
   {
-    "p": "AZUB",
-    "m": "Azub",
-    "key": "azub|azub",
-    "type": null,
+    "p": "Alligt",
+    "m": "Alleweder",
+    "type": "velomobile",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2010/http://alligt.nl/",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Alligt",
+    "m": "Alleweder A10",
+    "type": "quad",
+    "kg": null,
+    "url": "https://www.alligt.nl/alleweder-a10/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Alleweder A4",
+    "type": "velomobile",
+    "kg": 130,
+    "url": "https://www.alligt.nl/en/alleweder-a4/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Alleweder A6",
+    "type": "velomobile",
+    "kg": 130,
+    "url": "https://www.alligt.nl/en/alleweder-a6/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Alleweder A7",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.alligt.nl/en/alleweder-a7/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Alleweder A8",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.alligt.nl/en/alleweder-a8/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Alleweder A9",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.alligt.nl/alleweder-a9/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Sunrider",
+    "type": "velomobile",
+    "kg": 125,
+    "url": "https://www.alligt.nl/en/sunrider/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "Veloquad",
+    "type": "quad",
+    "kg": null,
+    "url": "https://www.alligt.nl/veloquad/",
+    "status": "verified"
+  },
+  {
+    "p": "Alligt",
+    "m": "WAW",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.alligt.nl/waw/",
+    "status": "verified"
+  },
+  {
+    "p": "Avenue Trikes",
+    "m": "1st Avenue",
+    "type": "tadpole",
+    "kg": 204,
+    "url": "https://avenuetrikes.com/1st-ave/",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
     "m": "Azub 5",
-    "key": "azub|azub5",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "bike",
+    "kg": 135,
+    "url": "https://azub.eu/",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
+    "m": "Eco 20",
+    "type": "tadpole",
+    "kg": 100,
+    "url": "https://azub.eu/",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "FAT",
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/fat",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "MAX 26",
+    "type": "bike",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/max",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "MAX 700",
+    "type": "bike",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/max-700-highracer",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "Mini",
+    "type": "bike",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/mini",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "Origami",
+    "type": "bike",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/extreme-line/origami",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "Six",
+    "type": "bike",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/six",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
     "m": "T-Tris 20",
-    "key": "azub|ttris20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/20-wheels/t-tris",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "T-Tris 26",
-    "key": "azub|ttris26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/t-tris",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "T-Tris AR",
-    "key": "azub|ttrisar",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/t-tris-ar",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "T-Trisek",
-    "key": "azub|ttrisek",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/azub-t-trisek-recumbent-tricycle-for-short-riders",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "Ti-FLY 20",
-    "key": "azub|tifly20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/20-wheels/ti-fly",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "Ti-FLY 26",
-    "key": "azub|tifly26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/ti-fly",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "Ti-FLY X",
-    "key": "azub|tiflyx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/ti-fly-x",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "TRIcon 20",
-    "key": "azub|tricon20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/20-wheels/tricon",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "TRIcon 26",
-    "key": "azub|tricon26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/tricon",
+    "status": "verified"
   },
   {
-    "p": "AZUB",
+    "p": "Azub",
     "m": "TRIcon GR",
-    "key": "azub|tricongr",
-    "type": null,
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/azub-tricon-gr-off-road-trike",
+    "status": "verified"
+  },
+  {
+    "p": "Azub",
+    "m": "TWIN",
+    "type": "bike",
+    "kg": 200,
+    "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Aero",
+    "type": "bike",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://bacchettabikes.com/pages/aero-recumbent-bike",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Agio",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/agio-recumbent-bike",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Bella ATT",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/bella-att-recumbent-bike",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Bella Evo",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://bacchettabikes.com/products/bacchetta-bella",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Bellandare",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/bellandare",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Carbon Aero 2.0",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/carbon-aero-2-0-650c",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Carbon Aero 650c",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/carbon-aero-650c",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Carbon Basso GS",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/carbon-basso-gs",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Carbon Corsa",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/carbon-corsa",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Corsa 24",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/corsa-24",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Corsa 700",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/corsa-700",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Corsa A65",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/corsa-a65",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Corsa Evo",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://bacchettabikes.com/products/bacchetta-corsa-evo-custom-recumbent",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Corsa SS",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/corsa-ss",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Giro 20",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/giro-20",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Giro 26",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/giro-26",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Giro 26 ATT",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/giro-26att",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Giro 26 Evo",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://bacchettabikes.com/products/bacchetta-giro-a26-custom-recumbent-bike",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Giro A20",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://bacchettabikes.com/products/bacchetta-giro-a20",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Pronto",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/products/bacchetta-pronto",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Pronto Alto",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/products/bacchetta-pronto-alto-custom-recumbent",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Pronto Bella",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/products/bacchetta-bella-pronto-custom-recumbent",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Quattro",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/products/bacchetta-carbon-aero-quattro-frameset",
+    "status": "verified"
+  },
+  {
+    "p": "Bacchetta",
+    "m": "Strada",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bacchettabikes.com/pages/strada",
+    "status": "verified"
+  },
+  {
+    "p": "BamBuk",
+    "m": "E-Trike Tandem",
+    "type": "delta",
+    "kg": null,
+    "url": "https://www.bambuk.de/",
+    "status": "verified"
+  },
+  {
+    "p": "Barcroft",
+    "m": "Dakota",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/?p=9477",
+    "status": "verified"
+  },
+  {
+    "p": "Barcroft",
+    "m": "Va Va Voom",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/?p=9477",
+    "status": "verified"
+  },
+  {
+    "p": "Barcroft",
+    "m": "Virginia Ti",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/?p=9477",
+    "status": "verified"
+  },
+  {
+    "p": "BerkelBike",
+    "m": "BerkelBike Pro",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://berkelbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "BerkelBike",
+    "m": "BerkelBike Sport",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://berkelbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "BikeE",
+    "m": "AT",
+    "type": "bike",
+    "kg": null,
+    "url": "https://en.wikipedia.org/wiki/BikeE",
+    "status": "verified"
+  },
+  {
+    "p": "BikeE",
+    "m": "CT",
+    "type": "bike",
+    "kg": null,
+    "url": "https://en.wikipedia.org/wiki/BikeE",
+    "status": "verified"
+  },
+  {
+    "p": "BikeE",
+    "m": "E2",
+    "type": "bike",
+    "kg": null,
+    "url": "https://en.wikipedia.org/wiki/BikeE",
+    "status": "verified"
+  },
+  {
+    "p": "BikeE",
+    "m": "NX",
+    "type": "bike",
+    "kg": null,
+    "url": "https://en.wikipedia.org/wiki/BikeE",
+    "status": "verified"
+  },
+  {
+    "p": "BikeE",
+    "m": "RX",
+    "type": "bike",
+    "kg": null,
+    "url": "https://en.wikipedia.org/wiki/BikeE",
+    "status": "verified"
+  },
+  {
+    "p": "Birk",
+    "m": "Comet",
+    "type": "bike",
+    "kg": null,
+    "url": "https://velomobil.ch/",
+    "status": "verified"
+  },
+  {
+    "p": "Blackbird Bikes",
+    "m": "EZ Quadribent",
+    "type": "quad",
+    "kg": null,
+    "url": "https://web.archive.org/web/2020/http://blackbirdbikes.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Canto",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Django",
+    "type": "bike",
+    "kg": 147,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Hepcat",
+    "type": "bike",
+    "kg": 147,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Jett Creek",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Koosah",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Limbo",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Nasoke",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Sand Point",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Spider",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Burley",
+    "m": "Taiko",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Catrike",
+    "m": "5.5.9",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.catrike.com/",
+    "status": "verified"
   },
   {
     "p": "Catrike",
     "m": "700",
-    "key": "catrike|700",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/700",
+    "status": "verified"
   },
   {
     "p": "Catrike",
-    "m": "Corsa 700",
-    "key": "catrike|corsa700",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "m": "All Road",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/all-road",
+    "status": "verified"
+  },
+  {
+    "p": "Catrike",
+    "m": "All Road eCAT",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/all-road-ecat",
+    "status": "verified"
   },
   {
     "p": "Catrike",
     "m": "Dumont",
-    "key": "catrike|dumont",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/dumont",
+    "status": "verified"
+  },
+  {
+    "p": "Catrike",
+    "m": "Eola",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/",
+    "status": "verified"
   },
   {
     "p": "Catrike",
     "m": "Expedition",
-    "key": "catrike|expedition",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/expedition",
+    "status": "verified"
   },
   {
     "p": "Catrike",
-    "m": "MAX 700",
-    "key": "catrike|max700",
-    "type": null,
+    "m": "MAX",
+    "type": "tadpole",
+    "kg": 193,
+    "url": "https://www.catrike.com/max",
+    "status": "verified"
+  },
+  {
+    "p": "Catrike",
+    "m": "Pocket",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://www.catrike.com/pocket",
+    "status": "verified"
+  },
+  {
+    "p": "Catrike",
+    "m": "Road",
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://www.catrike.com/",
+    "status": "verified"
   },
   {
     "p": "Catrike",
     "m": "Trail",
-    "key": "catrike|trail",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/trail",
+    "status": "verified"
   },
   {
     "p": "Catrike",
     "m": "Villager",
-    "key": "catrike|villager",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.catrike.com/villager",
+    "status": "verified"
   },
   {
-    "p": "Dekers",
-    "m": "Dekers Bike",
-    "key": "dekers|dekersbike",
-    "type": null,
+    "p": "Challenge",
+    "m": "Alize",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Chamsin",
+    "type": "bike",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/chamsin.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Fujin",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/fujinsport_detail.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Fujin SL",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/fujinsl2_detail.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Hurricane",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/hurricane_detail.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Jester",
+    "type": "bike",
+    "kg": null,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Mistral",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/touring_recumbents.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Seiran",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/seiran_detail.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Seiran SL",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/seiran_detail.php",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Taifun",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Taifun compact",
+    "type": "bike",
+    "kg": null,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Challenge",
+    "m": "Ventus",
+    "type": "bike",
+    "kg": null,
+    "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "A4x Complete",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Freerider",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Q45",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Quest",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "S40",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Silvio",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Sofrider",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/collections/all-products/bicycles-and-framesets",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "T50",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "V20c",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/products/v20c",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Vendetta",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cruzbike",
+    "m": "Vendetta V20c",
+    "type": "bike",
+    "kg": 109,
+    "url": "https://cruzbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cycle Genius",
+    "m": "Falcon",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.cyclegenius.com.tw/",
+    "status": "verified"
+  },
+  {
+    "p": "Cycle Genius",
+    "m": "LTX",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.cyclegenius.com.tw/",
+    "status": "verified"
+  },
+  {
+    "p": "Cycle Genius",
+    "m": "Raven",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.cyclegenius.com.tw/",
+    "status": "verified"
+  },
+  {
+    "p": "Cycles JV Fenioux",
+    "m": "Fenioux Custom",
+    "type": "bike",
+    "kg": null,
+    "url": "https://cycles-jv-fenioux.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Cycles JV Fenioux",
+    "m": "LeMans",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://cycles-jv-fenioux.com/catalogue-velos/le-mans/",
+    "status": "verified"
+  },
+  {
+    "p": "Cycles JV Fenioux",
+    "m": "Mulsanne",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://cycles-jv-fenioux.com/catalogue-velos/mulsanne/",
+    "status": "verified"
+  },
+  {
+    "p": "Dekers Bike",
+    "m": "Extreme",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://dekersbike.com/product/dekers-extreme/",
+    "status": "verified"
+  },
+  {
+    "p": "Dekers Bike",
+    "m": "Fattrike",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://dekersbike.com/product/dekers-fattrike/",
+    "status": "verified"
+  },
+  {
+    "p": "Dekers Bike",
+    "m": "Hunter",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://dekersbike.com/product/dekers-hunter/",
+    "status": "verified"
+  },
+  {
+    "p": "Drymer",
+    "m": "Hilgo",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://velowerk.info/produkt-kategorie/velomobile/hilgo/",
+    "status": "verified"
+  },
+  {
+    "p": "Easy Racers",
+    "m": "EZ-1",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Easy Racers",
+    "m": "Gold Rush",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Easy Racers",
+    "m": "Gold Rush Replica",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Easy Racers",
+    "m": "Javelin",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Easy Racers",
+    "m": "Ti-Rush",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Easy Racers",
+    "m": "Tour Easy",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "ENVO",
+    "m": "Veemo",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.envodrivesystems.com/veemo",
+    "status": "verified"
+  },
+  {
+    "p": "Flevobike",
+    "m": "Basic",
+    "type": "bike",
+    "kg": null,
+    "url": "https://web.archive.org/web/2010/http://www.flevobike.nl/",
+    "status": "verified"
+  },
+  {
+    "p": "Flevobike",
+    "m": "Fifty-fifty",
+    "type": "bike",
+    "kg": null,
+    "url": "https://web.archive.org/web/2010/http://www.flevobike.nl/",
+    "status": "verified"
+  },
+  {
+    "p": "Flevobike",
+    "m": "Greenmachine",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2010/http://www.flevobike.nl/",
+    "status": "verified"
+  },
+  {
+    "p": "Flevobike",
+    "m": "Versatile",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2010/http://www.flevobike.nl/",
+    "status": "verified"
+  },
+  {
+    "p": "Flux",
+    "m": "A10",
+    "type": "bike",
+    "kg": null,
+    "url": "https://flux-fahrraeder.de/produkte/a10/",
+    "status": "verified"
+  },
+  {
+    "p": "Flux",
+    "m": "C500",
+    "type": "bike",
+    "kg": null,
+    "url": "https://flux-fahrraeder.de/c500/",
+    "status": "verified"
+  },
+  {
+    "p": "Flux",
+    "m": "S9 ML",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://flux-fahrraeder.de/produkte/s900/",
+    "status": "verified"
+  },
+  {
+    "p": "Flux",
+    "m": "S9 SM",
+    "type": "bike",
+    "kg": null,
+    "url": "https://flux-fahrraeder.de/produkte/s9-ol-ul-sm/",
+    "status": "verified"
+  },
+  {
+    "p": "Flux",
+    "m": "S9 XL",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://flux-fahrraeder.de/produkte/s900/",
+    "status": "verified"
+  },
+  {
+    "p": "Go-One",
+    "m": "Evo K",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2023/https://www.go-one.de/",
+    "status": "verified"
+  },
+  {
+    "p": "Go-One",
+    "m": "Evo Ks",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2023/https://www.go-one.de/",
+    "status": "verified"
+  },
+  {
+    "p": "Go-One",
+    "m": "Evo R",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2023/https://www.go-one.de/",
+    "status": "verified"
+  },
+  {
+    "p": "Go-One",
+    "m": "Go-One 3",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2020/https://www.go-one.de/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "Aero",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://greenspeed-trikes.com/trikes/aero/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "Anura",
+    "type": "delta",
+    "kg": 136,
+    "url": "https://greenspeed-trikes.com/trikes/anura/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "GT20",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://greenspeed-trikes.com/trikes/gt20/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "GT26",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://greenspeed-trikes.com/trikes/gt26/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "Magnum",
+    "type": "tadpole",
+    "kg": 181,
+    "url": "https://greenspeed-trikes.com/trikes/magnum/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "Magnum BW",
+    "type": "tadpole",
+    "kg": 181,
+    "url": "https://greenspeed-trikes.com/trikes/magnum-bw/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "Magnum SD",
+    "type": "tadpole",
+    "kg": 181,
+    "url": "https://greenspeed-trikes.com/trikes/magnum/",
+    "status": "verified"
+  },
+  {
+    "p": "GreenSpeed",
+    "m": "Magnum XL",
+    "type": "tadpole",
+    "kg": 204,
+    "url": "https://greenspeed-trikes.com/trikes/magnum-xl/",
+    "status": "verified"
+  },
+  {
+    "p": "Haluzak",
+    "m": "Horizon",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bicycleman.com/haluzak-horizon-recumbent-bike/",
+    "status": "verified"
+  },
+  {
+    "p": "Haluzak",
+    "m": "Leprechaun",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bicycleman.com/haluzak-leprechaun-recumbent-bike/",
+    "status": "verified"
+  },
+  {
+    "p": "Haluzak",
+    "m": "Traverse",
+    "type": "bike",
+    "kg": null,
+    "url": "https://bicycleman.com/brands/haluzak-recumbents/",
+    "status": "verified"
   },
   {
     "p": "Hase Bikes",
     "m": "Kettwiesel ONE",
-    "key": "hasebikes|kettwieselone",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Hase Bikes",
-    "m": "Leprechaun",
-    "key": "hasebikes|leprechaun",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "delta",
+    "kg": 140,
+    "url": "https://www.hasebikes.com/en/kettwiesel",
+    "status": "verified"
   },
   {
     "p": "Hase Bikes",
     "m": "Lepus → Kettwiesel ONE",
-    "key": "hasebikes|lepuskettwieselone",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "delta",
+    "kg": 140,
+    "url": "https://www.hasebikes.com/en/kettwiesel",
+    "status": "verified"
+  },
+  {
+    "p": "Hase Bikes",
+    "m": "Pino",
+    "type": "bike",
+    "kg": 225,
+    "url": "https://www.hasebikes.com/en/kategorie/tandem/pino",
+    "status": "verified"
+  },
+  {
+    "p": "Hase Bikes",
+    "m": "Trets",
+    "type": "delta",
+    "kg": 100,
+    "url": "https://www.hasebikes.com/en/kategorie/therapierader/trets",
+    "status": "verified"
+  },
+  {
+    "p": "Hase Bikes",
+    "m": "Trigo",
+    "type": "tadpole",
+    "kg": 160,
+    "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo",
+    "status": "verified"
+  },
+  {
+    "p": "Hase Bikes",
+    "m": "Trigo UP",
+    "type": "delta",
+    "kg": 160,
+    "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo",
+    "status": "verified"
+  },
+  {
+    "p": "Hase Bikes",
+    "m": "Trix",
+    "type": "delta",
+    "kg": 140,
+    "url": "https://www.hasebikes.com/en/kategorie/therapierader/trix",
+    "status": "verified"
+  },
+  {
+    "p": "HP Velotechnik",
+    "m": "Delta tx",
+    "type": "delta",
+    "kg": 140,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/delta-tx/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Gekko 20",
-    "key": "hpvelotechnik|gekko20",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-recumbent-trikes/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Gekko 26",
-    "key": "hpvelotechnik|gekko26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-recumbent-trikes/gekko-26-affordable-laid-back-adults-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Gekko fx 20",
-    "key": "hpvelotechnik|gekkofx20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-recumbent-trikes/gekko-fx-20-compact-fast-folding-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Gekko fx 26",
-    "key": "hpvelotechnik|gekkofx26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-recumbent-trikes/gekko-fx-26-sporty-foldable-touring-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Gekko fxs",
-    "key": "hpvelotechnik|gekkofxs",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 100,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-recumbent-trikes/gekko-fxs-kids-trike-therapy-special-needs-childrens-tricycle/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Grasshopper fx",
-    "key": "hpvelotechnik|grasshopperfx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "bike",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/grasshopper-fx/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion",
-    "key": "hpvelotechnik|scorpion",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion fs 20",
-    "key": "hpvelotechnik|scorpionfs20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-fs-20-full-suspension-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion fs 26",
-    "key": "hpvelotechnik|scorpionfs26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-fs-26-performance-full-suspension-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion fs 26 Enduro",
-    "key": "hpvelotechnik|scorpionfs26enduro",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-fs-26-enduro-offroad-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion fs 26 S-Pedelec",
-    "key": "hpvelotechnik|scorpionfs26spedelec",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion fx 20",
-    "key": "hpvelotechnik|scorpionfx20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-fx-20-compact-foldable-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion fx 26",
-    "key": "hpvelotechnik|scorpionfx26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-fx-26-medium-high-foldable-travel-trike-26-inch/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion Handbike",
-    "key": "hpvelotechnik|scorpionhandbike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "handcycle",
+    "kg": 100,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/accessories/hands-on-cycle-the-hand-powered-bicycle-drive-for-trikes/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion plus 20",
-    "key": "hpvelotechnik|scorpionplus20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-plus-20-compact-high-seat-adults-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Scorpion plus 26",
-    "key": "hpvelotechnik|scorpionplus26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-adults-recumbent-trikes/scorpion-plus-26-performance-full-suspension-trike/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Speedmachine",
-    "key": "hpvelotechnik|speedmachine",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "bike",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/speedmachine/",
+    "status": "verified"
   },
   {
     "p": "HP Velotechnik",
     "m": "Speedmachine S-Pedelec",
-    "key": "hpvelotechnik|speedmachinespedelec",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "bike",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/speedmachine/",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "HP Velotechnik",
+    "m": "Streetmachine Gte",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/streetmachine-gte/",
+    "status": "verified"
+  },
+  {
+    "p": "ICE Trikes",
     "m": "Adventure",
-    "key": "ice|adventure",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.icetrikes.co/products/adventure",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "ICE Trikes",
     "m": "Adventure HD",
-    "key": "ice|adventurehd",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.icetrikes.co/products/adventure-hd",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "ICE Trikes",
     "m": "Full Fat",
-    "key": "ice|fullfat",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.icetrikes.co/products/full-fat",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "ICE Trikes",
+    "m": "Handcycle",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.icetrikes.co/products/ice-trikes-handcycle-handtrike",
+    "status": "verified"
+  },
+  {
+    "p": "ICE Trikes",
     "m": "Sprint X",
-    "key": "ice|sprintx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.icetrikes.co/products/sprint-x-recumbent-trike",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "ICE Trikes",
     "m": "Sprint X Pixel",
-    "key": "ice|sprintxpixel",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "ICE Trikes",
     "m": "Sprint X Tour",
-    "key": "ice|sprintxtour",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike",
+    "status": "verified"
   },
   {
-    "p": "ICE",
+    "p": "ICE Trikes",
     "m": "VTX",
-    "key": "ice|vtx",
-    "type": null,
+    "type": "tadpole",
+    "kg": 104,
+    "url": "https://www.icetrikes.co/products/vtx-recumbent-trike",
+    "status": "verified"
+  },
+  {
+    "p": "IN Trikes",
+    "m": "NEO",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.facebook.com/INTRIKES/",
+    "status": "verified"
+  },
+  {
+    "p": "InterCityBike",
+    "m": "DF",
+    "type": "velomobile",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://intercitybike.nl/en/product/intercity-bike-tuna-velomobiel/",
+    "status": "verified"
+  },
+  {
+    "p": "InterCityBike",
+    "m": "DF XL",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://intercitybike.nl/en/product/intercity-bike-tuna-velomobiel/",
+    "status": "verified"
+  },
+  {
+    "p": "InterCityBike",
+    "m": "DF4",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.recumbent.news/2021/01/31/sunday-video-new-four-wheel-velomobile-the-df4-some-info-from-the-designer/",
+    "status": "verified"
+  },
+  {
+    "p": "InterCityBike",
+    "m": "Tuna",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://intercitybike.nl/en/product/intercity-bike-tuna-velomobiel/",
+    "status": "verified"
+  },
+  {
+    "p": "Kamrad",
+    "m": "R16",
+    "type": "bike",
+    "kg": 120,
+    "url": "https://kamrad.pl/",
+    "status": "verified"
+  },
+  {
+    "p": "Katanga",
+    "m": "Alleweder 4",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.katanga.eu/alleweder4/",
+    "status": "verified"
+  },
+  {
+    "p": "Katanga",
+    "m": "VELION",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.katanga.eu/vm45/",
+    "status": "verified"
+  },
+  {
+    "p": "Katanga",
+    "m": "WAW",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.katanga.eu/waw/",
+    "status": "verified"
+  },
+  {
+    "p": "Katanga",
+    "m": "WAW E",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.katanga.eu/waw/",
+    "status": "verified"
   },
   {
     "p": "KMX",
-    "m": "KMX",
-    "key": "kmx|kmx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Matix",
-    "m": "Matix Bike",
-    "key": "matix|matixbike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ",\n    filterProd:",
-    "key": "unknown|filterprod",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ",\n    sortCol:",
-    "key": "unknown|sortcol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ",\n    sortDir:    -1,\n  });\n  function save() { GM_setValue(SK, state); }\n\n  GM_addStyle(",
-    "key": "unknown|sortdir1functionsavegmsetvalueskstategmaddstyle",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", ...new Set(DB.map(r => r.p))].sort();\n\n    wrap.innerHTML =",
-    "key": "unknown|newsetdbmaprrpsortwrapinnerhtml",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", {numeric: true});\n    });\n  }\n\n  function build() {\n    const wrap = document.createElement(",
-    "key": "unknown|numerictruefunctionbuildconstwrapdocumentcreateelement",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", arch:true, kg:0, url:",
-    "key": "unknown|archtruekg0url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:0, arch:true, url:",
-    "key": "unknown|kg0archtrueurl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:0, url:",
-    "key": "unknown|kg0url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:114, arch:true, url:",
-    "key": "unknown|kg114archtrueurl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:120, url:",
-    "key": "unknown|kg120url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:125, url:",
-    "key": "unknown|kg125url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:136, url:",
-    "key": "unknown|kg136url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:147, url:",
-    "key": "unknown|kg147url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:159, url:",
-    "key": "unknown|kg159url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:181, url:",
-    "key": "unknown|kg181url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", kg:90, url:",
-    "key": "unknown|kg90url",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", m:",
-    "key": "unknown|m",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ", type:",
-    "key": "unknown|type",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n      const rowClass = collab ===",
-    "key": "unknown|constrowclasscollab",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n      save();\n    };\n\n    [",
-    "key": "unknown|save",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n    if (kg >= 150) return",
-    "key": "unknown|ifkg150return",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n    if (kg >= 200) return",
-    "key": "unknown|ifkg200return",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n    if (state.collapsed) wrap.classList.add(",
-    "key": "unknown|ifstatecollapsedwrapclasslistadd",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n    return",
-    "key": "unknown|return",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n  }\n\n  function getFiltered() {\n    return DB.filter(r => {\n      if (state.filterType !==",
-    "key": "unknown|functiongetfilteredreturndbfilterrifstatefiltertype",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ";\n  let state = GM_getValue(SK, {\n    collapsed:  false,\n    minKg:      0,\n    filterType:",
-    "key": "unknown|letstategmgetvalueskcollapsedfalseminkg0filtertype",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ": collab ===",
-    "key": "unknown|collab",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "? -1 : 1; }\n      save(); render();\n    };\n\n    render();\n  }\n\n  function render() {\n    const rows = getFiltered();\n    const tbody = document.getElementById(",
-    "key": "unknown|11saverenderrenderfunctionrenderconstrowsgetfilteredconsttbodydocumentgetelementbyid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "? (a.kg || 0) : (a[col] ||",
-    "key": "unknown|akg0acol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "? (b.kg || 0) : (b[col] ||",
-    "key": "unknown|bkg0bcol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ") return state.sortDir * (av - bv);\n      return state.sortDir * av.localeCompare(bv,",
-    "key": "unknown|returnstatesortdiravbvreturnstatesortdiravlocalecomparebv",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ") state.filterProd = e.target.value;\n        if(id===",
-    "key": "unknown|statefilterprodetargetvalueifid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ") state.filterType = e.target.value;\n        if(id===",
-    "key": "unknown|statefiltertypeetargetvalueifid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ") state.minKg = parseInt(e.target.value) || 0;\n        save(); render();\n      };\n    });\n\n    window.pdbSort = (col) => {\n      if (state.sortCol === col) state.sortDir *= -1;\n      else { state.sortCol = col; state.sortDir = col ===",
-    "key": "unknown|stateminkgparseintetargetvalue0saverenderwindowpdbsortcolifstatesortcolcolstatesortdir1elsestatesortcolcolstatesortdircol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ");\n\n    const producers = [",
-    "key": "unknown|constproducers",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ");\n\n  const TYPE_LABEL = { tadpole:",
-    "key": "unknown|consttypelabeltadpole",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ");\n    document.getElementById(",
-    "key": "unknown|documentgetelementbyid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ");\n    wrap.id =",
-    "key": "unknown|wrapid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ").join(",
-    "key": "unknown|join",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ").textContent = rows.length;\n\n    tbody.innerHTML = rows.map(r => {\n      const collab = COLLAB[r.p] ||",
-    "key": "unknown|textcontentrowslengthtbodyinnerhtmlrowsmaprconstcollabcollabrp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ").toString().toLowerCase();\n      const bv = col ===",
-    "key": "unknown|tostringtolowercaseconstbvcol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ").toString().toLowerCase();\n      if (col ===",
-    "key": "unknown|tostringtolowercaseifcol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ")}</select>\n          <select id=",
-    "key": "unknown|selectselectid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "].forEach(id => {\n      document.getElementById(id).onchange = (e) => {\n        if(id===",
-    "key": "unknown|foreachiddocumentgetelementbyididonchangeeifid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "}\n  ];\n\n  // ============================================================\n  // STAN I STYLE (ODZYSKANE Z v1.1)[cite: 10]\n  // ============================================================\n  const SK =",
-    "key": "unknown|stanistyleodzyskanezv11cite10constsk",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "} ${r.check?",
-    "key": "unknown|rcheck",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "},\n    { p:",
-    "key": "unknown|p",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "};\n\n  function kgClass(kg) {\n    if (!kg) return",
-    "key": "unknown|functionkgclasskgifkgreturn",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "};\n  const TYPE_CLASS = { tadpole:",
-    "key": "unknown|consttypeclasstadpole",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "}</span>\n      </div>\n      <div id=",
-    "key": "unknown|spandivdivid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "}</span></td>\n        <td class=",
-    "key": "unknown|spantdtdclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "}</td>\n        <td><span class=",
-    "key": "unknown|tdtdspanclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "&& r.p !== state.filterProd) return false;\n      if (state.minKg > 0 && r.kg < state.minKg) return false;\n      return true;\n    }).sort((a, b) => {\n      const col = state.sortCol;\n      const av = col ===",
-    "key": "unknown|rpstatefilterprodreturnfalseifstateminkg0rkgstateminkgreturnfalsereturntruesortabconstcolstatesortcolconstavcol",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "&& r.type !== state.filterType) return false;\n      if (state.filterProd !==",
-    "key": "unknown|rtypestatefiltertypereturnfalseifstatefilterprod",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">\n            <option value=",
-    "key": "unknown|optionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">\n          <select id=",
-    "key": "unknown|selectid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">\n          <thead>\n            <tr>\n              <th onclick=",
-    "key": "unknown|theadtrthonclick",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">\n          Data: 2025 · kg=0 = no data · <strong>MBFeniks</strong>\n          <a class=",
-    "key": "unknown|data2025kg0nodatastrongmbfeniksstrongaclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">\n        </div>\n        <table id=",
-    "key": "unknown|divtableid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">\n        <div class=",
-    "key": "unknown|divclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">↗ page</a></td>\n      </tr>",
-    "key": "unknown|pageatdtr",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "></tbody>\n        </table>\n        <div class=",
-    "key": "unknown|tbodytabledivclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "><a href=",
-    "key": "unknown|ahref",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">⬇ CSV</a>\n        </div>\n      </div>",
-    "key": "unknown|csvadivdiv",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">${producers.map(p =>",
-    "key": "unknown|producersmapp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">${r.kg ? r.kg+",
-    "key": "unknown|rkgrkg",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">${TYPE_LABEL[r.type]}</span></td>\n        <td><span class=",
-    "key": "unknown|typelabelrtypespantdtdspanclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">2-wheel</option>\n            <option value=",
-    "key": "unknown|2wheeloptionoptionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Delta</option>\n            <option value=",
-    "key": "unknown|deltaoptionoptionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Handcycle</option>\n          </select>\n          <input type=",
-    "key": "unknown|handcycleoptionselectinputtype",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Load kg</th>\n              <th>Link</th>\n            </tr>\n          </thead>\n          <tbody id=",
-    "key": "unknown|loadkgththlinkthtrtheadtbodyid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Model</th>\n              <th onclick=",
-    "key": "unknown|modelththonclick",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Producer</th>\n              <th onclick=",
-    "key": "unknown|producerththonclick",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Quad</option>\n            <option value=",
-    "key": "unknown|quadoptionoptionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Tadpole</option>\n            <option value=",
-    "key": "unknown|tadpoleoptionoptionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Typ</th>\n              <th onclick=",
-    "key": "unknown|typththonclick",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Velomobile</option>\n            <option value=",
-    "key": "unknown|velomobileoptionoptionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": ">Wszystkie typy</option>\n            <option value=",
-    "key": "unknown|wszystkietypyoptionoptionvalue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "🏛️",
-    "key": "unknown|",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "${rowClass}",
-    "key": "unknown|rowclass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "1st Avenue",
-    "key": "unknown|1stavenue",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "26/26 high bar",
-    "key": "unknown|2626highbar",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "26/26 low bar",
-    "key": "unknown|2626lowbar",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "2Rider",
-    "key": "unknown|2rider",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "5.5.9",
-    "key": "unknown|559",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "A10",
-    "key": "unknown|a10",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "A4x Complete",
-    "key": "unknown|a4xcomplete",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Aero",
-    "key": "unknown|aero",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Agio",
-    "key": "unknown|agio",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alien",
-    "key": "unknown|alien",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alize",
-    "key": "unknown|alize",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "All Road",
-    "key": "unknown|allroad",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "All Road eCAT",
-    "key": "unknown|allroadecat",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "All Terrain",
-    "key": "unknown|allterrain",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder",
-    "key": "unknown|alleweder",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder 4",
-    "key": "unknown|alleweder4",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder A10",
-    "key": "unknown|allewedera10",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder A4",
-    "key": "unknown|allewedera4",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder A6",
-    "key": "unknown|allewedera6",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder A7",
-    "key": "unknown|allewedera7",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder A8",
-    "key": "unknown|allewedera8",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alleweder A9",
-    "key": "unknown|allewedera9",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Alligt",
-    "key": "unknown|alligt",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Anura",
-    "key": "unknown|anura",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Avenue Trikes",
-    "key": "unknown|avenuetrikes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Bacchetta",
-    "key": "unknown|bacchetta",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "badge",
-    "key": "unknown|badge",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "BamBuk",
-    "key": "unknown|bambuk",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Barcroft",
-    "key": "unknown|barcroft",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Baron",
-    "key": "unknown|baron",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Baron Elite",
-    "key": "unknown|baronelite",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Basic",
-    "key": "unknown|basic",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Bella ATT",
-    "key": "unknown|bellaatt",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Bella Evo",
-    "key": "unknown|bellaevo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Bellandare",
-    "key": "unknown|bellandare",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "BerkelBike",
-    "key": "unknown|berkelbike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "BerkelBike Pro",
-    "key": "unknown|berkelbikepro",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "BerkelBike Sport",
-    "key": "unknown|berkelbikesport",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "bike",
-    "key": "unknown|bike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "BikeE",
-    "key": "unknown|bikee",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Birk",
-    "key": "unknown|birk",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Blackbird Bikes",
-    "key": "unknown|blackbirdbikes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Brevet",
-    "key": "unknown|brevet",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Bugg-E",
-    "key": "unknown|bugge",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Burley",
-    "key": "unknown|burley",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "C500",
-    "key": "unknown|c500",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cantilever",
-    "key": "unknown|cantilever",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Canto",
-    "key": "unknown|canto",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cantus",
-    "key": "unknown|cantus",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon Aero 2.0",
-    "key": "unknown|carbonaero20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon Aero 650c",
-    "key": "unknown|carbonaero650c",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon Basso GS",
-    "key": "unknown|carbonbassogs",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon Corsa",
-    "key": "unknown|carboncorsa",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon High Racer",
-    "key": "unknown|carbonhighracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon Low Racer",
-    "key": "unknown|carbonlowracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Carbon Medium Racer",
-    "key": "unknown|carbonmediumracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Catrike",
-    "key": "unknown|catrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Challenge",
-    "key": "unknown|challenge",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Chamsin",
-    "key": "unknown|chamsin",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Charge",
-    "key": "unknown|charge",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "City Cruiser",
-    "key": "unknown|citycruiser",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "City Racer",
-    "key": "unknown|cityracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Civo",
-    "key": "unknown|civo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "closed",
-    "key": "unknown|closed",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "CMPCT",
-    "key": "unknown|cmpct",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "col",
-    "key": "unknown|col",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Comet",
-    "key": "unknown|comet",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Comfort E-Trike",
-    "key": "unknown|comfortetrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Comfort Trike",
-    "key": "unknown|comforttrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Condor",
-    "key": "unknown|condor",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Corsa 24",
-    "key": "unknown|corsa24",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Corsa A65",
-    "key": "unknown|corsaa65",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Corsa Evo",
-    "key": "unknown|corsaevo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Corsa SS",
-    "key": "unknown|corsass",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cougar",
-    "key": "unknown|cougar",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "CrMo Low Racer",
-    "key": "unknown|crmolowracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "CroMo Low Racer",
-    "key": "unknown|cromolowracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cruiser",
-    "key": "unknown|cruiser",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cruzbike",
-    "key": "unknown|cruzbike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cycle Genius",
-    "key": "unknown|cyclegenius",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Cycles JV Fenioux",
-    "key": "unknown|cyclesjvfenioux",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Dakota",
-    "key": "unknown|dakota",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Defender",
-    "key": "unknown|defender",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "delta",
-    "key": "unknown|delta",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Delta tx",
-    "key": "unknown|deltatx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "DF XL",
-    "key": "unknown|dfxl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "DF4",
-    "key": "unknown|df4",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Django",
-    "key": "unknown|django",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Dolphin",
-    "key": "unknown|dolphin",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Dragon",
-    "key": "unknown|dragon",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Drymer",
-    "key": "unknown|drymer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Dual Drive",
-    "key": "unknown|dualdrive",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Duet",
-    "key": "unknown|duet",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Duette",
-    "key": "unknown|duette",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Duo",
-    "key": "unknown|duo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Dynamik",
-    "key": "unknown|dynamik",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "E-Family",
-    "key": "unknown|efamily",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "E-Futuro",
-    "key": "unknown|efuturo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "E-JC-26X",
-    "key": "unknown|ejc26x",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "E-JC70",
-    "key": "unknown|ejc70",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "e-Lightning",
-    "key": "unknown|elightning",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "E-Trike Tandem",
-    "key": "unknown|etriketandem",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "E.V.O.",
-    "key": "unknown|evo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Easy Racers",
-    "key": "unknown|easyracers",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Eco 20",
-    "key": "unknown|eco20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Eco-Delta SX",
-    "key": "unknown|ecodeltasx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Endorphin",
-    "key": "unknown|endorphin",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "ENVO",
-    "key": "unknown|envo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Eola",
-    "key": "unknown|eola",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Evo K",
-    "key": "unknown|evok",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Evo Ks",
-    "key": "unknown|evoks",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Evo R",
-    "key": "unknown|evor",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Explorer",
-    "key": "unknown|explorer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Extreme",
-    "key": "unknown|extreme",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "EZ Quadribent",
-    "key": "unknown|ezquadribent",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "EZ-1",
-    "key": "unknown|ez1",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "EZ-3 USX HD",
-    "key": "unknown|ez3usxhd",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "EZ-Classic SX",
-    "key": "unknown|ezclassicsx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "F-40",
-    "key": "unknown|f40",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Falcon",
-    "key": "unknown|falcon",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "FAT",
-    "key": "unknown|fat",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fattrike",
-    "key": "unknown|fattrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fenioux Custom",
-    "key": "unknown|feniouxcustom",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fiero",
-    "key": "unknown|fiero",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fiero xs",
-    "key": "unknown|fieroxs",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fifty-fifty",
-    "key": "unknown|fiftyfifty",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Flevobike",
-    "key": "unknown|flevobike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Flux",
-    "key": "unknown|flux",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Folding E-JC-26X",
-    "key": "unknown|foldingejc26x",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Folding JC-26X",
-    "key": "unknown|foldingjc26x",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Freerider",
-    "key": "unknown|freerider",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Frikar",
-    "key": "unknown|frikar",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fuego",
-    "key": "unknown|fuego",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fujin",
-    "key": "unknown|fujin",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Fujin SL",
-    "key": "unknown|fujinsl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Futuro FRP",
-    "key": "unknown|futurofrp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Futuro Mesh",
-    "key": "unknown|futuromesh",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Gaucho",
-    "key": "unknown|gaucho",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Gaucho Highracer",
-    "key": "unknown|gauchohighracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Gaucho Tour",
-    "key": "unknown|gauchotour",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Giro 20",
-    "key": "unknown|giro20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Giro 26",
-    "key": "unknown|giro26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Giro 26 ATT",
-    "key": "unknown|giro26att",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Giro 26 Evo",
-    "key": "unknown|giro26evo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Giro A20",
-    "key": "unknown|giroa20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Gliss",
-    "key": "unknown|gliss",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Go-One",
-    "key": "unknown|goone",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Go-One 3",
-    "key": "unknown|goone3",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Goal 20-26x OSS",
-    "key": "unknown|goal2026xoss",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Goal 20-26x USS",
-    "key": "unknown|goal2026xuss",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Goal 26x OSS",
-    "key": "unknown|goal26xoss",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Goal 26x USS",
-    "key": "unknown|goal26xuss",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Gold Rush",
-    "key": "unknown|goldrush",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Gold Rush Replica",
-    "key": "unknown|goldrushreplica",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Grand Tourismo",
-    "key": "unknown|grandtourismo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Greenmachine",
-    "key": "unknown|greenmachine",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "GreenSpeed",
-    "key": "unknown|greenspeed",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "GT20",
-    "key": "unknown|gt20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "GT26",
-    "key": "unknown|gt26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Haluzak",
-    "key": "unknown|haluzak",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "handcycle",
-    "key": "unknown|handcycle",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hase Bikes",
-    "key": "unknown|hasebikes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hepcat",
-    "key": "unknown|hepcat",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hero FRP",
-    "key": "unknown|herofrp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hero Mesh",
-    "key": "unknown|heromesh",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "High Racer (Lacka)",
-    "key": "unknown|highracerlacka",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "HighBaron",
-    "key": "unknown|highbaron",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hilgo",
-    "key": "unknown|hilgo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Horizon",
-    "key": "unknown|horizon",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "HP Velotechnik",
-    "key": "unknown|hpvelotechnik",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "href=",
-    "key": "unknown|href",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hunter",
-    "key": "unknown|hunter",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Hurricane",
-    "key": "unknown|hurricane",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "ICE Trikes",
-    "key": "unknown|icetrikes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "icon",
-    "key": "unknown|icon",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "id=",
-    "key": "unknown|id",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "IN Trikes",
-    "key": "unknown|intrikes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "InterCityBike",
-    "key": "unknown|intercitybike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Javelin",
-    "key": "unknown|javelin",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "JC-26X FRP",
-    "key": "unknown|jc26xfrp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "JC-26X Mesh",
-    "key": "unknown|jc26xmesh",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "JC20",
-    "key": "unknown|jc20",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "JC70 FRP",
-    "key": "unknown|jc70frp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "JC70 Mesh",
-    "key": "unknown|jc70mesh",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Jeetrike",
-    "key": "unknown|jeetrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Jester",
-    "key": "unknown|jester",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Jett Creek",
-    "key": "unknown|jettcreek",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Kamrad",
-    "key": "unknown|kamrad",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Katanga",
-    "key": "unknown|katanga",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "kg",
-    "key": "unknown|kg",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Kobold",
-    "key": "unknown|kobold",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
     "m": "Kobra",
-    "key": "unknown|kobra",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Performance/KMX-Cobra-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Kolt",
-    "key": "unknown|kolt",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Adult/KMX-Kolt-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Kompact",
-    "key": "unknown|kompact",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Kidz/KMX-Kompact-R-.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Koosah",
-    "key": "unknown|koosah",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Koyote",
-    "key": "unknown|koyote",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Adult/KMX-Koyote-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Le Snoek",
-    "key": "unknown|lesnoek",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leiba",
-    "key": "unknown|leiba",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leiba Classic",
-    "key": "unknown|leibaclassic",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leiba Classic L",
-    "key": "unknown|leibaclassicl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leiba Hybrid",
-    "key": "unknown|leibahybrid",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leiba Record",
-    "key": "unknown|leibarecord",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leiba Xstream",
-    "key": "unknown|leibaxstream",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leitra",
-    "key": "unknown|leitra",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Leitra Sport",
-    "key": "unknown|leitrasport",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "LeMans",
-    "key": "unknown|lemans",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Lightfoot Cycles",
-    "key": "unknown|lightfootcycles",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Lightning",
-    "key": "unknown|lightning",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Limbo",
-    "key": "unknown|limbo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Limo",
-    "key": "unknown|limo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Linear",
-    "key": "unknown|linear",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Long",
-    "key": "unknown|long",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Low Racer (X-Low)",
-    "key": "unknown|lowracerxlow",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "LTX",
-    "key": "unknown|ltx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Lynx",
-    "key": "unknown|lynx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "M-Racer",
-    "key": "unknown|mracer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "MadMax",
-    "key": "unknown|madmax",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Magnum",
-    "key": "unknown|magnum",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Magnum BW",
-    "key": "unknown|magnumbw",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Magnum SD",
-    "key": "unknown|magnumsd",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Magnum XL",
-    "key": "unknown|magnumxl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mango",
-    "key": "unknown|mango",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mango Speed",
-    "key": "unknown|mangospeed",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mango Sport",
-    "key": "unknown|mangosport",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mango Tour",
-    "key": "unknown|mangotour",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Maverick",
-    "key": "unknown|maverick",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "MAX",
-    "key": "unknown|max",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "MAX 26",
-    "key": "unknown|max26",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Maxarya",
-    "key": "unknown|maxarya",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Micro",
-    "key": "unknown|micro",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Microcar",
-    "key": "unknown|microcar",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Milan 4.2",
-    "key": "unknown|milan42",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Milan GT",
-    "key": "unknown|milangt",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Milan SL",
-    "key": "unknown|milansl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mini",
-    "key": "unknown|mini",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mistral",
-    "key": "unknown|mistral",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Monster",
-    "key": "unknown|monster",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mulsanne",
-    "key": "unknown|mulsanne",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Mungo",
-    "key": "unknown|mungo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Muses",
-    "key": "unknown|muses",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Nasoke",
-    "key": "unknown|nasoke",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Nazca",
-    "key": "unknown|nazca",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "NEO",
-    "key": "unknown|neo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Newman",
-    "key": "unknown|newman",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Nimbus",
-    "key": "unknown|nimbus",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Nomad",
-    "key": "unknown|nomad",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Nuke Off-Road",
-    "key": "unknown|nukeoffroad",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Optima",
-    "key": "unknown|optima",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Orca",
-    "key": "unknown|orca",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Origami",
-    "key": "unknown|origami",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "ORSA Cycles",
-    "key": "unknown|orsacycles",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Oryx",
-    "key": "unknown|oryx",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "P-38",
-    "key": "unknown|p38",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "P-38 Belt Drive",
-    "key": "unknown|p38beltdrive",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "P-38 Voyager",
-    "key": "unknown|p38voyager",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pacific Cycles",
-    "key": "unknown|pacificcycles",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Paseo",
-    "key": "unknown|paseo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "pdb-arr",
-    "key": "unknown|pdbarr",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "pdb-cnt",
-    "key": "unknown|pdbcnt",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "pdb-hdr",
-    "key": "unknown|pdbhdr",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pelso",
-    "key": "unknown|pelso",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Performer",
-    "key": "unknown|performer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Phantom",
-    "key": "unknown|phantom",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Phoenix",
-    "key": "unknown|phoenix",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pino",
-    "key": "unknown|pino",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pioneer",
-    "key": "unknown|pioneer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "placeholder=",
-    "key": "unknown|placeholder",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pocket",
-    "key": "unknown|pocket",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Podbike",
-    "key": "unknown|podbike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "PONY4",
-    "key": "unknown|pony4",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "PonyFour",
-    "key": "unknown|ponyfour",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pronto",
-    "key": "unknown|pronto",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pronto Alto",
-    "key": "unknown|prontoalto",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Pronto Bella",
-    "key": "unknown|prontobella",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Q45",
-    "key": "unknown|q45",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "quad",
-    "key": "unknown|quad",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Quattro",
-    "key": "unknown|quattro",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Quest",
-    "key": "unknown|quest",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Quetzal",
-    "key": "unknown|quetzal",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "R-84",
-    "key": "unknown|r84",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "R-84 E-84",
-    "key": "unknown|r84e84",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "R16",
-    "key": "unknown|r16",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "RAD-Innovations",
-    "key": "unknown|radinnovations",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Räderwerk",
-    "key": "unknown|rderwerk",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Rambler",
-    "key": "unknown|rambler",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ranger",
-    "key": "unknown|ranger",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "RANS",
-    "key": "unknown|rans",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Raven",
-    "key": "unknown|raven",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ray 1",
-    "key": "unknown|ray1",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ray 2",
-    "key": "unknown|ray2",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ray 2D",
-    "key": "unknown|ray2d",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ray 2E",
-    "key": "unknown|ray2e",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ray 2X",
-    "key": "unknown|ray2x",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "ReActive Adaptations",
-    "key": "unknown|reactiveadaptations",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Rebel",
-    "key": "unknown|rebel",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Response",
-    "key": "unknown|response",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Road",
-    "key": "unknown|road",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "RoadShark",
-    "key": "unknown|roadshark",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Roadster",
-    "key": "unknown|roadster",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Rocket",
-    "key": "unknown|rocket",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Rover",
-    "key": "unknown|rover",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Rover Tandem",
-    "key": "unknown|rovertandem",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "row-collab-closed",
-    "key": "unknown|rowcollabclosed",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "row-collab-yes",
-    "key": "unknown|rowcollabyes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "S40",
-    "key": "unknown|s40",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "S9 ML",
-    "key": "unknown|s9ml",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "S9 SM",
-    "key": "unknown|s9sm",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "S9 XL",
-    "key": "unknown|s9xl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Sand Point",
-    "key": "unknown|sandpoint",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Screamer",
-    "key": "unknown|screamer",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Segoe UI",
-    "key": "unknown|segoeui",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Seiran",
-    "key": "unknown|seiran",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Seiran SL",
-    "key": "unknown|seiransl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "selected",
-    "key": "unknown|selected",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Shock Proof 406",
-    "key": "unknown|shockproof406",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Shock Proof 451",
-    "key": "unknown|shockproof451",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Shock Proof 559",
-    "key": "unknown|shockproof559",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Silvio",
-    "key": "unknown|silvio",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Sinner",
-    "key": "unknown|sinner",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Six",
-    "key": "unknown|six",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Slyway",
-    "key": "unknown|slyway",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Snoek",
-    "key": "unknown|snoek",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Snoek L",
-    "key": "unknown|snoekl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Sofrider",
-    "key": "unknown|sofrider",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "SpecBikeTechnics",
-    "key": "unknown|specbiketechnics",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Spider",
-    "key": "unknown|spider",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Sport-On",
-    "key": "unknown|sporton",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Sportster",
-    "key": "unknown|sportster",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Spyder",
-    "key": "unknown|spyder",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Standard Trike",
-    "key": "unknown|standardtrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Steintrikes",
-    "key": "unknown|steintrikes",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Strada",
-    "key": "unknown|strada",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Stratus",
-    "key": "unknown|stratus",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Stratus XP",
-    "key": "unknown|stratusxp",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Streetmachine Gte",
-    "key": "unknown|streetmachinegte",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Sunrider",
-    "key": "unknown|sunrider",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "SunSeeker",
-    "key": "unknown|sunseeker",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "T50",
-    "key": "unknown|t50",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "tadpole",
-    "key": "unknown|tadpole",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Taifun",
-    "key": "unknown|taifun",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Taifun compact",
-    "key": "unknown|taifuncompact",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Taiko",
-    "key": "unknown|taiko",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tailwind",
-    "key": "unknown|tailwind",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tandem",
-    "key": "unknown|tandem",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tandem Pro",
-    "key": "unknown|tandempro",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tandem Recumbent",
-    "key": "unknown|tandemrecumbent",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "target=",
-    "key": "unknown|target",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Team",
-    "key": "unknown|team",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "TerraTrike",
-    "key": "unknown|terratrike",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Ti-Rush",
-    "key": "unknown|tirush",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "title",
-    "key": "unknown|title",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Tornado",
-    "key": "unknown|tornado",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Sport/KMX-Tornado-F8-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Tour Easy",
-    "key": "unknown|toureasy",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tour II",
-    "key": "unknown|tourii",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Traveler",
-    "key": "unknown|traveler",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Traverse",
-    "key": "unknown|traverse",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trets",
-    "key": "unknown|trets",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trice",
-    "key": "unknown|trice",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trigo",
-    "key": "unknown|trigo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trigo UP",
-    "key": "unknown|trigoup",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trike-F",
-    "key": "unknown|trikef",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trike-X",
-    "key": "unknown|trikex",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trix",
-    "key": "unknown|trix",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Trizard",
-    "key": "unknown|trizard",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Troublemaker",
-    "key": "unknown|troublemaker",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tuareg",
-    "key": "unknown|tuareg",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Tuna",
-    "key": "unknown|tuna",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Turist",
-    "key": "unknown|turist",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "TWIN",
-    "key": "unknown|twin",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Typhoon",
-    "key": "unknown|typhoon",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Sport/KMX-Typhoon-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "ULTRA",
-    "key": "unknown|ultra",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Unicorn",
-    "key": "unknown|unicorn",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "use strict",
-    "key": "unknown|usestrict",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "V-Rex",
-    "key": "unknown|vrex",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "V20c",
-    "key": "unknown|v20c",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Va Va Voom",
-    "key": "unknown|vavavoom",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "value=",
-    "key": "unknown|value",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Veemo",
-    "key": "unknown|veemo",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "VELION",
-    "key": "unknown|velion",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Velocity Squared",
-    "key": "unknown|velocitysquared",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "velomobile",
-    "key": "unknown|velomobile",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Veloquad",
-    "key": "unknown|veloquad",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Vendetta",
-    "key": "unknown|vendetta",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Vendetta V20c",
-    "key": "unknown|vendettav20c",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Venom",
-    "key": "unknown|venom",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Performance/KMX-Venom-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Ventus",
-    "key": "unknown|ventus",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Versatile",
-    "key": "unknown|versatile",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
+    "p": "KMX",
     "m": "Viper",
-    "key": "unknown|viper",
-    "type": null,
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Performance/KMX-Viper-Adults-Sports-Trike.aspx",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Virginia Ti",
-    "key": "unknown|virginiati",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "p": "Leiba",
+    "m": "Leiba Classic",
+    "type": "velomobile",
+    "kg": 140,
+    "url": "http://www.leiba.de/leiba_classic.html",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Wave",
-    "key": "unknown|wave",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "p": "Leiba",
+    "m": "Leiba Classic L",
+    "type": "velomobile",
+    "kg": 140,
+    "url": "http://www.leiba.de/leiba_classic_l.html",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "WAW",
-    "key": "unknown|waw",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "p": "Leiba",
+    "m": "Leiba Hybrid",
+    "type": "velomobile",
+    "kg": 140,
+    "url": "http://www.leiba.de/leiba_hybrid.html",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "WAW E",
-    "key": "unknown|wawe",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "p": "Leiba",
+    "m": "Leiba Record",
+    "type": "velomobile",
+    "kg": 140,
+    "url": "http://www.leiba.de/leiba_record.html",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Wild One",
-    "key": "unknown|wildone",
-    "type": null,
+    "p": "Leiba",
+    "m": "Leiba Xstream",
+    "type": "velomobile",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "http://www.leiba.de/leiba_xstream.html",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Wild One Fat",
-    "key": "unknown|wildonefat",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Wildcat",
-    "key": "unknown|wildcat",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
-    "m": "Wszyscy producenci",
-    "key": "unknown|wszyscyproducenci",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
-  },
-  {
-    "p": "Unknown",
+    "p": "Leiba",
     "m": "x-stream XXL",
-    "key": "unknown|xstreamxxl",
-    "type": null,
-    "kg": null,
-    "url": "",
-    "status": "unknown"
+    "type": "velomobile",
+    "kg": 140,
+    "url": "http://www.leiba.de/leiba_xstream_xxl.html",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
+    "p": "Leitra",
+    "m": "Leitra",
+    "type": "velomobile",
+    "kg": null,
+    "url": "http://leitra.dk/",
+    "status": "verified"
+  },
+  {
+    "p": "Leitra",
+    "m": "Leitra Sport",
+    "type": "velomobile",
+    "kg": null,
+    "url": "http://leitra.dk/",
+    "status": "verified"
+  },
+  {
+    "p": "Leitra",
+    "m": "Wildcat",
+    "type": "velomobile",
+    "kg": null,
+    "url": "http://leitra.dk/",
+    "status": "verified"
+  },
+  {
+    "p": "Lightfoot Cycles",
+    "m": "Duette",
+    "type": "quad",
+    "kg": null,
+    "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Lightfoot Cycles",
+    "m": "Duo",
+    "type": "quad",
+    "kg": null,
+    "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Lightfoot Cycles",
+    "m": "Microcar",
+    "type": "quad",
+    "kg": null,
+    "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Lightfoot Cycles",
+    "m": "Ranger",
+    "type": "bike",
+    "kg": null,
+    "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "e-Lightning",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.lightningbikes.com/e-lightning/index.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "F-40",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://www.lightningbikes.com/f40/index.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "P-38",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://www.lightningbikes.com/p38/index.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "P-38 Belt Drive",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://www.lightningbikes.com/p38/belt-drive.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "P-38 Voyager",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://www.lightningbikes.com/voyager/index.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "Phantom",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://www.lightningbikes.com/phantom/index.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "R-84",
+    "type": "bike",
+    "kg": 113,
+    "url": "https://www.lightningbikes.com/r84/index.html",
+    "status": "verified"
+  },
+  {
+    "p": "Lightning",
+    "m": "R-84 E-84",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.lightningbikes.com/r84/e84.html",
+    "status": "verified"
+  },
+  {
+    "p": "Linear",
+    "m": "Limo",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Linear",
+    "m": "Roadster",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "26/26 high bar",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/26_26_and_26_20_high_bar",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "26/26 low bar",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/26_26_and_26_20_low_bar",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Carbon High Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_High_Racer/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Carbon Low Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_Low_Racer",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Carbon Medium Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_Medium_Racer",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "City Cruiser",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/City_Cruiser/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "City Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/City_Racer/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "CMPCT",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CMPCT/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "CrMo Low Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CrMo_Low_Racer/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "CroMo Low Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CrMo_Low_Racer/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "M-Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/M-Racer/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Shock Proof 406",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Shock_Proof_406_CrMo/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Shock Proof 451",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Shock_Proof_451_CrMo/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Shock Proof 559",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Shock_Proof_559_CrMo/",
+    "status": "verified"
+  },
+  {
+    "p": "M5",
+    "m": "Tandem",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Tandem/",
+    "status": "verified"
+  },
+  {
+    "p": "Matix Bike",
+    "m": "Duet",
+    "type": "tadpole",
+    "kg": 160,
+    "url": "https://matixbike.eu/matix-duet/",
+    "status": "verified"
+  },
+  {
+    "p": "Matix Bike",
+    "m": "FAT",
+    "type": "tadpole",
+    "kg": 160,
+    "url": "https://matixbike.eu/matix-fat/",
+    "status": "verified"
+  },
+  {
+    "p": "Matix Bike",
+    "m": "Long",
+    "type": "tadpole",
+    "kg": 160,
+    "url": "https://matixbike.eu/matix-long/",
+    "status": "verified"
+  },
+  {
+    "p": "Matix Bike",
+    "m": "Newman",
+    "type": "tadpole",
+    "kg": 160,
+    "url": "https://matixbike.eu/matix-newman/",
+    "status": "verified"
+  },
+  {
+    "p": "Matix Bike",
+    "m": "Turist",
+    "type": "tadpole",
+    "kg": 160,
+    "url": "https://matixbike.eu/matix-turist/",
+    "status": "verified"
+  },
+  {
+    "p": "Maxarya",
+    "m": "Ray 1",
+    "type": "bike",
+    "kg": 136,
+    "url": "https://www.maxarya.com/product-category/recumbents/",
+    "status": "verified"
+  },
+  {
+    "p": "Maxarya",
+    "m": "Ray 2",
+    "type": "bike",
+    "kg": 136,
+    "url": "https://www.maxarya.com/ray-2-recumbent-bicycle",
+    "status": "verified"
+  },
+  {
+    "p": "Maxarya",
+    "m": "Ray 2D",
+    "type": "bike",
+    "kg": 136,
+    "url": "https://www.maxarya.com/ray-2d-recumbent-bicycle",
+    "status": "verified"
+  },
+  {
+    "p": "Maxarya",
+    "m": "Ray 2E",
+    "type": "bike",
+    "kg": 136,
+    "url": "https://www.maxarya.com/ray-2e-electric-recumbent-bicycle",
+    "status": "verified"
+  },
+  {
+    "p": "Maxarya",
+    "m": "Ray 2X",
+    "type": "bike",
+    "kg": 136,
+    "url": "https://www.maxarya.com/ray-2x-recumbent-bicycle",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Cruiser",
+    "type": "bike",
+    "kg": null,
+    "url": "https://nazca-ligfietsen.nl/en/cruiser",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Explorer",
+    "type": "bike",
+    "kg": null,
+    "url": "https://nazca-ligfietsen.nl/en/cruiser",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Fiero",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://nazca-ligfietsen.nl/en/fiero-xs",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Fiero xs",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://nazca-ligfietsen.nl/en/fiero-xs",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Fuego",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://nazca-ligfietsen.nl/en/fuego",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Gaucho",
+    "type": "bike",
+    "kg": null,
+    "url": "https://nazca-ligfietsen.nl/en/gaucho",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Gaucho Highracer",
+    "type": "bike",
+    "kg": null,
+    "url": "https://nazca-ligfietsen.nl/en/gaucho",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Gaucho Tour",
+    "type": "bike",
+    "kg": null,
+    "url": "https://nazca-ligfietsen.nl/en/gaucho",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Paseo",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://nazca-ligfietsen.nl/en/paseo",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Pioneer",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://nazca-ligfietsen.nl/en/pioneer",
+    "status": "verified"
+  },
+  {
+    "p": "Nazca",
+    "m": "Quetzal",
+    "type": "bike",
+    "kg": 225,
+    "url": "https://nazca-ligfietsen.nl/en/quetzal",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Baron",
+    "type": "bike",
+    "kg": 115,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Baron Elite",
+    "type": "bike",
+    "kg": 115,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Condor",
+    "type": "bike",
+    "kg": null,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Cougar",
+    "type": "bike",
+    "kg": null,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Dolphin",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Dragon",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Falcon",
+    "type": "bike",
+    "kg": null,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "HighBaron",
+    "type": "bike",
+    "kg": null,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Lynx",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Orca",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "Optima",
+    "m": "Oryx",
+    "type": "bike",
+    "kg": null,
+    "url": "https://ligfiets.net/brands/3",
+    "status": "verified"
+  },
+  {
+    "p": "ORSA Cycles",
+    "m": "Bugg-E",
+    "type": "quad",
+    "kg": null,
+    "url": "https://orsa-cycles.com/en/home",
+    "status": "verified"
+  },
+  {
+    "p": "Pacific Cycles",
+    "m": "2Rider",
+    "type": "quad",
+    "kg": null,
+    "url": "https://web.archive.org/web/2015/http://www.pacific-cycles.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Pelso",
+    "m": "Brevet",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.pelsobrevet.com/products/pelso-brevet-complete-bike",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Cantilever",
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.performercycles.com/bikes-catalog/1",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Cantus",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/7",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Defender",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/28",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "E-Family",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/29",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "E-Futuro",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/27",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "E-JC-26X",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/25",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "E-JC70",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/24",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Folding E-JC-26X",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/26",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Folding JC-26X",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/5",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Futuro FRP",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://www.performercycles.com/bike-detail/8",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Futuro Mesh",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://www.performercycles.com/bike-detail/8",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Goal 20-26x OSS",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/14",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Goal 20-26x USS",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/15",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Goal 26x OSS",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/12",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Goal 26x USS",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/13",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Hero FRP",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/9",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Hero Mesh",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/10",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "High Racer (Lacka)",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/17",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "JC-26X FRP",
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.performercycles.com/bike-detail/3",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "JC-26X Mesh",
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.performercycles.com/bike-detail/4",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "JC20",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.performercycles.com/bikes-catalog/1",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "JC70 FRP",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.performercycles.com/bike-detail/1",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "JC70 Mesh",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.performercycles.com/bike-detail/2",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Low Racer (X-Low)",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/18",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Muses",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/11",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Tandem Recumbent",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/23",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Trike-F",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/6",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Trike-X",
+    "type": "tadpole",
+    "kg": 140,
+    "url": "https://www.performercycles.com/bikes-catalog/1",
+    "status": "verified"
+  },
+  {
+    "p": "Performer",
+    "m": "Unicorn",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.performercycles.com/bike-detail/16",
+    "status": "verified"
+  },
+  {
+    "p": "Podbike",
+    "m": "Frikar",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://web.archive.org/web/2024/https://www.podbike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "PonyFour",
+    "m": "PONY4",
+    "type": "quad",
+    "kg": 200,
+    "url": "https://www.pony4.bike/",
+    "status": "verified"
+  },
+  {
+    "p": "RAD-Innovations",
+    "m": "Dual Drive",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://www.rad-innovations.com/dual-drive.html",
+    "status": "verified"
+  },
+  {
+    "p": "Räderwerk",
+    "m": "Milan 4.2",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://velowerk.info/",
+    "status": "verified"
+  },
+  {
+    "p": "Räderwerk",
+    "m": "Milan GT",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://velowerk.info/",
+    "status": "verified"
+  },
+  {
+    "p": "Räderwerk",
+    "m": "Milan SL",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://velowerk.info/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Civo",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Dynamik",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Gliss",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Nimbus",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Phoenix",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Response",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Rocket",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Screamer",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Stratus",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Stratus XP",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Tailwind",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Trizard",
+    "type": "tadpole",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "V-Rex",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Velocity Squared",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "RANS",
+    "m": "Wave",
+    "type": "bike",
+    "kg": null,
+    "url": "http://www.ransbikes.com/bicycles/",
+    "status": "verified"
+  },
+  {
+    "p": "ReActive Adaptations",
+    "m": "Nuke Off-Road",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://reactiveadaptations.com/nuke-recumbent-offroad-handcycle/",
+    "status": "verified"
+  },
+  {
+    "p": "Sinner",
+    "m": "Mango",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.sinner.eu/en/mango/",
+    "status": "verified"
+  },
+  {
+    "p": "Sinner",
+    "m": "Mango Speed",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.sinner.eu/en/mango-speed/",
+    "status": "verified"
+  },
+  {
+    "p": "Sinner",
+    "m": "Mango Sport",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.sinner.eu/en/mango-sport/",
+    "status": "verified"
+  },
+  {
+    "p": "Sinner",
+    "m": "Mango Tour",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.sinner.eu/en/mango-tour/",
+    "status": "verified"
+  },
+  {
+    "p": "Slyway",
+    "m": "Endorphin",
+    "type": "bike",
+    "kg": null,
+    "url": "https://slyway.wordpress.com/tag/endorphin/",
+    "status": "verified"
+  },
+  {
+    "p": "Slyway",
+    "m": "Team",
+    "type": "bike",
+    "kg": null,
+    "url": "https://slyway.wordpress.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Slyway",
+    "m": "ULTRA",
+    "type": "bike",
+    "kg": 130,
+    "url": "https://www.slywayprojects.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Snoek",
+    "m": "Le Snoek",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.snoek-velomobile.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Snoek",
+    "m": "Snoek L",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.snoek-velomobile.com/",
+    "status": "verified"
+  },
+  {
+    "p": "SpecBikeTechnics",
+    "m": "Comfort E-Trike",
+    "type": "tadpole",
+    "kg": 170,
+    "url": "https://specbiketechnics.com/all-products/comfort-e-trike/",
+    "status": "verified"
+  },
+  {
+    "p": "SpecBikeTechnics",
+    "m": "Comfort Trike",
+    "type": "tadpole",
+    "kg": 170,
+    "url": "https://specbiketechnics.com/all-products/tricycle-comfort-with-suspension/",
+    "status": "verified"
+  },
+  {
+    "p": "SpecBikeTechnics",
+    "m": "Fat Trike",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://specbiketechnics.com/all-products/fat-trike/",
+    "status": "verified"
+  },
+  {
+    "p": "SpecBikeTechnics",
+    "m": "Standard Trike",
+    "type": "tadpole",
+    "kg": 135,
+    "url": "https://specbiketechnics.com/all-products/",
+    "status": "verified"
+  },
+  {
+    "p": "Sport-On",
+    "m": "Jeetrike",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://www.sport-on.de/jeetrike/",
+    "status": "verified"
+  },
+  {
+    "p": "Sport-On",
+    "m": "Troublemaker",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://www.sport-on.de/troublemaker/",
+    "status": "verified"
+  },
+  {
+    "p": "Sport-On",
     "m": "XCR",
-    "key": "unknown|xcr",
-    "type": null,
+    "type": "handcycle",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://www.sport-on.de/xcr/",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "yes",
-    "key": "unknown|yes",
-    "type": null,
+    "p": "Steintrikes",
+    "m": "Alien",
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
   },
   {
-    "p": "Unknown",
-    "m": "Zockra",
-    "key": "unknown|zockra",
-    "type": null,
+    "p": "Steintrikes",
+    "m": "Kobold",
+    "type": "tadpole",
     "kg": null,
-    "url": "",
-    "status": "unknown"
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "MadMax",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Mungo",
+    "type": "tadpole",
+    "kg": 130,
+    "url": "https://steintrikes.com/product/mungo",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Nomad",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Rebel",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://steintrikes.com/product/rebel-fat-series",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "RoadShark",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Tuareg",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Viper",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://steintrikes.com/trikes/2",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Wild One",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://steintrikes.com/product/29-wild-one-series",
+    "status": "verified"
+  },
+  {
+    "p": "Steintrikes",
+    "m": "Wild One Fat",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://steintrikes.com/product/30-wild-one-fat-series",
+    "status": "verified"
+  },
+  {
+    "p": "SunSeeker",
+    "m": "Eco-Delta SX",
+    "type": "delta",
+    "kg": 136,
+    "url": "https://sunseeker.bike/products/eco-delta-sx-11737",
+    "status": "verified"
+  },
+  {
+    "p": "SunSeeker",
+    "m": "EZ-3 USX HD",
+    "type": "delta",
+    "kg": 181,
+    "url": "https://sunseeker.bike/products/ez-3-usx-hd-trike-6125",
+    "status": "verified"
+  },
+  {
+    "p": "SunSeeker",
+    "m": "EZ-Classic SX",
+    "type": "tadpole",
+    "kg": 136,
+    "url": "https://sunseeker.bike/products/ez-classic-sx-21sp-8433",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "All Terrain",
+    "type": "tadpole",
+    "kg": 136,
+    "url": "https://www.terratrike.com/adventure/all-terrain/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Charge",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.terratrike.com/electric/charge/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "E.V.O.",
+    "type": "tadpole",
+    "kg": 136,
+    "url": "https://www.terratrike.com/adventure-touring/evo/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Grand Tourismo",
+    "type": "tadpole",
+    "kg": 136,
+    "url": "https://www.terratrike.com/adventure-touring-gt/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Maverick",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://www.terratrike.com/leisure/maverick/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Rambler",
+    "type": "tadpole",
+    "kg": 181,
+    "url": "https://www.terratrike.com/leisure/rambler/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Rover",
+    "type": "tadpole",
+    "kg": 181,
+    "url": "https://www.terratrike.com/leisure/rover/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Rover Tandem",
+    "type": "tadpole",
+    "kg": 227,
+    "url": "https://www.terratrike.com/tandem/rover-tandem/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Sportster",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.terratrike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Spyder",
+    "type": "tadpole",
+    "kg": 113,
+    "url": "https://www.terratrike.com/performance/spyder/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Tandem Pro",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.terratrike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Tour II",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.terratrike.com/",
+    "status": "verified"
+  },
+  {
+    "p": "TerraTrike",
+    "m": "Traveler",
+    "type": "tadpole",
+    "kg": 136,
+    "url": "https://www.terratrike.com/folding/traveler/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "Micro",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "Monster",
+    "type": "tadpole",
+    "kg": 100,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "Q",
+    "type": "tadpole",
+    "kg": 114,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "QNT",
+    "type": "tadpole",
+    "kg": 114,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "S",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "T",
+    "type": "tadpole",
+    "kg": 114,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "TNT",
+    "type": "tadpole",
+    "kg": 114,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trice",
+    "m": "XL",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://www.icetrikes.co/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Chameleon Tandem",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/chameleon/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Fat Trekker",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/trekker/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Jouta Fat Quad",
+    "type": "quad",
+    "kg": 159,
+    "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Jouta Quad",
+    "type": "quad",
+    "kg": 159,
+    "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Jouta Tadpole",
+    "type": "tadpole",
+    "kg": 136,
+    "url": "https://tridenttrikes.com/jouta-delta/products/jouta-tadpole/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Nomad",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/nomad/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Spike 1",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/spike/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Spike 2",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/spike/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Spike 380",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/spike/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Stowaway I",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Stowaway II",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "T.W.I.G",
+    "type": "bike",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/t-w-i-g/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Terrain 20",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/terrain/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Terrain 26",
+    "type": "tadpole",
+    "kg": 147,
+    "url": "https://tridenttrikes.com/jouta-delta/products/terrain/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Titan",
+    "type": "tadpole",
+    "kg": 181,
+    "url": "https://tridenttrikes.com/jouta-delta/products/titan/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Tomcat",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Tomcat 380",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Tomcat E",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Trekker 20",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/trekker/",
+    "status": "verified"
+  },
+  {
+    "p": "Trident",
+    "m": "Trekker 26",
+    "type": "tadpole",
+    "kg": 125,
+    "url": "https://tridenttrikes.com/jouta-delta/products/trekker/",
+    "status": "verified"
+  },
+  {
+    "p": "TrikExplor",
+    "m": "F420 4WD",
+    "type": "quad",
+    "kg": null,
+    "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad",
+    "status": "verified"
+  },
+  {
+    "p": "TrikExplor",
+    "m": "Sport Utility Quad",
+    "type": "quad",
+    "kg": null,
+    "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad",
+    "status": "verified"
+  },
+  {
+    "p": "TrikExplor",
+    "m": "Touring Quad",
+    "type": "quad",
+    "kg": null,
+    "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad",
+    "status": "verified"
+  },
+  {
+    "p": "Trisled",
+    "m": "Aquila 3",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.trisled.com.au/aquila",
+    "status": "verified"
+  },
+  {
+    "p": "Trisled",
+    "m": "Overzealous XC",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.trisled.com.au/overzealous-xc",
+    "status": "verified"
+  },
+  {
+    "p": "Trisled",
+    "m": "Rotovelo",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.trisled.com.au/rotovelo",
+    "status": "verified"
+  },
+  {
+    "p": "Utah Trikes",
+    "m": "UTCustom Cat-4",
+    "type": "quad",
+    "kg": null,
+    "url": "https://www.utahtrikes.com/PROD-11617640.html",
+    "status": "verified"
+  },
+  {
+    "p": "Varibike",
+    "m": "Varibike",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.varibike.com/t-en-us/modelle",
+    "status": "verified"
+  },
+  {
+    "p": "Varibike",
+    "m": "Varibike Trike",
+    "type": "handcycle",
+    "kg": null,
+    "url": "https://www.varibike.com/t-en-us/modelle",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "DuoQuest",
+    "type": "quad",
+    "kg": null,
+    "url": "https://en.velomobiel.nl/duoquest/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Quattrovelo",
+    "type": "quad",
+    "kg": null,
+    "url": "https://en.velomobiel.nl/quattrovelo/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Quattrovelo XL",
+    "type": "quad",
+    "kg": null,
+    "url": "https://en.velomobiel.nl/quattrovelo/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Quest",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.velomobiel.nl/en/quest/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Quest VS",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://en.velomobiel.nl/quest/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Quest XS",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.velomobiel.nl/en/questxs/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Snoek",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://en.velomobiel.nl/snoek/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Snoek L",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://en.velomobiel.nl/snoek/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobiel.nl",
+    "m": "Strada",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://www.velomobiel.nl/en/strada/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Alpha 7",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.velomobileworld.com/product/3-alpha-7/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Alpha 7 Electra",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.velomobileworld.com/product/alpha-7/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Alpha 9",
+    "type": "velomobile",
+    "kg": 120,
+    "url": "https://www.velomobileworld.com/velomobiles/alpha-9-velomobile/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Alpha 9.2",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.velomobileworld.com/velomobiles/alpha-9-velomobile/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Alpha W9",
+    "type": "tadpole",
+    "kg": 90,
+    "url": "https://www.velomobileworld.com/velomobiles/alpha-w9-velomobile/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Alpha W9S",
+    "type": "tadpole",
+    "kg": 90,
+    "url": "https://www.velomobileworld.com/velomobiles/alpha-w9s-velomobile/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Bülk MK1",
+    "type": "tadpole",
+    "kg": 120,
+    "url": "https://www.velomobileworld.com/velomobiles/bulk-mk-1-velomobile/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "M9",
+    "type": "velomobile",
+    "kg": 120,
+    "url": "https://www.velomobileworld.com/velomobiles/m9-velomobile/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Milan GT",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://store.velomobileworld.com/product/milan-gt/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Milan GT MK7",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://store.velomobileworld.com/product/milan-gt/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Milan SL",
+    "type": "tadpole",
+    "kg": null,
+    "url": "https://store.velomobileworld.com/product/milan-gt/",
+    "status": "verified"
+  },
+  {
+    "p": "Velomobile World",
+    "m": "Milan SL MK7",
+    "type": "velomobile",
+    "kg": null,
+    "url": "https://store.velomobileworld.com/product/milan-sl-mk7/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-30 Metro",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-32",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-40",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-42",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-44",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-45",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "R-80 Double Vision",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Vision",
+    "m": "Sabre",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/",
+    "status": "verified"
+  },
+  {
+    "p": "Wolf & Wolf",
+    "m": "Alpentourer AT1",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.wolfundwolf.ch/en/recumbent/models-and-configurator/alpentourer-at1/",
+    "status": "verified"
+  },
+  {
+    "p": "Wolf & Wolf",
+    "m": "Alpentourer AT2",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.wolfundwolf.ch/en/recumbent/models-and-configurator/alpentourer-at2/",
+    "status": "verified"
+  },
+  {
+    "p": "Zockra",
+    "m": "High Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/?tag=zockra",
+    "status": "verified"
+  },
+  {
+    "p": "Zockra",
+    "m": "Kouign Amann",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/?tag=zockra",
+    "status": "verified"
+  },
+  {
+    "p": "Zockra",
+    "m": "Low Racer",
+    "type": "bike",
+    "kg": null,
+    "url": "https://www.bentrideronline.com/?tag=zockra",
+    "status": "verified"
   }
 ]
