@@ -161,7 +161,7 @@ function init(){
 
   wrap.innerHTML=`
     <div id="pdb-header">
-  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png"
+  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png?v=2"
      style="height:20px;margin-right:6px;
             background:white;
             padding:2px 4px;
