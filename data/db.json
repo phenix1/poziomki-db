@@ -1,30 +1,52 @@
 [
-  {
-    "p": "HP Velotechnik",
-    "m": "Gekko 26",
-    "type": "tadpole",
-    "kg": 150,
-    "url": "https://www.hpvelotechnik.com"
-  },
-  {
-    "p": "HP Velotechnik",
-    "m": "Scorpion fs 26",
-    "type": "tadpole",
-    "kg": 150,
-    "url": "https://www.hpvelotechnik.com"
-  },
-  {
-    "p": "ICE",
-    "m": "Adventure HD",
-    "type": "tadpole",
-    "kg": 150,
-    "url": "https://www.icetrikes.co"
-  },
-  {
-    "p": "ICE",
-    "m": "Sprint X",
-    "type": "tadpole",
-    "kg": 145,
-    "url": "https://www.icetrikes.co"
-  }
+  {"p":"HP Velotechnik","m":"Gekko 26","type":"tadpole","kg":150,"url":"https://www.hpvelotechnik.com"},
+  {"p":"HP Velotechnik","m":"Gekko fx 20","type":"tadpole","kg":130,"url":"https://www.hpvelotechnik.com"},
+  {"p":"HP Velotechnik","m":"Scorpion fs 26","type":"tadpole","kg":150,"url":"https://www.hpvelotechnik.com"},
+  {"p":"HP Velotechnik","m":"Scorpion fx","type":"tadpole","kg":140,"url":"https://www.hpvelotechnik.com"},
+  {"p":"HP Velotechnik","m":"Scorpion plus 20","type":"tadpole","kg":150,"url":"https://www.hpvelotechnik.com"},
+
+  {"p":"ICE","m":"Adventure HD","type":"tadpole","kg":150,"url":"https://www.icetrikes.co"},
+  {"p":"ICE","m":"Adventure","type":"tadpole","kg":130,"url":"https://www.icetrikes.co"},
+  {"p":"ICE","m":"Sprint X","type":"tadpole","kg":140,"url":"https://www.icetrikes.co"},
+  {"p":"ICE","m":"VTX","type":"tadpole","kg":120,"url":"https://www.icetrikes.co"},
+  {"p":"ICE","m":"Full Fat","type":"tadpole","kg":150,"url":"https://www.icetrikes.co"},
+
+  {"p":"AZUB","m":"Ti-FLY X","type":"tadpole","kg":150,"url":"https://azub.eu"},
+  {"p":"AZUB","m":"TRIcon 26","type":"tadpole","kg":140,"url":"https://azub.eu"},
+  {"p":"AZUB","m":"TRIcon GR","type":"tadpole","kg":140,"url":"https://azub.eu"},
+  {"p":"AZUB","m":"T-Tris 26","type":"tadpole","kg":130,"url":"https://azub.eu"},
+  {"p":"AZUB","m":"FAT","type":"tadpole","kg":150,"url":"https://azub.eu"},
+
+  {"p":"Catrike","m":"Expedition","type":"tadpole","kg":125,"url":"https://www.catrike.com"},
+  {"p":"Catrike","m":"700","type":"tadpole","kg":125,"url":"https://www.catrike.com"},
+  {"p":"Catrike","m":"Trail","type":"tadpole","kg":125,"url":"https://www.catrike.com"},
+  {"p":"Catrike","m":"Villager","type":"tadpole","kg":125,"url":"https://www.catrike.com"},
+  {"p":"Catrike","m":"Dumont","type":"tadpole","kg":130,"url":"https://www.catrike.com"},
+
+  {"p":"Greenspeed","m":"GT20","type":"tadpole","kg":140,"url":"https://www.greenspeed.com.au"},
+  {"p":"Greenspeed","m":"GT26","type":"tadpole","kg":140,"url":"https://www.greenspeed.com.au"},
+  {"p":"Greenspeed","m":"Magnum","type":"tadpole","kg":150,"url":"https://www.greenspeed.com.au"},
+  {"p":"Greenspeed","m":"Anura","type":"delta","kg":150,"url":"https://www.greenspeed.com.au"},
+
+  {"p":"Hase Bikes","m":"Kettwiesel","type":"delta","kg":140,"url":"https://www.hasebikes.com"},
+  {"p":"Hase Bikes","m":"Lepus","type":"delta","kg":150,"url":"https://www.hasebikes.com"},
+  {"p":"Hase Bikes","m":"Pino","type":"tandem","kg":200,"url":"https://www.hasebikes.com"},
+
+  {"p":"Cruzbike","m":"V20c","type":"bike","kg":120,"url":"https://cruzbike.com"},
+  {"p":"Cruzbike","m":"S40","type":"bike","kg":130,"url":"https://cruzbike.com"},
+  {"p":"Cruzbike","m":"Q45","type":"bike","kg":130,"url":"https://cruzbike.com"},
+
+  {"p":"Bacchetta","m":"Corsa","type":"bike","kg":120,"url":"https://bacchettabikes.com"},
+  {"p":"Bacchetta","m":"Giro 26","type":"bike","kg":130,"url":"https://bacchettabikes.com"},
+  {"p":"Bacchetta","m":"Bella","type":"bike","kg":140,"url":"https://bacchettabikes.com"},
+
+  {"p":"Challenge","m":"Hurricane","type":"bike","kg":120,"url":"https://www.challengebikes.com"},
+  {"p":"Challenge","m":"Seiran","type":"bike","kg":120,"url":"https://www.challengebikes.com"},
+
+  {"p":"M5","m":"Carbon High Racer","type":"bike","kg":110,"url":"https://www.m5-ligfietsen.nl"},
+  {"p":"M5","m":"Low Racer","type":"bike","kg":110,"url":"https://www.m5-ligfietsen.nl"},
+
+  {"p":"Dekers","m":"Extreme","type":"tadpole","kg":150,"url":"https://dekers.pl"},
+
+  {"p":"Matix","m":"Matix Trike","type":"tadpole","kg":150,"url":"https://matix.pl"}
 ]
