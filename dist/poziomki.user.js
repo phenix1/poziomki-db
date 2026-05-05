@@ -1,10 +1,8 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.3 FINAL UI
+// @name         Poziomki — DB 2.4 FINAL UI CLEAN
 // @namespace    https://poziomki.info
-// @version      2.3
+// @version      2.4
 // @match        https://*/*
-// @exclude      https://github.com/*
-// @exclude      https://raw.githubusercontent.com/*
 // @grant        GM_addStyle
 // @run-at       document-end
 // ==/UserScript==
@@ -14,7 +12,7 @@
 
 if (window.top !== window.self) return;
 
-// ===== BAZA =====
+// ===== DB =====
 const DB = [
   {p:"HP Velotechnik", m:"Gekko 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-26/"},
   {p:"HP Velotechnik", m:"Scorpion fs 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-fs-26/"},
@@ -34,7 +32,7 @@ GM_addStyle(`
   position: fixed;
   top: 60px;
   right: 10px;
-  width: 580px;
+  width: 600px;
   height: 85vh;
   background: #fff !important;
   border-radius: 12px;
@@ -46,12 +44,11 @@ GM_addStyle(`
   border:1px solid #cfd6e0;
 }
 
-/* INPUT FIX */
 #pdb input, #pdb select {
   background:#fff !important;
   color:#222 !important;
   border:1px solid #aaa;
-  padding:4px;
+  padding:5px;
 }
 
 /* HEADER */
@@ -95,6 +92,14 @@ GM_addStyle(`
   border-collapse:collapse;
 }
 
+#pdb th {
+  background:#eef3fa;
+  text-align:left;
+  padding:6px;
+  font-size:12px;
+  border-bottom:1px solid #ccd6e0;
+}
+
 #pdb td {
   padding:6px;
   border-bottom:1px solid #e0e6ef;
@@ -120,8 +125,8 @@ GM_addStyle(`
 }
 
 #pdb-footer img {
-  width:28px;
-  height:28px;
+  width:30px;
+  height:30px;
   border-radius:50%;
 }
 `);
@@ -144,7 +149,7 @@ function getData(){
   });
 }
 
-// ===== UI =====
+// ===== INIT =====
 function init(){
 
   const wrap = document.createElement("div");
@@ -155,7 +160,7 @@ function init(){
   wrap.innerHTML=`
     <div id="pdb-header">
       <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png">
-      🚴 Poziomki 2.3
+      🚴 Poziomki 2.4
       <input id="pdb-search" placeholder="search...">
     </div>
 
@@ -167,15 +172,23 @@ function init(){
 
     <div id="pdb-body">
       <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Capacity</th>
+          </tr>
+        </thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
 
     <div id="pdb-footer">
-      <span>
+      <div>
         ${DB.length} models • 
-        <a href="mailto:phenix29@gmail.com">zgłoś błąd</a>
-      </span>
+        <a href="mailto:phenix29@gmail.com?subject=Poziomki%20DB%20issue">Report issue</a>
+      </div>
       <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg">
     </div>
   `;
