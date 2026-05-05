@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.3 STABLE FIXED
+// @name         Poziomki — baza 2.3 FINAL UI
 // @namespace    https://poziomki.info
 // @version      2.3
 // @match        https://*/*
@@ -14,7 +14,7 @@
 
 if (window.top !== window.self) return;
 
-// 🔥 minimalna stabilna baza
+// ===== BAZA =====
 const DB = [
   {p:"HP Velotechnik", m:"Gekko 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-26/"},
   {p:"HP Velotechnik", m:"Scorpion fs 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-fs-26/"},
@@ -28,22 +28,22 @@ const DB = [
   {p:"Matix", m:"Matix Trike", type:"tadpole", kg:null, url:""}
 ];
 
-// 🔥 CSS stabilny (bez all: unset)
+// ===== STYLE =====
 GM_addStyle(`
 #pdb {
   position: fixed;
   top: 60px;
   right: 10px;
-  width: 560px;
-  height: 80vh;
+  width: 580px;
+  height: 85vh;
   background: #fff !important;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.4);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
   z-index: 999999;
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
-  border:1px solid #ccc;
+  border:1px solid #cfd6e0;
 }
 
 /* INPUT FIX */
@@ -56,14 +56,22 @@ GM_addStyle(`
 
 /* HEADER */
 #pdb-header {
-  background:#2c3e50;
+  background:#1e3a5f;
   color:#fff;
   padding:8px;
   display:flex;
   align-items:center;
 }
 
-#pdb-header input {
+#pdb-header img {
+  height:22px;
+  margin-right:6px;
+  background:#fff;
+  padding:2px 4px;
+  border-radius:4px;
+}
+
+#pdb-search {
   margin-left:10px;
   flex:1;
 }
@@ -73,17 +81,15 @@ GM_addStyle(`
   padding:6px;
   background:#eef3fa;
   display:flex;
-  gap:5px;
-  flex-wrap:wrap;
+  gap:6px;
 }
 
-/* TABLE WRAPPER */
+/* TABLE */
 #pdb-body {
   overflow-y:auto;
   flex:1;
 }
 
-/* TABLE */
 #pdb table {
   width:100%;
   border-collapse:collapse;
@@ -91,7 +97,7 @@ GM_addStyle(`
 
 #pdb td {
   padding:6px;
-  border-bottom:1px solid #ddd;
+  border-bottom:1px solid #e0e6ef;
 }
 
 #pdb tr:hover {
@@ -99,12 +105,8 @@ GM_addStyle(`
 }
 
 #pdb a {
-  color:#0066cc;
+  color:#0055cc;
   text-decoration:none;
-}
-
-#pdb a:hover {
-  text-decoration:underline;
 }
 
 /* FOOTER */
@@ -124,13 +126,13 @@ GM_addStyle(`
 }
 `);
 
-// ===== STATE
+// ===== STATE =====
 let state = {
   search:"",
   prod:"all"
 };
 
-// ===== FILTER
+// ===== FILTER =====
 function getData(){
   return DB.filter(r=>{
     const text = (r.p+" "+r.m).toLowerCase();
@@ -142,7 +144,7 @@ function getData(){
   });
 }
 
-// ===== UI
+// ===== UI =====
 function init(){
 
   const wrap = document.createElement("div");
@@ -152,8 +154,9 @@ function init(){
 
   wrap.innerHTML=`
     <div id="pdb-header">
+      <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png">
       🚴 Poziomki 2.3
-      <input id="search" placeholder="search...">
+      <input id="pdb-search" placeholder="search...">
     </div>
 
     <div id="pdb-controls">
@@ -169,14 +172,17 @@ function init(){
     </div>
 
     <div id="pdb-footer">
-      <span>${DB.length} models • phenix29@gmail.com</span>
+      <span>
+        ${DB.length} models • 
+        <a href="mailto:phenix29@gmail.com">zgłoś błąd</a>
+      </span>
       <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg">
     </div>
   `;
 
   document.body.appendChild(wrap);
 
-  document.getElementById("search").oninput=e=>{
+  document.getElementById("pdb-search").oninput=e=>{
     state.search=e.target.value.toLowerCase();
     render();
   };
@@ -189,15 +195,13 @@ function init(){
   render();
 }
 
-// ===== RENDER
+// ===== RENDER =====
 function render(){
   const data = getData();
 
   document.getElementById("rows").innerHTML = data.map(r=>`
     <tr>
-      <td class="prod" style="cursor:pointer;color:#1a4;">
-        ${r.p}
-      </td>
+      <td class="prod" style="cursor:pointer;color:#1a4;">${r.p}</td>
       <td>${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}</td>
       <td>${r.type}</td>
       <td>${r.kg ? r.kg+" kg" : "-"}</td>
