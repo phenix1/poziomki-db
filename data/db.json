@@ -4,13 +4,27 @@
     "m": "Gekko 26",
     "type": "tadpole",
     "kg": 150,
-    "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-recumbent-trikes/gekko-26-affordable-laid-back-adults-trike/"
+    "url": "https://www.hpvelotechnik.com"
+  },
+  {
+    "p": "HP Velotechnik",
+    "m": "Scorpion fs 26",
+    "type": "tadpole",
+    "kg": 150,
+    "url": "https://www.hpvelotechnik.com"
   },
   {
     "p": "ICE",
     "m": "Adventure HD",
     "type": "tadpole",
     "kg": 150,
-    "url": "https://www.icetrikes.co/products/adventure-hd"
+    "url": "https://www.icetrikes.co"
+  },
+  {
+    "p": "ICE",
+    "m": "Sprint X",
+    "type": "tadpole",
+    "kg": 145,
+    "url": "https://www.icetrikes.co"
   }
 ]
