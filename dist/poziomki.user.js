@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.4 CHECK
+// @name         Poziomki — baza 2.5 SMART CHECK
 // @namespace    https://poziomki.info
-// @version      2.4
+// @version      2.5
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -27,71 +27,35 @@ async function loadDB() {
 
 // ===== STYLE =====
 GM_addStyle(`
-#pdb {
-  position: fixed;
-  top: 60px;
-  right: 10px;
-  width: 560px;
-  max-height: 88vh;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.35);
-  font-size: 13px;
-  z-index:999999;
-  display:flex;
-  flex-direction:column;
-}
-
-#pdb-header {
-  background:#1e3a5f;
-  color:white;
-  padding:8px;
-  display:flex;
-  align-items:center;
-}
-
-#pdb-search {
-  margin-left:10px;
-  flex:1;
-  padding:5px;
-}
-
-#pdb-controls {
-  padding:6px;
-  background:#eef3fa;
-  display:flex;
-  gap:4px;
-}
-
-#pdb-table td {
-  padding:6px;
-  border-bottom:1px solid #e0e6ef;
-}
-
-.broken {
-  color:#999 !important;
-  text-decoration: line-through;
-}
-
-.badge {
-  font-size:10px;
-  margin-left:4px;
-}
+#pdb { position: fixed; top:60px; right:10px; width:560px; max-height:88vh; background:#fff; border-radius:10px; box-shadow:0 8px 28px rgba(0,0,0,.35); z-index:999999; overflow:auto;}
+#pdb-header { background:#1e3a5f; color:#fff; padding:8px; display:flex;}
+#pdb-search { margin-left:10px; flex:1; padding:5px;}
+#pdb-table td { padding:6px; border-bottom:1px solid #ddd;}
+.bad { color:#999; text-decoration: line-through;}
+.badge { font-size:10px; margin-left:5px;}
 `);
 
 // ===== STATE =====
-let state = {
-  search:"",
-  prod:"all"
-};
+let state = { search:"" };
 
-// ===== CHECK LINK =====
-async function checkLink(url){
+// ===== SMART CHECK =====
+async function checkContent(r){
+  if(!r.url) return "no-link";
+
   try{
-    const res = await fetch(url, {method:"HEAD"});
-    return res.ok;
+    const res = await fetch(r.url);
+    const text = await res.text();
+
+    const name = r.m.toLowerCase().split(" ")[0]; // uproszczone dopasowanie
+
+    if(text.toLowerCase().includes(name)){
+      return "ok";
+    } else {
+      return "sus"; // podejrzany
+    }
+
   }catch{
-    return false;
+    return "bad";
   }
 }
 
@@ -101,23 +65,12 @@ function init(){
   const wrap = document.createElement("div");
   wrap.id="pdb";
 
-  const producers = ["all", ...new Set(DB.map(r=>r.p))];
-
   wrap.innerHTML=`
     <div id="pdb-header">
-      🚴 Poziomki 2.4
+      🚴 Poziomki 2.5
       <input id="pdb-search" placeholder="search...">
     </div>
-
-    <div id="pdb-controls">
-      <select id="prod">
-        ${producers.map(p=>`<option value="${p}">${p}</option>`).join("")}
-      </select>
-    </div>
-
-    <table id="pdb-table">
-      <tbody id="pdb-body"></tbody>
-    </table>
+    <table id="pdb-table"><tbody id="body"></tbody></table>
   `;
 
   document.body.appendChild(wrap);
@@ -127,43 +80,47 @@ function init(){
     render();
   };
 
-  document.getElementById("prod").onchange=e=>{
-    state.prod=e.target.value;
-    render();
-  };
-
   render();
 }
 
 // ===== RENDER =====
 async function render(){
 
-  const data = DB.filter(r=>{
-    const text = (r.p + " " + r.m).toLowerCase();
-
-    if(state.search && !text.includes(state.search)) return false;
-    if(state.prod!=="all" && r.p!==state.prod) return false;
-
-    return true;
-  });
-
-  const body = document.getElementById("pdb-body");
+  const body = document.getElementById("body");
   body.innerHTML = "";
 
-  for(const r of data){
+  for(const r of DB){
+
+    if(state.search && !(r.p + r.m).toLowerCase().includes(state.search)) continue;
+
+    const status = await checkContent(r);
+
+    let cls = "";
+    let badge = "";
+
+    if(status === "bad"){
+      cls = "bad";
+      badge = "❌";
+    }
+
+    if(status === "sus"){
+      badge = "⚠";
+    }
+
+    if(status === "no-link"){
+      badge = "∅";
+    }
 
     const tr = document.createElement("tr");
 
-    const ok = r.url ? await checkLink(r.url) : false;
-
     tr.innerHTML = `
       <td>${r.p}</td>
-      <td class="${ok ? "" : "broken"}">
+      <td class="${cls}">
         ${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}
-        ${ok ? "" : `<span class="badge">⚠</span>`}
+        <span class="badge">${badge}</span>
       </td>
-      <td>${r.type || ""}</td>
-      <td>${r.kg || "-"}</td>
+      <td>${r.type||""}</td>
+      <td>${r.kg||"-"}</td>
     `;
 
     body.appendChild(tr);
