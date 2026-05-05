@@ -155,9 +155,11 @@ function init(){
 
   wrap.innerHTML=`
     <div id="pdb-header">
-      🚴 Poziomki 2.0
-      <input id="pdb-search" placeholder="szukaj...">
-    </div>
+  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png"
+       style="height:20px;margin-right:6px;">
+  🚴 Poziomki 2.0
+  <input id="pdb-search" placeholder="szukaj...">
+</div>
 
     <div id="pdb-banner">${getBanner()}</div>
 
