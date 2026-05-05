@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.4 FULL UI
+// @name         Poziomki — baza 2.5 FULL UI
 // @namespace    https://poziomki.info
-// @version      2.4
+// @version      2.5
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
