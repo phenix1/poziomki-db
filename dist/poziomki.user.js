@@ -182,12 +182,10 @@ function init(){
         ${producers.map(p=>`<option value="${p}">${p}</option>`).join("")}
       </select>
 
-      <select id="type">
-        <option value="all">typ</option>
-        <option value="tadpole">tadpole</option>
-        <option value="delta">delta</option>
-        <option value="bike">2-wheel</option>
-      </select>
+     <select id="type">
+  <option value="all">typ</option>
+  ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
+</select>
 
       <input id="kg" placeholder="min kg" type="number">
     </div>
