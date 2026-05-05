@@ -35,15 +35,15 @@ GM_addStyle(`
   max-height: 88vh;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.25);
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
   font-size: 13px;
   z-index:999999;
   display:flex;
   flex-direction:column;
   overflow:hidden;
+  border:1px solid #cfd6e0;
 }
 
-/* HEADER */
 #pdb-header {
   background:#1e3a5f;
   color:white;
@@ -52,65 +52,69 @@ GM_addStyle(`
   align-items:center;
 }
 
-/* BANNER */
-#pdb-banner {
-  background:#eef3fa;
-  padding:6px;
-  text-align:center;
-  font-size:12px;
-}
-
-/* SEARCH */
 #pdb-search {
   margin-left:10px;
   flex:1;
-  padding:4px;
+  padding:5px;
+  border-radius:4px;
+  border:1px solid #ccc;
 }
 
-/* CONTROLS */
+#pdb-banner {
+  background:#dbe6f7;
+  padding:6px;
+  text-align:center;
+  font-size:12px;
+  color:#1e3a5f;
+  border-bottom:1px solid #cfd6e0;
+}
+
 #pdb-controls {
   padding:6px;
-  background:#f7f9fc;
+  background:#eef3fa;
   display:flex;
   gap:4px;
   flex-wrap:wrap;
+  border-bottom:1px solid #d0d8e5;
 }
 
-/* TABLE */
+#pdb-controls input, 
+#pdb-controls select {
+  padding:4px;
+  border:1px solid #bbb;
+  border-radius:4px;
+}
+
 #pdb-table {
   width:100%;
   border-collapse:collapse;
+  font-size:13px;
 }
 
 #pdb-table td {
   padding:6px;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid #e0e6ef;
+  color:#222;
 }
 
-/* HOVER */
 #pdb-table tr:hover {
-  background:#f0f4fa;
+  background:#e8f0ff;
 }
 
-/* LINK */
 a {
-  color:#0066cc;
-  text-decoration:none;
+  color:#0055cc;
+  font-weight:500;
 }
 
-a:hover {
-  text-decoration:underline;
-}
-
-/* FOOTER */
 #pdb-footer {
-  background:#eef3fa;
-  padding:5px;
+  background:#dbe6f7;
+  padding:6px;
   font-size:11px;
   text-align:right;
+  color:#1e3a5f;
+  border-top:1px solid #cfd6e0;
 }
 `);
-
 // ===== STATE =====
 let state = {
   search:"",
