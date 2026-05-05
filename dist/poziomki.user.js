@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.7 FIX UI
+// @name         Poziomki — baza 2.3 STABLE CORE
 // @namespace    https://poziomki.info
-// @version      2.7
+// @version      2.3
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -14,139 +14,137 @@
 
 if (window.top !== window.self) return;
 
-const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json?v=" + Date.now();
+// 🔥 minimalna baza (stabilna)
+const DB = [
+  {p:"HP Velotechnik", m:"Gekko 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-26/"},
+  {p:"HP Velotechnik", m:"Scorpion fs 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-fs-26/"},
+  {p:"ICE", m:"Adventure HD", type:"tadpole", kg:150, url:"https://www.icetrikes.co/products/adventure-hd"},
+  {p:"ICE", m:"Sprint X", type:"tadpole", kg:140, url:"https://www.icetrikes.co/products/sprint-x"},
+  {p:"AZUB", m:"T-Tris 26", type:"tadpole", kg:130, url:"https://azub.eu/recumbent-bikes-and-trikes/t-tris-26/"},
+  {p:"Catrike", m:"Expedition", type:"tadpole", kg:125, url:"https://www.catrike.com/catrike-expedition"},
+  {p:"Greenspeed", m:"GT26", type:"tadpole", kg:140, url:"https://greenspeed-trikes.com/gt26/"},
+  {p:"Hase Bikes", m:"Kettwiesel", type:"delta", kg:140, url:"https://hasebikes.com/en/your-bike/kettwiesel/"},
+  {p:"KMX", m:"KMX Tornado", type:"tadpole", kg:null, url:""},
+  {p:"Matix", m:"Matix Trike", type:"tadpole", kg:null, url:""}
+];
 
-let DB = [];
-
-async function loadDB() {
-  const res = await fetch(DB_URL);
-  DB = await res.json();
-}
-
+// 🔥 CSS odporny na strony
 GM_addStyle(`
 #pdb {
   position: fixed;
   top: 60px;
   right: 10px;
   width: 560px;
-  max-height: 88vh;
-  background: #ffffff !important;
+  height: 80vh;
+  background: #fff !important;
   border-radius: 10px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.35);
-  font-size: 13px;
-  z-index:999999;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  border:1px solid #cfd6e0;
+  box-shadow: 0 8px 25px rgba(0,0,0,.4);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
+  border:1px solid #ccc;
 }
 
-/* 🔥 FIX DARK MODE + WIDTH */
-#pdb input,
-#pdb select {
-  background: #ffffff !important;
-  color: #222 !important;
-  border: 1px solid #bbb !important;
-  width: auto !important;
-  flex: none !important;
-  min-width: 80px;
+/* reset wpływu strony */
+#pdb * {
+  all: unset;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-/* 🔥 KONTROLKI */
-#pdb-controls {
-  padding:6px;
-  background:#eef3fa;
-  display:flex !important;
-  flex-wrap:wrap;
-  gap:6px;
-  align-items:center;
-  border-bottom:1px solid #d0d8e5;
-}
-
-#pdb-controls select {
-  width: 130px !important;
-}
-
-#pdb-controls input[type="number"] {
-  width: 90px !important;
+#pdb input, #pdb select {
+  all: revert;
+  background:#fff !important;
+  color:#222 !important;
+  border:1px solid #aaa;
+  padding:4px;
 }
 
 /* HEADER */
 #pdb-header {
-  background:#1e3a5f;
-  color:white;
+  background:#2c3e50;
+  color:#fff;
   padding:8px;
   display:flex;
   align-items:center;
 }
 
-#pdb-search {
+#pdb-header input {
   margin-left:10px;
   flex:1;
-  padding:5px;
-  border-radius:4px;
+}
+
+/* CONTROLS */
+#pdb-controls {
+  padding:6px;
+  background:#eef3fa;
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
 }
 
 /* TABLE */
-#pdb-table {
+#pdb-body {
+  overflow-y:auto;
+  flex:1;
+}
+
+table {
   width:100%;
   border-collapse:collapse;
 }
 
-#pdb-table td {
+td {
   padding:6px;
-  border-bottom:1px solid #e0e6ef;
-  color:#222;
+  border-bottom:1px solid #ddd;
 }
 
-#pdb-table tr:hover {
+tr:hover {
   background:#e8f0ff;
 }
 
-#pdb-table a {
-  color:#0055cc;
-  font-weight:500;
-  text-decoration:none;
-}
-
-#pdb-table a:hover {
-  text-decoration:underline;
+a {
+  color:#0066cc;
+  cursor:pointer;
 }
 
 /* FOOTER */
 #pdb-footer {
   background:#dbe6f7;
   padding:6px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   font-size:11px;
-  text-align:right;
-  color:#1e3a5f;
-  border-top:1px solid #cfd6e0;
+}
+
+#pdb-footer img {
+  width:28px;
+  height:28px;
+  border-radius:50%;
 }
 `);
 
+// ===== STATE
 let state = {
   search:"",
-  prod:"all",
-  type:"all",
-  kg:0,
-  noLink:false
+  prod:"all"
 };
 
+// ===== FILTER
 function getData(){
   return DB.filter(r=>{
-    const text = (r.p + " " + r.m + " " + r.type).toLowerCase();
+    const text = (r.p+" "+r.m).toLowerCase();
 
     if(state.search && !text.includes(state.search)) return false;
     if(state.prod!=="all" && r.p!==state.prod) return false;
-    if(state.type!=="all" && r.type!==state.type) return false;
-    if(state.kg && r.kg < state.kg) return false;
-    if(state.noLink && r.url) return false;
 
     return true;
   });
 }
 
+// ===== UI
 function init(){
 
   const wrap = document.createElement("div");
@@ -156,40 +154,31 @@ function init(){
 
   wrap.innerHTML=`
     <div id="pdb-header">
-      <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png"
-           style="height:20px;margin-right:6px;background:white;padding:2px 4px;border-radius:4px;">
-      🚴 Poziomki 2.7
-      <input id="pdb-search" placeholder="search...">
+      🚴 Poziomki 2.3
+      <input id="search" placeholder="search...">
     </div>
 
     <div id="pdb-controls">
       <select id="prod">
         ${producers.map(p=>`<option value="${p}">${p}</option>`).join("")}
       </select>
-
-      <select id="type">
-        <option value="all">type</option>
-        ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
-      </select>
-
-      <input id="kg" placeholder="min kg" type="number">
-
-      <label><input type="checkbox" id="noLink"> no link</label>
     </div>
 
-    <table id="pdb-table">
-      <tbody id="pdb-body"></tbody>
-    </table>
+    <div id="pdb-body">
+      <table>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
 
     <div id="pdb-footer">
-      ${DB.length} models • 
-      <a href="mailto:phenix29@gmail.com">report issues</a>
+      <span>${DB.length} models • phenix29@gmail.com</span>
+      <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg">
     </div>
   `;
 
   document.body.appendChild(wrap);
 
-  document.getElementById("pdb-search").oninput=e=>{
+  document.getElementById("search").oninput=e=>{
     state.search=e.target.value.toLowerCase();
     render();
   };
@@ -199,38 +188,35 @@ function init(){
     render();
   };
 
-  document.getElementById("type").onchange=e=>{
-    state.type=e.target.value;
-    render();
-  };
-
-  document.getElementById("kg").oninput=e=>{
-    state.kg=parseInt(e.target.value)||0;
-    render();
-  };
-
-  document.getElementById("noLink").onchange=e=>{
-    state.noLink=e.target.checked;
-    render();
-  };
-
   render();
 }
 
+// ===== RENDER
 function render(){
   const data = getData();
 
-  document.getElementById("pdb-body").innerHTML = data.map(r=>`
+  document.getElementById("rows").innerHTML = data.map(r=>`
     <tr>
-      <td>${r.p}</td>
+      <td class="prod" style="cursor:pointer;color:#1a4;">
+        ${r.p}
+      </td>
       <td>${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}</td>
-      <td>${r.type||"-"}</td>
-      <td>${r.kg||"-"} kg</td>
+      <td>${r.type}</td>
+      <td>${r.kg ? r.kg+" kg" : "-"}</td>
     </tr>
   `).join("");
+
+  // 🔥 klik w producenta
+  document.querySelectorAll(".prod").forEach(el=>{
+    el.onclick = ()=>{
+      state.prod = el.innerText;
+      document.getElementById("prod").value = state.prod;
+      render();
+    };
+  });
 }
 
-await loadDB();
+// ===== START
 init();
 
 })();
