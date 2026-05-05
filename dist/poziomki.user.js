@@ -203,7 +203,7 @@ function init(){
             padding:2px 4px;
             border-radius:4px;">
   🚴 Poziomki 2.0
-  <input id="pdb-search" placeholder="szukaj...">
+  placeholder="${t('search')}"
 </div>
 
     <div id="pdb-banner">${getBanner()}</div>
