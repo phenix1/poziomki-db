@@ -13,6 +13,32 @@
 (async function () {
 'use strict';
 
+// ===== LANG =====
+const LANG = "en"; // future: "pl"
+
+const i18n = {
+  en: {
+    search: "search...",
+    type: "type",
+    minKg: "min load (kg)",
+    all: "all",
+    models: "models",
+    contact: "report issues"
+  },
+  pl: {
+    search: "szukaj...",
+    type: "typ",
+    minKg: "min kg",
+    all: "wszyscy",
+    models: "modeli",
+    contact: "zgłoś poprawki"
+  }
+};
+
+function t(key){
+  return i18n[LANG][key] || key;
+}
+  
 if (window.top !== window.self) return;
 
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json";
