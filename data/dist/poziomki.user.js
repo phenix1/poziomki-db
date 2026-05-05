@@ -14,6 +14,9 @@
 (async function () {
 'use strict';
 
+  // 🛑 BEZPIECZNIK — nie uruchamiaj w iframe / dziwnych stronach
+if (window.top !== window.self) return;
+
 // 🔥 TWOJE repo — już ustawione
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json";
 
