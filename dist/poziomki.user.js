@@ -1,8 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.0
+// @name         Poziomki — baza 2.0 PRO
 // @namespace    https://poziomki.info
-// @version      2.0
-// @description  Baza rowerów poziomych (GitHub DB)
+// @version      2.1
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -14,41 +13,37 @@
 (async function () {
 'use strict';
 
-// 🛑 bezpiecznik
 if (window.top !== window.self) return;
 
-// 🔗 baza z GitHub
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json";
 
 let DB = [];
 
-// 📦 ładowanie danych
+// ===== LOAD =====
 async function loadDB() {
-  try {
-    const res = await fetch(DB_URL);
-    DB = await res.json();
-  } catch(e) {
-    console.error("DB load error", e);
-  }
+  const res = await fetch(DB_URL);
+  DB = await res.json();
 }
 
-// 🎨 STYLE
+// ===== STYLE =====
 GM_addStyle(`
 #pdb {
   position: fixed;
   top: 60px;
   right: 10px;
-  width: 540px;
-  max-height: 85vh;
+  width: 560px;
+  max-height: 88vh;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  box-shadow: 0 8px 28px rgba(0,0,0,.25);
   font-size: 13px;
   z-index:999999;
   display:flex;
   flex-direction:column;
+  overflow:hidden;
 }
 
+/* HEADER */
 #pdb-header {
   background:#1e3a5f;
   color:white;
@@ -57,24 +52,31 @@ GM_addStyle(`
   align-items:center;
 }
 
+/* BANNER */
+#pdb-banner {
+  background:#eef3fa;
+  padding:6px;
+  text-align:center;
+  font-size:12px;
+}
+
+/* SEARCH */
 #pdb-search {
   margin-left:10px;
   flex:1;
   padding:4px;
 }
 
+/* CONTROLS */
 #pdb-controls {
   padding:6px;
-  background:#f0f4fa;
+  background:#f7f9fc;
   display:flex;
   gap:4px;
   flex-wrap:wrap;
 }
 
-#pdb-controls input, select {
-  padding:4px;
-}
-
+/* TABLE */
 #pdb-table {
   width:100%;
   border-collapse:collapse;
@@ -85,11 +87,31 @@ GM_addStyle(`
   border-bottom:1px solid #eee;
 }
 
-a { color:#0066cc; text-decoration:none; }
-a:hover { text-decoration:underline; }
+/* HOVER */
+#pdb-table tr:hover {
+  background:#f0f4fa;
+}
+
+/* LINK */
+a {
+  color:#0066cc;
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
+/* FOOTER */
+#pdb-footer {
+  background:#eef3fa;
+  padding:5px;
+  font-size:11px;
+  text-align:right;
+}
 `);
 
-// 🧠 stan
+// ===== STATE =====
 let state = {
   search:"",
   prod:"all",
@@ -97,7 +119,7 @@ let state = {
   kg:0
 };
 
-// 🔎 filtrowanie
+// ===== FILTER =====
 function getData(){
   return DB.filter(r=>{
     const text = (r.p + " " + r.m + " " + r.type).toLowerCase();
@@ -111,8 +133,17 @@ function getData(){
   });
 }
 
-// 🖥 UI
+// ===== BANNER =====
+function getBanner(){
+  const m = new Date().getMonth()+1;
+  if(m===12) return "🎄 Wesołych Świąt!";
+  if(m===4) return "🐣 Wesołej Wielkanocy!";
+  return "";
+}
+
+// ===== UI =====
 function init(){
+
   const wrap = document.createElement("div");
   wrap.id="pdb";
 
@@ -123,6 +154,8 @@ function init(){
       🚴 Poziomki 2.0
       <input id="pdb-search" placeholder="szukaj...">
     </div>
+
+    <div id="pdb-banner">${getBanner()}</div>
 
     <div id="pdb-controls">
       <select id="prod">
@@ -142,6 +175,10 @@ function init(){
     <table id="pdb-table">
       <tbody id="pdb-body"></tbody>
     </table>
+
+    <div id="pdb-footer">
+      ${DB.length} modeli
+    </div>
   `;
 
   document.body.appendChild(wrap);
@@ -169,7 +206,7 @@ function init(){
   render();
 }
 
-// 🖥 render
+// ===== RENDER =====
 function render(){
   const data = getData();
 
@@ -183,7 +220,7 @@ function render(){
   `).join("");
 }
 
-// 🚀 start
+// ===== START =====
 await loadDB();
 init();
 
