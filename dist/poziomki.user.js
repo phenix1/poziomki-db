@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.3 STABLE CORE
+// @name         Poziomki — baza 2.3 STABLE FIXED
 // @namespace    https://poziomki.info
 // @version      2.3
 // @match        https://*/*
@@ -9,12 +9,12 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(async function () {
+(function () {
 'use strict';
 
 if (window.top !== window.self) return;
 
-// 🔥 minimalna baza (stabilna)
+// 🔥 minimalna stabilna baza
 const DB = [
   {p:"HP Velotechnik", m:"Gekko 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/gekko-26/"},
   {p:"HP Velotechnik", m:"Scorpion fs 26", type:"tadpole", kg:150, url:"https://www.hpvelotechnik.com/en/recumbent-trikes-bikes/scorpion-fs-26/"},
@@ -28,7 +28,7 @@ const DB = [
   {p:"Matix", m:"Matix Trike", type:"tadpole", kg:null, url:""}
 ];
 
-// 🔥 CSS odporny na strony
+// 🔥 CSS stabilny (bez all: unset)
 GM_addStyle(`
 #pdb {
   position: fixed;
@@ -46,15 +46,8 @@ GM_addStyle(`
   border:1px solid #ccc;
 }
 
-/* reset wpływu strony */
-#pdb * {
-  all: unset;
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-}
-
+/* INPUT FIX */
 #pdb input, #pdb select {
-  all: revert;
   background:#fff !important;
   color:#222 !important;
   border:1px solid #aaa;
@@ -84,29 +77,34 @@ GM_addStyle(`
   flex-wrap:wrap;
 }
 
-/* TABLE */
+/* TABLE WRAPPER */
 #pdb-body {
   overflow-y:auto;
   flex:1;
 }
 
-table {
+/* TABLE */
+#pdb table {
   width:100%;
   border-collapse:collapse;
 }
 
-td {
+#pdb td {
   padding:6px;
   border-bottom:1px solid #ddd;
 }
 
-tr:hover {
+#pdb tr:hover {
   background:#e8f0ff;
 }
 
-a {
+#pdb a {
   color:#0066cc;
-  cursor:pointer;
+  text-decoration:none;
+}
+
+#pdb a:hover {
+  text-decoration:underline;
 }
 
 /* FOOTER */
@@ -206,7 +204,6 @@ function render(){
     </tr>
   `).join("");
 
-  // 🔥 klik w producenta
   document.querySelectorAll(".prod").forEach(el=>{
     el.onclick = ()=>{
       state.prod = el.innerText;
