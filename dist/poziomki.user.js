@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.3 STABLE
+// @name         Poziomki — baza 2.4 FULL UI
 // @namespace    https://poziomki.info
-// @version      2.3
+// @version      2.4
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -15,6 +15,7 @@
 
 if (window.top !== window.self) return;
 
+// 🔥 DB (cache breaker)
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json?v=" + Date.now();
 
 let DB = [];
@@ -44,6 +45,7 @@ GM_addStyle(`
   border:1px solid #cfd6e0;
 }
 
+/* HEADER */
 #pdb-header {
   background:#1e3a5f;
   color:white;
@@ -53,13 +55,26 @@ GM_addStyle(`
   gap:6px;
 }
 
+#pdb-header img.logo {
+  height:20px;
+  background:#fff;
+  padding:2px 4px;
+  border-radius:4px;
+}
+
 #pdb-search {
   flex:1;
   padding:5px;
   border-radius:4px;
   border:1px solid #ccc;
+  color:#222;
 }
 
+#pdb-search::placeholder {
+  color:#777;
+}
+
+/* CONTROLS */
 #pdb-controls {
   padding:6px;
   background:#eef3fa;
@@ -80,6 +95,13 @@ GM_addStyle(`
   font-size:11px;
 }
 
+/* SCROLL AREA */
+#pdb-list {
+  overflow-y:auto;
+  flex:1;
+}
+
+/* TABLE */
 #pdb-table {
   width:100%;
   border-collapse:collapse;
@@ -100,6 +122,7 @@ GM_addStyle(`
   font-weight:500;
 }
 
+/* LINKS */
 a {
   color:#0055cc;
 }
@@ -108,12 +131,39 @@ a {
   color:#aaa;
 }
 
+/* FOOTER */
 #pdb-footer {
   background:#dbe6f7;
   padding:6px;
   font-size:11px;
   display:flex;
+  align-items:center;
   justify-content:space-between;
+  gap:8px;
+}
+
+#pdb-footer-left {
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+#pdb-footer a {
+  color:#1e3a5f;
+  text-decoration:none;
+  font-weight:500;
+}
+
+#pdb-footer img.me {
+  height:26px;
+  border-radius:50%;
+  opacity:0.6;
+  transition:0.2s;
+}
+
+#pdb-footer img.me:hover {
+  opacity:1;
+  transform:scale(1.1);
 }
 `);
 
@@ -154,7 +204,8 @@ function init(){
 
   wrap.innerHTML=`
     <div id="pdb-header">
-      🚴 Poziomki 2.3
+      <img class="logo" src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png?v=3">
+      🚴 Poziomki 2.4
       <input id="pdb-search" placeholder="search...">
     </div>
 
@@ -173,19 +224,26 @@ function init(){
       <label><input type="checkbox" id="onlyRaw"> to verify</label>
     </div>
 
-    <table id="pdb-table">
-      <tbody id="pdb-body"></tbody>
-    </table>
+    <div id="pdb-list">
+      <table id="pdb-table">
+        <tbody id="pdb-body"></tbody>
+      </table>
+    </div>
 
     <div id="pdb-footer">
-      <span id="count"></span>
-      <span>Poziomki DB</span>
+      <div id="pdb-footer-left">
+        <span id="count"></span>
+        •
+        <a href="mailto:phenix29@gmail.com">report issues</a>
+      </div>
+
+      <img class="me" src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=3">
     </div>
   `;
 
   document.body.appendChild(wrap);
 
-  // ===== EVENTS =====
+  // EVENTS
   document.getElementById("pdb-search").oninput=e=>{
     state.search=e.target.value.toLowerCase();
     render();
@@ -223,10 +281,9 @@ function init(){
 function render(){
 
   const data = getData();
-
   const body = document.getElementById("pdb-body");
 
-  body.innerHTML = data.map((r,i)=>`
+  body.innerHTML = data.map(r=>`
     <tr>
       <td data-prod="${r.p}">${r.p}</td>
       <td class="${!r.url ? 'bad' : ''}">
