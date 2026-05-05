@@ -247,7 +247,9 @@ function render(){
 
   document.getElementById("pdb-body").innerHTML = data.map(r=>`
     <tr>
-      <td>${r.p}</td>
+      <td class="pdb-producer" data-p="${r.p}" style="cursor:pointer; font-weight:500;">
+  ${r.p}
+</td>
       <td><a href="${r.url}" target="_blank">${r.m}</a></td>
       <td>${r.type}</td>
       <td>${r.kg||"-"} kg</td>
