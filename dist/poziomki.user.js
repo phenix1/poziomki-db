@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.5 SMART CHECK
+// @name         Poziomki — baza 2.2 PRO
 // @namespace    https://poziomki.info
-// @version      2.5
+// @version      2.2
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -15,6 +15,7 @@
 
 if (window.top !== window.self) return;
 
+// 🔥 DB
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json?v=" + Date.now();
 
 let DB = [];
@@ -27,36 +28,102 @@ async function loadDB() {
 
 // ===== STYLE =====
 GM_addStyle(`
-#pdb { position: fixed; top:60px; right:10px; width:560px; max-height:88vh; background:#fff; border-radius:10px; box-shadow:0 8px 28px rgba(0,0,0,.35); z-index:999999; overflow:auto;}
-#pdb-header { background:#1e3a5f; color:#fff; padding:8px; display:flex;}
-#pdb-search { margin-left:10px; flex:1; padding:5px;}
-#pdb-table td { padding:6px; border-bottom:1px solid #ddd;}
-.bad { color:#999; text-decoration: line-through;}
-.badge { font-size:10px; margin-left:5px;}
+#pdb {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  width: 560px;
+  max-height: 88vh;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+  font-size: 13px;
+  z-index:999999;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #cfd6e0;
+}
+
+#pdb-header {
+  background:#1e3a5f;
+  color:white;
+  padding:8px;
+  display:flex;
+  align-items:center;
+}
+
+#pdb-search {
+  margin-left:10px;
+  flex:1;
+  padding:5px;
+  border-radius:4px;
+  border:1px solid #ccc;
+}
+
+#pdb-controls {
+  padding:6px;
+  background:#eef3fa;
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  border-bottom:1px solid #d0d8e5;
+}
+
+#pdb-controls label {
+  font-size:11px;
+}
+
+#pdb-table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+#pdb-table td {
+  padding:6px;
+  border-bottom:1px solid #e0e6ef;
+}
+
+#pdb-table tr:hover {
+  background:#e8f0ff;
+}
+
+a {
+  color:#0055cc;
+}
+
+.bad {
+  color:#aaa;
+}
+
+#pdb-footer {
+  background:#dbe6f7;
+  padding:6px;
+  font-size:11px;
+  text-align:right;
+}
 `);
 
 // ===== STATE =====
-let state = { search:"" };
+let state = {
+  search:"",
+  noLink:false,
+  onlyRaw:false
+};
 
-// ===== SMART CHECK =====
-async function checkContent(r){
-  if(!r.url) return "no-link";
+// ===== FILTER =====
+function getData(){
+  return DB.filter(r=>{
+    const text = (r.p + " " + r.m).toLowerCase();
 
-  try{
-    const res = await fetch(r.url);
-    const text = await res.text();
+    if(state.search && !text.includes(state.search)) return false;
 
-    const name = r.m.toLowerCase().split(" ")[0]; // uproszczone dopasowanie
+    if(state.noLink && r.url) return false;
 
-    if(text.toLowerCase().includes(name)){
-      return "ok";
-    } else {
-      return "sus"; // podejrzany
-    }
+    if(state.onlyRaw && r.status !== "raw") return false;
 
-  }catch{
-    return "bad";
-  }
+    return true;
+  });
 }
 
 // ===== UI =====
@@ -67,10 +134,20 @@ function init(){
 
   wrap.innerHTML=`
     <div id="pdb-header">
-      🚴 Poziomki 2.5
+      🚴 Poziomki 2.2
       <input id="pdb-search" placeholder="search...">
     </div>
-    <table id="pdb-table"><tbody id="body"></tbody></table>
+
+    <div id="pdb-controls">
+      <label><input type="checkbox" id="noLink"> no link</label>
+      <label><input type="checkbox" id="onlyRaw"> to verify</label>
+    </div>
+
+    <table id="pdb-table">
+      <tbody id="pdb-body"></tbody>
+    </table>
+
+    <div id="pdb-footer"></div>
   `;
 
   document.body.appendChild(wrap);
@@ -80,51 +157,37 @@ function init(){
     render();
   };
 
+  document.getElementById("noLink").onchange=e=>{
+    state.noLink=e.target.checked;
+    render();
+  };
+
+  document.getElementById("onlyRaw").onchange=e=>{
+    state.onlyRaw=e.target.checked;
+    render();
+  };
+
   render();
 }
 
 // ===== RENDER =====
-async function render(){
+function render(){
 
-  const body = document.getElementById("body");
-  body.innerHTML = "";
+  const data = getData();
 
-  for(const r of DB){
-
-    if(state.search && !(r.p + r.m).toLowerCase().includes(state.search)) continue;
-
-    const status = await checkContent(r);
-
-    let cls = "";
-    let badge = "";
-
-    if(status === "bad"){
-      cls = "bad";
-      badge = "❌";
-    }
-
-    if(status === "sus"){
-      badge = "⚠";
-    }
-
-    if(status === "no-link"){
-      badge = "∅";
-    }
-
-    const tr = document.createElement("tr");
-
-    tr.innerHTML = `
+  document.getElementById("pdb-body").innerHTML = data.map(r=>`
+    <tr>
       <td>${r.p}</td>
-      <td class="${cls}">
+      <td class="${!r.url ? 'bad' : ''}">
         ${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}
-        <span class="badge">${badge}</span>
       </td>
       <td>${r.type||""}</td>
-      <td>${r.kg||"-"}</td>
-    `;
+      <td>${r.kg||"-"} kg</td>
+    </tr>
+  `).join("");
 
-    body.appendChild(tr);
-  }
+  document.getElementById("pdb-footer").innerText =
+    data.length + " models";
 }
 
 // ===== START =====
