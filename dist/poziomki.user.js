@@ -193,7 +193,7 @@ function init(){
   const wrap = document.createElement("div");
   wrap.id="pdb";
 
-  const producers = ["all",...new Set(DB.map(r=>r.p))];
+  const producers = [t('all'), ...new Set(DB.map(r=>r.p))];
 
   wrap.innerHTML=`
     <div id="pdb-header">
