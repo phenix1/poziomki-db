@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.5 FINAL
+// @name         Poziomki — baza 2.6 STABLE
 // @namespace    https://poziomki.info
-// @version      2.5
+// @version      2.6
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -15,6 +15,7 @@
 
 if (window.top !== window.self) return;
 
+// 🔥 CACHE BYPASS (ważne)
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json?v=" + Date.now();
 
 let DB = [];
@@ -25,15 +26,15 @@ async function loadDB() {
   DB = await res.json();
 }
 
-// ===== STYLE =====
+// ===== STYLE (NAPRAWIONY GLOBALNIE) =====
 GM_addStyle(`
 #pdb {
   position: fixed;
   top: 60px;
   right: 10px;
-  width: 580px;
+  width: 560px;
   max-height: 88vh;
-  background: #fff;
+  background: #ffffff !important;
   border-radius: 10px;
   box-shadow: 0 8px 28px rgba(0,0,0,.35);
   font-size: 13px;
@@ -42,6 +43,19 @@ GM_addStyle(`
   flex-direction:column;
   overflow:hidden;
   border:1px solid #cfd6e0;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔥 NAJWAŻNIEJSZE — blokuje style strony */
+#pdb input,
+#pdb select {
+  background: #ffffff !important;
+  color: #222 !important;
+  border: 1px solid #bbb !important;
+}
+
+#pdb input::placeholder {
+  color: #777 !important;
 }
 
 #pdb-header {
@@ -50,90 +64,56 @@ GM_addStyle(`
   padding:8px;
   display:flex;
   align-items:center;
-  gap:6px;
-}
-
-#pdb-header img.logo {
-  height:20px;
-  background:#fff;
-  padding:2px 4px;
-  border-radius:4px;
 }
 
 #pdb-search {
+  margin-left:10px;
   flex:1;
   padding:5px;
   border-radius:4px;
-  border:1px solid #ccc;
-  color:#222;
 }
 
 #pdb-controls {
   padding:6px;
   background:#eef3fa;
   display:flex;
-  gap:6px;
+  gap:4px;
   flex-wrap:wrap;
   border-bottom:1px solid #d0d8e5;
-}
-
-#pdb-controls select,
-#pdb-controls input {
-  padding:4px;
-  border:1px solid #bbb;
-  border-radius:4px;
-}
-
-#pdb-list {
-  overflow-y:auto;
-  flex:1;
 }
 
 #pdb-table {
   width:100%;
   border-collapse:collapse;
-  table-layout:fixed;
 }
 
 #pdb-table td {
   padding:6px;
   border-bottom:1px solid #e0e6ef;
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
+  color:#222;
 }
 
 #pdb-table tr:hover {
   background:#e8f0ff;
 }
 
-#pdb-table td:first-child {
-  cursor:pointer;
-  color:#1e3a5f;
-  font-weight:500;
-}
-
-a {
+#pdb-table a {
   color:#0055cc;
+  font-weight:500;
+  text-decoration:none;
 }
 
-.bad {
-  color:#aaa;
+#pdb-table a:hover {
+  text-decoration:underline;
 }
 
 #pdb-footer {
   background:#dbe6f7;
   padding:6px;
   font-size:11px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-#pdb-footer img {
-  height:26px;
-  border-radius:50%;
-  opacity:0.6;
+  text-align:right;
+  color:#1e3a5f;
+  border-top:1px solid #cfd6e0;
 }
 `);
 
@@ -143,21 +123,19 @@ let state = {
   prod:"all",
   type:"all",
   kg:0,
-  noLink:false,
-  onlyRaw:false
+  noLink:false
 };
 
 // ===== FILTER =====
 function getData(){
   return DB.filter(r=>{
-    const text = (r.p + " " + r.m).toLowerCase();
+    const text = (r.p + " " + r.m + " " + r.type).toLowerCase();
 
     if(state.search && !text.includes(state.search)) return false;
-    if(state.prod !== "all" && r.p !== state.prod) return false;
-    if(state.type !== "all" && r.type !== state.type) return false;
-    if(state.kg && r.kg && r.kg < state.kg) return false;
+    if(state.prod!=="all" && r.p!==state.prod) return false;
+    if(state.type!=="all" && r.type!==state.type) return false;
+    if(state.kg && r.kg < state.kg) return false;
     if(state.noLink && r.url) return false;
-    if(state.onlyRaw && r.status !== "raw") return false;
 
     return true;
   });
@@ -166,16 +144,16 @@ function getData(){
 // ===== UI =====
 function init(){
 
-  const producers = ["all", ...new Set(DB.map(r=>r.p))];
-  const types = ["all", ...new Set(DB.map(r=>r.type).filter(Boolean))];
-
   const wrap = document.createElement("div");
   wrap.id="pdb";
 
+  const producers = ["all",...new Set(DB.map(r=>r.p))];
+
   wrap.innerHTML=`
     <div id="pdb-header">
-      <img class="logo" src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png?v=3">
-      🚴 Poziomki 2.5
+      <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png"
+           style="height:20px;margin-right:6px;background:white;padding:2px 4px;border-radius:4px;">
+      🚴 Poziomki 2.6
       <input id="pdb-search" placeholder="search...">
     </div>
 
@@ -185,27 +163,22 @@ function init(){
       </select>
 
       <select id="type">
-        ${types.map(t=>`<option value="${t}">${t}</option>`).join("")}
+        <option value="all">type</option>
+        ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
       </select>
 
-      <input id="kg" type="number" placeholder="min kg">
+      <input id="kg" placeholder="min kg" type="number">
 
       <label><input type="checkbox" id="noLink"> no link</label>
-      <label><input type="checkbox" id="onlyRaw"> to verify</label>
     </div>
 
-    <div id="pdb-list">
-      <table id="pdb-table">
-        <tbody id="pdb-body"></tbody>
-      </table>
-    </div>
+    <table id="pdb-table">
+      <tbody id="pdb-body"></tbody>
+    </table>
 
     <div id="pdb-footer">
-      <span id="count"></span>
-      <span>
-        <a href="mailto:phenix29@gmail.com">report issues</a>
-        <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=3">
-      </span>
+      ${DB.length} models • 
+      <a href="mailto:phenix29@gmail.com">report issues</a>
     </div>
   `;
 
@@ -236,44 +209,21 @@ function init(){
     render();
   };
 
-  document.getElementById("onlyRaw").onchange=e=>{
-    state.onlyRaw=e.target.checked;
-    render();
-  };
-
   render();
 }
 
 // ===== RENDER =====
 function render(){
-
   const data = getData();
 
-  const body = document.getElementById("pdb-body");
-
-  body.innerHTML = data.map(r=>`
+  document.getElementById("pdb-body").innerHTML = data.map(r=>`
     <tr>
-      <td style="width:30%" data-prod="${r.p}">${r.p}</td>
-
-      <td style="width:40%" class="${!r.url ? 'bad' : ''}">
-        ${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}
-      </td>
-
-      <td style="width:15%">${r.type||"-"}</td>
-
-      <td style="width:15%">${r.kg ? r.kg + " kg" : "-"}</td>
+      <td>${r.p}</td>
+      <td>${r.url ? `<a href="${r.url}" target="_blank">${r.m}</a>` : r.m}</td>
+      <td>${r.type||"-"}</td>
+      <td>${r.kg||"-"} kg</td>
     </tr>
   `).join("");
-
-  document.getElementById("count").innerText = data.length + " models";
-
-  document.querySelectorAll("#pdb-table td:first-child").forEach(td=>{
-    td.onclick = ()=>{
-      state.prod = td.dataset.prod;
-      document.getElementById("prod").value = state.prod;
-      render();
-    };
-  });
 }
 
 // ===== START =====
