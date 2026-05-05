@@ -214,7 +214,7 @@ function init(){
       </select>
 
      <select id="type">
-  <option value="all">typ</option>
+  <option value="all">${t('type')}</option>
   ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
 </select>
 
