@@ -125,6 +125,11 @@ a {
   transform: scale(1.1);
   cursor: pointer;
 }
+
+#pdb-footer a {
+  color:#1e3a5f;
+  font-weight:500;
+}
 `);
 // ===== STATE =====
 let state = {
