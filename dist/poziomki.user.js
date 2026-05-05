@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki — baza 2.0 PRO
+// @name         Poziomki — baza 2.2 STABLE
 // @namespace    https://poziomki.info
-// @version      2.1
+// @version      2.2
 // @match        https://*/*
 // @exclude      https://github.com/*
 // @exclude      https://raw.githubusercontent.com/*
@@ -14,7 +14,7 @@
 'use strict';
 
 // ===== LANG =====
-const LANG = "en"; // future: "pl"
+const LANG = "en";
 
 const i18n = {
   en: {
@@ -24,25 +24,18 @@ const i18n = {
     all: "all",
     models: "models",
     contact: "report issues"
-  },
-  pl: {
-    search: "szukaj...",
-    type: "typ",
-    minKg: "min kg",
-    all: "wszyscy",
-    models: "modeli",
-    contact: "zgłoś poprawki"
   }
 };
 
 function t(key){
   return i18n[LANG][key] || key;
 }
-  
+
+// ===== SAFETY =====
 if (window.top !== window.self) return;
 
+// ===== DB =====
 const DB_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json";
-
 let DB = [];
 
 // ===== LOAD =====
@@ -77,18 +70,19 @@ GM_addStyle(`
   display:flex;
   align-items:center;
 }
+
 #pdb-search {
   margin-left:10px;
   flex:1;
   padding:5px;
   border-radius:4px;
   border:1px solid #ccc;
-  color:#222;              /* tekst wpisywany */
+  color:#222;
   background:#fff;
 }
 
 #pdb-search::placeholder {
-  color:#777;              /* placeholder — teraz czytelny */
+  color:#777;
 }
 
 #pdb-banner {
@@ -119,7 +113,6 @@ GM_addStyle(`
 #pdb-table {
   width:100%;
   border-collapse:collapse;
-  font-size:13px;
 }
 
 #pdb-table td {
@@ -147,16 +140,12 @@ a {
 }
 
 #pdb-footer img:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-#pdb-footer a {
-  color:#1e3a5f;
-  font-weight:500;
+  opacity:1;
+  transform:scale(1.1);
+  cursor:pointer;
 }
 `);
+
 // ===== STATE =====
 let state = {
   search:"",
@@ -179,44 +168,37 @@ function getData(){
   });
 }
 
-// ===== BANNER =====
-function getBanner(){
-  const m = new Date().getMonth()+1;
-  if(m===12) return "🎄 Wesołych Świąt!";
-  if(m===4) return "🐣 Wesołej Wielkanocy!";
-  return "";
-}
-
 // ===== UI =====
 function init(){
 
   const wrap = document.createElement("div");
   wrap.id="pdb";
 
-  const producers = [t('all'), ...new Set(DB.map(r=>r.p))];
+  const producers = ["all", ...new Set(DB.map(r=>r.p))];
 
   wrap.innerHTML=`
     <div id="pdb-header">
-  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png?v=2"
-     style="height:20px;margin-right:6px;
-            background:white;
-            padding:2px 4px;
-            border-radius:4px;">
-  🚴 Poziomki 2.0
-  placeholder="${t('search')}"
-</div>
+      <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png?v=2"
+           style="height:20px;margin-right:6px;background:white;padding:2px 4px;border-radius:4px;">
+      🚴 Poziomki 2.0
+      <input id="pdb-search" placeholder="${t('search')}">
+    </div>
 
-    <div id="pdb-banner">${getBanner()}</div>
+    <div id="pdb-banner"></div>
 
     <div id="pdb-controls">
       <select id="prod">
-        ${producers.map(p=>`<option value="${p}">${p}</option>`).join("")}
+        ${producers.map(p=>`
+          <option value="${p}">
+            ${p==="all"?t('all'):p}
+          </option>
+        `).join("")}
       </select>
 
-     <select id="type">
-  <option value="all">${t('type')}</option>
-  ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
-</select>
+      <select id="type">
+        <option value="all">${t('type')}</option>
+        ${[...new Set(DB.map(r=>r.type))].map(t=>`<option value="${t}">${t}</option>`).join("")}
+      </select>
 
       <input id="kg" placeholder="${t('minKg')}" type="number">
     </div>
@@ -225,13 +207,13 @@ function init(){
       <tbody id="pdb-body"></tbody>
     </table>
 
- <div id="pdb-footer">
-  ${DB.length} ${t('models')} • 
-  <a href="mailto:phenix29@gmail.com">${t('contact')}</a>
+    <div id="pdb-footer">
+      ${DB.length} ${t('models')} • 
+      <a href="mailto:phenix29@gmail.com">${t('contact')}</a>
 
-  <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=2"
-       style="height:26px; margin-left:8px; border-radius:50%; opacity:0.6; vertical-align:middle;">
-</div>
+      <img src="https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg?v=2"
+           style="height:26px;margin-left:8px;border-radius:50%;opacity:0.6;vertical-align:middle;">
+    </div>
   `;
 
   document.body.appendChild(wrap);
