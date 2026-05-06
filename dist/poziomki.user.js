@@ -8,8 +8,6 @@
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_addStyle
-// @updateURL    https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
-// @downloadURL  https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
 // @run-at       document-end
 // ==/UserScript==
 
@@ -40,7 +38,8 @@
   // BAZA DANYCH (DB) — UPORZĄDKOWANA BLOKAMI WEDŁUG PRODUCENTA
   // ============================================================
   const DB = [
-    // ── Alligt (Holandia) ─────────────────────────────────────────
+ // ── Alligt (Holandia) ─────────────────────────────────────────
+    // Główne źródło: https://www.alligt.nl/
     { p:'Alligt', m:'Alleweder A4', type:'velomobile', kg:130, url:'https://www.alligt.nl/en/alleweder-a4/' },
     { p:'Alligt', m:'Alleweder A6', type:'velomobile', kg:130, url:'https://www.alligt.nl/en/alleweder-a6/' },
     { p:'Alligt', m:'Alleweder A7', type:'velomobile', kg:0,   url:'https://www.alligt.nl/en/alleweder-a7/' },
@@ -50,6 +49,7 @@
     { p:'Alligt', m:'Sunrider',     type:'velomobile', kg:125, url:'https://www.alligt.nl/en/sunrider/' },
     { p:'Alligt', m:'Veloquad',      type:'quad',      kg:0,   url:'https://www.alligt.nl/veloquad/' },
     { p:'Alligt', m:'WAW',          type:'velomobile', kg:0,   url:'https://www.alligt.nl/waw/' },
+    // Modele archiwalne
     { p:'Alligt', m:'Alleweder',    type:'velomobile', kg:0, arch:true, url:'https://web.archive.org/web/2010/http://alligt.nl/' },
 
     // ── Avenue Trikes ────────────────────────────────
