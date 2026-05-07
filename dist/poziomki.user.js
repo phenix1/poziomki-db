@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v1.5
+// @name         Poziomki DB v1.6
 // @namespace    https://poziomki.info
-// @version      1.5
-// @description  Recumbent bikes database (Dynamic Sorting, Cache Buster for Avatar, Raw Link)
+// @version      1.6
+// @description  Recumbent bikes database (Fixed Avatar, Added dynamic Ad Slots)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -18,24 +18,23 @@
   // --- DATABASE URL ---
   const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
   
-  // --- IMAGES (Z parametrem omijającym cache dla zdjęcia!) ---
+  // --- IMAGES ---
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
-  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png?nocache=' + new Date().getTime();
+  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.5" };
+  let CONFIG = { version: "1.6" };
 
-  // Zmiana klucza na v1_5 wymusi reset starych ustawień u każdego użytkownika
   const SK = 'poziomki_state_v1_5';
   let state = GM_getValue(SK, { 
       collapsed: false, 
       minKg: 0, 
       filterType: 'all', 
       filterProd: 'all', 
-      sortCol: 'p', // Domyślnie sortuje po Producencie
-      sortDir: 1,   // A-Z
+      sortCol: 'p', 
+      sortDir: 1,   
       searchStr: '' 
   });
   function save() { GM_setValue(SK, state); }
@@ -82,6 +81,12 @@
     
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
+    
+    /* Sekcje Reklamowe */
+    .pdb-ad { text-align: center; background: #f8fafc; display: none; flex-shrink: 0; padding: 5px; }
+    .pdb-ad img { max-width: 100%; max-height: 70px; border-radius: 4px; display: inline-block; }
+    #pdb-ad-top { border-bottom: 1px solid #e0e8f0; }
+    #pdb-ad-bottom { border-top: 1px solid #e0e8f0; }
     
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -148,7 +153,6 @@
     const cntEl = shadow.getElementById('pdb-cnt');
     if (cntEl) cntEl.textContent = rows.length;
 
-    // Aktualizacja dynamicznych nagłówków tabeli (strzałki sortowania)
     const headers = { p: 'Producer', m: 'Model', type: 'Type', kg: 'Max Load' };
     ['p', 'm', 'type', 'kg'].forEach(col => {
       const th = shadow.getElementById('sort-' + (col === 'type' ? 't' : col === 'kg' ? 'k' : col));
@@ -200,11 +204,11 @@
     
     wrap.innerHTML = `
       <div id="pdb-hdr">
-        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo" onerror="this.style.display='none'">
+        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
         <span class="title">Poziomki DB</span>
         <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
         <span class="badge" id="pdb-cnt" title="Models found">0</span>
-        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="this.style.display='none'">
+        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author">
         <span id="pdb-arr">${state.collapsed?'▲':'▼'}</span>
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
@@ -216,6 +220,9 @@
           </select>
           <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
+        
+        <div id="pdb-ad-top" class="pdb-ad"></div>
+
         <div id="pdb-tbl-wrap">
           <table id="pdb-tbl">
             <thead><tr>
@@ -228,6 +235,9 @@
             <tbody id="pdb-tbody"></tbody>
           </table>
         </div>
+        
+        <div id="pdb-ad-bottom" class="pdb-ad"></div>
+
         <div class="pdb-foot">
           <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
           <a href="${CONFIG.supportBtnLink || KOFI_URL}" target="_blank" style="color:${CONFIG.supportBtnColor || '#ff813f'}; font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">${CONFIG.supportBtnText || '☕ Support via Ko-fi'}</a>
@@ -236,6 +246,18 @@
 
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
+
+    // --- ŁADOWANIE REKLAM Z JSON ---
+    if (CONFIG.adTop) {
+        const adTopEl = shadow.getElementById('pdb-ad-top');
+        adTopEl.innerHTML = CONFIG.adTop;
+        adTopEl.style.display = 'block';
+    }
+    if (CONFIG.adBottom) {
+        const adBotEl = shadow.getElementById('pdb-ad-bottom');
+        adBotEl.innerHTML = CONFIG.adBottom;
+        adBotEl.style.display = 'block';
+    }
 
     // --- DRAG & DROP ---
     const header = shadow.getElementById('pdb-hdr');
