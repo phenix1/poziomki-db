@@ -1,57 +1,49 @@
 // ==UserScript==
-// @name         Poziomki — baza rowerów leżą v1.2-beta
+// @name         Poziomki — baza rowerów leżą v1.3.1
 // @namespace    https://poziomki.info
-// @version      1.2
-// @description  Baza rowerów poziomych pobierana zewnętrznie — producent, model, nośność, link.
+// @version      1.3.1
+// @description  Baza rowerów poziomych (Shadow DOM + Fix 404)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
+// @exclude      *://raw.githubusercontent.com/*
+// @exclude      *://github.com/*
 // @grant        GM_setValue
 // @grant        GM_getValue
-// @grant        GM_addStyle
 // @run-at       document-end
 // ==/UserScript==
 
 (function () {
   'use strict';
 
-  // TUTAJ WPISZ ADRES DO SWOJEGO PLIKU db.json
-  const JSON_URL = 'https://raw.githubusercontent.com/MBFeniks/poziomki-db/main/db.json';
+  // --- KONFIGURACJA ŚCIEŻKI ---
+  // Jeśli Twoja baza jest w głównym folderze, usuń "data/" z linku poniżej:
+  const JSON_URL = 'https://raw.githubusercontent.com/MBFeniks/poziomki-db/main/data/db.json';
 
-  // Zmienne globalne na dane pobrane z sieci
   let COLLAB = {};
   let DB = [];
-  let CONFIG = {};
+  let CONFIG = { version: "1.3.1" };
 
-  // STAN SKRYPTU
   const SK = 'poziomki_v1';
-  let state = GM_getValue(SK, {
-    collapsed: false,
-    minKg: 0,
-    filterType: 'all',
-    filterProd: 'all',
-    sortCol: 'kg',
-    sortDir: -1,
-  });
+  let state = GM_getValue(SK, { collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', sortCol: 'kg', sortDir: -1 });
   function save() { GM_setValue(SK, state); }
 
-  // STYLE UI
-  GM_addStyle(`
+  const host = document.createElement('div');
+  host.id = 'poziomki-host';
+  host.style.cssText = 'position: fixed; top: 0; left: 0; z-index: 2147483647;';
+  document.body.appendChild(host);
+  const shadow = host.attachShadow({ mode: 'open' });
+
+  const style = document.createElement('style');
+  style.textContent = `
     #pdb-wrap {
-      position: fixed; top: 54px; right: 12px; width: 560px;
-      max-height: 90vh; z-index: 2147483640;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-size: 13px; color: #1a1a2e;
-      display: flex; flex-direction: column;
-      background: #fff; border: 1.5px solid #c0cce0;
-      border-radius: 12px; box-shadow: 0 8px 32px rgba(0,40,100,.14);
-      overflow: hidden; resize: horizontal; min-width: 360px; max-width: 90vw;
+      position: fixed; top: 54px; right: 12px; width: 560px; max-height: 90vh;
+      font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e;
+      display: flex; flex-direction: column; background: #fff; border: 1.5px solid #c0cce0;
+      border-radius: 12px; box-shadow: 0 8px 32px rgba(0,40,100,.14); overflow: hidden;
+      resize: horizontal; min-width: 360px; max-width: 90vw;
     }
     #pdb-wrap.col { max-height: 48px; }
-    #pdb-hdr {
-      background: linear-gradient(135deg, #1a3a5c 0%, #2a6090 100%);
-      color: #fff; padding: 10px 14px; display: flex; align-items: center; gap: 8px;
-      cursor: pointer; user-select: none; flex-shrink: 0;
-    }
+    #pdb-hdr { background: linear-gradient(135deg, #1a3a5c 0%, #2a6090 100%); color: #fff; padding: 10px 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; flex-shrink: 0; }
     #pdb-hdr .icon { font-size: 18px; line-height: 1; }
     #pdb-hdr .title { flex: 1; font-weight: 700; font-size: 13.5px; }
     #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 1px 9px; font-size: 11px; font-weight: 700; }
@@ -76,10 +68,21 @@
     .t-tadpole { background: #e0eeff; color: #1a4494; } .t-delta { background: #fde8e0; color: #993020; }
     .t-bike { background: #e0f4e8; color: #1a6e40; } .t-quad { background: #f0e0fe; color: #6a10a0; }
     .pdb-kg { font-weight: 700; font-size: 12px; }
-    .pdb-link a { font-size: 11px; padding: 2px 8px; border: 1px solid #c0d0e4; border-radius: 5px; text-decoration: none; background: #f0f6ff; }
+    .kg-none { color: #aaa; font-weight: normal; font-style: italic; }
+    .kg-low { color: #994020; }
+    .kg-120plus { color: #1a6e40; }
+    .kg-150plus { color: #1a4494; }
+    .kg-200plus { color: #6a10a0; }
+    .pdb-link a { font-size: 11px; padding: 2px 8px; border: 1px solid #c0d0e4; border-radius: 5px; text-decoration: none; background: #f0f6ff; color: #1a4494; display: inline-block; text-align: center; width: 50px; }
+    .pdb-link.arch a { background: #fdf5d8; border-color: #e4d498; color: #8a6a1c; }
+    .pdb-link.check a { background: #f0e0fe; border-color: #d0b0f0; color: #6a10a0; }
+    .f-offroad { font-size: 9px; background: #e0d0b0; padding: 1px 4px; border-radius: 4px; margin-left: 4px; color: #5a4010; font-weight: bold; }
     .pdb-foot { padding: 8px 12px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; }
-    .pdb-loading { padding: 20px; text-align: center; font-size: 14px; font-weight: bold; color: #2a6090; }
-  `);
+    .pdb-loading { padding: 20px; text-align: center; font-size: 13px; font-weight: bold; color: #2a6090; }
+    .error-msg { font-size: 11px; color: #cc0000; padding: 10px; background: #fff0f0; border: 1px solid #ffcccc; margin: 10px; border-radius: 6px; line-height: 1.4; }
+    .url-debug { font-family: monospace; font-size: 10px; word-break: break-all; background: #eee; padding: 4px; display: block; margin-top: 5px; }
+  `;
+  shadow.appendChild(style);
 
   const TYPE_LABEL = { tadpole: 'Tadpole', delta: 'Delta', bike: '2-wheel', quad: 'Quad', velomobile: 'Velomobile', handcycle: 'Handcycle' };
   const TYPE_CLASS = { tadpole: 't-tadpole', delta: 't-delta', bike: 't-bike', quad: 't-quad' };
@@ -98,18 +101,38 @@
 
   function render() {
     const rows = getFiltered();
-    document.getElementById('pdb-cnt').textContent = rows.length;
-    document.getElementById('pdb-stat').textContent = `${rows.length} modeli · ${new Set(rows.map(r=>r.p)).size} marek`;
+    const cntEl = shadow.getElementById('pdb-cnt');
+    const statEl = shadow.getElementById('pdb-stat');
+    if (cntEl) cntEl.textContent = rows.length;
+    if (statEl) statEl.textContent = `${rows.length} modeli · ${new Set(rows.map(r=>r.p)).size} marek`;
 
-    document.getElementById('pdb-tbody').innerHTML = rows.map(r => {
+    const tbody = shadow.getElementById('pdb-tbody');
+    if (!tbody) return;
+
+    tbody.innerHTML = rows.map(r => {
       const collab = COLLAB[r.p] || '';
+      let kgClass = 'kg-none';
+      let kgText = 'no data';
+      if (r.kg > 0) {
+        kgText = r.kg + ' kg';
+        if (r.kg < 120) kgClass = 'kg-low';
+        else if (r.kg < 150) kgClass = 'kg-120plus';
+        else if (r.kg < 200) kgClass = 'kg-150plus';
+        else kgClass = 'kg-200plus';
+      }
+      let linkClass = '';
+      let linkText = '↗ page';
+      if (r.arch) { linkClass = 'arch'; linkText = '🗄 arch'; }
+      if (r.check) { linkClass = 'check'; linkText = '❓ check'; }
+      const offroadHtml = r.offroad ? `<span class="f-offroad">OFFROAD</span>` : '';
+
       return `
       <tr class="${collab === 'yes' ? 'row-collab-yes' : collab === 'closed' ? 'row-collab-closed' : ''}">
         <td class="pdb-prod">${r.p}</td>
-        <td class="pdb-model">${r.m}</td>
+        <td class="pdb-model">${r.m} ${offroadHtml}</td>
         <td><span class="pdb-type ${TYPE_CLASS[r.type]||''}">${TYPE_LABEL[r.type]||r.type}</span></td>
-        <td><span class="pdb-kg">${r.kg ? r.kg+' kg' : '<span style="color:#aaa;font-weight:normal;">no data</span>'}</span></td>
-        <td class="pdb-link"><a href="${r.url}" target="_blank">↗ page</a></td>
+        <td><span class="pdb-kg ${kgClass}">${kgText}</span></td>
+        <td class="pdb-link ${linkClass}"><a href="${r.url}" target="_blank" title="${r.url}">${linkText}</a></td>
       </tr>`;
     }).join('');
   }
@@ -122,75 +145,88 @@
     const producers = ['all', ...new Set(DB.map(r => r.p))].sort((a,b) => a === 'all' ? -1 : a.localeCompare(b,'pl'));
     
     wrap.innerHTML = `
-      <div id="pdb-hdr"><span class="icon">🚴</span><span class="title">Poziomki — baza v${CONFIG.version || '1.2'}</span><span class="badge" id="pdb-cnt">0</span><span id="pdb-arr">${state.collapsed?'▲':'▼'}</span><button class="xbtn" id="pdb-x">✕</button></div>
+      <div id="pdb-hdr"><span class="icon">🚴</span><span class="title">Poziomki — baza v${CONFIG.version}</span><span class="badge" id="pdb-cnt">0</span><span id="pdb-arr">${state.collapsed?'▲':'▼'}</span><button class="xbtn" id="pdb-x">✕</button></div>
       <div id="pdb-body">
         <div class="pdb-ctrl">
           <select id="pdb-prod">${producers.map(p => `<option value="${p}"${p===state.filterProd?' selected':''}>${p==='all'?'Wszyscy producenci':p}</option>`).join('')}</select>
           <select id="pdb-type">
-            <option value="all">Wszystkie typy</option><option value="tadpole">Tadpole</option><option value="delta">Delta</option><option value="bike">Rower</option><option value="quad">Quad / inne</option>
+            <option value="all">Wszystkie typy</option><option value="tadpole">Tadpole</option><option value="delta">Delta</option><option value="bike">Rower</option><option value="quad">Quad / inne</option><option value="velomobile">Velomobile</option><option value="handcycle">Handcycle</option>
           </select>
           <input type="number" id="pdb-kg" placeholder="Min. kg" min="0" step="5" value="${state.minKg || ''}">
         </div>
         <div class="pdb-stat" id="pdb-stat"></div>
         <table id="pdb-tbl">
-          <thead><tr><th onclick="pdbSort('p')">Producent</th><th onclick="pdbSort('m')">Model</th><th onclick="pdbSort('type')">Typ</th><th onclick="pdbSort('kg')">Nośność ↓</th><th>Link</th></tr></thead>
+          <thead><tr><th id="sort-p">Producent</th><th id="sort-m">Model</th><th id="sort-t">Typ</th><th id="sort-k">Nośność ↓</th><th>Link</th></tr></thead>
           <tbody id="pdb-tbody"></tbody>
         </table>
         <div class="pdb-foot">
           Autor: <strong>${CONFIG.author || 'MBFeniks'}</strong> · <a href="mailto:${CONFIG.contact || 'phenix29@gmail.com'}">Kontakt</a>
-          <br><br>
-          <a href="${CONFIG.supportBtnLink || '#'}" target="_blank" style="color:${CONFIG.supportBtnColor || '#ff813f'}; font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:3px 8px; border-radius:4px;">${CONFIG.supportBtnText || 'Wsparcie'}</a>
         </div>
       </div>`;
 
-    document.body.appendChild(wrap);
-    document.getElementById('pdb-type').value = state.filterType;
+    shadow.appendChild(wrap);
+    shadow.getElementById('pdb-type').value = state.filterType;
 
-    document.getElementById('pdb-hdr').addEventListener('click', e => {
+    shadow.getElementById('pdb-hdr').addEventListener('click', e => {
       if(e.target.id === 'pdb-x') return;
-      state.collapsed = !state.collapsed; wrap.classList.toggle('col'); document.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
+      state.collapsed = !state.collapsed; wrap.classList.toggle('col'); shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
     });
-    document.getElementById('pdb-x').addEventListener('click', () => wrap.remove());
+    shadow.getElementById('pdb-x').addEventListener('click', () => host.remove());
 
     ['pdb-prod','pdb-type','pdb-kg'].forEach(id => {
-      document.getElementById(id).addEventListener('change', () => {
-        state.filterProd = document.getElementById('pdb-prod').value;
-        state.filterType = document.getElementById('pdb-type').value;
-        state.minKg = parseInt(document.getElementById('pdb-kg').value) || 0;
+      shadow.getElementById(id).addEventListener('change', () => {
+        state.filterProd = shadow.getElementById('pdb-prod').value;
+        state.filterType = shadow.getElementById('pdb-type').value;
+        state.minKg = parseInt(shadow.getElementById('pdb-kg').value) || 0;
         save(); render();
       });
     });
 
-    window.pdbSort = function(col) {
+    const doSort = (col) => {
       if (state.sortCol === col) state.sortDir *= -1; else { state.sortCol = col; state.sortDir = col==='kg' ? -1 : 1; }
       save(); render();
     };
+    shadow.getElementById('sort-p').addEventListener('click', () => doSort('p'));
+    shadow.getElementById('sort-m').addEventListener('click', () => doSort('m'));
+    shadow.getElementById('sort-t').addEventListener('click', () => doSort('type'));
+    shadow.getElementById('sort-k').addEventListener('click', () => doSort('kg'));
 
     render();
   }
 
-  // POBIERANIE DANYCH Z INTERNETU
   async function loadData() {
-    try {
-      // Wyświetlanie placeholdera na czas ładowania
-      const loadingWrap = document.createElement('div');
-      loadingWrap.id = 'pdb-wrap';
-      loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="icon">⏳</span><span class="title">Ładowanie bazy Poziomki...</span></div><div class="pdb-loading">Pobieranie najnowszych danych...</div>`;
-      document.body.appendChild(loadingWrap);
+    const loadingWrap = document.createElement('div');
+    loadingWrap.id = 'pdb-wrap';
+    loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="icon">⏳</span><span class="title">Baza Poziomki</span></div><div class="pdb-loading" id="load-msg">Inicjalizacja...</div>`;
+    shadow.appendChild(loadingWrap);
 
+    try {
+      shadow.getElementById('load-msg').textContent = "Pobieranie danych...";
       const response = await fetch(JSON_URL);
-      if (!response.ok) throw new Error('Network response was not ok');
+      
+      if (!response.ok) {
+          throw new Error(`Serwer zwrócił błąd ${response.status}. Plik nie istnieje pod tym adresem.`);
+      }
+      
       const data = await response.json();
       
-      COLLAB = data.COLLAB || {};
-      DB = data.DB || [];
-      CONFIG = data.CONFIG || {};
+      if (Array.isArray(data)) { DB = data; } 
+      else { COLLAB = data.COLLAB || {}; DB = data.DB || []; CONFIG = data.CONFIG || CONFIG; }
 
-      loadingWrap.remove(); // Usuń ekran ładowania
-      buildUI(); // Uruchom właściwy skrypt
+      loadingWrap.remove();
+      buildUI();
     } catch (error) {
-      console.error("Błąd pobierania bazy Poziomki:", error);
-      document.getElementById('pdb-wrap').innerHTML = `<div id="pdb-hdr"><span class="icon">❌</span><span class="title">Błąd bazy Poziomki</span></div><div class="pdb-loading" style="color:red;">Nie udało się pobrać danych ze źródła.</div>`;
+      console.error("Błąd projektu Poziomki:", error);
+      loadingWrap.innerHTML = `
+        <div id="pdb-hdr"><span class="icon">❌</span><span class="title">Błąd ładowania</span></div>
+        <div class="error-msg">
+            <strong>Nie znaleziono bazy danych!</strong><br>
+            Prawdopodobnie plik db.json nie jest jeszcze na GitHubie w folderze /data/.<br><br>
+            Sprawdzany adres:<br>
+            <span class="url-debug">${JSON_URL}</span><br><br>
+            <em>Upewnij się, że po wykonaniu skryptu Node.js zrobiłeś "git push"!</em>
+        </div>
+      `;
     }
   }
 
