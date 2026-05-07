@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki — baza rowerów leżą v1.3.1
+// @name         Poziomki — baza rowerów leżą v1.3.3
 // @namespace    https://poziomki.info
-// @version      1.3.1
-// @description  Baza rowerów poziomych (Shadow DOM + Fix 404)
+// @version      1.3.3
+// @description  Baza rowerów poziomych (Poprawny użytkownik: phenix1)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -15,13 +15,12 @@
 (function () {
   'use strict';
 
-  // --- KONFIGURACJA ŚCIEŻKI ---
-  // Jeśli Twoja baza jest w głównym folderze, usuń "data/" z linku poniżej:
-  const JSON_URL = 'https://raw.githubusercontent.com/MBFeniks/poziomki-db/main/data/db.json';
+  // --- POPRAWIONA ŚCIEŻKA (phenix1/poziomki-db) ---
+  const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.3.1" };
+  let CONFIG = { version: "1.3.3" };
 
   const SK = 'poziomki_v1';
   let state = GM_getValue(SK, { collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', sortCol: 'kg', sortDir: -1 });
@@ -221,10 +220,8 @@
         <div id="pdb-hdr"><span class="icon">❌</span><span class="title">Błąd ładowania</span></div>
         <div class="error-msg">
             <strong>Nie znaleziono bazy danych!</strong><br>
-            Prawdopodobnie plik db.json nie jest jeszcze na GitHubie w folderze /data/.<br><br>
             Sprawdzany adres:<br>
-            <span class="url-debug">${JSON_URL}</span><br><br>
-            <em>Upewnij się, że po wykonaniu skryptu Node.js zrobiłeś "git push"!</em>
+            <span class="url-debug">${JSON_URL}</span>
         </div>
       `;
     }
