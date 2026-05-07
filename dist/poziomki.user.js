@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v1.9
+// @name         Poziomki DB v2.0
 // @namespace    https://poziomki.info
-// @version      1.9
-// @description  Recumbent bikes database (CSP Bypass, Indestructible Init, Ad Slots, Avatar fixed)
+// @version      2.0
+// @description  Recumbent bikes database (AdBlock Immune, Sharp Zoom Avatar/Logo)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -27,9 +27,9 @@
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.9" };
+  let CONFIG = { version: "2.0" };
 
-  const SK = 'poziomki_state_v1_8';
+  const SK = 'poziomki_state_v2_0';
   let state = GM_getValue(SK, { 
       collapsed: false, 
       minKg: 0, 
@@ -43,7 +43,7 @@
 
   let host, shadow;
 
-  // --- KULOODPORNE POBIERANIE (Omijające zabezpieczenia stron CORS/CSP) ---
+  // Pobieranie poza zasięgiem zabezpieczeń witryn
   function fetchJSON(url) {
       return new Promise((resolve, reject) => {
           GM_xmlhttpRequest({
@@ -52,11 +52,11 @@
               onload: (res) => {
                   if (res.status >= 200 && res.status < 300) {
                       try { resolve(JSON.parse(res.responseText)); } 
-                      catch (e) { reject(new Error('Błąd struktury JSON (sprawdź przecinki i cudzysłowy w db.json)')); }
+                      catch (e) { reject(new Error('Błąd struktury JSON w pliku db.json')); }
                   } else { reject(new Error('Serwer odrzucił żądanie: ' + res.status)); }
               },
-              onerror: () => reject(new Error('Błąd sieci / Blokada.')),
-              ontimeout: () => reject(new Error('Zbyt długi czas oczekiwania.'))
+              onerror: () => reject(new Error('Błąd sieci.')),
+              ontimeout: () => reject(new Error('Przekroczono czas oczekiwania.'))
           });
       });
   }
@@ -79,11 +79,14 @@
     #pdb-wrap.col #pdb-hdr { border-radius: 12px; border-bottom: 1px solid #162b45; }
     #pdb-hdr:active { cursor: grabbing; }
     
-    .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; pointer-events: auto; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: top left; }
-    .hdr-logo:hover { transform: scale(2.5); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-    
-    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; background: #fff; pointer-events: auto; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: top right; }
-    .hdr-avatar:hover { transform: scale(2.5); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    /* System Wrapo'wania = Zawsze ostre powiększenie! */
+    .logo-wrap { width: 26px; height: 26px; position: relative; flex-shrink: 0; }
+    .hdr-logo { width: 65px; height: 65px; position: absolute; top: 0; left: 0; transform: scale(0.4); transform-origin: top left; border-radius: 15px; background: #fff; padding: 5px; object-fit: contain; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-sizing: border-box; cursor: pointer; }
+    .hdr-logo:hover { transform: scale(1); z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+
+    .avatar-wrap { width: 30px; height: 30px; position: relative; flex-shrink: 0; }
+    .hdr-avatar { width: 75px; height: 75px; position: absolute; top: 0; right: 0; transform: scale(0.4); transform-origin: top right; border-radius: 50%; border: 5px solid rgba(255,255,255,0.9); object-fit: cover; background: #fff; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-sizing: border-box; cursor: pointer; }
+    .hdr-avatar:hover { transform: scale(1); z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
     
     #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; pointer-events: none; }
     
@@ -104,11 +107,13 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
     
-    .pdb-promo { text-align: center; background: #f8fafc; flex-shrink: 0; padding: 6px; display: flex; justify-content: center; }
-    .pdb-promo img { max-width: 100%; max-height: 80px; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
-    .pdb-promo a:hover img { opacity: 0.85; }
-    #pdb-promo-top { border-bottom: 1px solid #e0e8f0; }
-    #pdb-promo-bottom { border-top: 1px solid #e0e8f0; }
+    /* Zmiana nazw klas ucieka przed AdBlockiem */
+    .pdb-notice { text-align: center; background: #f8fafc; flex-shrink: 0; padding: 8px; display: flex; justify-content: center; }
+    .pdb-notice img { max-width: 100%; max-height: 80px; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
+    .pdb-notice a { transition: opacity 0.2s; }
+    .pdb-notice a:hover { opacity: 0.85; }
+    #pdb-msg-top { border-bottom: 1px solid #e0e8f0; }
+    #pdb-msg-bottom { border-top: 1px solid #e0e8f0; }
     
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -221,11 +226,15 @@
     
     wrap.innerHTML = `
       <div id="pdb-hdr">
-        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
+        <div class="logo-wrap">
+           <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
+        </div>
         <span class="title">Poziomki DB</span>
         <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
         <span class="badge" id="pdb-cnt" title="Models found">0</span>
-        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}">
+        <div class="avatar-wrap">
+           <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}">
+        </div>
         <span id="pdb-arr">${state.collapsed?'▲':'▼'}</span>
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
@@ -238,9 +247,9 @@
           <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
         
-        <div id="pdb-promo-top" class="pdb-promo">
-           <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank">
-              <img src="https://placehold.co/468x60/1a3a5c/ffffff?text=Warsztaty+Rzucania+No%C5%BCem+-+Kliknij!" alt="Warsztaty Rzucania Nożem">
+        <div id="pdb-msg-top" class="pdb-notice">
+           <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank" style="display:block; width:100%; max-width:468px; background:linear-gradient(90deg, #1a3a5c 0%, #2a6090 100%); color:#fff; text-decoration:none; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+              🎯 Warsztaty Rzucania Nożem - Kliknij i sprawdź!
            </a>
         </div>
 
@@ -257,7 +266,7 @@
           </table>
         </div>
         
-        <div id="pdb-promo-bottom" class="pdb-promo"></div>
+        <div id="pdb-msg-bottom" class="pdb-notice" style="display:none;"></div>
 
         <div class="pdb-foot">
           <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
@@ -269,12 +278,12 @@
     shadow.getElementById('pdb-type').value = state.filterType;
 
     if (CONFIG.adTop) {
-        const adTopEl = shadow.getElementById('pdb-promo-top');
+        const adTopEl = shadow.getElementById('pdb-msg-top');
         adTopEl.innerHTML = CONFIG.adTop;
         adTopEl.style.display = 'flex';
     }
     if (CONFIG.adBottom) {
-        const adBotEl = shadow.getElementById('pdb-promo-bottom');
+        const adBotEl = shadow.getElementById('pdb-msg-bottom');
         adBotEl.innerHTML = CONFIG.adBottom;
         adBotEl.style.display = 'flex';
     }
@@ -283,7 +292,7 @@
     let isDragging = false; let hasDragged = false; let startX, startY, initialLeft, initialTop;
 
     header.addEventListener('mousedown', (e) => {
-      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || e.target.classList.contains('hdr-logo') || e.target.classList.contains('hdr-avatar')) return;
+      if(e.target.closest('.logo-wrap') || e.target.closest('.avatar-wrap') || e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
       isDragging = true; hasDragged = false; startX = e.clientX; startY = e.clientY;
       const rect = wrap.getBoundingClientRect();
       initialLeft = rect.left; initialTop = rect.top;
@@ -301,7 +310,7 @@
     document.addEventListener('mouseup', () => { isDragging = false; });
 
     header.addEventListener('click', e => {
-      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || e.target.classList.contains('hdr-logo') || e.target.classList.contains('hdr-avatar') || hasDragged) return;
+      if(e.target.closest('.logo-wrap') || e.target.closest('.avatar-wrap') || e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || hasDragged) return;
       state.collapsed = !state.collapsed; wrap.classList.toggle('col'); 
       shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
     });
