@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki — baza rowerów leżą v1.3.3
+// @name         Poziomki DB v1.4.1
 // @namespace    https://poziomki.info
-// @version      1.3.3
-// @description  Baza rowerów poziomych (Poprawny użytkownik: phenix1)
+// @version      1.4.1
+// @description  Recumbent bikes database (Shadow DOM, English UI, Search, Avatar & Logo from GitHub)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -15,15 +15,27 @@
 (function () {
   'use strict';
 
-  // --- POPRAWIONA ŚCIEŻKA (phenix1/poziomki-db) ---
+  // --- DATABASE URL ---
   const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
+  
+  // --- IMAGES (Pobierane prosto z Twojego GitHuba) ---
+  const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/logo.png';
+  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/phenix1.png';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.3.3" };
+  let CONFIG = { version: "1.4.1" };
 
   const SK = 'poziomki_v1';
-  let state = GM_getValue(SK, { collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', sortCol: 'kg', sortDir: -1 });
+  let state = GM_getValue(SK, { 
+      collapsed: false, 
+      minKg: 0, 
+      filterType: 'all', 
+      filterProd: 'all', 
+      sortCol: 'kg', 
+      sortDir: -1,
+      searchStr: '' 
+  });
   function save() { GM_setValue(SK, state); }
 
   const host = document.createElement('div');
@@ -35,51 +47,80 @@
   const style = document.createElement('style');
   style.textContent = `
     #pdb-wrap {
-      position: fixed; top: 54px; right: 12px; width: 560px; max-height: 90vh;
+      position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px;
       font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e;
-      display: flex; flex-direction: column; background: #fff; border: 1.5px solid #c0cce0;
-      border-radius: 12px; box-shadow: 0 8px 32px rgba(0,40,100,.14); overflow: hidden;
-      resize: horizontal; min-width: 360px; max-width: 90vw;
+      display: flex; flex-direction: column; background: #fff; border: 1px solid #c0cce0;
+      border-radius: 12px; box-shadow: 0 10px 40px rgba(0,30,80,.15); overflow: hidden;
+      resize: horizontal; min-width: 450px; max-width: 95vw;
     }
-    #pdb-wrap.col { max-height: 48px; }
-    #pdb-hdr { background: linear-gradient(135deg, #1a3a5c 0%, #2a6090 100%); color: #fff; padding: 10px 14px; display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; flex-shrink: 0; }
-    #pdb-hdr .icon { font-size: 18px; line-height: 1; }
-    #pdb-hdr .title { flex: 1; font-weight: 700; font-size: 13.5px; }
-    #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 1px 9px; font-size: 11px; font-weight: 700; }
-    #pdb-hdr .xbtn { background: none; border: none; color: rgba(255,255,255,.6); font-size: 16px; cursor: pointer; padding: 0 2px; }
+    #pdb-wrap.col { height: 50px; min-height: 50px; max-height: 50px; }
+    #pdb-hdr { 
+      background: linear-gradient(135deg, #162b45 0%, #2a6090 100%); color: #fff; 
+      padding: 8px 14px; display: flex; align-items: center; gap: 10px; 
+      cursor: pointer; user-select: none; flex-shrink: 0; height: 34px;
+    }
+    .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; }
+    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; }
+    #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; }
+    
+    /* Wyszukiwarka */
+    #pdb-search {
+      flex: 1; padding: 5px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); 
+      font-size: 12px; background: rgba(0,0,0,0.2); color: #fff; outline: none; transition: 0.2s;
+    }
+    #pdb-search::placeholder { color: rgba(255,255,255,0.6); }
+    #pdb-search:focus { background: #fff; color: #000; border-color: #fff; }
+    
+    #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+    #pdb-hdr .xbtn { background: none; border: none; color: rgba(255,255,255,.6); font-size: 16px; cursor: pointer; padding: 0 4px; }
     #pdb-hdr .xbtn:hover { color: #fff; }
+    
+    #pdb-body { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
     #pdb-wrap.col #pdb-body { display: none; }
-    #pdb-body { overflow-y: auto; overflow-x: hidden; flex: 1; }
-    .pdb-ctrl { padding: 8px 12px; display: flex; gap: 5px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; }
-    .pdb-ctrl select, .pdb-ctrl input { padding: 4px 7px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 90px; }
-    .pdb-stat { padding: 5px 12px; font-size: 11px; color: #666; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; }
+    
+    .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
+    .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
+    
+    /* Poprawione przewijanie tabeli */
+    #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
-    #pdb-tbl thead th { background: #eef3fa; font-size: 10px; font-weight: 700; padding: 6px 10px; text-align: left; cursor: pointer; position: sticky; top: 0; }
+    #pdb-tbl thead th { 
+      position: sticky; top: 0; background: #eef3fa; font-size: 11px; font-weight: 700; 
+      padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #2a6090; text-transform: uppercase;
+    }
     #pdb-tbl tbody tr { border-bottom: 1px solid #f0f4f8; }
+    #pdb-tbl tbody tr:hover td { background: #f8fafc; }
     #pdb-tbl tbody tr.row-collab-yes td { background: #f0fdf4; }
+    #pdb-tbl tbody tr.row-collab-yes:hover td { background: #e6fceb; }
     #pdb-tbl tbody tr.row-collab-yes td.pdb-prod { border-left: 3px solid #22c55e; }
     #pdb-tbl tbody tr.row-collab-closed td { background: #fff5f5; }
+    #pdb-tbl tbody tr.row-collab-closed:hover td { background: #ffeaea; }
     #pdb-tbl tbody tr.row-collab-closed td.pdb-prod { border-left: 3px solid #f87171; }
-    #pdb-tbl td { padding: 6px 10px; }
+    #pdb-tbl td { padding: 7px 10px; }
+    
     .pdb-prod { font-weight: 600; font-size: 12px; color: #1a3a5c; }
-    .pdb-model { font-size: 13px; }
-    .pdb-type { font-size: 10px; padding: 1px 6px; border-radius: 8px; font-weight: 600; }
+    .pdb-model { font-size: 13px; font-weight: 500; }
+    .pdb-type { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
     .t-tadpole { background: #e0eeff; color: #1a4494; } .t-delta { background: #fde8e0; color: #993020; }
     .t-bike { background: #e0f4e8; color: #1a6e40; } .t-quad { background: #f0e0fe; color: #6a10a0; }
+    
     .pdb-kg { font-weight: 700; font-size: 12px; }
     .kg-none { color: #aaa; font-weight: normal; font-style: italic; }
     .kg-low { color: #994020; }
     .kg-120plus { color: #1a6e40; }
     .kg-150plus { color: #1a4494; }
     .kg-200plus { color: #6a10a0; }
-    .pdb-link a { font-size: 11px; padding: 2px 8px; border: 1px solid #c0d0e4; border-radius: 5px; text-decoration: none; background: #f0f6ff; color: #1a4494; display: inline-block; text-align: center; width: 50px; }
+    
+    .pdb-link a { font-size: 11px; padding: 3px 8px; border: 1px solid #c0d0e4; border-radius: 5px; text-decoration: none; background: #f0f6ff; color: #1a4494; display: inline-block; text-align: center; min-width: 45px; font-weight: 600; }
     .pdb-link.arch a { background: #fdf5d8; border-color: #e4d498; color: #8a6a1c; }
     .pdb-link.check a { background: #f0e0fe; border-color: #d0b0f0; color: #6a10a0; }
-    .f-offroad { font-size: 9px; background: #e0d0b0; padding: 1px 4px; border-radius: 4px; margin-left: 4px; color: #5a4010; font-weight: bold; }
-    .pdb-foot { padding: 8px 12px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; }
-    .pdb-loading { padding: 20px; text-align: center; font-size: 13px; font-weight: bold; color: #2a6090; }
-    .error-msg { font-size: 11px; color: #cc0000; padding: 10px; background: #fff0f0; border: 1px solid #ffcccc; margin: 10px; border-radius: 6px; line-height: 1.4; }
-    .url-debug { font-family: monospace; font-size: 10px; word-break: break-all; background: #eee; padding: 4px; display: block; margin-top: 5px; }
+    .f-offroad { font-size: 9px; background: #e0d0b0; padding: 2px 5px; border-radius: 4px; margin-left: 6px; color: #5a4010; font-weight: bold; }
+    
+    /* Dolna belka */
+    .pdb-foot { padding: 10px 14px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
+    .pdb-loading { padding: 30px; text-align: center; font-size: 14px; font-weight: bold; color: #2a6090; }
+    .error-msg { font-size: 12px; color: #cc0000; padding: 15px; background: #fff0f0; border: 1px solid #ffcccc; margin: 15px; border-radius: 8px; line-height: 1.5; }
   `;
   shadow.appendChild(style);
 
@@ -91,19 +132,21 @@
       if (state.filterType !== 'all' && r.type !== state.filterType) return false;
       if (state.filterProd !== 'all' && r.p !== state.filterProd) return false;
       if (state.minKg > 0 && r.kg < state.minKg) return false;
+      if (state.searchStr) {
+          const s = state.searchStr.toLowerCase();
+          if (!r.p.toLowerCase().includes(s) && !r.m.toLowerCase().includes(s)) return false;
+      }
       return true;
     }).sort((a, b) => {
-      let primary = state.sortDir * ((state.sortCol === 'kg') ? ((a.kg||0) - (b.kg||0)) : ((a[state.sortCol]||'').localeCompare(b[state.sortCol]||'', 'pl')));
-      return primary !== 0 ? primary : a.p.localeCompare(b.p, 'pl') || a.m.localeCompare(b.m, 'pl');
+      let primary = state.sortDir * ((state.sortCol === 'kg') ? ((a.kg||0) - (b.kg||0)) : ((a[state.sortCol]||'').localeCompare(b[state.sortCol]||'', 'en')));
+      return primary !== 0 ? primary : a.p.localeCompare(b.p, 'en') || a.m.localeCompare(b.m, 'en');
     });
   }
 
   function render() {
     const rows = getFiltered();
     const cntEl = shadow.getElementById('pdb-cnt');
-    const statEl = shadow.getElementById('pdb-stat');
     if (cntEl) cntEl.textContent = rows.length;
-    if (statEl) statEl.textContent = `${rows.length} modeli · ${new Set(rows.map(r=>r.p)).size} marek`;
 
     const tbody = shadow.getElementById('pdb-tbody');
     if (!tbody) return;
@@ -111,7 +154,7 @@
     tbody.innerHTML = rows.map(r => {
       const collab = COLLAB[r.p] || '';
       let kgClass = 'kg-none';
-      let kgText = 'no data';
+      let kgText = 'N/A';
       if (r.kg > 0) {
         kgText = r.kg + ' kg';
         if (r.kg < 120) kgClass = 'kg-low';
@@ -120,9 +163,9 @@
         else kgClass = 'kg-200plus';
       }
       let linkClass = '';
-      let linkText = '↗ page';
-      if (r.arch) { linkClass = 'arch'; linkText = '🗄 arch'; }
-      if (r.check) { linkClass = 'check'; linkText = '❓ check'; }
+      let linkText = '↗ Link';
+      if (r.arch) { linkClass = 'arch'; linkText = '🗄 Arch'; }
+      if (r.check) { linkClass = 'check'; linkText = '❓ Check'; }
       const offroadHtml = r.offroad ? `<span class="f-offroad">OFFROAD</span>` : '';
 
       return `
@@ -141,25 +184,41 @@
     wrap.id = 'pdb-wrap';
     if (state.collapsed) wrap.classList.add('col');
     
-    const producers = ['all', ...new Set(DB.map(r => r.p))].sort((a,b) => a === 'all' ? -1 : a.localeCompare(b,'pl'));
+    const producers = ['all', ...new Set(DB.map(r => r.p))].sort((a,b) => a === 'all' ? -1 : a.localeCompare(b,'en'));
     
     wrap.innerHTML = `
-      <div id="pdb-hdr"><span class="icon">🚴</span><span class="title">Poziomki — baza v${CONFIG.version}</span><span class="badge" id="pdb-cnt">0</span><span id="pdb-arr">${state.collapsed?'▲':'▼'}</span><button class="xbtn" id="pdb-x">✕</button></div>
+      <div id="pdb-hdr">
+        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
+        <span class="title">Poziomki DB</span>
+        <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
+        <span class="badge" id="pdb-cnt" title="Models found">0</span>
+        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author">
+        <span id="pdb-arr">${state.collapsed?'▲':'▼'}</span>
+        <button class="xbtn" id="pdb-x">✕</button>
+      </div>
       <div id="pdb-body">
         <div class="pdb-ctrl">
-          <select id="pdb-prod">${producers.map(p => `<option value="${p}"${p===state.filterProd?' selected':''}>${p==='all'?'Wszyscy producenci':p}</option>`).join('')}</select>
+          <select id="pdb-prod">${producers.map(p => `<option value="${p}"${p===state.filterProd?' selected':''}>${p==='all'?'All producers':p}</option>`).join('')}</select>
           <select id="pdb-type">
-            <option value="all">Wszystkie typy</option><option value="tadpole">Tadpole</option><option value="delta">Delta</option><option value="bike">Rower</option><option value="quad">Quad / inne</option><option value="velomobile">Velomobile</option><option value="handcycle">Handcycle</option>
+            <option value="all">All types</option><option value="tadpole">Tadpole</option><option value="delta">Delta</option><option value="bike">Bike (2-wheel)</option><option value="quad">Quad</option><option value="velomobile">Velomobile</option><option value="handcycle">Handcycle</option>
           </select>
-          <input type="number" id="pdb-kg" placeholder="Min. kg" min="0" step="5" value="${state.minKg || ''}">
+          <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
-        <div class="pdb-stat" id="pdb-stat"></div>
-        <table id="pdb-tbl">
-          <thead><tr><th id="sort-p">Producent</th><th id="sort-m">Model</th><th id="sort-t">Typ</th><th id="sort-k">Nośność ↓</th><th>Link</th></tr></thead>
-          <tbody id="pdb-tbody"></tbody>
-        </table>
+        <div id="pdb-tbl-wrap">
+          <table id="pdb-tbl">
+            <thead><tr>
+              <th id="sort-p" style="width:25%;">Producer</th>
+              <th id="sort-m" style="width:35%;">Model</th>
+              <th id="sort-t" style="width:15%;">Type</th>
+              <th id="sort-k" style="width:15%;">Max Load ↓</th>
+              <th style="width:10%;">Link</th>
+            </tr></thead>
+            <tbody id="pdb-tbody"></tbody>
+          </table>
+        </div>
         <div class="pdb-foot">
-          Autor: <strong>${CONFIG.author || 'MBFeniks'}</strong> · <a href="mailto:${CONFIG.contact || 'phenix29@gmail.com'}">Kontakt</a>
+          <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
+          <a href="${CONFIG.supportBtnLink || '#'}" target="_blank" style="color:${CONFIG.supportBtnColor || '#ff813f'}; font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">${CONFIG.supportBtnText || 'Support'}</a>
         </div>
       </div>`;
 
@@ -167,10 +226,15 @@
     shadow.getElementById('pdb-type').value = state.filterType;
 
     shadow.getElementById('pdb-hdr').addEventListener('click', e => {
-      if(e.target.id === 'pdb-x') return;
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
       state.collapsed = !state.collapsed; wrap.classList.toggle('col'); shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
     });
     shadow.getElementById('pdb-x').addEventListener('click', () => host.remove());
+
+    shadow.getElementById('pdb-search').addEventListener('input', e => {
+        state.searchStr = e.target.value;
+        save(); render();
+    });
 
     ['pdb-prod','pdb-type','pdb-kg'].forEach(id => {
       shadow.getElementById(id).addEventListener('change', () => {
@@ -196,15 +260,15 @@
   async function loadData() {
     const loadingWrap = document.createElement('div');
     loadingWrap.id = 'pdb-wrap';
-    loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="icon">⏳</span><span class="title">Baza Poziomki</span></div><div class="pdb-loading" id="load-msg">Inicjalizacja...</div>`;
+    loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="title">Poziomki DB</span></div><div class="pdb-loading" id="load-msg">Initializing...</div>`;
     shadow.appendChild(loadingWrap);
 
     try {
-      shadow.getElementById('load-msg').textContent = "Pobieranie danych...";
+      shadow.getElementById('load-msg').textContent = "Fetching database...";
       const response = await fetch(JSON_URL);
       
       if (!response.ok) {
-          throw new Error(`Serwer zwrócił błąd ${response.status}. Plik nie istnieje pod tym adresem.`);
+          throw new Error(`Server returned ${response.status}. File not found.`);
       }
       
       const data = await response.json();
@@ -215,13 +279,13 @@
       loadingWrap.remove();
       buildUI();
     } catch (error) {
-      console.error("Błąd projektu Poziomki:", error);
+      console.error("Poziomki DB Error:", error);
       loadingWrap.innerHTML = `
-        <div id="pdb-hdr"><span class="icon">❌</span><span class="title">Błąd ładowania</span></div>
+        <div id="pdb-hdr"><span class="title">Poziomki DB Error</span></div>
         <div class="error-msg">
-            <strong>Nie znaleziono bazy danych!</strong><br>
-            Sprawdzany adres:<br>
-            <span class="url-debug">${JSON_URL}</span>
+            <strong>Database not found!</strong><br>
+            Please verify the URL:<br>
+            <i>${JSON_URL}</i>
         </div>
       `;
     }
