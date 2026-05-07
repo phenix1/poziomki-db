@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v1.4.3
+// @name         Poziomki DB v1.5
 // @namespace    https://poziomki.info
-// @version      1.4.3
-// @description  Recumbent bikes database (Draggable UI, me.png avatar, Ko-fi link)
+// @version      1.5
+// @description  Recumbent bikes database (Dynamic Sorting, Cache Buster for Avatar, Raw Link)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -18,23 +18,24 @@
   // --- DATABASE URL ---
   const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
   
-  // --- IMAGES & LINKS ---
+  // --- IMAGES (Z parametrem omijającym cache dla zdjęcia!) ---
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
-  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png';
+  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png?nocache=' + new Date().getTime();
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.4.3" };
+  let CONFIG = { version: "1.5" };
 
-  const SK = 'poziomki_v1';
+  // Zmiana klucza na v1_5 wymusi reset starych ustawień u każdego użytkownika
+  const SK = 'poziomki_state_v1_5';
   let state = GM_getValue(SK, { 
       collapsed: false, 
       minKg: 0, 
       filterType: 'all', 
       filterProd: 'all', 
-      sortCol: 'kg', 
-      sortDir: -1,
+      sortCol: 'p', // Domyślnie sortuje po Producencie
+      sortDir: 1,   // A-Z
       searchStr: '' 
   });
   function save() { GM_setValue(SK, state); }
@@ -62,10 +63,9 @@
     }
     #pdb-hdr:active { cursor: grabbing; }
     .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; pointer-events: none; }
-    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; pointer-events: none; }
+    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; pointer-events: none; background: #fff; }
     #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; pointer-events: none; }
     
-    /* Wyszukiwarka */
     #pdb-search {
       flex: 1; padding: 5px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); 
       font-size: 12px; background: rgba(0,0,0,0.2); color: #fff; outline: none; transition: 0.2s;
@@ -83,7 +83,6 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
     
-    /* Poprawione przewijanie tabeli */
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
     #pdb-tbl thead th { 
@@ -119,7 +118,6 @@
     .pdb-link.check a { background: #f0e0fe; border-color: #d0b0f0; color: #6a10a0; }
     .f-offroad { font-size: 9px; background: #e0d0b0; padding: 2px 5px; border-radius: 4px; margin-left: 6px; color: #5a4010; font-weight: bold; }
     
-    /* Dolna belka */
     .pdb-foot { padding: 10px 14px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
     .pdb-loading { padding: 30px; text-align: center; font-size: 14px; font-weight: bold; color: #2a6090; }
     .error-msg { font-size: 12px; color: #cc0000; padding: 15px; background: #fff0f0; border: 1px solid #ffcccc; margin: 15px; border-radius: 8px; line-height: 1.5; }
@@ -149,6 +147,18 @@
     const rows = getFiltered();
     const cntEl = shadow.getElementById('pdb-cnt');
     if (cntEl) cntEl.textContent = rows.length;
+
+    // Aktualizacja dynamicznych nagłówków tabeli (strzałki sortowania)
+    const headers = { p: 'Producer', m: 'Model', type: 'Type', kg: 'Max Load' };
+    ['p', 'm', 'type', 'kg'].forEach(col => {
+      const th = shadow.getElementById('sort-' + (col === 'type' ? 't' : col === 'kg' ? 'k' : col));
+      if (!th) return;
+      let text = headers[col];
+      if (state.sortCol === col) {
+          text += state.sortDir === 1 ? ' ↑' : ' ↓';
+      }
+      th.textContent = text;
+    });
 
     const tbody = shadow.getElementById('pdb-tbody');
     if (!tbody) return;
@@ -190,11 +200,11 @@
     
     wrap.innerHTML = `
       <div id="pdb-hdr">
-        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
+        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo" onerror="this.style.display='none'">
         <span class="title">Poziomki DB</span>
         <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
         <span class="badge" id="pdb-cnt" title="Models found">0</span>
-        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author">
+        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="this.style.display='none'">
         <span id="pdb-arr">${state.collapsed?'▲':'▼'}</span>
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
@@ -212,7 +222,7 @@
               <th id="sort-p" style="width:25%;">Producer</th>
               <th id="sort-m" style="width:35%;">Model</th>
               <th id="sort-t" style="width:15%;">Type</th>
-              <th id="sort-k" style="width:15%;">Max Load ↓</th>
+              <th id="sort-k" style="width:15%;">Max Load</th>
               <th style="width:10%;">Link</th>
             </tr></thead>
             <tbody id="pdb-tbody"></tbody>
@@ -227,70 +237,40 @@
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
-    // --- LOGIKA PRZECIĄGANIA (DRAG & DROP) ---
+    // --- DRAG & DROP ---
     const header = shadow.getElementById('pdb-hdr');
     let isDragging = false;
     let hasDragged = false;
     let startX, startY, initialLeft, initialTop;
 
     header.addEventListener('mousedown', (e) => {
-      // Wyklucz kliknięcia w przycisk zamykania i wyszukiwarkę
       if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
-      
-      isDragging = true;
-      hasDragged = false;
-      startX = e.clientX;
-      startY = e.clientY;
-      
+      isDragging = true; hasDragged = false; startX = e.clientX; startY = e.clientY;
       const rect = wrap.getBoundingClientRect();
-      initialLeft = rect.left;
-      initialTop = rect.top;
-      
-      // Zdejmujemy kotwiczenie do prawej strony na rzecz precyzyjnego pozycjonowania od lewej
-      wrap.style.right = 'auto';
-      wrap.style.left = initialLeft + 'px';
-      wrap.style.top = initialTop + 'px';
-      
-      e.preventDefault(); // Zapobiega zaznaczaniu tekstu
+      initialLeft = rect.left; initialTop = rect.top;
+      wrap.style.right = 'auto'; wrap.style.left = initialLeft + 'px'; wrap.style.top = initialTop + 'px';
+      e.preventDefault();
     });
 
     document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
-      
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      
-      // Jeśli mysz przesunie się o więcej niż 3px, traktujemy to jako przeciąganie, a nie klik
-      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
-        hasDragged = true;
-      }
-      
-      if (hasDragged) {
-        wrap.style.left = (initialLeft + dx) + 'px';
-        wrap.style.top = (initialTop + dy) + 'px';
-      }
+      const dx = e.clientX - startX; const dy = e.clientY - startY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged = true;
+      if (hasDragged) { wrap.style.left = (initialLeft + dx) + 'px'; wrap.style.top = (initialTop + dy) + 'px'; }
     });
 
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
+    document.addEventListener('mouseup', () => { isDragging = false; });
 
-    // --- ZWIJANIE/ROZWIJANIE PO KLIKNIĘCIU ---
     header.addEventListener('click', e => {
-      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
-      if(hasDragged) return; // Jeśli użytkownik przeciągał, nie rozwijaj/zwijaj
-      
-      state.collapsed = !state.collapsed; 
-      wrap.classList.toggle('col'); 
-      shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; 
-      save();
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || hasDragged) return;
+      state.collapsed = !state.collapsed; wrap.classList.toggle('col'); 
+      shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
     });
 
     shadow.getElementById('pdb-x').addEventListener('click', () => host.remove());
 
     shadow.getElementById('pdb-search').addEventListener('input', e => {
-        state.searchStr = e.target.value;
-        save(); render();
+        state.searchStr = e.target.value; save(); render();
     });
 
     ['pdb-prod','pdb-type','pdb-kg'].forEach(id => {
@@ -324,12 +304,9 @@
       shadow.getElementById('load-msg').textContent = "Fetching database...";
       const response = await fetch(JSON_URL);
       
-      if (!response.ok) {
-          throw new Error(`Server returned ${response.status}. File not found.`);
-      }
+      if (!response.ok) throw new Error(`Server returned ${response.status}. File not found.`);
       
       const data = await response.json();
-      
       if (Array.isArray(data)) { DB = data; } 
       else { COLLAB = data.COLLAB || {}; DB = data.DB || []; CONFIG = data.CONFIG || CONFIG; }
 
@@ -337,14 +314,7 @@
       buildUI();
     } catch (error) {
       console.error("Poziomki DB Error:", error);
-      loadingWrap.innerHTML = `
-        <div id="pdb-hdr"><span class="title">Poziomki DB Error</span></div>
-        <div class="error-msg">
-            <strong>Database not found!</strong><br>
-            Please verify the URL:<br>
-            <i>${JSON_URL}</i>
-        </div>
-      `;
+      loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="title">Poziomki DB Error</span></div><div class="error-msg"><strong>Database not found!</strong><br>Please verify the URL:<br><i>${JSON_URL}</i></div>`;
     }
   }
 
