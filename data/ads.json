@@ -1,13 +1,12 @@
 {
   "top": {
     "active": true,
-    "type": "image",
-    "link": "https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-nożem?pli=1",
-    "image": "https://placehold.co/468x60/1a3a5c/ffffff?text=Warsztaty+Rzucania+Nożem"
+    "type": "html",
+    "content": "<a href='https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1' target='_blank' style='display:flex; justify-content:center; align-items:center; background:linear-gradient(90deg, #162b45 0%, #2a6090 100%); color:#fff; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,0.4); box-shadow:0 2px 8px rgba(0,0,0,0.15);'>🎯 Warsztaty z podstaw rzucania nożem - Kliknij i sprawdź!</a>"
   },
   "bottom": {
     "active": true,
     "type": "html",
-    "content": "<div style='padding:10px; background:#ff813f; color:#fff; border-radius:5px; font-weight:bold;'>To jest czysty HTML! Możesz tu wpisać co chcesz.</div>"
+    "content": "Tu może być Twoja reklama"
   }
 }
