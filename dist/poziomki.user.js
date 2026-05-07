@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v2.0
+// @name         Poziomki DB v2.1
 // @namespace    https://poziomki.info
-// @version      2.0
-// @description  Recumbent bikes database (AdBlock Immune, Sharp Zoom Avatar/Logo)
+// @version      2.1
+// @description  Recumbent bikes database (External Ads System ads.json)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -17,8 +17,10 @@
 (function () {
   'use strict';
 
-  // --- DATABASE URL ---
+  // --- DATABASE & ADS URLS ---
   const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
+  // Cache buster dla reklam, aby aktualizowały się natychmiast u wszystkich!
+  const ADS_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/ads.json?t=' + Date.now();
   
   // --- IMAGES ---
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
@@ -27,9 +29,10 @@
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "2.0" };
+  let CONFIG = { version: "2.1" };
+  let ADS = {}; // Nowy obiekt na reklamy
 
-  const SK = 'poziomki_state_v2_0';
+  const SK = 'poziomki_state_v2_1';
   let state = GM_getValue(SK, { 
       collapsed: false, 
       minKg: 0, 
@@ -43,7 +46,6 @@
 
   let host, shadow;
 
-  // Pobieranie poza zasięgiem zabezpieczeń witryn
   function fetchJSON(url) {
       return new Promise((resolve, reject) => {
           GM_xmlhttpRequest({
@@ -52,51 +54,34 @@
               onload: (res) => {
                   if (res.status >= 200 && res.status < 300) {
                       try { resolve(JSON.parse(res.responseText)); } 
-                      catch (e) { reject(new Error('Błąd struktury JSON w pliku db.json')); }
-                  } else { reject(new Error('Serwer odrzucił żądanie: ' + res.status)); }
+                      catch (e) { reject(new Error('Błąd struktury JSON')); }
+                  } else { reject(new Error('Błąd HTTP: ' + res.status)); }
               },
               onerror: () => reject(new Error('Błąd sieci.')),
-              ontimeout: () => reject(new Error('Przekroczono czas oczekiwania.'))
+              ontimeout: () => reject(new Error('Przekroczono czas.'))
           });
       });
   }
 
   const styleCSS = `
-    #pdb-wrap {
-      position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px;
-      font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e;
-      display: flex; flex-direction: column; background: transparent; 
-      filter: drop-shadow(0 10px 30px rgba(0,30,80,.2));
-      resize: horizontal; min-width: 450px; max-width: 95vw;
-    }
+    #pdb-wrap { position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e; display: flex; flex-direction: column; background: transparent; filter: drop-shadow(0 10px 30px rgba(0,30,80,.2)); resize: horizontal; min-width: 450px; max-width: 95vw; }
     #pdb-wrap.col { height: 50px; min-height: 50px; max-height: 50px; }
-    #pdb-hdr { 
-      background: linear-gradient(135deg, #162b45 0%, #2a6090 100%); color: #fff; 
-      padding: 8px 14px; display: flex; align-items: center; gap: 10px; 
-      cursor: grab; user-select: none; flex-shrink: 0; height: 34px;
-      border-radius: 12px 12px 0 0; border: 1px solid #162b45; border-bottom: none;
-    }
+    #pdb-hdr { background: linear-gradient(135deg, #162b45 0%, #2a6090 100%); color: #fff; padding: 8px 14px; display: flex; align-items: center; gap: 10px; cursor: grab; user-select: none; flex-shrink: 0; height: 34px; border-radius: 12px 12px 0 0; border: 1px solid #162b45; border-bottom: none; }
     #pdb-wrap.col #pdb-hdr { border-radius: 12px; border-bottom: 1px solid #162b45; }
     #pdb-hdr:active { cursor: grabbing; }
     
-    /* System Wrapo'wania = Zawsze ostre powiększenie! */
     .logo-wrap { width: 26px; height: 26px; position: relative; flex-shrink: 0; }
-    .hdr-logo { width: 65px; height: 65px; position: absolute; top: 0; left: 0; transform: scale(0.4); transform-origin: top left; border-radius: 15px; background: #fff; padding: 5px; object-fit: contain; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-sizing: border-box; cursor: pointer; }
+    .hdr-logo { width: 65px; height: 65px; position: absolute; top: 0; left: 0; transform: scale(0.4); transform-origin: top left; border-radius: 15px; background: #fff; padding: 5px; object-fit: contain; transition: transform 0.2s; box-sizing: border-box; cursor: pointer; }
     .hdr-logo:hover { transform: scale(1); z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
 
     .avatar-wrap { width: 30px; height: 30px; position: relative; flex-shrink: 0; }
-    .hdr-avatar { width: 75px; height: 75px; position: absolute; top: 0; right: 0; transform: scale(0.4); transform-origin: top right; border-radius: 50%; border: 5px solid rgba(255,255,255,0.9); object-fit: cover; background: #fff; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-sizing: border-box; cursor: pointer; }
+    .hdr-avatar { width: 75px; height: 75px; position: absolute; top: 0; right: 0; transform: scale(0.4); transform-origin: top right; border-radius: 50%; border: 5px solid rgba(255,255,255,0.9); object-fit: cover; background: #fff; transition: transform 0.2s; box-sizing: border-box; cursor: pointer; }
     .hdr-avatar:hover { transform: scale(1); z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
     
     #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; pointer-events: none; }
-    
-    #pdb-search {
-      flex: 1; padding: 5px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); 
-      font-size: 12px; background: rgba(0,0,0,0.2); color: #fff; outline: none; transition: 0.2s;
-    }
+    #pdb-search { flex: 1; padding: 5px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); font-size: 12px; background: rgba(0,0,0,0.2); color: #fff; outline: none; transition: 0.2s; }
     #pdb-search::placeholder { color: rgba(255,255,255,0.6); }
     #pdb-search:focus { background: #fff; color: #000; border-color: #fff; }
-    
     #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 700; pointer-events: none; }
     #pdb-hdr .xbtn { background: none; border: none; color: rgba(255,255,255,.6); font-size: 16px; cursor: pointer; padding: 0 4px; }
     #pdb-hdr .xbtn:hover { color: #fff; }
@@ -107,28 +92,22 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
     
-    /* Zmiana nazw klas ucieka przed AdBlockiem */
-    .pdb-notice { text-align: center; background: #f8fafc; flex-shrink: 0; padding: 8px; display: flex; justify-content: center; }
-    .pdb-notice img { max-width: 100%; max-height: 80px; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
-    .pdb-notice a { transition: opacity 0.2s; }
+    /* Sekcje Reklamowe */
+    .pdb-notice { text-align: center; background: #f8fafc; flex-shrink: 0; padding: 6px; display: none; justify-content: center; }
+    .pdb-notice img { max-width: 100%; max-height: 90px; object-fit: contain; border-radius: 4px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
+    .pdb-notice a { transition: opacity 0.2s; text-decoration: none; width: 100%; display: flex; justify-content: center; }
     .pdb-notice a:hover { opacity: 0.85; }
     #pdb-msg-top { border-bottom: 1px solid #e0e8f0; }
     #pdb-msg-bottom { border-top: 1px solid #e0e8f0; }
     
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
-    #pdb-tbl thead th { 
-      position: sticky; top: 0; background: #eef3fa; font-size: 11px; font-weight: 700; 
-      padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #2a6090; text-transform: uppercase;
-    }
+    #pdb-tbl thead th { position: sticky; top: 0; background: #eef3fa; font-size: 11px; font-weight: 700; padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #2a6090; text-transform: uppercase; }
     #pdb-tbl tbody tr { border-bottom: 1px solid #f0f4f8; }
     #pdb-tbl tbody tr:hover td { background: #f8fafc; }
     #pdb-tbl tbody tr.row-collab-yes td { background: #f0fdf4; }
-    #pdb-tbl tbody tr.row-collab-yes:hover td { background: #e6fceb; }
     #pdb-tbl tbody tr.row-collab-yes td.pdb-prod { border-left: 3px solid #22c55e; }
     #pdb-tbl tbody tr.row-collab-closed td { background: #fff5f5; }
-    #pdb-tbl tbody tr.row-collab-closed:hover td { background: #ffeaea; }
     #pdb-tbl tbody tr.row-collab-closed td.pdb-prod { border-left: 3px solid #f87171; }
     #pdb-tbl td { padding: 7px 10px; }
     
@@ -179,11 +158,10 @@
     const cntEl = shadow.getElementById('pdb-cnt');
     if (cntEl) cntEl.textContent = rows.length;
 
-    const headers = { p: 'Producer', m: 'Model', type: 'Type', kg: 'Max Load' };
     ['p', 'm', 'type', 'kg'].forEach(col => {
       const th = shadow.getElementById('sort-' + (col === 'type' ? 't' : col === 'kg' ? 'k' : col));
       if (!th) return;
-      let text = headers[col];
+      let text = { p: 'Producer', m: 'Model', type: 'Type', kg: 'Max Load' }[col];
       if (state.sortCol === col) text += state.sortDir === 1 ? ' ↑' : ' ↓';
       th.textContent = text;
     });
@@ -196,10 +174,7 @@
       let kgClass = 'kg-none'; let kgText = 'N/A';
       if (r.kg > 0) {
         kgText = r.kg + ' kg';
-        if (r.kg < 120) kgClass = 'kg-low';
-        else if (r.kg < 150) kgClass = 'kg-120plus';
-        else if (r.kg < 200) kgClass = 'kg-150plus';
-        else kgClass = 'kg-200plus';
+        if (r.kg < 120) kgClass = 'kg-low'; else if (r.kg < 150) kgClass = 'kg-120plus'; else if (r.kg < 200) kgClass = 'kg-150plus'; else kgClass = 'kg-200plus';
       }
       let linkClass = ''; let linkText = '↗ Link';
       if (r.arch) { linkClass = 'arch'; linkText = '🗄 Arch'; }
@@ -217,6 +192,22 @@
     }).join('');
   }
 
+  // Funkcja budująca reklamy z pliku JSON
+  function renderAdBlock(adData, elementId) {
+      const el = shadow.getElementById(elementId);
+      if (!el) return;
+      if (!adData || !adData.active) {
+          el.style.display = 'none';
+          return;
+      }
+      el.style.display = 'flex';
+      if (adData.type === 'html') {
+          el.innerHTML = adData.content || '';
+      } else if (adData.type === 'image') {
+          el.innerHTML = `<a href="${adData.link}" target="_blank"><img src="${adData.image}" alt="Promo"></a>`;
+      }
+  }
+
   function buildUI() {
     const wrap = document.createElement('div');
     wrap.id = 'pdb-wrap';
@@ -226,15 +217,11 @@
     
     wrap.innerHTML = `
       <div id="pdb-hdr">
-        <div class="logo-wrap">
-           <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
-        </div>
+        <div class="logo-wrap"><img src="${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
         <span class="title">Poziomki DB</span>
         <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
         <span class="badge" id="pdb-cnt" title="Models found">0</span>
-        <div class="avatar-wrap">
-           <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}">
-        </div>
+        <div class="avatar-wrap"><img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}"></div>
         <span id="pdb-arr">${state.collapsed?'▲':'▼'}</span>
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
@@ -247,11 +234,7 @@
           <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
         
-        <div id="pdb-msg-top" class="pdb-notice">
-           <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank" style="display:block; width:100%; max-width:468px; background:linear-gradient(90deg, #1a3a5c 0%, #2a6090 100%); color:#fff; text-decoration:none; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
-              🎯 Warsztaty Rzucania Nożem - Kliknij i sprawdź!
-           </a>
-        </div>
+        <div id="pdb-msg-top" class="pdb-notice"></div>
 
         <div id="pdb-tbl-wrap">
           <table id="pdb-tbl">
@@ -266,7 +249,7 @@
           </table>
         </div>
         
-        <div id="pdb-msg-bottom" class="pdb-notice" style="display:none;"></div>
+        <div id="pdb-msg-bottom" class="pdb-notice"></div>
 
         <div class="pdb-foot">
           <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
@@ -277,16 +260,9 @@
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
-    if (CONFIG.adTop) {
-        const adTopEl = shadow.getElementById('pdb-msg-top');
-        adTopEl.innerHTML = CONFIG.adTop;
-        adTopEl.style.display = 'flex';
-    }
-    if (CONFIG.adBottom) {
-        const adBotEl = shadow.getElementById('pdb-msg-bottom');
-        adBotEl.innerHTML = CONFIG.adBottom;
-        adBotEl.style.display = 'flex';
-    }
+    // Aplikowanie reklam z pliku ads.json
+    renderAdBlock(ADS.top, 'pdb-msg-top');
+    renderAdBlock(ADS.bottom, 'pdb-msg-bottom');
 
     const header = shadow.getElementById('pdb-hdr');
     let isDragging = false; let hasDragged = false; let startX, startY, initialLeft, initialTop;
@@ -299,22 +275,18 @@
       wrap.style.right = 'auto'; wrap.style.left = initialLeft + 'px'; wrap.style.top = initialTop + 'px';
       e.preventDefault();
     });
-
     document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       const dx = e.clientX - startX; const dy = e.clientY - startY;
       if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged = true;
       if (hasDragged) { wrap.style.left = (initialLeft + dx) + 'px'; wrap.style.top = (initialTop + dy) + 'px'; }
     });
-
     document.addEventListener('mouseup', () => { isDragging = false; });
-
     header.addEventListener('click', e => {
       if(e.target.closest('.logo-wrap') || e.target.closest('.avatar-wrap') || e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || hasDragged) return;
       state.collapsed = !state.collapsed; wrap.classList.toggle('col'); 
       shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
     });
-
     shadow.getElementById('pdb-x').addEventListener('click', () => host.remove());
     shadow.getElementById('pdb-search').addEventListener('input', e => { state.searchStr = e.target.value; save(); render(); });
 
@@ -355,15 +327,20 @@
 
     const loadingWrap = document.createElement('div');
     loadingWrap.id = 'pdb-wrap';
-    loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="title">Poziomki DB</span></div><div class="pdb-loading" id="load-msg">Initializing...</div>`;
+    loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="title">Poziomki DB</span></div><div class="pdb-loading" id="load-msg">Fetching data...</div>`;
     shadow.appendChild(loadingWrap);
 
     try {
-      shadow.getElementById('load-msg').textContent = "Fetching database...";
-      const data = await fetchJSON(JSON_URL);
+      // Pobieramy Bazę ORAZ Reklamy równolegle (bardzo szybko)
+      const [dbResponse, adsResponse] = await Promise.all([
+          fetchJSON(JSON_URL),
+          fetchJSON(ADS_URL).catch(e => { console.log('Brak pliku ads.json, ignoruję reklamy.'); return {}; })
+      ]);
       
-      if (Array.isArray(data)) { DB = data; } 
-      else { COLLAB = data.COLLAB || {}; DB = data.DB || []; CONFIG = data.CONFIG || CONFIG; }
+      if (Array.isArray(dbResponse)) { DB = dbResponse; } 
+      else { COLLAB = dbResponse.COLLAB || {}; DB = dbResponse.DB || []; CONFIG = dbResponse.CONFIG || CONFIG; }
+      
+      ADS = adsResponse || {};
 
       loadingWrap.remove();
       buildUI();
