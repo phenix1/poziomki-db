@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v2.2
+// @name         Poziomki DB v2.3
 // @namespace    https://poziomki.info
-// @version      2.2
-// @description  Recumbent bikes database (Bulletproof HTML Ads, Perfect Polish)
+// @version      2.3
+// @description  Recumbent bikes database (Stealth Ads, JSON Sanitizer)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -26,10 +26,10 @@
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "2.2" };
+  let CONFIG = { version: "2.3" };
   let ADS = {}; 
 
-  const SK = 'poziomki_state_v2_2';
+  const SK = 'poziomki_state_v2_3';
   let state = GM_getValue(SK, { collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', sortCol: 'p', sortDir: 1, searchStr: '' });
   function save() { GM_setValue(SK, state); }
 
@@ -41,7 +41,14 @@
               method: 'GET', url: url,
               onload: (res) => {
                   if (res.status >= 200 && res.status < 300) {
-                      try { resolve(JSON.parse(res.responseText)); } catch (e) { reject(new Error('Błąd JSON')); }
+                      try { 
+                          // ODKURZACZ JSON: Usuwa twarde spacje (NBSP), które psują format po kopiowaniu
+                          const cleanedText = res.responseText.replace(/[\u00A0\u200B]/g, ' ');
+                          resolve(JSON.parse(cleanedText)); 
+                      } catch (e) { 
+                          console.error("Poziomki DB: Błąd struktury pliku JSON pod adresem " + url, e);
+                          reject(new Error('Błąd JSON')); 
+                      }
                   } else { reject(new Error('Błąd HTTP: ' + res.status)); }
               },
               onerror: () => reject(new Error('Błąd sieci.')), ontimeout: () => reject(new Error('Przekroczono czas.'))
@@ -78,14 +85,14 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
     
-    /* Pancerne banery HTML */
-    .pdb-notice { background: #f8fafc; flex-shrink: 0; padding: 6px 12px; display: none; justify-content: center; align-items: center; }
-    .pdb-notice img { max-width: 100%; max-height: 90px; object-fit: contain; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
-    .pdb-notice a { display: block; width: 100%; transition: opacity 0.2s, transform 0.1s; text-decoration: none; }
-    .pdb-notice a:hover { opacity: 0.9; transform: translateY(-1px); }
-    .pdb-notice a:active { transform: translateY(1px); }
-    #pdb-msg-top { border-bottom: 1px solid #e0e8f0; }
-    #pdb-msg-bottom { border-top: 1px solid #e0e8f0; }
+    /* PANCERNY KAMUFLAŻ PRZED ADBLOCKIEM */
+    .pdb-sys-card { background: #f8fafc; flex-shrink: 0; padding: 6px 12px; display: none; justify-content: center; align-items: center; }
+    .pdb-sys-card img { max-width: 100%; max-height: 90px; object-fit: contain; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
+    .pdb-sys-card a { display: block; width: 100%; transition: opacity 0.2s, transform 0.1s; text-decoration: none; }
+    .pdb-sys-card a:hover { opacity: 0.9; transform: translateY(-1px); }
+    .pdb-sys-card a:active { transform: translateY(1px); }
+    #pdb-sys-inf1 { border-bottom: 1px solid #e0e8f0; }
+    #pdb-sys-inf2 { border-top: 1px solid #e0e8f0; }
     
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -197,7 +204,7 @@
       if (adData.type === 'html') {
           el.innerHTML = adData.content || '';
       } else if (adData.type === 'image') {
-          el.innerHTML = `<a href="${adData.link}" target="_blank"><img src="${adData.image}" alt="Sponsor"></a>`;
+          el.innerHTML = `<a href="${adData.link}" target="_blank"><img src="${adData.image}" alt="Info"></a>`;
       }
   }
 
@@ -227,7 +234,7 @@
           <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
         
-        <div id="pdb-msg-top" class="pdb-notice"></div>
+        <div id="pdb-sys-inf1" class="pdb-sys-card"></div>
 
         <div id="pdb-tbl-wrap">
           <table id="pdb-tbl">
@@ -242,7 +249,7 @@
           </table>
         </div>
         
-        <div id="pdb-msg-bottom" class="pdb-notice"></div>
+        <div id="pdb-sys-inf2" class="pdb-sys-card"></div>
 
         <div class="pdb-foot">
           <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
@@ -253,15 +260,15 @@
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
-    // Domyślny, pancerny baner HTML (jeśli ads.json zawiedzie)
+    // Domyślny, pancerny baner HTML (ładuje się jeśli ads.json będzie miał awarię)
     const defaultHTMLTop = `
        <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank" style="display:flex; justify-content:center; align-items:center; background:linear-gradient(90deg, #162b45 0%, #2a6090 100%); color:#fff; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,0.4); box-shadow:0 2px 8px rgba(0,0,0,0.15);">
           🎯 Warsztaty z podstaw rzucania nożem - Kliknij i sprawdź!
        </a>
     `;
 
-    renderAdBlock(ADS.top, 'pdb-msg-top', defaultHTMLTop);
-    renderAdBlock(ADS.bottom, 'pdb-msg-bottom', '');
+    renderAdBlock(ADS.top, 'pdb-sys-inf1', defaultHTMLTop);
+    renderAdBlock(ADS.bottom, 'pdb-sys-inf2', '');
 
     const header = shadow.getElementById('pdb-hdr');
     let isDragging = false; let hasDragged = false; let startX, startY, initialLeft, initialTop;
