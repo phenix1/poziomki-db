@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v1.4.1
+// @name         Poziomki DB v1.4.3
 // @namespace    https://poziomki.info
-// @version      1.4.1
-// @description  Recumbent bikes database (Shadow DOM, English UI, Search, Avatar & Logo from GitHub)
+// @version      1.4.3
+// @description  Recumbent bikes database (Draggable UI, me.png avatar, Ko-fi link)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -18,13 +18,14 @@
   // --- DATABASE URL ---
   const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
   
-  // --- IMAGES (Pobierane prosto z Twojego GitHuba) ---
-  const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/logo.png';
-  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/phenix1.png';
+  // --- IMAGES & LINKS ---
+  const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
+  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png';
+  const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.4.1" };
+  let CONFIG = { version: "1.4.3" };
 
   const SK = 'poziomki_v1';
   let state = GM_getValue(SK, { 
@@ -57,11 +58,12 @@
     #pdb-hdr { 
       background: linear-gradient(135deg, #162b45 0%, #2a6090 100%); color: #fff; 
       padding: 8px 14px; display: flex; align-items: center; gap: 10px; 
-      cursor: pointer; user-select: none; flex-shrink: 0; height: 34px;
+      cursor: grab; user-select: none; flex-shrink: 0; height: 34px;
     }
-    .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; }
-    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; }
-    #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; }
+    #pdb-hdr:active { cursor: grabbing; }
+    .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; pointer-events: none; }
+    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; pointer-events: none; }
+    #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; pointer-events: none; }
     
     /* Wyszukiwarka */
     #pdb-search {
@@ -71,7 +73,7 @@
     #pdb-search::placeholder { color: rgba(255,255,255,0.6); }
     #pdb-search:focus { background: #fff; color: #000; border-color: #fff; }
     
-    #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+    #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 700; pointer-events: none; }
     #pdb-hdr .xbtn { background: none; border: none; color: rgba(255,255,255,.6); font-size: 16px; cursor: pointer; padding: 0 4px; }
     #pdb-hdr .xbtn:hover { color: #fff; }
     
@@ -218,17 +220,72 @@
         </div>
         <div class="pdb-foot">
           <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
-          <a href="${CONFIG.supportBtnLink || '#'}" target="_blank" style="color:${CONFIG.supportBtnColor || '#ff813f'}; font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">${CONFIG.supportBtnText || 'Support'}</a>
+          <a href="${CONFIG.supportBtnLink || KOFI_URL}" target="_blank" style="color:${CONFIG.supportBtnColor || '#ff813f'}; font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">${CONFIG.supportBtnText || '☕ Support via Ko-fi'}</a>
         </div>
       </div>`;
 
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
-    shadow.getElementById('pdb-hdr').addEventListener('click', e => {
+    // --- LOGIKA PRZECIĄGANIA (DRAG & DROP) ---
+    const header = shadow.getElementById('pdb-hdr');
+    let isDragging = false;
+    let hasDragged = false;
+    let startX, startY, initialLeft, initialTop;
+
+    header.addEventListener('mousedown', (e) => {
+      // Wyklucz kliknięcia w przycisk zamykania i wyszukiwarkę
       if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
-      state.collapsed = !state.collapsed; wrap.classList.toggle('col'); shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
+      
+      isDragging = true;
+      hasDragged = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      
+      const rect = wrap.getBoundingClientRect();
+      initialLeft = rect.left;
+      initialTop = rect.top;
+      
+      // Zdejmujemy kotwiczenie do prawej strony na rzecz precyzyjnego pozycjonowania od lewej
+      wrap.style.right = 'auto';
+      wrap.style.left = initialLeft + 'px';
+      wrap.style.top = initialTop + 'px';
+      
+      e.preventDefault(); // Zapobiega zaznaczaniu tekstu
     });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      
+      // Jeśli mysz przesunie się o więcej niż 3px, traktujemy to jako przeciąganie, a nie klik
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+        hasDragged = true;
+      }
+      
+      if (hasDragged) {
+        wrap.style.left = (initialLeft + dx) + 'px';
+        wrap.style.top = (initialTop + dy) + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // --- ZWIJANIE/ROZWIJANIE PO KLIKNIĘCIU ---
+    header.addEventListener('click', e => {
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
+      if(hasDragged) return; // Jeśli użytkownik przeciągał, nie rozwijaj/zwijaj
+      
+      state.collapsed = !state.collapsed; 
+      wrap.classList.toggle('col'); 
+      shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; 
+      save();
+    });
+
     shadow.getElementById('pdb-x').addEventListener('click', () => host.remove());
 
     shadow.getElementById('pdb-search').addEventListener('input', e => {
