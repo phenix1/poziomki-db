@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v1.6
+// @name         Poziomki DB v1.7
 // @namespace    https://poziomki.info
-// @version      1.6
-// @description  Recumbent bikes database (Fixed Avatar, Added dynamic Ad Slots)
+// @version      1.7
+// @description  Recumbent bikes database (Zoom Avatar/Logo, Ad Banner Test)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -20,14 +20,15 @@
   
   // --- IMAGES ---
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
-  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png';
+  // Cache buster by wymusić pobranie awatara
+  const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.png?v=1.7';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.6" };
+  let CONFIG = { version: "1.7" };
 
-  const SK = 'poziomki_state_v1_5';
+  const SK = 'poziomki_state_v1_7';
   let state = GM_getValue(SK, { 
       collapsed: false, 
       minKg: 0, 
@@ -50,8 +51,8 @@
     #pdb-wrap {
       position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px;
       font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e;
-      display: flex; flex-direction: column; background: #fff; border: 1px solid #c0cce0;
-      border-radius: 12px; box-shadow: 0 10px 40px rgba(0,30,80,.15); overflow: hidden;
+      display: flex; flex-direction: column; background: transparent; 
+      filter: drop-shadow(0 10px 30px rgba(0,30,80,.2));
       resize: horizontal; min-width: 450px; max-width: 95vw;
     }
     #pdb-wrap.col { height: 50px; min-height: 50px; max-height: 50px; }
@@ -59,10 +60,18 @@
       background: linear-gradient(135deg, #162b45 0%, #2a6090 100%); color: #fff; 
       padding: 8px 14px; display: flex; align-items: center; gap: 10px; 
       cursor: grab; user-select: none; flex-shrink: 0; height: 34px;
+      border-radius: 12px 12px 0 0; border: 1px solid #162b45; border-bottom: none;
     }
+    #pdb-wrap.col #pdb-hdr { border-radius: 12px; border-bottom: 1px solid #162b45; }
     #pdb-hdr:active { cursor: grabbing; }
-    .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; pointer-events: none; }
-    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; pointer-events: none; background: #fff; }
+    
+    /* Efekty ZOOM na logo i awatar */
+    .hdr-logo { height: 26px; width: 26px; border-radius: 6px; background: #fff; padding: 2px; object-fit: contain; pointer-events: auto; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: top left; }
+    .hdr-logo:hover { transform: scale(2.5); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    
+    .hdr-avatar { height: 30px; width: 30px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.8); object-fit: cover; background: #fff; pointer-events: auto; transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: top right; }
+    .hdr-avatar:hover { transform: scale(2.5); z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    
     #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; pointer-events: none; }
     
     #pdb-search {
@@ -76,17 +85,18 @@
     #pdb-hdr .xbtn { background: none; border: none; color: rgba(255,255,255,.6); font-size: 16px; cursor: pointer; padding: 0 4px; }
     #pdb-hdr .xbtn:hover { color: #fff; }
     
-    #pdb-body { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+    #pdb-body { display: flex; flex-direction: column; flex: 1; overflow: hidden; background: #fff; border: 1px solid #c0cce0; border-top: none; border-radius: 0 0 12px 12px; }
     #pdb-wrap.col #pdb-body { display: none; }
     
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
     
     /* Sekcje Reklamowe */
-    .pdb-ad { text-align: center; background: #f8fafc; display: none; flex-shrink: 0; padding: 5px; }
-    .pdb-ad img { max-width: 100%; max-height: 70px; border-radius: 4px; display: inline-block; }
+    .pdb-ad { text-align: center; background: #f8fafc; flex-shrink: 0; padding: 6px; display: flex; justify-content: center; }
+    .pdb-ad img { max-width: 100%; max-height: 80px; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
+    .pdb-ad a:hover img { opacity: 0.85; }
     #pdb-ad-top { border-bottom: 1px solid #e0e8f0; }
-    #pdb-ad-bottom { border-top: 1px solid #e0e8f0; }
+    #pdb-ad-bottom { border-top: 1px solid #e0e8f0; display: none; } /* Dolna na razie ukryta */
     
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -221,7 +231,11 @@
           <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
         
-        <div id="pdb-ad-top" class="pdb-ad"></div>
+        <div id="pdb-ad-top" class="pdb-ad">
+           <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-nożem?pli=1" target="_blank">
+              <img src="https://placehold.co/468x60/1a3a5c/ffffff?text=Warsztaty+Rzucania+Nozem+-+Kliknij!" alt="Warsztaty Rzucania Nożem">
+           </a>
+        </div>
 
         <div id="pdb-tbl-wrap">
           <table id="pdb-tbl">
@@ -247,16 +261,16 @@
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
-    // --- ŁADOWANIE REKLAM Z JSON ---
+    // --- ŁADOWANIE REKLAM Z JSON (nadpisze testowy baner, jeśli dodasz adTop do pliku db.json) ---
     if (CONFIG.adTop) {
         const adTopEl = shadow.getElementById('pdb-ad-top');
         adTopEl.innerHTML = CONFIG.adTop;
-        adTopEl.style.display = 'block';
+        adTopEl.style.display = 'flex';
     }
     if (CONFIG.adBottom) {
         const adBotEl = shadow.getElementById('pdb-ad-bottom');
         adBotEl.innerHTML = CONFIG.adBottom;
-        adBotEl.style.display = 'block';
+        adBotEl.style.display = 'flex';
     }
 
     // --- DRAG & DROP ---
@@ -266,7 +280,8 @@
     let startX, startY, initialLeft, initialTop;
 
     header.addEventListener('mousedown', (e) => {
-      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search') return;
+      // Wyklucz obrazki z łapania, żeby hover na nich nie uruchamiał drag&drop
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || e.target.classList.contains('hdr-logo') || e.target.classList.contains('hdr-avatar')) return;
       isDragging = true; hasDragged = false; startX = e.clientX; startY = e.clientY;
       const rect = wrap.getBoundingClientRect();
       initialLeft = rect.left; initialTop = rect.top;
@@ -284,7 +299,7 @@
     document.addEventListener('mouseup', () => { isDragging = false; });
 
     header.addEventListener('click', e => {
-      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || hasDragged) return;
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || e.target.classList.contains('hdr-logo') || e.target.classList.contains('hdr-avatar') || hasDragged) return;
       state.collapsed = !state.collapsed; wrap.classList.toggle('col'); 
       shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
     });
