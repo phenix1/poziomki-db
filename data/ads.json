@@ -1,0 +1,13 @@
+{
+  "top": {
+    "active": true,
+    "type": "image",
+    "link": "https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-nożem?pli=1",
+    "image": "https://placehold.co/468x60/1a3a5c/ffffff?text=Warsztaty+Rzucania+Nozem"
+  },
+  "bottom": {
+    "active": true,
+    "type": "html",
+    "content": "<div style='padding:10px; background:#ff813f; color:#fff; border-radius:5px; font-weight:bold;'>To jest czysty HTML! Możesz tu wpisać co chcesz.</div>"
+  }
+}
