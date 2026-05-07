@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v2.1
+// @name         Poziomki DB v2.2
 // @namespace    https://poziomki.info
-// @version      2.1
-// @description  Recumbent bikes database (External Ads System ads.json)
+// @version      2.2
+// @description  Recumbent bikes database (Bulletproof HTML Ads, Perfect Polish)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
@@ -17,31 +17,20 @@
 (function () {
   'use strict';
 
-  // --- DATABASE & ADS URLS ---
   const JSON_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json';
-  // Cache buster dla reklam, aby aktualizowały się natychmiast u wszystkich!
   const ADS_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/ads.json?t=' + Date.now();
   
-  // --- IMAGES ---
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "2.1" };
-  let ADS = {}; // Nowy obiekt na reklamy
+  let CONFIG = { version: "2.2" };
+  let ADS = {}; 
 
-  const SK = 'poziomki_state_v2_1';
-  let state = GM_getValue(SK, { 
-      collapsed: false, 
-      minKg: 0, 
-      filterType: 'all', 
-      filterProd: 'all', 
-      sortCol: 'p', 
-      sortDir: 1,   
-      searchStr: '' 
-  });
+  const SK = 'poziomki_state_v2_2';
+  let state = GM_getValue(SK, { collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', sortCol: 'p', sortDir: 1, searchStr: '' });
   function save() { GM_setValue(SK, state); }
 
   let host, shadow;
@@ -49,16 +38,13 @@
   function fetchJSON(url) {
       return new Promise((resolve, reject) => {
           GM_xmlhttpRequest({
-              method: 'GET',
-              url: url,
+              method: 'GET', url: url,
               onload: (res) => {
                   if (res.status >= 200 && res.status < 300) {
-                      try { resolve(JSON.parse(res.responseText)); } 
-                      catch (e) { reject(new Error('Błąd struktury JSON')); }
+                      try { resolve(JSON.parse(res.responseText)); } catch (e) { reject(new Error('Błąd JSON')); }
                   } else { reject(new Error('Błąd HTTP: ' + res.status)); }
               },
-              onerror: () => reject(new Error('Błąd sieci.')),
-              ontimeout: () => reject(new Error('Przekroczono czas.'))
+              onerror: () => reject(new Error('Błąd sieci.')), ontimeout: () => reject(new Error('Przekroczono czas.'))
           });
       });
   }
@@ -92,11 +78,12 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
     
-    /* Sekcje Reklamowe */
-    .pdb-notice { text-align: center; background: #f8fafc; flex-shrink: 0; padding: 6px; display: none; justify-content: center; }
-    .pdb-notice img { max-width: 100%; max-height: 90px; object-fit: contain; border-radius: 4px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
-    .pdb-notice a { transition: opacity 0.2s; text-decoration: none; width: 100%; display: flex; justify-content: center; }
-    .pdb-notice a:hover { opacity: 0.85; }
+    /* Pancerne banery HTML */
+    .pdb-notice { background: #f8fafc; flex-shrink: 0; padding: 6px 12px; display: none; justify-content: center; align-items: center; }
+    .pdb-notice img { max-width: 100%; max-height: 90px; object-fit: contain; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
+    .pdb-notice a { display: block; width: 100%; transition: opacity 0.2s, transform 0.1s; text-decoration: none; }
+    .pdb-notice a:hover { opacity: 0.9; transform: translateY(-1px); }
+    .pdb-notice a:active { transform: translateY(1px); }
     #pdb-msg-top { border-bottom: 1px solid #e0e8f0; }
     #pdb-msg-bottom { border-top: 1px solid #e0e8f0; }
     
@@ -192,19 +179,25 @@
     }).join('');
   }
 
-  // Funkcja budująca reklamy z pliku JSON
-  function renderAdBlock(adData, elementId) {
+  function renderAdBlock(adData, elementId, defaultHTML = '') {
       const el = shadow.getElementById(elementId);
       if (!el) return;
+      
       if (!adData || !adData.active) {
-          el.style.display = 'none';
+          if (defaultHTML) {
+              el.innerHTML = defaultHTML;
+              el.style.display = 'flex';
+          } else {
+              el.style.display = 'none';
+          }
           return;
       }
+      
       el.style.display = 'flex';
       if (adData.type === 'html') {
           el.innerHTML = adData.content || '';
       } else if (adData.type === 'image') {
-          el.innerHTML = `<a href="${adData.link}" target="_blank"><img src="${adData.image}" alt="Promo"></a>`;
+          el.innerHTML = `<a href="${adData.link}" target="_blank"><img src="${adData.image}" alt="Sponsor"></a>`;
       }
   }
 
@@ -260,9 +253,15 @@
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
-    // Aplikowanie reklam z pliku ads.json
-    renderAdBlock(ADS.top, 'pdb-msg-top');
-    renderAdBlock(ADS.bottom, 'pdb-msg-bottom');
+    // Domyślny, pancerny baner HTML (jeśli ads.json zawiedzie)
+    const defaultHTMLTop = `
+       <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank" style="display:flex; justify-content:center; align-items:center; background:linear-gradient(90deg, #162b45 0%, #2a6090 100%); color:#fff; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,0.4); box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+          🎯 Warsztaty z podstaw rzucania nożem - Kliknij i sprawdź!
+       </a>
+    `;
+
+    renderAdBlock(ADS.top, 'pdb-msg-top', defaultHTMLTop);
+    renderAdBlock(ADS.bottom, 'pdb-msg-bottom', '');
 
     const header = shadow.getElementById('pdb-hdr');
     let isDragging = false; let hasDragged = false; let startX, startY, initialLeft, initialTop;
@@ -331,10 +330,9 @@
     shadow.appendChild(loadingWrap);
 
     try {
-      // Pobieramy Bazę ORAZ Reklamy równolegle (bardzo szybko)
       const [dbResponse, adsResponse] = await Promise.all([
           fetchJSON(JSON_URL),
-          fetchJSON(ADS_URL).catch(e => { console.log('Brak pliku ads.json, ignoruję reklamy.'); return {}; })
+          fetchJSON(ADS_URL).catch(e => { return {}; })
       ]);
       
       if (Array.isArray(dbResponse)) { DB = dbResponse; } 
