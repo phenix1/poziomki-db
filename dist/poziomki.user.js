@@ -1,14 +1,16 @@
 // ==UserScript==
-// @name         Poziomki DB v1.8.1
+// @name         Poziomki DB v1.9
 // @namespace    https://poziomki.info
-// @version      1.8.1
-// @description  Recumbent bikes database (Avatar set to me.jpg)
+// @version      1.9
+// @description  Recumbent bikes database (CSP Bypass, Indestructible Init, Ad Slots, Avatar fixed)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @match        *://*/*
 // @exclude      *://raw.githubusercontent.com/*
 // @exclude      *://github.com/*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @grant        GM_xmlhttpRequest
+// @connect      raw.githubusercontent.com
 // @run-at       document-end
 // ==/UserScript==
 
@@ -20,13 +22,12 @@
   
   // --- IMAGES ---
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
-  // Zmiana na me.jpg na twardo
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
   let COLLAB = {};
   let DB = [];
-  let CONFIG = { version: "1.8.1" };
+  let CONFIG = { version: "1.9" };
 
   const SK = 'poziomki_state_v1_8';
   let state = GM_getValue(SK, { 
@@ -40,14 +41,27 @@
   });
   function save() { GM_setValue(SK, state); }
 
-  const host = document.createElement('div');
-  host.id = 'poziomki-host';
-  host.style.cssText = 'position: fixed; top: 0; left: 0; z-index: 2147483647;';
-  document.body.appendChild(host);
-  const shadow = host.attachShadow({ mode: 'open' });
+  let host, shadow;
 
-  const style = document.createElement('style');
-  style.textContent = `
+  // --- KULOODPORNE POBIERANIE (Omijające zabezpieczenia stron CORS/CSP) ---
+  function fetchJSON(url) {
+      return new Promise((resolve, reject) => {
+          GM_xmlhttpRequest({
+              method: 'GET',
+              url: url,
+              onload: (res) => {
+                  if (res.status >= 200 && res.status < 300) {
+                      try { resolve(JSON.parse(res.responseText)); } 
+                      catch (e) { reject(new Error('Błąd struktury JSON (sprawdź przecinki i cudzysłowy w db.json)')); }
+                  } else { reject(new Error('Serwer odrzucił żądanie: ' + res.status)); }
+              },
+              onerror: () => reject(new Error('Błąd sieci / Blokada.')),
+              ontimeout: () => reject(new Error('Zbyt długi czas oczekiwania.'))
+          });
+      });
+  }
+
+  const styleCSS = `
     #pdb-wrap {
       position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px;
       font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e;
@@ -113,4 +127,242 @@
     #pdb-tbl tbody tr.row-collab-closed td.pdb-prod { border-left: 3px solid #f87171; }
     #pdb-tbl td { padding: 7px 10px; }
     
-    .pdb-prod { font-weight: 600
+    .pdb-prod { font-weight: 600; font-size: 12px; color: #1a3a5c; }
+    .pdb-model { font-size: 13px; font-weight: 500; }
+    .pdb-type { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
+    .t-tadpole { background: #e0eeff; color: #1a4494; } .t-delta { background: #fde8e0; color: #993020; }
+    .t-bike { background: #e0f4e8; color: #1a6e40; } .t-quad { background: #f0e0fe; color: #6a10a0; }
+    
+    .pdb-kg { font-weight: 700; font-size: 12px; }
+    .kg-none { color: #aaa; font-weight: normal; font-style: italic; }
+    .kg-low { color: #994020; }
+    .kg-120plus { color: #1a6e40; }
+    .kg-150plus { color: #1a4494; }
+    .kg-200plus { color: #6a10a0; }
+    
+    .pdb-link a { font-size: 11px; padding: 3px 8px; border: 1px solid #c0d0e4; border-radius: 5px; text-decoration: none; background: #f0f6ff; color: #1a4494; display: inline-block; text-align: center; min-width: 45px; font-weight: 600; }
+    .pdb-link.arch a { background: #fdf5d8; border-color: #e4d498; color: #8a6a1c; }
+    .pdb-link.check a { background: #f0e0fe; border-color: #d0b0f0; color: #6a10a0; }
+    .f-offroad { font-size: 9px; background: #e0d0b0; padding: 2px 5px; border-radius: 4px; margin-left: 6px; color: #5a4010; font-weight: bold; }
+    
+    .pdb-foot { padding: 10px 14px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
+    .pdb-loading { padding: 30px; text-align: center; font-size: 14px; font-weight: bold; color: #2a6090; }
+    .error-msg { font-size: 12px; color: #cc0000; padding: 15px; background: #fff0f0; border: 1px solid #ffcccc; margin: 15px; border-radius: 8px; line-height: 1.5; }
+  `;
+
+  const TYPE_LABEL = { tadpole: 'Tadpole', delta: 'Delta', bike: '2-wheel', quad: 'Quad', velomobile: 'Velomobile', handcycle: 'Handcycle' };
+  const TYPE_CLASS = { tadpole: 't-tadpole', delta: 't-delta', bike: 't-bike', quad: 't-quad' };
+
+  function getFiltered() {
+    return DB.filter(r => {
+      if (state.filterType !== 'all' && r.type !== state.filterType) return false;
+      if (state.filterProd !== 'all' && r.p !== state.filterProd) return false;
+      if (state.minKg > 0 && r.kg < state.minKg) return false;
+      if (state.searchStr) {
+          const s = state.searchStr.toLowerCase();
+          if (!r.p.toLowerCase().includes(s) && !r.m.toLowerCase().includes(s)) return false;
+      }
+      return true;
+    }).sort((a, b) => {
+      let primary = state.sortDir * ((state.sortCol === 'kg') ? ((a.kg||0) - (b.kg||0)) : ((a[state.sortCol]||'').localeCompare(b[state.sortCol]||'', 'en')));
+      return primary !== 0 ? primary : a.p.localeCompare(b.p, 'en') || a.m.localeCompare(b.m, 'en');
+    });
+  }
+
+  function render() {
+    const rows = getFiltered();
+    const cntEl = shadow.getElementById('pdb-cnt');
+    if (cntEl) cntEl.textContent = rows.length;
+
+    const headers = { p: 'Producer', m: 'Model', type: 'Type', kg: 'Max Load' };
+    ['p', 'm', 'type', 'kg'].forEach(col => {
+      const th = shadow.getElementById('sort-' + (col === 'type' ? 't' : col === 'kg' ? 'k' : col));
+      if (!th) return;
+      let text = headers[col];
+      if (state.sortCol === col) text += state.sortDir === 1 ? ' ↑' : ' ↓';
+      th.textContent = text;
+    });
+
+    const tbody = shadow.getElementById('pdb-tbody');
+    if (!tbody) return;
+
+    tbody.innerHTML = rows.map(r => {
+      const collab = COLLAB[r.p] || '';
+      let kgClass = 'kg-none'; let kgText = 'N/A';
+      if (r.kg > 0) {
+        kgText = r.kg + ' kg';
+        if (r.kg < 120) kgClass = 'kg-low';
+        else if (r.kg < 150) kgClass = 'kg-120plus';
+        else if (r.kg < 200) kgClass = 'kg-150plus';
+        else kgClass = 'kg-200plus';
+      }
+      let linkClass = ''; let linkText = '↗ Link';
+      if (r.arch) { linkClass = 'arch'; linkText = '🗄 Arch'; }
+      if (r.check) { linkClass = 'check'; linkText = '❓ Check'; }
+      const offroadHtml = r.offroad ? `<span class="f-offroad">OFFROAD</span>` : '';
+
+      return `
+      <tr class="${collab === 'yes' ? 'row-collab-yes' : collab === 'closed' ? 'row-collab-closed' : ''}">
+        <td class="pdb-prod">${r.p}</td>
+        <td class="pdb-model">${r.m} ${offroadHtml}</td>
+        <td><span class="pdb-type ${TYPE_CLASS[r.type]||''}">${TYPE_LABEL[r.type]||r.type}</span></td>
+        <td><span class="pdb-kg ${kgClass}">${kgText}</span></td>
+        <td class="pdb-link ${linkClass}"><a href="${r.url}" target="_blank" title="${r.url}">${linkText}</a></td>
+      </tr>`;
+    }).join('');
+  }
+
+  function buildUI() {
+    const wrap = document.createElement('div');
+    wrap.id = 'pdb-wrap';
+    if (state.collapsed) wrap.classList.add('col');
+    
+    const producers = ['all', ...new Set(DB.map(r => r.p))].sort((a,b) => a === 'all' ? -1 : a.localeCompare(b,'en'));
+    
+    wrap.innerHTML = `
+      <div id="pdb-hdr">
+        <img src="${LOGO_URL}" class="hdr-logo" alt="Logo">
+        <span class="title">Poziomki DB</span>
+        <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
+        <span class="badge" id="pdb-cnt" title="Models found">0</span>
+        <img src="${AVATAR_URL}" class="hdr-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}">
+        <span id="pdb-arr">${state.collapsed?'▲':'▼'}</span>
+        <button class="xbtn" id="pdb-x">✕</button>
+      </div>
+      <div id="pdb-body">
+        <div class="pdb-ctrl">
+          <select id="pdb-prod">${producers.map(p => `<option value="${p}"${p===state.filterProd?' selected':''}>${p==='all'?'All producers':p}</option>`).join('')}</select>
+          <select id="pdb-type">
+            <option value="all">All types</option><option value="tadpole">Tadpole</option><option value="delta">Delta</option><option value="bike">Bike (2-wheel)</option><option value="quad">Quad</option><option value="velomobile">Velomobile</option><option value="handcycle">Handcycle</option>
+          </select>
+          <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
+        </div>
+        
+        <div id="pdb-promo-top" class="pdb-promo">
+           <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank">
+              <img src="https://placehold.co/468x60/1a3a5c/ffffff?text=Warsztaty+Rzucania+No%C5%BCem+-+Kliknij!" alt="Warsztaty Rzucania Nożem">
+           </a>
+        </div>
+
+        <div id="pdb-tbl-wrap">
+          <table id="pdb-tbl">
+            <thead><tr>
+              <th id="sort-p" style="width:25%;">Producer</th>
+              <th id="sort-m" style="width:35%;">Model</th>
+              <th id="sort-t" style="width:15%;">Type</th>
+              <th id="sort-k" style="width:15%;">Max Load</th>
+              <th style="width:10%;">Link</th>
+            </tr></thead>
+            <tbody id="pdb-tbody"></tbody>
+          </table>
+        </div>
+        
+        <div id="pdb-promo-bottom" class="pdb-promo"></div>
+
+        <div class="pdb-foot">
+          <span>Author: <strong>${CONFIG.author || 'phenix1'}</strong></span>
+          <a href="${CONFIG.supportBtnLink || KOFI_URL}" target="_blank" style="color:${CONFIG.supportBtnColor || '#ff813f'}; font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">${CONFIG.supportBtnText || '☕ Support via Ko-fi'}</a>
+        </div>
+      </div>`;
+
+    shadow.appendChild(wrap);
+    shadow.getElementById('pdb-type').value = state.filterType;
+
+    if (CONFIG.adTop) {
+        const adTopEl = shadow.getElementById('pdb-promo-top');
+        adTopEl.innerHTML = CONFIG.adTop;
+        adTopEl.style.display = 'flex';
+    }
+    if (CONFIG.adBottom) {
+        const adBotEl = shadow.getElementById('pdb-promo-bottom');
+        adBotEl.innerHTML = CONFIG.adBottom;
+        adBotEl.style.display = 'flex';
+    }
+
+    const header = shadow.getElementById('pdb-hdr');
+    let isDragging = false; let hasDragged = false; let startX, startY, initialLeft, initialTop;
+
+    header.addEventListener('mousedown', (e) => {
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || e.target.classList.contains('hdr-logo') || e.target.classList.contains('hdr-avatar')) return;
+      isDragging = true; hasDragged = false; startX = e.clientX; startY = e.clientY;
+      const rect = wrap.getBoundingClientRect();
+      initialLeft = rect.left; initialTop = rect.top;
+      wrap.style.right = 'auto'; wrap.style.left = initialLeft + 'px'; wrap.style.top = initialTop + 'px';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX; const dy = e.clientY - startY;
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) hasDragged = true;
+      if (hasDragged) { wrap.style.left = (initialLeft + dx) + 'px'; wrap.style.top = (initialTop + dy) + 'px'; }
+    });
+
+    document.addEventListener('mouseup', () => { isDragging = false; });
+
+    header.addEventListener('click', e => {
+      if(e.target.id === 'pdb-x' || e.target.id === 'pdb-search' || e.target.classList.contains('hdr-logo') || e.target.classList.contains('hdr-avatar') || hasDragged) return;
+      state.collapsed = !state.collapsed; wrap.classList.toggle('col'); 
+      shadow.getElementById('pdb-arr').textContent = state.collapsed ? '▲' : '▼'; save();
+    });
+
+    shadow.getElementById('pdb-x').addEventListener('click', () => host.remove());
+    shadow.getElementById('pdb-search').addEventListener('input', e => { state.searchStr = e.target.value; save(); render(); });
+
+    ['pdb-prod','pdb-type','pdb-kg'].forEach(id => {
+      shadow.getElementById(id).addEventListener('change', () => {
+        state.filterProd = shadow.getElementById('pdb-prod').value;
+        state.filterType = shadow.getElementById('pdb-type').value;
+        state.minKg = parseInt(shadow.getElementById('pdb-kg').value) || 0;
+        save(); render();
+      });
+    });
+
+    const doSort = (col) => {
+      if (state.sortCol === col) state.sortDir *= -1; else { state.sortCol = col; state.sortDir = col==='kg' ? -1 : 1; }
+      save(); render();
+    };
+    shadow.getElementById('sort-p').addEventListener('click', () => doSort('p'));
+    shadow.getElementById('sort-m').addEventListener('click', () => doSort('m'));
+    shadow.getElementById('sort-t').addEventListener('click', () => doSort('type'));
+    shadow.getElementById('sort-k').addEventListener('click', () => doSort('kg'));
+
+    render();
+  }
+
+  async function initApp() {
+    if (!document.body) { setTimeout(initApp, 50); return; }
+    if (document.getElementById('poziomki-host')) return; 
+
+    host = document.createElement('div');
+    host.id = 'poziomki-host';
+    host.style.cssText = 'position: fixed; top: 0; left: 0; z-index: 2147483647;';
+    document.body.appendChild(host);
+    shadow = host.attachShadow({ mode: 'open' });
+
+    const style = document.createElement('style');
+    style.textContent = styleCSS;
+    shadow.appendChild(style);
+
+    const loadingWrap = document.createElement('div');
+    loadingWrap.id = 'pdb-wrap';
+    loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="title">Poziomki DB</span></div><div class="pdb-loading" id="load-msg">Initializing...</div>`;
+    shadow.appendChild(loadingWrap);
+
+    try {
+      shadow.getElementById('load-msg').textContent = "Fetching database...";
+      const data = await fetchJSON(JSON_URL);
+      
+      if (Array.isArray(data)) { DB = data; } 
+      else { COLLAB = data.COLLAB || {}; DB = data.DB || []; CONFIG = data.CONFIG || CONFIG; }
+
+      loadingWrap.remove();
+      buildUI();
+    } catch (error) {
+      console.error("Poziomki DB Error:", error);
+      loadingWrap.innerHTML = `<div id="pdb-hdr"><span class="title">Poziomki DB Error</span></div><div class="error-msg"><strong>Błąd krytyczny bazy:</strong><br>${error.message}</div>`;
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initApp); else initApp();
+})();
