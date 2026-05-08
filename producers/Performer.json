@@ -1,1 +1,7 @@
-
+[
+  { "p": "Performer", "m": "Goal 26", "type": "bike", "kg": 113, "url": "https://www.performercycles.com/" },
+  { "p": "Performer", "m": "High Racer", "type": "bike", "kg": 113, "url": "https://www.performercycles.com/" },
+  { "p": "Performer", "m": "JC20", "type": "tadpole", "kg": 113, "url": "https://www.performercycles.com/" },
+  { "p": "Performer", "m": "JC26", "type": "tadpole", "kg": 113, "url": "https://www.performercycles.com/" },
+  { "p": "Performer", "m": "Trike-X", "type": "tadpole", "kg": 113, "url": "https://www.performercycles.com/" }
+]
