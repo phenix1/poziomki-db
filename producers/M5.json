@@ -1,7 +1,17 @@
 [
-  { "p": "M5", "m": "Carbon Highracer", "type": "bike", "kg": 100, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_Highracer" },
-  { "p": "M5", "m": "M-Racer", "type": "bike", "kg": 105, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/M-Racer" },
-  { "p": "M5", "m": "CMPCT", "type": "bike", "kg": 110, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CMPCT" },
-  { "p": "M5", "m": "20-26", "type": "bike", "kg": 115, "arch": true, "url": "http://www.m5-ligfietsen.nl/" },
-  { "p": "M5", "m": "28-26", "type": "bike", "kg": 115, "arch": true, "url": "http://www.m5-ligfietsen.nl/" }
+  { "p": "M5", "m": "26/26 high bar", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/26_26_and_26_20_high_bar" },
+  { "p": "M5", "m": "26/26 low bar", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/26_26_and_26_20_low_bar" },
+  { "p": "M5", "m": "CMPCT", "type": "bike", "kg": 110, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CMPCT/" },
+  { "p": "M5", "m": "Carbon High Racer", "type": "bike", "kg": 100, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_High_Racer/" },
+  { "p": "M5", "m": "Carbon Low Racer", "type": "bike", "kg": 100, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_Low_Racer" },
+  { "p": "M5", "m": "Carbon Medium Racer", "type": "bike", "kg": 105, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_Medium_Racer" },
+  { "p": "M5", "m": "City Cruiser", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/City_Cruiser/" },
+  { "p": "M5", "m": "City Racer", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/City_Racer/" },
+  { "p": "M5", "m": "CrMo Low Racer", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CrMo_Low_Racer/" },
+  { "p": "M5", "m": "CroMo Low Racer", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CrMo_Low_Racer/" },
+  { "p": "M5", "m": "M-Racer", "type": "bike", "kg": 105, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/M-Racer/" },
+  { "p": "M5", "m": "Shock Proof 406", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Shock_Proof_406_CrMo/" },
+  { "p": "M5", "m": "Shock Proof 451", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Shock_Proof_451_CrMo/" },
+  { "p": "M5", "m": "Shock Proof 559", "type": "bike", "kg": 115, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Shock_Proof_559_CrMo/" },
+  { "p": "M5", "m": "Tandem", "type": "bike", "kg": 180, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Tandem/" }
 ]
