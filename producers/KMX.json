@@ -1,1 +1,9 @@
-
+[
+  { "p": "KMX", "m": "Cobra", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
+  { "p": "KMX", "m": "K-3", "type": "tadpole", "kg": 65, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
+  { "p": "KMX", "m": "Kolt", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
+  { "p": "KMX", "m": "Tornado", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
+  { "p": "KMX", "m": "Typhoon", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
+  { "p": "KMX", "m": "Venom", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
+  { "p": "KMX", "m": "Viper", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" }
+]
