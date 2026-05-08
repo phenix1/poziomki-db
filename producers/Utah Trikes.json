@@ -1,1 +1,4 @@
-
+[
+  { "p": "Utah Trikes", "m": "Annihilator Custom", "type": "tadpole", "kg": 150, "check": true, "url": "https://www.utahtrikes.com/" },
+  { "p": "Utah Trikes", "m": "Custom Quad", "type": "quad", "kg": 150, "check": true, "url": "https://www.utahtrikes.com/" }
+]
