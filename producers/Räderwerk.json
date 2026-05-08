@@ -1,4 +1,5 @@
 [
-  { "p": "Räderwerk", "m": "Milan GT", "type": "velomobile", "kg": 120, "url": "https://www.milan-velomobil.de/" },
-  { "p": "Räderwerk", "m": "Milan SL", "type": "velomobile", "kg": 120, "url": "https://www.milan-velomobil.de/" }
+  {"p": "Räderwerk", "m": "Milan GT", "type": "velomobile", "kg": 120, "url": "https://velowerk.info/"},
+  {"p": "Räderwerk", "m": "Milan SL", "type": "velomobile", "kg": 120, "url": "https://velowerk.info/"},
+  {"p": "Räderwerk", "m": "Milan 4.2", "type": "velomobile", "kg": 0, "url": "https://velowerk.info/"}
 ]
