@@ -1,1 +1,4 @@
-
+[
+  { "p": "Longbikes", "m": "Eliminator", "type": "bike", "kg": 136, "url": "https://www.longbikes.com/" },
+  { "p": "Longbikes", "m": "Slipstream", "type": "bike", "kg": 136, "url": "https://www.longbikes.com/Slipstream.html" }
+]
