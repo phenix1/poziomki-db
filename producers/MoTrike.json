@@ -1,1 +1,5 @@
-
+[
+  { "p": "MoTrike", "m": "M-009", "type": "tadpole", "kg": 125, "url": "https://www.motrike.com/m-009-recumbent-trike/" },
+  { "p": "MoTrike", "m": "M-F010 Fat", "type": "tadpole", "kg": 150, "url": "https://www.motrike.com/m-f010-fat-tire-recumbent-trike/" },
+  { "p": "MoTrike", "m": "F420 Quad", "type": "quad", "kg": 150, "url": "https://www.motrike.com/f420-recumbent-quad/" }
+]
