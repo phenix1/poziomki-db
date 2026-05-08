@@ -1,9 +1,16 @@
 [
-  { "p": "TerraTrike", "m": "Maverick", "type": "tadpole", "kg": 125, "url": "https://www.terratrike.com/leisure/maverick/" },
-  { "p": "TerraTrike", "m": "Rambler", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/leisure/rambler/" },
-  { "p": "TerraTrike", "m": "Traveler", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/leisure/traveler/" },
-  { "p": "TerraTrike", "m": "Spyder", "type": "tadpole", "kg": 125, "url": "https://www.terratrike.com/sport/spyder/" },
-  { "p": "TerraTrike", "m": "GTS", "type": "tadpole", "kg": 127, "url": "https://www.terratrike.com/sport/gts/" },
-  { "p": "TerraTrike", "m": "Rover", "type": "tadpole", "kg": 181, "arch": true, "url": "https://www.terratrike.com/" },
-  { "p": "TerraTrike", "m": "Charge", "type": "tadpole", "kg": 125, "url": "https://www.terratrike.com/electric/charge/" }
+  {"p": "TerraTrike", "m": "Charge", "type": "tadpole", "kg": 125, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "GTS", "type": "tadpole", "kg": 127, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Maverick", "type": "tadpole", "kg": 125, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Rambler", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Rover", "type": "tadpole", "kg": 181, "arch": true, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Spyder", "type": "tadpole", "kg": 125, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Traveler", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "All Terrain", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/adventure/all-terrain/"},
+  {"p": "TerraTrike", "m": "E.V.O.", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/adventure-touring/evo/"},
+  {"p": "TerraTrike", "m": "Grand Tourismo", "type": "tadpole", "kg": 136, "url": "https://www.terratrike.com/adventure-touring-gt/"},
+  {"p": "TerraTrike", "m": "Rover Tandem", "type": "tadpole", "kg": 227, "url": "https://www.terratrike.com/tandem/rover-tandem/"},
+  {"p": "TerraTrike", "m": "Sportster", "type": "tadpole", "kg": 0, "arch": true, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Tandem Pro", "type": "tadpole", "kg": 0, "check": true, "url": "https://www.terratrike.com/"},
+  {"p": "TerraTrike", "m": "Tour II", "type": "tadpole", "kg": 0, "arch": true, "url": "https://www.terratrike.com/"}
 ]
