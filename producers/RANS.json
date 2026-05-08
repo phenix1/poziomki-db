@@ -1,1 +1,8 @@
-
+[
+  { "p": "RANS", "m": "Stratus XP", "type": "bike", "kg": 125, "url": "https://www.ransdesigns.com/" },
+  { "p": "RANS", "m": "Velocity V2", "type": "bike", "kg": 125, "url": "https://www.ransdesigns.com/" },
+  { "p": "RANS", "m": "Velocity V3", "type": "bike", "kg": 125, "url": "https://www.ransdesigns.com/" },
+  { "p": "RANS", "m": "XStream", "type": "bike", "kg": 125, "url": "https://www.ransdesigns.com/" },
+  { "p": "RANS", "m": "Rifle", "type": "bike", "kg": 125, "url": "https://www.ransdesigns.com/" },
+  { "p": "RANS", "m": "Screamer Tandem", "type": "bike", "kg": 227, "url": "https://www.ransdesigns.com/" }
+]
