@@ -1,1 +1,10 @@
-
+[
+  {
+    "p": "Drymer",
+    "m": "Hilgo",
+    "type": "velomobile",
+    "kg": 120,
+    "check": true,
+    "url": "https://velowerk.info/produkt-kategorie/velomobile/hilgo/"
+  }
+]
