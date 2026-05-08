@@ -1,6 +1,13 @@
 [
-  { "p": "Steintrikes", "m": "Wild One 20/20", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/wild-one-20-20/" },
-  { "p": "Steintrikes", "m": "Wild One 26", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/wild-one-26/" },
-  { "p": "Steintrikes", "m": "Mad Max", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/" },
-  { "p": "Steintrikes", "m": "Explorer", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/" }
+  { "p": "Steintrikes", "m": "Alien", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "Kobold", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "MadMax", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "Mungo", "type": "tadpole", "kg": 130, "url": "https://steintrikes.com/product/mungo", "check": true },
+  { "p": "Steintrikes", "m": "Nomad", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "Rebel", "type": "tadpole", "kg": 130, "url": "https://steintrikes.com/product/rebel-fat-series" },
+  { "p": "Steintrikes", "m": "RoadShark", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "Tuareg", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "Viper", "type": "tadpole", "kg": 130, "check": true, "url": "https://steintrikes.com/trikes/2" },
+  { "p": "Steintrikes", "m": "Wild One", "type": "tadpole", "kg": 130, "url": "https://steintrikes.com/product/29-wild-one-series", "check": true },
+  { "p": "Steintrikes", "m": "Wild One Fat", "type": "tadpole", "kg": 130, "url": "https://steintrikes.com/product/30-wild-one-fat-series", "check": true }
 ]
