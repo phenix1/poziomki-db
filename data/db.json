@@ -8,19 +8,26 @@
     "supportBtnColor": "#ff813f"
   },
   "COLLAB": {
+    "Aerorider": "closed",
+    "Avatar 2000": "closed",
     "Azub": "yes",
     "Birk": "closed",
     "Blackbird Bikes": "closed",
     "Challenge": "closed",
+    "Counterpoint": "closed",
     "Flevobike": "closed",
     "Flux": "closed",
     "Go-One": "closed",
     "KMX": "closed",
+    "Kingcycle": "closed",
     "Lightfoot Cycles": "closed",
     "Matix Bike": "yes",
     "Optima": "closed",
     "Pacific Cycles": "closed",
     "Podbike": "closed",
+    "Quatrotech": "closed",
+    "Radius": "closed",
+    "RaptoBike": "closed",
     "Zockra": "closed"
   },
   "DB": [
@@ -3407,6 +3414,654 @@
       "kg": 0,
       "arch": true,
       "url": "https://www.bentrideronline.com/?tag=zockra"
+    },
+    {
+      "p": "Trisled",
+      "m": "Bonnie Doon",
+      "type": "tadpole",
+      "kg": 0,
+      "url": "https://trisled.com.au/bonnie-doon/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Ahoogah Tandem",
+      "type": "tadpole",
+      "kg": 0,
+      "url": "https://trisled.com.au/ahoogah-tandem/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Indipac Tandem",
+      "type": "tadpole",
+      "kg": 0,
+      "url": "https://trisled.com.au/indipac-tandem/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Delta Goodrun",
+      "type": "delta",
+      "kg": 0,
+      "url": "https://trisled.com.au/delta-goodrun/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Mountain Trike 27+",
+      "type": "tadpole",
+      "kg": 0,
+      "url": "https://trisled.com.au/mountain-trike-27/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Skyhawk",
+      "type": "velomobile",
+      "kg": 0,
+      "url": "https://trisled.com.au/hpv/skyhawk/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Hornet",
+      "type": "velomobile",
+      "kg": 0,
+      "url": "https://trisled.com.au/hornet/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Quad Chair Bike",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://trisled.com.au/quad-chair-bike/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Back O Bourke",
+      "type": "tadpole",
+      "kg": 0,
+      "arch": true,
+      "url": "https://trisled.com.au/timeline/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Volare",
+      "type": "velomobile",
+      "kg": 0,
+      "arch": true,
+      "url": "https://trisled.com.au/timeline/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Side Step",
+      "type": "tadpole",
+      "kg": 0,
+      "arch": true,
+      "url": "https://trisled.com.au/timeline/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Gizmo",
+      "type": "tadpole",
+      "kg": 0,
+      "arch": true,
+      "url": "https://trisled.com.au/timeline/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Rotovelo 2",
+      "type": "velomobile",
+      "kg": 0,
+      "arch": true,
+      "url": "https://trisled.com.au/timeline/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Rotovelo Carbon",
+      "type": "velomobile",
+      "kg": 0,
+      "arch": true,
+      "url": "https://trisled.com.au/timeline/"
+    },
+    {
+      "p": "Velomtek",
+      "m": "VT1-e-14s",
+      "type": "velomobile",
+      "kg": 0,
+      "url": "https://velomtek.com/"
+    },
+    {
+      "p": "PonyFour",
+      "m": "PONY4 Cargo",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://www.pony4.bike/"
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "Anura Quad",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://www.greenspeed.com.au/models/anura/"
+    },
+    {
+      "p": "Utah Trikes",
+      "m": "UTCustom Quad Extended",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://www.utahtrikes.com/"
+    },
+    {
+      "p": "Birkenstock Bicycles",
+      "m": "Peregrin",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.recumbent.news/2022/07/25/four-wheel-practical-beauty-the-441/"
+    },
+    {
+      "p": "Aerorider",
+      "m": "Aerorider Sport",
+      "type": "velomobile",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://web.archive.org/web/2015/http://www.aerorider.com/"
+    },
+    {
+      "p": "Carbontrikes",
+      "m": "CT2.0",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://carbontrikes.com/"
+    },
+    {
+      "p": "Carbontrikes",
+      "m": "CT2e",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://carbontrikes.com/"
+    },
+    {
+      "p": "Counterpoint",
+      "m": "Opus Tandem",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=counterpoint"
+    },
+    {
+      "p": "Counterpoint",
+      "m": "Presto",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=counterpoint"
+    },
+    {
+      "p": "Elan",
+      "m": "Boomer",
+      "type": "delta",
+      "kg": 0,
+      "check": true,
+      "url": "https://elan.nl/"
+    },
+    {
+      "p": "Freedom Ryder",
+      "m": "FR-1",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://freedomryder.com/"
+    },
+    {
+      "p": "Freedom Ryder",
+      "m": "LC-1",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://freedomryder.com/"
+    },
+    {
+      "p": "Freedom Ryder",
+      "m": "Super Interceptor",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://freedomryder.com/"
+    },
+    {
+      "p": "Kingcycle",
+      "m": "Kingcycle",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=kingcycle"
+    },
+    {
+      "p": "Lasher Sport",
+      "m": "Athlepede",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://lashersport.com/"
+    },
+    {
+      "p": "Lasher Sport",
+      "m": "H2",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://lashersport.com/"
+    },
+    {
+      "p": "MoTrike",
+      "m": "M-009",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.motrike.com/"
+    },
+    {
+      "p": "MoTrike",
+      "m": "M-F010 Fat",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.motrike.com/"
+    },
+    {
+      "p": "MoTrike",
+      "m": "F420 Quad",
+      "type": "quad",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.motrike.com/"
+    },
+    {
+      "p": "Quatrotech",
+      "m": "Quatro Quad",
+      "type": "quad",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.recumbent.news/?s=quatrotech"
+    },
+    {
+      "p": "Radius",
+      "m": "Dino",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=radius"
+    },
+    {
+      "p": "Radius",
+      "m": "Hornet",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=radius"
+    },
+    {
+      "p": "Radius",
+      "m": "Peer Gynt",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=radius"
+    },
+    {
+      "p": "RaptoBike",
+      "m": "Lowracer",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://web.archive.org/web/2015/http://www.raptobike.com/"
+    },
+    {
+      "p": "RaptoBike",
+      "m": "Midracer",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://web.archive.org/web/2015/http://www.raptobike.com/"
+    },
+    {
+      "p": "Top End",
+      "m": "Excelerator XLT",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.invacare.com/cgi-bin/imhqprd/inv_catalog/prod_list.jsp"
+    },
+    {
+      "p": "Top End",
+      "m": "Force 3",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.invacare.com/cgi-bin/imhqprd/inv_catalog/prod_list.jsp"
+    },
+    {
+      "p": "Top End",
+      "m": "Force RX",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.invacare.com/cgi-bin/imhqprd/inv_catalog/prod_list.jsp"
+    },
+    {
+      "p": "Toxy",
+      "m": "Flite",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.toxy.de/"
+    },
+    {
+      "p": "Toxy",
+      "m": "Lite-S",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.toxy.de/"
+    },
+    {
+      "p": "Toxy",
+      "m": "TT",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.toxy.de/"
+    },
+    {
+      "p": "Toxy",
+      "m": "ZR",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.toxy.de/"
+    },
+    {
+      "p": "Velokraft",
+      "m": "NoCom",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.velokraft.com/"
+    },
+    {
+      "p": "Velokraft",
+      "m": "VK2",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.velokraft.com/"
+    },
+    {
+      "p": "Velokraft",
+      "m": "VK3",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.velokraft.com/"
+    },
+    {
+      "p": "Windcheetah",
+      "m": "Club",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.windcheetah.co.uk/"
+    },
+    {
+      "p": "Windcheetah",
+      "m": "Hypersport",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.windcheetah.co.uk/"
+    },
+    {
+      "p": "Windcheetah",
+      "m": "Superpoint",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.windcheetah.co.uk/"
+    },
+    {
+      "p": "Windwrap",
+      "m": "WGX Fairing",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://terracycle.com/products/windwrap-wgx-fairing"
+    },
+    {
+      "p": "Windwrap",
+      "m": "XT Fairing",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://terracycle.com/products/windwrap-xt-fairing"
+    },
+    {
+      "p": "Birk",
+      "m": "Butterfly",
+      "type": "velomobile",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=birk"
+    },
+    {
+      "p": "Birk",
+      "m": "Peregrin",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=birk"
+    },
+    {
+      "p": "Optima",
+      "m": "Raptor",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://ligfiets.net/brands/3"
+    },
+    {
+      "p": "Optima",
+      "m": "Rider",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://ligfiets.net/brands/3"
+    },
+    {
+      "p": "Pacific Cycles",
+      "m": "Handy",
+      "type": "handcycle",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=pacific-cycles"
+    },
+    {
+      "p": "Pacific Cycles",
+      "m": "Micropb",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=pacific-cycles"
+    },
+    {
+      "p": "Sport-On",
+      "m": "Explorer",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.sport-on.de/"
+    },
+    {
+      "p": "Sport-On",
+      "m": "Explorer Ultimate",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.sport-on.de/"
+    },
+    {
+      "p": "Sport-On",
+      "m": "Fat Explorer",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.sport-on.de/"
+    },
+    {
+      "p": "Sport-On",
+      "m": "Fat Jeetrike",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.sport-on.de/"
+    },
+    {
+      "p": "Sport-On",
+      "m": "Quantum",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.sport-on.de/"
+    },
+    {
+      "p": "Sport-On",
+      "m": "XCR Gravel",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.sport-on.de/"
+    },
+    {
+      "p": "ReActive Adaptations",
+      "m": "Bomber",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://reactiveadaptations.com/"
+    },
+    {
+      "p": "ReActive Adaptations",
+      "m": "Wildcat",
+      "type": "handcycle",
+      "kg": 0,
+      "check": true,
+      "url": "https://reactiveadaptations.com/"
+    },
+    {
+      "p": "Trisled",
+      "m": "Fastback",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://trisled.com.au/"
+    },
+    {
+      "p": "KMX",
+      "m": "K-3",
+      "type": "tadpole",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=kmx"
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Courier",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Greenway",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Roadrunner",
+      "type": "quad",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"
+    },
+    {
+      "p": "Sinner",
+      "m": "Comfort",
+      "type": "delta",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=sinner"
+    },
+    {
+      "p": "IN Trikes",
+      "m": "IN-Trike Custom",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://intrikes.pl/"
+    },
+    {
+      "p": "Trice",
+      "m": "Pioneer",
+      "type": "tadpole",
+      "kg": 0,
+      "arch": true,
+      "check": true,
+      "url": "https://www.bentrideronline.com/?tag=trice"
+    },
+    {
+      "p": "Kamrad",
+      "m": "Kamrad Trike",
+      "type": "tadpole",
+      "kg": 0,
+      "check": true,
+      "url": "https://kamrad.pl/"
+    },
+    {
+      "p": "Slyway",
+      "m": "Ultrateam",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://slyway.it/"
+    },
+    {
+      "p": "Varibike",
+      "m": "FR3",
+      "type": "bike",
+      "kg": 0,
+      "check": true,
+      "url": "https://www.varibike.com/"
     }
   ]
 }
