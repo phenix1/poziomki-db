@@ -1,1 +1,6 @@
-
+[
+  { "p": "Toxy", "m": "Flite", "type": "bike", "kg": 125, "url": "https://www.toxy.de/index.php/en/recumbents/flite" },
+  { "p": "Toxy", "m": "ZR", "type": "bike", "kg": 125, "url": "https://www.toxy.de/index.php/en/recumbents/zr" },
+  { "p": "Toxy", "m": "Lite-S", "type": "bike", "kg": 150, "url": "https://www.toxy.de/index.php/en/recumbents/lite-s" },
+  { "p": "Toxy", "m": "TT", "type": "bike", "kg": 150, "url": "https://www.toxy.de/index.php/en/recumbents/tt" }
+]
