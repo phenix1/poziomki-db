@@ -4,6 +4,7 @@
 // @version      3.0
 // @description  Recumbent bikes database (Stealth Ads, Async Engine, Google Only)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
+// @license      MIT
 // @match        *://www.google.com/*
 // @match        *://www.google.pl/*
 // @exclude      *://raw.githubusercontent.com/*
