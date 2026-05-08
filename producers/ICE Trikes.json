@@ -1,7 +1,10 @@
 [
   { "p": "ICE Trikes", "m": "Adventure", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/adventure" },
-  { "p": "ICE Trikes", "m": "Adventure HD", "type": "tadpole", "kg": 150, "url": "https://www.icetrikes.co/products/adventure" },
+  { "p": "ICE Trikes", "m": "Adventure HD", "type": "tadpole", "kg": 150, "url": "https://www.icetrikes.co/products/adventure-hd" },
   { "p": "ICE Trikes", "m": "Full Fat", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/full-fat" },
-  { "p": "ICE Trikes", "m": "Sprint X", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/sprint-x" },
-  { "p": "ICE Trikes", "m": "VTX", "type": "tadpole", "kg": 104, "url": "https://www.icetrikes.co/products/vtx" }
+  { "p": "ICE Trikes", "m": "Handcycle", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/ice-trikes-handcycle-handtrike" },
+  { "p": "ICE Trikes", "m": "Sprint X", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/sprint-x-recumbent-trike" },
+  { "p": "ICE Trikes", "m": "Sprint X Pixel", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike" },
+  { "p": "ICE Trikes", "m": "Sprint X Tour", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike" },
+  { "p": "ICE Trikes", "m": "VTX", "type": "tadpole", "kg": 104, "url": "https://www.icetrikes.co/products/vtx-recumbent-trike" }
 ]
