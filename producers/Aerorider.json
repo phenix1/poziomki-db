@@ -1,1 +1,10 @@
-
+[
+  {
+    "p": "Aerorider",
+    "m": "Aerorider Sport",
+    "type": "velomobile",
+    "kg": 190,
+    "arch": true,
+    "url": "https://web.archive.org/web/2007/http://www.aerorider.com/"
+  }
+]
