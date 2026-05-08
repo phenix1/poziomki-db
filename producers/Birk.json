@@ -1,1 +1,5 @@
-
+[
+  { "p": "Birk", "m": "Comet", "type": "bike", "kg": 0, "arch": true, "check": true, "url": "https://velomobil.ch/" },
+  { "p": "Birk", "m": "Butterfly", "type": "velomobile", "kg": 0, "arch": true, "check": true, "url": "https://velomobil.ch/" },
+  { "p": "Birk", "m": "Peregrin", "type": "bike", "kg": 0, "arch": true, "check": true, "url": "https://velomobil.ch/" }
+]
