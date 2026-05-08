@@ -1,1 +1,4 @@
-
+[
+  { "p": "Pacific Cycles", "m": "Handy", "type": "handcycle", "kg": 110, "check": true, "url": "https://www.pacific-cycles.com/" },
+  { "p": "Pacific Cycles", "m": "Micropb", "type": "bike", "kg": 110, "check": true, "url": "https://www.pacific-cycles.com/" }
+]
