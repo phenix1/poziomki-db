@@ -1,6 +1,13 @@
 [
-  { "p": "Nazca", "m": "Fuego", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/fuego" },
-  { "p": "Nazca", "m": "Gaucho", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/gaucho" },
-  { "p": "Nazca", "m": "Paseo", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/paseo" },
-  { "p": "Nazca", "m": "Pioneer", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/pioneer" }
+  {"p": "Nazca", "m": "Fuego", "type": "bike", "kg": 120, "arch": true, "url": "https://nazca-ligfietsen.nl/"},
+  {"p": "Nazca", "m": "Gaucho", "type": "bike", "kg": 120, "arch": true, "url": "https://nazca-ligfietsen.nl/"},
+  {"p": "Nazca", "m": "Paseo", "type": "bike", "kg": 120, "arch": true, "url": "https://nazca-ligfietsen.nl/"},
+  {"p": "Nazca", "m": "Pioneer", "type": "bike", "kg": 120, "arch": true, "url": "https://nazca-ligfietsen.nl/"},
+  {"p": "Nazca", "m": "Cruiser", "type": "bike", "kg": 0, "arch": true, "url": "https://nazca-ligfietsen.nl/en/cruiser"},
+  {"p": "Nazca", "m": "Explorer", "type": "bike", "kg": 0, "arch": true, "url": "https://nazca-ligfietsen.nl/en/cruiser"},
+  {"p": "Nazca", "m": "Fiero", "type": "bike", "kg": 130, "arch": true, "url": "https://nazca-ligfietsen.nl/en/fiero-xs"},
+  {"p": "Nazca", "m": "Fiero xs", "type": "bike", "kg": 130, "arch": true, "url": "https://nazca-ligfietsen.nl/en/fiero-xs"},
+  {"p": "Nazca", "m": "Gaucho Highracer", "type": "bike", "kg": 0, "arch": true, "url": "https://nazca-ligfietsen.nl/en/gaucho"},
+  {"p": "Nazca", "m": "Gaucho Tour", "type": "bike", "kg": 0, "arch": true, "url": "https://nazca-ligfietsen.nl/en/gaucho"},
+  {"p": "Nazca", "m": "Quetzal", "type": "bike", "kg": 225, "arch": true, "url": "https://nazca-ligfietsen.nl/en/quetzal"}
 ]
