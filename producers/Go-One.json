@@ -1,1 +1,6 @@
-
+[
+  { "p": "Go-One", "m": "Go-One 3", "type": "velomobile", "kg": 120, "arch": true, "url": "http://www.go-one.de/" },
+  { "p": "Go-One", "m": "Go-One Evolution", "type": "velomobile", "kg": 120, "arch": true, "url": "http://www.go-one.de/" },
+  { "p": "Go-One", "m": "Go-One Evolution R", "type": "velomobile", "kg": 120, "arch": true, "url": "http://www.go-one.de/" },
+  { "p": "Go-One", "m": "Go-One Evo K", "type": "velomobile", "kg": 120, "arch": true, "url": "http://www.go-one.de/" }
+]
