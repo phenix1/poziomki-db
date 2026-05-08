@@ -1,1 +1,5 @@
-
+[
+  { "p": "Freedom Ryder", "m": "FR-1", "type": "handcycle", "kg": 113, "check": true, "url": "https://freedomryder.com/" },
+  { "p": "Freedom Ryder", "m": "LC-1", "type": "handcycle", "kg": 113, "check": true, "url": "https://freedomryder.com/" },
+  { "p": "Freedom Ryder", "m": "Super Interceptor", "type": "handcycle", "kg": 113, "check": true, "url": "https://freedomryder.com/" }
+]
