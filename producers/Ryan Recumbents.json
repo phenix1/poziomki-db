@@ -1,1 +1,4 @@
-
+[
+  { "p": "Ryan Recumbents", "m": "Vanguard", "type": "bike", "kg": 113, "arch": true, "url": "https://en.wikipedia.org/wiki/Ryan_Recumbents" },
+  { "p": "Ryan Recumbents", "m": "Duplex Tandem", "type": "bike", "kg": 181, "arch": true, "url": "https://en.wikipedia.org/wiki/Ryan_Recumbents" }
+]
