@@ -1,5 +1,6 @@
 [
-  { "p": "ReActive Adaptation", "m": "Nuke", "type": "handcycle", "kg": 113, "url": "https://www.reactiveadaptation.com/" },
-  { "p": "ReActive Adaptation", "m": "Bomber", "type": "handcycle", "kg": 113, "url": "https://www.reactiveadaptation.com/" },
-  { "p": "ReActive Adaptation", "m": "Wildcat", "type": "handcycle", "kg": 113, "url": "https://www.reactiveadaptation.com/" }
+  {"p": "ReActive Adaptation", "m": "Nuke", "type": "handcycle", "kg": 113, "url": "https://reactiveadaptations.com/"},
+  {"p": "ReActive Adaptation", "m": "Bomber", "type": "handcycle", "kg": 113, "url": "https://reactiveadaptations.com/"},
+  {"p": "ReActive Adaptation", "m": "Wildcat", "type": "handcycle", "kg": 113, "url": "https://reactiveadaptations.com/"},
+  {"p": "ReActive Adaptation", "m": "Nuke Off-Road", "type": "handcycle", "kg": 0, "offroad": true, "url": "https://reactiveadaptations.com/nuke-recumbent-offroad-handcycle/"}
 ]
