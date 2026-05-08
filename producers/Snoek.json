@@ -1,1 +1,4 @@
-
+[
+  { "p": "Snoek", "m": "Snoek", "type": "velomobile", "kg": 110, "url": "https://www.velomobiel.nl/snoek/" },
+  { "p": "Snoek", "m": "Snoek L", "type": "velomobile", "kg": 110, "url": "https://www.velomobiel.nl/snoek/" }
+]
