@@ -1,5 +1,11 @@
 [
-  { "p": "Sport-On", "m": "Explorer II", "type": "handcycle", "kg": 120, "url": "https://sport-on.com/explorer-ii/" },
-  { "p": "Sport-On", "m": "Jeet", "type": "handcycle", "kg": 120, "url": "https://sport-on.com/jeet/" },
-  { "p": "Sport-On", "m": "XCR", "type": "handcycle", "kg": 120, "url": "https://sport-on.com/xcr/" }
+  { "p": "Sport-On", "m": "XCR", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/catalog/xcr/" },
+  { "p": "Sport-On", "m": "XCR Gravel", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/en/catalog/xcr-gravel-2/" },
+  { "p": "Sport-On", "m": "Quantum", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/catalog/quantum/" },
+  { "p": "Sport-On", "m": "Jeetrike", "type": "handcycle", "kg": 80, "url": "https://sport-on.com/catalog/jeetrike/" },
+  { "p": "Sport-On", "m": "Fat Jeetrike", "type": "handcycle", "kg": 80, "url": "https://sport-on.com/en/catalog/fat-jeetrike/" },
+  { "p": "Sport-On", "m": "Troublemaker", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/en/catalog/troublemaker/" },
+  { "p": "Sport-On", "m": "Explorer", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/en/catalog/explorer/" },
+  { "p": "Sport-On", "m": "Explorer Ultimate", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/en/catalog/explorer-ultimate/" },
+  { "p": "Sport-On", "m": "Fat Explorer", "type": "handcycle", "kg": 90, "url": "https://sport-on.com/en/catalog/fat-explorer/" }
 ]
