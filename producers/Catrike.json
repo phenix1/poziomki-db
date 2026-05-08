@@ -1,1 +1,14 @@
-
+[
+  { "p": "Catrike", "m": "5.5.9", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/" },
+  { "p": "Catrike", "m": "700", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/700" },
+  { "p": "Catrike", "m": "All Road", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/all-road" },
+  { "p": "Catrike", "m": "All Road eCAT", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/all-road-ecat" },
+  { "p": "Catrike", "m": "Dumont", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/dumont" },
+  { "p": "Catrike", "m": "Eola", "type": "tadpole", "kg": 125, "arch": true, "url": "https://www.catrike.com/" },
+  { "p": "Catrike", "m": "Expedition", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/expedition" },
+  { "p": "Catrike", "m": "MAX", "type": "tadpole", "kg": 193, "url": "https://www.catrike.com/max" },
+  { "p": "Catrike", "m": "Pocket", "type": "tadpole", "kg": 113, "url": "https://www.catrike.com/pocket" },
+  { "p": "Catrike", "m": "Road", "type": "tadpole", "kg": 125, "arch": true, "url": "https://www.catrike.com/" },
+  { "p": "Catrike", "m": "Trail", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/trail" },
+  { "p": "Catrike", "m": "Villager", "type": "tadpole", "kg": 125, "url": "https://www.catrike.com/villager" }
+]
