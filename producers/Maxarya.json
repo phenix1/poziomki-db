@@ -1,1 +1,5 @@
-
+[
+  { "p": "Maxarya", "m": "Ray 1", "type": "bike", "kg": 113, "url": "http://www.maxarya.com/" },
+  { "p": "Maxarya", "m": "Ray 2", "type": "bike", "kg": 113, "url": "http://www.maxarya.com/" },
+  { "p": "Maxarya", "m": "Ray 2x", "type": "bike", "kg": 113, "url": "http://www.maxarya.com/" }
+]
