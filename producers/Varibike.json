@@ -1,1 +1,4 @@
-
+[
+  { "p": "Varibike", "m": "FR3", "type": "bike", "kg": 120, "url": "https://www.varibike.com/" },
+  { "p": "Varibike", "m": "Varibike Trike", "type": "tadpole", "kg": 120, "url": "https://www.varibike.com/t-en-us/liegerad-trike-mit-handantrieb" }
+]
