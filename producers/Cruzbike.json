@@ -1,1 +1,13 @@
-
+[
+  { "p": "Cruzbike", "m": "A4x Complete", "type": "bike", "kg": 113, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "Freerider", "type": "bike", "kg": 113, "arch": true, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "Q45", "type": "bike", "kg": 136, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "Quest", "type": "bike", "kg": 113, "arch": true, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "S40", "type": "bike", "kg": 113, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "Silvio", "type": "bike", "kg": 113, "arch": true, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "Sofrider", "type": "bike", "kg": 113, "arch": true, "url": "https://cruzbike.com/collections/all-products/bicycles-and-framesets" },
+  { "p": "Cruzbike", "m": "T50", "type": "bike", "kg": 113, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "V20c", "type": "bike", "kg": 113, "url": "https://cruzbike.com/products/v20c" },
+  { "p": "Cruzbike", "m": "Vendetta", "type": "bike", "kg": 113, "arch": true, "url": "https://cruzbike.com/" },
+  { "p": "Cruzbike", "m": "Vendetta V20c", "type": "bike", "kg": 109, "url": "https://cruzbike.com/" }
+]
