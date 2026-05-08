@@ -1,5 +1,7 @@
 [
-  { "p": "Maxarya", "m": "Ray 1", "type": "bike", "kg": 113, "url": "http://www.maxarya.com/" },
-  { "p": "Maxarya", "m": "Ray 2", "type": "bike", "kg": 113, "url": "http://www.maxarya.com/" },
-  { "p": "Maxarya", "m": "Ray 2x", "type": "bike", "kg": 113, "url": "http://www.maxarya.com/" }
+  {"p": "Maxarya", "m": "Ray 1", "type": "bike", "kg": 113, "url": "https://www.maxarya.com/"},
+  {"p": "Maxarya", "m": "Ray 2", "type": "bike", "kg": 113, "url": "https://www.maxarya.com/"},
+  {"p": "Maxarya", "m": "Ray 2x", "type": "bike", "kg": 113, "url": "https://www.maxarya.com/"},
+  {"p": "Maxarya", "m": "Ray 2D", "type": "bike", "kg": 0, "check": true, "url": "https://www.maxarya.com/ray-2d-recumbent-bicycle"},
+  {"p": "Maxarya", "m": "Ray 2E", "type": "bike", "kg": 0, "check": true, "url": "https://www.maxarya.com/ray-2e-electric-recumbent-bicycle"}
 ]
