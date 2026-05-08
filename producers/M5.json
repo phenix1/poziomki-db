@@ -1,1 +1,7 @@
-
+[
+  { "p": "M5", "m": "Carbon Highracer", "type": "bike", "kg": 100, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/Carbon_Highracer" },
+  { "p": "M5", "m": "M-Racer", "type": "bike", "kg": 105, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/M-Racer" },
+  { "p": "M5", "m": "CMPCT", "type": "bike", "kg": 110, "url": "http://www.m5-ligfietsen.nl/site/EN/Models/CMPCT" },
+  { "p": "M5", "m": "20-26", "type": "bike", "kg": 115, "arch": true, "url": "http://www.m5-ligfietsen.nl/" },
+  { "p": "M5", "m": "28-26", "type": "bike", "kg": 115, "arch": true, "url": "http://www.m5-ligfietsen.nl/" }
+]
