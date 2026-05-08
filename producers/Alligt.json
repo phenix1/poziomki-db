@@ -1,1 +1,12 @@
-
+[
+  { "p": "Alligt", "m": "Alleweder A4", "type": "velomobile", "kg": 130, "url": "https://www.alligt.nl/en/alleweder-a4/" },
+  { "p": "Alligt", "m": "Alleweder A6", "type": "velomobile", "kg": 130, "url": "https://www.alligt.nl/en/alleweder-a6/" },
+  { "p": "Alligt", "m": "Alleweder A7", "type": "velomobile", "kg": 130, "check": true, "url": "https://www.alligt.nl/en/alleweder-a7/" },
+  { "p": "Alligt", "m": "Alleweder A8", "type": "velomobile", "kg": 130, "check": true, "url": "https://www.alligt.nl/en/alleweder-a8/" },
+  { "p": "Alligt", "m": "Alleweder A9", "type": "velomobile", "kg": 130, "check": true, "url": "https://www.alligt.nl/alleweder-a9/" },
+  { "p": "Alligt", "m": "Alleweder A10", "type": "quad", "kg": 130, "check": true, "url": "https://www.alligt.nl/alleweder-a10/" },
+  { "p": "Alligt", "m": "Sunrider", "type": "velomobile", "kg": 125, "url": "https://www.alligt.nl/en/sunrider/" },
+  { "p": "Alligt", "m": "Veloquad", "type": "quad", "kg": 0, "check": true, "url": "https://www.alligt.nl/veloquad/" },
+  { "p": "Alligt", "m": "WAW", "type": "velomobile", "kg": 0, "check": true, "url": "https://www.alligt.nl/waw/" },
+  { "p": "Alligt", "m": "Alleweder", "type": "velomobile", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2010/http://alligt.nl/" }
+]
