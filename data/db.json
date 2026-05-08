@@ -8,20 +8,37 @@
     "supportBtnColor": "#ff813f"
   },
   "COLLAB": {
+    "ActionBent": "closed",
+    "Avatar": "closed",
     "Azub": "yes",
+    "BIGHA": "closed",
     "Barcroft": "closed",
+    "BikeE": "closed",
     "Birk": "closed",
     "Blackbird Bikes": "closed",
+    "Burley": "closed",
+    "Cannondale": "closed",
     "Challenge": "closed",
+    "Easy Racers": "closed",
     "Flevobike": "closed",
     "Flux": "closed",
     "Go-One": "closed",
+    "Haluzak": "closed",
     "KMX": "closed",
     "Lightfoot Cycles": "closed",
+    "Linear": "closed",
     "Matix Bike": "yes",
+    "MetaBikes": "closed",
+    "Nazca": "closed",
     "Optima": "closed",
     "Pacific Cycles": "closed",
     "Podbike": "closed",
+    "Rotator": "closed",
+    "Ryan": "closed",
+    "SideWinder": "closed",
+    "Trice": "closed",
+    "Vision": "closed",
+    "Volae": "closed",
     "Zockra": "closed"
   },
   "DB": [
@@ -3324,6 +3341,245 @@
       "kg": 0,
       "arch": true,
       "url": "https://www.bentrideronline.com/?tag=zockra"
+    },
+    {
+      "p": "ActionBent",
+      "m": "MidRacer",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
+    },
+    {
+      "p": "ActionBent",
+      "m": "HighRacer",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
+    },
+    {
+      "p": "ActionBent",
+      "m": "JetStream",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
+    },
+    {
+      "p": "ActionBent",
+      "m": "Road Runner",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
+    },
+    {
+      "p": "ActionBent",
+      "m": "Tadpole Trike",
+      "type": "tadpole",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Tour",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Century",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Expedition",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Club",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Team",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Sport",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "Voyager",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Volae",
+      "m": "ES",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
+    },
+    {
+      "p": "Linear Recumbents",
+      "m": "Limo",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.linearrecumbents.com/limo"
+    },
+    {
+      "p": "Linear Recumbents",
+      "m": "Roadster",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.linearrecumbents.com/roadster"
+    },
+    {
+      "p": "Longbikes",
+      "m": "Slipstream",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.longbikes.com/slipstream"
+    },
+    {
+      "p": "Longbikes",
+      "m": "Eliminator",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.longbikes.com/eliminator"
+    },
+    {
+      "p": "Avatar",
+      "m": "Avatar 2000",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://recumbents.com/"
+    },
+    {
+      "p": "Ryan",
+      "m": "Vanguard",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://recumbents.com/"
+    },
+    {
+      "p": "Ryan",
+      "m": "Tandem",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://web.archive.org/web/2010/http://recumbents.com/"
+    },
+    {
+      "p": "Rotator",
+      "m": "Pursuit",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://www.bentrideronline.com/?tag=rotator"
+    },
+    {
+      "p": "Rotator",
+      "m": "Avatar",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://www.bentrideronline.com/?tag=rotator"
+    },
+    {
+      "p": "SideWinder",
+      "m": "SideWinder",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://www.bentrideronline.com/?tag=sidewinder"
+    },
+    {
+      "p": "MetaBikes",
+      "m": "MetaBike",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://www.bentrideronline.com/?tag=metabikes"
+    },
+    {
+      "p": "Cannondale",
+      "m": "Semi",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://www.bentrideronline.com/?tag=cannondale"
+    },
+    {
+      "p": "Sun Recumbents",
+      "m": "EZ-1 SC",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://sunbicycles.com/collections/recumbent"
+    },
+    {
+      "p": "Sun Recumbents",
+      "m": "EZ-1 SX",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://sunbicycles.com/collections/recumbent"
+    },
+    {
+      "p": "Sun Recumbents",
+      "m": "EZ-3 USX",
+      "type": "tadpole",
+      "kg": 0,
+      "url": "https://sunbicycles.com/collections/recumbent"
+    },
+    {
+      "p": "Sun Recumbents",
+      "m": "EZ-3 HD",
+      "type": "tadpole",
+      "kg": 0,
+      "url": "https://sunbicycles.com/collections/recumbent"
+    },
+    {
+      "p": "Sun Recumbents",
+      "m": "EZ Sport",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://sunbicycles.com/collections/recumbent"
+    },
+    {
+      "p": "BIGHA",
+      "m": "BIGHA",
+      "type": "bike",
+      "kg": 0,
+      "arch": true,
+      "url": "https://www.bentrideronline.com/?tag=bigha"
     }
   ]
 }
