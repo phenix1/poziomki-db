@@ -127,7 +127,10 @@
     "Steintrikes": { c: "RS", f: "🇷🇸" }, // Serbia
     "Velomobile World": { c: "RO", f: "🇷🇴" }, // Rumunia
     "Carbontrikes": { c: "SE", f: "🇸🇪" }, // Szwecja
-
+    "SunSeeker": { c: "US", f: "🇺🇸" },
+    "Velomtek": { c: "CA", f: "🇨🇦" },
+    "Birkenstock Bicycles": { c: "CH", f: "🇨🇭" },
+    
     // Domyślna flaga dla ew. przyszłych braków
     "default": { c: "UN", f: "🏳️" }
   };
