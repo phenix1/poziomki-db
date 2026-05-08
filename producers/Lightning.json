@@ -1,5 +1,10 @@
 [
-  { "p": "Lightning", "m": "F-40", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/f40/index.html" },
-  { "p": "Lightning", "m": "P-38", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/p38/index.html" },
-  { "p": "Lightning", "m": "Phantom", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/phantom/index.html" }
+  {"p": "Lightning", "m": "F-40", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/f40/index.html"},
+  {"p": "Lightning", "m": "P-38", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/p38/index.html"},
+  {"p": "Lightning", "m": "Phantom", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/phantom/index.html"},
+  {"p": "Lightning", "m": "P-38 Belt Drive", "type": "bike", "kg": 0, "check": true, "url": "https://www.lightningbikes.com/p38/belt-drive.html"},
+  {"p": "Lightning", "m": "P-38 Voyager", "type": "bike", "kg": 0, "check": true, "url": "https://www.lightningbikes.com/voyager/index.html"},
+  {"p": "Lightning", "m": "R-84", "type": "bike", "kg": 0, "check": true, "url": "https://www.lightningbikes.com/r84/index.html"},
+  {"p": "Lightning", "m": "R-84 E-84", "type": "bike", "kg": 0, "url": "https://www.lightningbikes.com/r84/e84.html"},
+  {"p": "Lightning", "m": "e-Lightning", "type": "bike", "kg": 0, "url": "https://www.lightningbikes.com/e-lightning/index.html"}
 ]
