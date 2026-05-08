@@ -1,1 +1,5 @@
-
+[
+  { "p": "InterCityBike", "m": "DF", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/" },
+  { "p": "InterCityBike", "m": "DF XL", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/" },
+  { "p": "InterCityBike", "m": "Tuna", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/" }
+]
