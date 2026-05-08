@@ -1,3 +1,4 @@
 [
-  { "p": "PonyFour", "m": "PONY4", "type": "quad", "kg": 200, "url": "https://pony4.bike/" }
+  {"p": "PonyFour", "m": "PONY4", "type": "quad", "kg": 200, "url": "https://www.pony4.bike/"},
+  {"p": "PonyFour", "m": "PONY4 Cargo", "type": "quad", "kg": 0, "url": "https://www.pony4.bike/"}
 ]
