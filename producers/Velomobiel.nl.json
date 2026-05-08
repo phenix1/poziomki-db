@@ -1,7 +1,7 @@
 [
-  { "p": "Velomobiel.nl", "m": "DuoQuest", "type": "quad", "kg": 150, "arch": true, "url": "https://en.velomobiel.nl/duoquest/" },
-  { "p": "Velomobiel.nl", "m": "Quattrovelo", "type": "quad", "kg": 120, "arch": true, "url": "https://en.velomobiel.nl/quattrovelo/" },
-  { "p": "Velomobiel.nl", "m": "Quattrovelo XL", "type": "quad", "kg": 120, "arch": true, "url": "https://en.velomobiel.nl/quattrovelo/" },
+  { "p": "Velomobiel.nl", "m": "DuoQuest", "type": "velomobile", "kg": 150, "arch": true, "url": "https://en.velomobiel.nl/duoquest/" },
+  { "p": "Velomobiel.nl", "m": "Quattrovelo", "type": "velomobile", "kg": 120, "arch": true, "url": "https://en.velomobiel.nl/quattrovelo/" },
+  { "p": "Velomobiel.nl", "m": "Quattrovelo XL", "type": "velomobile", "kg": 120, "arch": true, "url": "https://en.velomobiel.nl/quattrovelo/" },
   { "p": "Velomobiel.nl", "m": "Quest", "type": "velomobile", "kg": 120, "url": "https://www.velomobiel.nl/en/quest/" },
   { "p": "Velomobiel.nl", "m": "Quest VS", "type": "velomobile", "kg": 120, "url": "https://en.velomobiel.nl/quest/" },
   { "p": "Velomobiel.nl", "m": "Quest XS", "type": "velomobile", "kg": 110, "url": "https://www.velomobiel.nl/en/questxs/" },
