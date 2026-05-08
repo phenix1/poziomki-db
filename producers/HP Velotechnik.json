@@ -1,1 +1,16 @@
-
+[
+  { "p": "HP Velotechnik", "m": "Gekko 20", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-gekko/" },
+  { "p": "HP Velotechnik", "m": "Gekko 26", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-gekko/gekko-26-speedy-recumbent-trike-for-adults/" },
+  { "p": "HP Velotechnik", "m": "Gekko fx 20", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-gekko/gekko-fx-20-foldable-recumbent-trike/" },
+  { "p": "HP Velotechnik", "m": "Gekko fx 26", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-gekko/gekko-fx-26-foldable-recumbent-touring-trike/" },
+  { "p": "HP Velotechnik", "m": "Grasshopper fx", "type": "bike", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-bikes-grasshopper-fx/" },
+  { "p": "HP Velotechnik", "m": "Scorpion", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-scorpion/" },
+  { "p": "HP Velotechnik", "m": "Scorpion fs 20", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-scorpion/scorpion-fs-20-full-suspension-trike/" },
+  { "p": "HP Velotechnik", "m": "Scorpion fs 26", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-scorpion/scorpion-fs-26-full-suspension-touring-trike/" },
+  { "p": "HP Velotechnik", "m": "Scorpion fx", "type": "tadpole", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-scorpion/scorpion-fx-foldable-touring-trike/" },
+  { "p": "HP Velotechnik", "m": "Scorpion Plus 20", "type": "tadpole", "kg": 150, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-scorpion/scorpion-plus-20-comfortable-trike-high-seat/" },
+  { "p": "HP Velotechnik", "m": "Scorpion Plus 26", "type": "tadpole", "kg": 150, "url": "https://www.hpvelotechnik.com/en/recumbent-trikes-scorpion/scorpion-plus-26-suv-trike-high-seat-ebike/" },
+  { "p": "HP Velotechnik", "m": "Speedmachine", "type": "bike", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-bikes-speedmachine/" },
+  { "p": "HP Velotechnik", "m": "Spirit", "type": "bike", "kg": 130, "arch": true, "url": "https://www.hpvelotechnik.com/" },
+  { "p": "HP Velotechnik", "m": "Streetmachine Gte", "type": "bike", "kg": 130, "url": "https://www.hpvelotechnik.com/en/recumbent-bikes-streetmachine-gte/" }
+]
