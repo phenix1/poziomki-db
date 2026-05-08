@@ -29,6 +29,7 @@
     "Linear": "closed",
     "Matix Bike": "yes",
     "MetaBikes": "closed",
+    "Mochet": "closed",
     "Nazca": "closed",
     "Optima": "closed",
     "Pacific Cycles": "closed",
@@ -3580,6 +3581,105 @@
       "kg": 0,
       "arch": true,
       "url": "https://www.bentrideronline.com/?tag=bigha"
+    },
+    {
+      "p": "Velomo",
+      "m": "Quadvelo",
+      "type": "quad",
+      "kg": 200,
+      "url": "https://velomo.de/quadvelo/"
+    },
+    {
+      "p": "Velomo",
+      "m": "Quadvelo Cargo",
+      "type": "quad",
+      "kg": 200,
+      "url": "https://velomo.de/quadvelo/"
+    },
+    {
+      "p": "Passion-Velomobile",
+      "m": "Alleweder A4",
+      "type": "velomobile",
+      "kg": 0,
+      "url": "https://passion-velomobile.com/"
+    },
+    {
+      "p": "TWOZERO",
+      "m": "Classic",
+      "type": "velomobile",
+      "kg": 0,
+      "url": "https://www.twozero.no/"
+    },
+    {
+      "p": "TrikExplor",
+      "m": "H420E",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad"
+    },
+    {
+      "p": "Mochet",
+      "m": "Velocar",
+      "type": "quad",
+      "kg": 0,
+      "arch": true,
+      "url": "https://en.wikipedia.org/wiki/Velocar"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Pino Steps",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.hasebikes.com/en/tandem/pino-steps"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Pino Cargo",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.hasebikes.com/en/tandem/pino-cargo"
+    },
+    {
+      "p": "Performer",
+      "m": "Family Tandem",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/23"
+    },
+    {
+      "p": "New Age Bikes",
+      "m": "Family Tandem Recumbent",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://newagebikes.com/products/family-tandem-recumbent"
+    },
+    {
+      "p": "CargoCycle",
+      "m": "Nanuk",
+      "type": "bike",
+      "kg": 0,
+      "url": "https://www.recumbent.news/tag/cargo-recumbent/"
+    },
+    {
+      "p": "Leiba",
+      "m": "Leiba Cargo",
+      "type": "velomobile",
+      "kg": 200,
+      "url": "http://www.leiba.de/leiba_cargo.html"
+    },
+    {
+      "p": "TrikExplor",
+      "m": "2-Person Quad",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://www.trikexplor.com/"
+    },
+    {
+      "p": "TrikExplor",
+      "m": "4-Person Quad",
+      "type": "quad",
+      "kg": 0,
+      "url": "https://www.trikexplor.com/"
     }
   ]
 }
