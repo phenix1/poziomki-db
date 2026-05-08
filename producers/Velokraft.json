@@ -1,1 +1,5 @@
-
+[
+  { "p": "Velokraft", "m": "NoCom", "type": "bike", "kg": 100, "arch": true, "check": true, "url": "http://recumbents.com/wisil/misc/nocom.htm" },
+  { "p": "Velokraft", "m": "VK2", "type": "bike", "kg": 100, "arch": true, "check": true, "url": "http://recumbents.com/" },
+  { "p": "Velokraft", "m": "VK3", "type": "bike", "kg": 100, "arch": true, "check": true, "url": "http://recumbents.com/" }
+]
