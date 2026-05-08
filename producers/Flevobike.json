@@ -1,1 +1,6 @@
-
+[
+  { "p": "Flevobike", "m": "Flevobike", "type": "bike", "kg": 110, "arch": true, "check": true, "url": "https://flevobike.nl/" },
+  { "p": "Flevobike", "m": "Flevoracer", "type": "bike", "kg": 110, "arch": true, "check": true, "url": "https://flevobike.nl/" },
+  { "p": "Flevobike", "m": "Flevotrike", "type": "delta", "kg": 110, "arch": true, "check": true, "url": "https://flevobike.nl/" },
+  { "p": "Flevobike", "m": "GreenMachine", "type": "bike", "kg": 120, "arch": true, "url": "https://flevobike.nl/" }
+]
