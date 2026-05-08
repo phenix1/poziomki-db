@@ -1,1 +1,4 @@
-
+[
+  { "p": "Slyway", "m": "Team", "type": "bike", "kg": 100, "arch": true, "check": true, "url": "http://www.slywayprojects.com/" },
+  { "p": "Slyway", "m": "Ultrateam", "type": "bike", "kg": 100, "arch": true, "check": true, "url": "http://www.slywayprojects.com/" }
+]
