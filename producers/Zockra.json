@@ -1,1 +1,29 @@
-
+[
+  { 
+    "p": "Zockra", 
+    "m": "Kouign Amann", 
+    "type": "bike", 
+    "kg": 100, 
+    "arch": true, 
+    "check": true, 
+    "url": "http://zockra.blogspot.com/" 
+  },
+  { 
+    "p": "Zockra", 
+    "m": "High Racer 700", 
+    "type": "bike", 
+    "kg": 100, 
+    "arch": true, 
+    "check": true, 
+    "url": "http://zockra.blogspot.com/" 
+  },
+  { 
+    "p": "Zockra", 
+    "m": "Lowracer", 
+    "type": "bike", 
+    "kg": 100, 
+    "arch": true, 
+    "check": true, 
+    "url": "http://zockra.blogspot.com/" 
+  }
+]
