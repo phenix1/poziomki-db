@@ -1,1 +1,5 @@
-
+[
+  { "p": "Lightning", "m": "F-40", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/f40/index.html" },
+  { "p": "Lightning", "m": "P-38", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/p38/index.html" },
+  { "p": "Lightning", "m": "Phantom", "type": "bike", "kg": 113, "url": "https://www.lightningbikes.com/phantom/index.html" }
+]
