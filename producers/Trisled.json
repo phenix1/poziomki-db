@@ -1,1 +1,6 @@
-
+[
+  { "p": "Trisled", "m": "Rotovelo", "type": "velomobile", "kg": 130, "url": "https://trisled.com.au/hpv/rotovelo-2/" },
+  { "p": "Trisled", "m": "Rotovelo Carbon", "type": "velomobile", "kg": 115, "url": "https://trisled.com.au/hpv/rotovelo-carbon/" },
+  { "p": "Trisled", "m": "Gizmo", "type": "tadpole", "kg": 120, "check": true, "url": "https://trisled.com.au/hpv/gizmo/" },
+  { "p": "Trisled", "m": "Fastback", "type": "tadpole", "kg": 110, "check": true, "url": "https://trisled.com.au/" }
+]
