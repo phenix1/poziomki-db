@@ -1,1 +1,4 @@
-
+[
+  { "p": "Wolf & Wolf", "m": "Alpentourer AT1", "type": "bike", "kg": 130, "url": "https://www.wolfundwolf.ch/" },
+  { "p": "Wolf & Wolf", "m": "Alpentourer AT2", "type": "bike", "kg": 130, "url": "https://www.wolfundwolf.ch/" }
+]
