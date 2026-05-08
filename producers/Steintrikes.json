@@ -1,1 +1,6 @@
-
+[
+  { "p": "Steintrikes", "m": "Wild One 20/20", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/wild-one-20-20/" },
+  { "p": "Steintrikes", "m": "Wild One 26", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/wild-one-26/" },
+  { "p": "Steintrikes", "m": "Mad Max", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/" },
+  { "p": "Steintrikes", "m": "Explorer", "type": "tadpole", "kg": 130, "url": "https://steintrikes.de/" }
+]
