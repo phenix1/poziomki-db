@@ -1,5 +1,7 @@
 [
-  { "p": "Trice", "m": "Micro", "type": "tadpole", "kg": 115, "arch": true, "check": true, "url": "https://www.icetrikes.co/" },
-  { "p": "Trice", "m": "Monster", "type": "tadpole", "kg": 115, "arch": true, "check": true, "url": "https://www.icetrikes.co/" },
-  { "p": "Trice", "m": "Pioneer", "type": "tadpole", "kg": 115, "arch": true, "check": true, "url": "https://www.icetrikes.co/" }
+  { "p": "Trident", "m": "Spike", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/spike/" },
+  { "p": "Trident", "m": "Stowaway", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/" },
+  { "p": "Trident", "m": "Trekker", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/trekker/" },
+  { "p": "Trident", "m": "Terrain 20", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/terrain/" },
+  { "p": "Trident", "m": "Terrain 26", "type": "tadpole", "kg": 147, "url": "https://tridenttrikes.com/jouta-delta/products/terrain/" }
 ]
