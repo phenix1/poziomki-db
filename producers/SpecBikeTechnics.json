@@ -1,1 +1,5 @@
-
+[
+  { "p": "SpecBikeTechnics", "m": "Comfort", "type": "tadpole", "kg": 120, "url": "https://specbike.lv/" },
+  { "p": "SpecBikeTechnics", "m": "Sport", "type": "tadpole", "kg": 120, "url": "https://specbike.lv/" },
+  { "p": "SpecBikeTechnics", "m": "Gran Turismo", "type": "tadpole", "kg": 120, "url": "https://specbike.lv/" }
+]
