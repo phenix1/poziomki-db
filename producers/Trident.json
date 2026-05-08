@@ -1,7 +1,22 @@
 [
-  { "p": "Trident", "m": "Spike", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/spike/" },
-  { "p": "Trident", "m": "Stowaway", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/" },
-  { "p": "Trident", "m": "Trekker", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/trekker/" },
-  { "p": "Trident", "m": "Terrain 20", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/terrain/" },
-  { "p": "Trident", "m": "Terrain 26", "type": "tadpole", "kg": 147, "url": "https://tridenttrikes.com/jouta-delta/products/terrain/" }
+  { "p": "Trident", "m": "Chameleon Tandem", "type": "tadpole", "kg": 181, "url": "https://tridenttrikes.com/jouta-delta/products/chameleon/", "check": true },
+  { "p": "Trident", "m": "Fat Trekker", "type": "tadpole", "kg": 147, "offroad": true, "url": "https://tridenttrikes.com/jouta-delta/products/trekker/", "check": true },
+  { "p": "Trident", "m": "Jouta Fat Quad", "type": "quad", "kg": 147, "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/", "check": true },
+  { "p": "Trident", "m": "Jouta Quad", "type": "quad", "kg": 147, "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/", "check": true },
+  { "p": "Trident", "m": "Jouta Tadpole", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/jouta-tadpole/", "check": true },
+  { "p": "Trident", "m": "Nomad", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/nomad/", "check": true },
+  { "p": "Trident", "m": "Spike 1", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/spike/", "check": true },
+  { "p": "Trident", "m": "Spike 2", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/spike/", "check": true },
+  { "p": "Trident", "m": "Spike 380", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/spike/", "check": true },
+  { "p": "Trident", "m": "Stowaway I", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/", "check": true },
+  { "p": "Trident", "m": "Stowaway II", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/", "check": true },
+  { "p": "Trident", "m": "T.W.I.G", "type": "bike", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/t-w-i-g/", "check": true },
+  { "p": "Trident", "m": "Terrain 20", "type": "tadpole", "kg": 125, "offroad": true, "url": "https://tridenttrikes.com/jouta-delta/products/terrain/", "check": true },
+  { "p": "Trident", "m": "Terrain 26", "type": "tadpole", "kg": 147, "offroad": true, "url": "https://tridenttrikes.com/jouta-delta/products/terrain/", "check": true },
+  { "p": "Trident", "m": "Titan", "type": "tadpole", "kg": 181, "url": "https://tridenttrikes.com/jouta-delta/products/titan/", "check": true },
+  { "p": "Trident", "m": "Tomcat", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/", "check": true },
+  { "p": "Trident", "m": "Tomcat 380", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/", "check": true },
+  { "p": "Trident", "m": "Tomcat E", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/", "check": true },
+  { "p": "Trident", "m": "Trekker 20", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/trekker/", "check": true },
+  { "p": "Trident", "m": "Trekker 26", "type": "tadpole", "kg": 125, "url": "https://tridenttrikes.com/jouta-delta/products/trekker/", "check": true }
 ]
