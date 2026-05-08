@@ -1,1 +1,5 @@
-
+[
+  { "p": "Dekers Bike", "m": "Extreme", "type": "tadpole", "kg": 150, "url": "https://dekersbike.com/product/dekers-extreme/" },
+  { "p": "Dekers Bike", "m": "Fattrike", "type": "tadpole", "kg": 150, "url": "https://dekersbike.com/product/dekers-fattrike/" },
+  { "p": "Dekers Bike", "m": "Hunter", "type": "tadpole", "kg": 150, "url": "https://dekersbike.com/product/dekers-hunter/" }
+]
