@@ -1,1 +1,5 @@
-
+[
+  { "p": "Cycles JV Fenioux", "m": "Fenioux Custom", "type": "bike", "kg": 0, "check": true, "url": "https://cycles-jv-fenioux.com/" },
+  { "p": "Cycles JV Fenioux", "m": "LeMans", "type": "velomobile", "kg": 0, "check": true, "url": "https://cycles-jv-fenioux.com/catalogue-velos/le-mans/" },
+  { "p": "Cycles JV Fenioux", "m": "Mulsanne", "type": "velomobile", "kg": 0, "check": true, "url": "https://cycles-jv-fenioux.com/catalogue-velos/mulsanne/" }
+]
