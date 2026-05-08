@@ -1,1 +1,5 @@
-
+[
+  { "p": "Windcheetah", "m": "Club", "type": "tadpole", "kg": 110, "arch": true, "check": true, "url": "http://www.windcheetah.co.uk/" },
+  { "p": "Windcheetah", "m": "Hypersport", "type": "tadpole", "kg": 100, "arch": true, "check": true, "url": "http://www.windcheetah.co.uk/" },
+  { "p": "Windcheetah", "m": "Superpoint", "type": "tadpole", "kg": 110, "arch": true, "check": true, "url": "http://www.windcheetah.co.uk/" }
+]
