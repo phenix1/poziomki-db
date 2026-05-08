@@ -1,1 +1,6 @@
-
+[
+  { "p": "Velomobile World", "m": "Bülk MK1", "type": "velomobile", "kg": 120, "url": "https://www.velomobileworld.com/product/bulk-mk1/" },
+  { "p": "Velomobile World", "m": "Alpha 7", "type": "velomobile", "kg": 120, "url": "https://www.velomobileworld.com/" },
+  { "p": "Velomobile World", "m": "Alpha 9", "type": "velomobile", "kg": 120, "url": "https://www.velomobileworld.com/" },
+  { "p": "Velomobile World", "m": "Alpha M9", "type": "velomobile", "kg": 120, "url": "https://www.velomobileworld.com/product/8-alpha-m9/" }
+]
