@@ -1,1 +1,7 @@
-
+[
+  { "p": "Flux", "m": "C-500", "type": "bike", "kg": 120, "arch": true, "url": "http://flux-liegerad.de/" },
+  { "p": "Flux", "m": "S-600", "type": "bike", "kg": 120, "arch": true, "url": "http://flux-liegerad.de/" },
+  { "p": "Flux", "m": "S-800", "type": "bike", "kg": 120, "arch": true, "url": "http://flux-liegerad.de/" },
+  { "p": "Flux", "m": "S-900", "type": "bike", "kg": 120, "arch": true, "url": "http://flux-liegerad.de/" },
+  { "p": "Flux", "m": "S-Max", "type": "bike", "kg": 125, "arch": true, "url": "http://flux-liegerad.de/" }
+]
