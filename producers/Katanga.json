@@ -1,4 +1,7 @@
 [
-  { "p": "Katanga", "m": "VM45", "type": "quad", "kg": 120, "url": "https://www.katanga.eu/vm45/" },
-  { "p": "Katanga", "m": "WAW", "type": "velomobile", "kg": 120, "url": "https://www.katanga.eu/waw/" }
+  {"p": "Katanga", "m": "VM45", "type": "quad", "kg": 120, "url": "https://www.katanga.eu/vm45/"},
+  {"p": "Katanga", "m": "WAW", "type": "velomobile", "kg": 120, "url": "https://www.katanga.eu/waw/"},
+  {"p": "Katanga", "m": "Alleweder 4", "type": "velomobile", "kg": 0, "url": "https://www.katanga.eu/alleweder4/"},
+  {"p": "Katanga", "m": "VELION", "type": "velomobile", "kg": 0, "url": "https://www.katanga.eu/vm45/"},
+  {"p": "Katanga", "m": "WAW E", "type": "velomobile", "kg": 0, "url": "https://www.katanga.eu/waw/"}
 ]
