@@ -1,1 +1,5 @@
-
+[
+  { "p": "Haluzak", "m": "Horizon", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Haluzak", "m": "Hybrid", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Haluzak", "m": "Leprechaun", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" }
+]
