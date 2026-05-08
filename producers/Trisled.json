@@ -1,6 +1,20 @@
 [
-  { "p": "Trisled", "m": "Rotovelo", "type": "velomobile", "kg": 130, "url": "https://trisled.com.au/hpv/rotovelo-2/" },
-  { "p": "Trisled", "m": "Rotovelo Carbon", "type": "velomobile", "kg": 115, "url": "https://trisled.com.au/hpv/rotovelo-carbon/" },
-  { "p": "Trisled", "m": "Gizmo", "type": "tadpole", "kg": 120, "check": true, "url": "https://trisled.com.au/hpv/gizmo/" },
-  { "p": "Trisled", "m": "Fastback", "type": "tadpole", "kg": 110, "check": true, "url": "https://trisled.com.au/" }
+  {"p": "Trisled", "m": "Fastback", "type": "tadpole", "kg": 110, "check": true, "url": "https://www.trisled.com.au/"},
+  {"p": "Trisled", "m": "Gizmo", "type": "tadpole", "kg": 120, "check": true, "url": "https://www.trisled.com.au/"},
+  {"p": "Trisled", "m": "Rotovelo", "type": "velomobile", "kg": 130, "url": "https://www.trisled.com.au/"},
+  {"p": "Trisled", "m": "Rotovelo Carbon", "type": "velomobile", "kg": 115, "url": "https://www.trisled.com.au/"},
+  {"p": "Trisled", "m": "Aquila 3", "type": "velomobile", "kg": 0, "url": "https://www.trisled.com.au/aquila"},
+  {"p": "Trisled", "m": "Overzealous XC", "type": "velomobile", "kg": 0, "url": "https://www.trisled.com.au/overzealous-xc"},
+  {"p": "Trisled", "m": "Bonnie Doon", "type": "tadpole", "kg": 0, "url": "https://trisled.com.au/bonnie-doon/"},
+  {"p": "Trisled", "m": "Ahoogah Tandem", "type": "tadpole", "kg": 0, "url": "https://trisled.com.au/ahoogah-tandem/"},
+  {"p": "Trisled", "m": "Indipac Tandem", "type": "tadpole", "kg": 0, "url": "https://trisled.com.au/indipac-tandem/"},
+  {"p": "Trisled", "m": "Delta Goodrun", "type": "delta", "kg": 0, "url": "https://trisled.com.au/delta-goodrun/"},
+  {"p": "Trisled", "m": "Mountain Trike 27+", "type": "tadpole", "kg": 0, "url": "https://trisled.com.au/mountain-trike-27/"},
+  {"p": "Trisled", "m": "Skyhawk", "type": "velomobile", "kg": 0, "url": "https://trisled.com.au/hpv/skyhawk/"},
+  {"p": "Trisled", "m": "Hornet", "type": "velomobile", "kg": 0, "url": "https://trisled.com.au/hornet/"},
+  {"p": "Trisled", "m": "Quad Chair Bike", "type": "quad", "kg": 0, "url": "https://trisled.com.au/quad-chair-bike/"},
+  {"p": "Trisled", "m": "Back O Bourke", "type": "tadpole", "kg": 0, "arch": true, "url": "https://trisled.com.au/timeline/"},
+  {"p": "Trisled", "m": "Volare", "type": "velomobile", "kg": 0, "arch": true, "url": "https://trisled.com.au/timeline/"},
+  {"p": "Trisled", "m": "Side Step", "type": "tadpole", "kg": 0, "arch": true, "url": "https://trisled.com.au/timeline/"},
+  {"p": "Trisled", "m": "Rotovelo 2", "type": "velomobile", "kg": 0, "arch": true, "url": "https://trisled.com.au/timeline/"}
 ]
