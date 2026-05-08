@@ -1,1 +1,5 @@
-
+[
+  { "p": "Trice", "m": "Micro", "type": "tadpole", "kg": 115, "arch": true, "check": true, "url": "https://www.icetrikes.co/" },
+  { "p": "Trice", "m": "Monster", "type": "tadpole", "kg": 115, "arch": true, "check": true, "url": "https://www.icetrikes.co/" },
+  { "p": "Trice", "m": "Pioneer", "type": "tadpole", "kg": 115, "arch": true, "check": true, "url": "https://www.icetrikes.co/" }
+]
