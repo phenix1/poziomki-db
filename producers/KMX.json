@@ -1,9 +1,11 @@
 [
-  { "p": "KMX", "m": "Cobra", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
-  { "p": "KMX", "m": "K-3", "type": "tadpole", "kg": 65, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
-  { "p": "KMX", "m": "Kolt", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
-  { "p": "KMX", "m": "Tornado", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
-  { "p": "KMX", "m": "Typhoon", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
-  { "p": "KMX", "m": "Venom", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" },
-  { "p": "KMX", "m": "Viper", "type": "tadpole", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2019/http://www.kmxkarts.co.uk/" }
+  {"p": "KMX", "m": "Cobra", "type": "tadpole", "kg": 130, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "K-3", "type": "tadpole", "kg": 65, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "Kolt", "type": "tadpole", "kg": 130, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "Tornado", "type": "tadpole", "kg": 130, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "Typhoon", "type": "tadpole", "kg": 130, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "Venom", "type": "tadpole", "kg": 130, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "Viper", "type": "tadpole", "kg": 130, "arch": true, "url": "https://www.kmxkarts.co.uk/"},
+  {"p": "KMX", "m": "Kompact", "type": "tadpole", "kg": 0, "arch": true, "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Kidz/KMX-Kompact-R-.aspx"},
+  {"p": "KMX", "m": "Koyote", "type": "tadpole", "kg": 0, "arch": true, "url": "https://web.archive.org/web/2023/https://www.kmxkarts.co.uk/Recumbent-Trikes/KMX-Adult/KMX-Koyote-Adults-Sports-Trike.aspx"}
 ]
