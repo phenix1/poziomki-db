@@ -1,1 +1,5 @@
-
+[
+  { "p": "Radius", "m": "Peer Gynt", "type": "bike", "kg": 115, "arch": true, "url": "https://de.wikipedia.org/wiki/Radius_Lieger%C3%A4der" },
+  { "p": "Radius", "m": "Hornet", "type": "bike", "kg": 115, "arch": true, "url": "https://de.wikipedia.org/wiki/Radius_Lieger%C3%A4der" },
+  { "p": "Radius", "m": "Dino", "type": "bike", "kg": 115, "arch": true, "url": "https://de.wikipedia.org/wiki/Radius_Lieger%C3%A4der" }
+]
