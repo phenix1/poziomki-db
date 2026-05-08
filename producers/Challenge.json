@@ -1,1 +1,14 @@
-
+[
+  { "p": "Challenge", "m": "Alize", "type": "bike", "kg": 130, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/" },
+  { "p": "Challenge", "m": "Chamsin", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/chamsin.php" },
+  { "p": "Challenge", "m": "Fujin", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/fujinsport_detail.php" },
+  { "p": "Challenge", "m": "Fujin SL", "type": "bike", "kg": 110, "arch": true, "check": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/fujinsl2_detail.php" },
+  { "p": "Challenge", "m": "Hurricane", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/hurricane_detail.php" },
+  { "p": "Challenge", "m": "Jester", "type": "bike", "kg": 110, "arch": true, "check": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/" },
+  { "p": "Challenge", "m": "Mistral", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/touring_recumbents.php" },
+  { "p": "Challenge", "m": "Seiran", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/seiran_detail.php" },
+  { "p": "Challenge", "m": "Seiran SL", "type": "bike", "kg": 110, "arch": true, "check": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/seiran_detail.php" },
+  { "p": "Challenge", "m": "Taifun", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/" },
+  { "p": "Challenge", "m": "Taifun compact", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/" },
+  { "p": "Challenge", "m": "Ventus", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2023/http://www.challengebikes.com/" }
+]
