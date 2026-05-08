@@ -1,1 +1,7 @@
-
+[
+  { "p": "ICE Trikes", "m": "Adventure", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/adventure" },
+  { "p": "ICE Trikes", "m": "Adventure HD", "type": "tadpole", "kg": 150, "url": "https://www.icetrikes.co/products/adventure" },
+  { "p": "ICE Trikes", "m": "Full Fat", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/full-fat" },
+  { "p": "ICE Trikes", "m": "Sprint X", "type": "tadpole", "kg": 125, "url": "https://www.icetrikes.co/products/sprint-x" },
+  { "p": "ICE Trikes", "m": "VTX", "type": "tadpole", "kg": 104, "url": "https://www.icetrikes.co/products/vtx" }
+]
