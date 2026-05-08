@@ -1,10 +1,13 @@
 [
-  { "p": "Hase Bikes", "m": "Kettwiesel Allround", "type": "delta", "kg": 140, "url": "https://hasebikes.com/en/your-bikes/delta-trikes/kettwiesel-allround/" },
-  { "p": "Hase Bikes", "m": "Kettwiesel Cross", "type": "delta", "kg": 140, "url": "https://hasebikes.com/en/your-bikes/delta-trikes/kettwiesel-cross/" },
-  { "p": "Hase Bikes", "m": "Kettwiesel Evo", "type": "delta", "kg": 140, "url": "https://hasebikes.com/en/your-bikes/delta-trikes/kettwiesel-evo/" },
-  { "p": "Hase Bikes", "m": "Kettwiesel One", "type": "delta", "kg": 140, "url": "https://hasebikes.com/en/your-bikes/delta-trikes/kettwiesel-one/" },
-  { "p": "Hase Bikes", "m": "Lepus", "type": "delta", "kg": 140, "url": "https://hasebikes.com/en/your-bikes/delta-trikes/lepus-allround/" },
-  { "p": "Hase Bikes", "m": "Pino", "type": "bike", "kg": 225, "url": "https://hasebikes.com/en/your-bikes/tandems/pino-allround/" },
-  { "p": "Hase Bikes", "m": "Trets", "type": "delta", "kg": 90, "url": "https://hasebikes.com/en/your-bikes/trikes-for-kids/trets/" },
-  { "p": "Hase Bikes", "m": "Trix", "type": "delta", "kg": 140, "url": "https://hasebikes.com/en/your-bikes/trikes-for-kids/trix/" }
+  {"p": "Hase Bikes", "m": "Kettwiesel Allround", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/kettwiesel"},
+  {"p": "Hase Bikes", "m": "Kettwiesel Cross", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/kettwiesel"},
+  {"p": "Hase Bikes", "m": "Kettwiesel Evo", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/kettwiesel"},
+  {"p": "Hase Bikes", "m": "Kettwiesel One", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/kettwiesel"},
+  {"p": "Hase Bikes", "m": "Lepus", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/lepus"},
+  {"p": "Hase Bikes", "m": "Pino", "type": "bike", "kg": 225, "url": "https://www.hasebikes.com/en/pino"},
+  {"p": "Hase Bikes", "m": "Trets", "type": "delta", "kg": 90, "url": "https://www.hasebikes.com/en/trets"},
+  {"p": "Hase Bikes", "m": "Trix", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/trix"},
+  {"p": "Hase Bikes", "m": "Lepus → Kettwiesel ONE", "type": "delta", "kg": 140, "url": "https://www.hasebikes.com/en/kettwiesel"},
+  {"p": "Hase Bikes", "m": "Trigo", "type": "tadpole", "kg": 0, "check": true, "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo"},
+  {"p": "Hase Bikes", "m": "Trigo UP", "type": "delta", "kg": 0, "check": true, "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo"}
 ]
