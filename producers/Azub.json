@@ -1,155 +1,21 @@
-{
-  "producer": "AZUB",
-  "country": "CZ",
-  "status": "active",
-  "website": "https://azub.eu",
-
-  "categories": [
-    "bike",
-    "trike",
-    "offroad",
-    "touring",
-    "expedition"
-  ],
-
-  "models": [
-    {
-      "m": "Azub 5",
-      "type": "bike",
-      "kg": 135,
-      "url": "https://azub.eu",
-      "arch": true
-    },
-
-    {
-      "m": "Eco 20",
-      "type": "tadpole",
-      "kg": 100,
-      "url": "https://azub.eu",
-      "arch": true
-    },
-
-    {
-      "m": "FAT",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu",
-      "offroad": true
-    },
-
-    {
-      "m": "MAX 26",
-      "type": "bike",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "MAX 700",
-      "type": "bike",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "Mini",
-      "type": "bike",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "Origami",
-      "type": "bike",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "Six",
-      "type": "bike",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "T-Tris 20",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "T-Tris 26",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "T-Tris AR",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "T-Trisek",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "Ti-FLY 20",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "Ti-FLY 26",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "Ti-FLY X",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu",
-      "offroad": true
-    },
-
-    {
-      "m": "TRIcon 20",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "TRIcon 26",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu"
-    },
-
-    {
-      "m": "TRIcon GR",
-      "type": "tadpole",
-      "kg": 135,
-      "url": "https://azub.eu",
-      "offroad": true
-    },
-
-    {
-      "m": "TWIN",
-      "type": "bike",
-      "kg": 200,
-      "url": "https://azub.eu",
-      "check": true
-    }
-  ]
-}
+[
+  { "p": "Azub", "m": "Azub 5", "type": "bike", "kg": 135, "arch": true, "url": "https://azub.eu/" },
+  { "p": "Azub", "m": "Eco 20", "type": "tadpole", "kg": 100, "arch": true, "url": "https://azub.eu/" },
+  { "p": "Azub", "m": "FAT", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/fat" },
+  { "p": "Azub", "m": "MAX 26", "type": "bike", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/max" },
+  { "p": "Azub", "m": "MAX 700", "type": "bike", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/max-700-highracer" },
+  { "p": "Azub", "m": "Mini", "type": "bike", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/mini" },
+  { "p": "Azub", "m": "Origami", "type": "bike", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/extreme-line/origami" },
+  { "p": "Azub", "m": "Six", "type": "bike", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/six" },
+  { "p": "Azub", "m": "T-Tris 20", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/20-wheels/t-tris" },
+  { "p": "Azub", "m": "T-Tris 26", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/t-tris" },
+  { "p": "Azub", "m": "T-Tris AR", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/t-tris-ar" },
+  { "p": "Azub", "m": "T-Trisek", "type": "tadpole", "kg": 135, "url": "https://azub.eu/azub-t-trisek-recumbent-tricycle-for-short-riders" },
+  { "p": "Azub", "m": "Ti-FLY 20", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/20-wheels/ti-fly" },
+  { "p": "Azub", "m": "Ti-FLY 26", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/ti-fly" },
+  { "p": "Azub", "m": "Ti-FLY X", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/ti-fly-x" },
+  { "p": "Azub", "m": "TRIcon 20", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/20-wheels/tricon" },
+  { "p": "Azub", "m": "TRIcon 26", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/tricon" },
+  { "p": "Azub", "m": "TRIcon GR", "type": "tadpole", "kg": 135, "url": "https://azub.eu/recumbent-bikes-and-trikes/trikes/26-wheels/azub-tricon-gr-off-road-trike" },
+  { "p": "Azub", "m": "TWIN", "type": "bike", "kg": 200, "url": "https://azub.eu/recumbent-bikes-and-trikes/recumbents/" }
+]
