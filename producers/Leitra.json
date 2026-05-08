@@ -1,4 +1,6 @@
 [
-  { "p": "Leitra", "m": "Classic", "type": "velomobile", "kg": 100, "arch": true, "url": "https://www.leitra.dk/" },
-  { "p": "Leitra", "m": "Wildcat", "type": "velomobile", "kg": 100, "arch": true, "url": "https://www.leitra.dk/" }
+  {"p": "Leitra", "m": "Classic", "type": "velomobile", "kg": 100, "arch": true, "url": "http://leitra.dk/"},
+  {"p": "Leitra", "m": "Wildcat", "type": "velomobile", "kg": 100, "arch": true, "url": "http://leitra.dk/"},
+  {"p": "Leitra", "m": "Leitra", "type": "velomobile", "kg": 0, "url": "http://leitra.dk/"},
+  {"p": "Leitra", "m": "Leitra Sport", "type": "velomobile", "kg": 0, "url": "http://leitra.dk/"}
 ]
