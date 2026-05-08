@@ -1,1 +1,4 @@
-
+[
+  { "p": "Katanga", "m": "VM45", "type": "quad", "kg": 120, "url": "https://www.katanga.eu/vm45/" },
+  { "p": "Katanga", "m": "WAW", "type": "velomobile", "kg": 120, "url": "https://www.katanga.eu/waw/" }
+]
