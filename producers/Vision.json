@@ -1,1 +1,8 @@
-
+[
+  { "p": "Vision", "m": "R-40", "type": "bike", "kg": 113, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Vision", "m": "R-42", "type": "bike", "kg": 113, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Vision", "m": "R-44", "type": "bike", "kg": 113, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Vision", "m": "R-45", "type": "bike", "kg": 113, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Vision", "m": "R-80 Double Vision", "type": "bike", "kg": 160, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Vision", "m": "Sabre", "type": "bike", "kg": 113, "arch": true, "url": "https://www.bentrideronline.com/" }
+]
