@@ -1,1 +1,4 @@
-
+[
+  { "p": "BerkelBike", "m": "BerkelBike Pro", "type": "handcycle", "kg": 120, "url": "https://berkelbike.com/" },
+  { "p": "BerkelBike", "m": "BerkelBike Sport", "type": "handcycle", "kg": 120, "url": "https://berkelbike.com/" }
+]
