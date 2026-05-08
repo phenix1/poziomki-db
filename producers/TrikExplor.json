@@ -1,5 +1,8 @@
 [
-  { "p": "TrikExplor", "m": "M-010", "type": "tadpole", "kg": 125, "url": "https://www.trikexplor.com/products/m-010-recumbent-trike/" },
-  { "p": "TrikExplor", "m": "Fat Tire Trike 326", "type": "tadpole", "kg": 125, "url": "https://www.trikexplor.com/" },
-  { "p": "TrikExplor", "m": "F424e Quad", "type": "quad", "kg": 150, "url": "https://www.trikexplor.com/" }
+  {"p": "TrikExplor", "m": "F424e Quad", "type": "quad", "kg": 150, "url": "https://www.trikexplor.com/"},
+  {"p": "TrikExplor", "m": "Fat Tire Trike 326", "type": "tadpole", "kg": 125, "url": "https://www.trikexplor.com/"},
+  {"p": "TrikExplor", "m": "M-010", "type": "tadpole", "kg": 125, "url": "https://www.trikexplor.com/"},
+  {"p": "TrikExplor", "m": "F420 4WD", "type": "quad", "kg": 0, "offroad": true, "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad"},
+  {"p": "TrikExplor", "m": "Sport Utility Quad", "type": "quad", "kg": 0, "offroad": true, "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad"},
+  {"p": "TrikExplor", "m": "Touring Quad", "type": "quad", "kg": 0, "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad"}
 ]
