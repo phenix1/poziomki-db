@@ -1,1 +1,26 @@
-
+[
+  { "p": "Bacchetta", "m": "Aero", "type": "bike", "kg": 104, "arch": true, "url": "https://bacchettabikes.com/pages/aero-recumbent-bike" },
+  { "p": "Bacchetta", "m": "Agio", "type": "bike", "kg": 125, "arch": true, "url": "https://bacchettabikes.com/pages/agio-recumbent-bike" },
+  { "p": "Bacchetta", "m": "Bella ATT", "type": "bike", "kg": 136, "arch": true, "url": "https://bacchettabikes.com/pages/bella-att-recumbent-bike" },
+  { "p": "Bacchetta", "m": "Bella Evo", "type": "bike", "kg": 136, "url": "https://bacchettabikes.com/pages/bella-att-recumbent-bike" },
+  { "p": "Bacchetta", "m": "Bellandare", "type": "bike", "kg": 125, "arch": true, "url": "https://bacchettabikes.com/pages/bellandare" },
+  { "p": "Bacchetta", "m": "Carbon Aero 2.0", "type": "bike", "kg": 113, "arch": true, "url": "https://bacchettabikes.com/pages/carbon-aero-2-0-650c" },
+  { "p": "Bacchetta", "m": "Carbon Aero 650c", "type": "bike", "kg": 104, "arch": true, "url": "https://bacchettabikes.com/pages/carbon-aero-650c" },
+  { "p": "Bacchetta", "m": "Carbon Basso GS", "type": "bike", "kg": 113, "arch": true, "url": "https://bacchettabikes.com/pages/carbon-basso-gs" },
+  { "p": "Bacchetta", "m": "Carbon Corsa", "type": "bike", "kg": 113, "arch": true, "url": "https://bacchettabikes.com/pages/carbon-corsa" },
+  { "p": "Bacchetta", "m": "Corsa 24", "type": "bike", "kg": 104, "arch": true, "url": "https://bacchettabikes.com/pages/corsa-24" },
+  { "p": "Bacchetta", "m": "Corsa 700", "type": "bike", "kg": 113, "arch": true, "url": "https://bacchettabikes.com/pages/corsa-700" },
+  { "p": "Bacchetta", "m": "Corsa A65", "type": "bike", "kg": 113, "arch": true, "url": "https://bacchettabikes.com/pages/corsa-a65" },
+  { "p": "Bacchetta", "m": "Corsa Evo", "type": "bike", "kg": 125, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-corsa-evo-custom-recumbent" },
+  { "p": "Bacchetta", "m": "Corsa SS", "type": "bike", "kg": 104, "arch": true, "url": "https://bacchettabikes.com/pages/corsa-ss" },
+  { "p": "Bacchetta", "m": "Giro 20", "type": "bike", "kg": 125, "arch": true, "url": "https://bacchettabikes.com/pages/giro-20" },
+  { "p": "Bacchetta", "m": "Giro 26", "type": "bike", "kg": 125, "arch": true, "url": "https://bacchettabikes.com/pages/giro-26" },
+  { "p": "Bacchetta", "m": "Giro 26 ATT", "type": "bike", "kg": 113, "arch": true, "url": "https://bacchettabikes.com/pages/giro-26att" },
+  { "p": "Bacchetta", "m": "Giro 26 Evo", "type": "bike", "kg": 125, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-giro-a26-custom-recumbent-bike" },
+  { "p": "Bacchetta", "m": "Giro A20", "type": "bike", "kg": 125, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-giro-a20" },
+  { "p": "Bacchetta", "m": "Pronto", "type": "bike", "kg": 0, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-pronto" },
+  { "p": "Bacchetta", "m": "Pronto Alto", "type": "bike", "kg": 0, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-pronto-alto-custom-recumbent" },
+  { "p": "Bacchetta", "m": "Pronto Bella", "type": "bike", "kg": 0, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-bella-pronto-custom-recumbent" },
+  { "p": "Bacchetta", "m": "Quattro", "type": "bike", "kg": 0, "check": true, "url": "https://bacchettabikes.com/products/bacchetta-carbon-aero-quattro-frameset" },
+  { "p": "Bacchetta", "m": "Strada", "type": "bike", "kg": 125, "arch": true, "url": "https://bacchettabikes.com/pages/strada" }
+]
