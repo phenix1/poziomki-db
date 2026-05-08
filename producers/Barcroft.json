@@ -1,1 +1,6 @@
-
+[
+  { "p": "Barcroft", "m": "Dakota", "type": "bike", "kg": 0, "arch": true, "url": "https://www.bentrideronline.com/archives/reviews/barcroftdakota.html" },
+  { "p": "Barcroft", "m": "Dakota S", "type": "bike", "kg": 0, "arch": true, "url": "https://www.bentrideronline.com/archives/reviews/barcroft0904/barcroft_dakota_s.htm" },
+  { "p": "Barcroft", "m": "Va Va Voom", "type": "bike", "kg": 0, "arch": true, "check": true, "url": "https://www.bentrideronline.com/?p=9477" },
+  { "p": "Barcroft", "m": "Virginia Ti", "type": "bike", "kg": 0, "arch": true, "check": true, "url": "https://www.bentrideronline.com/?p=9477" }
+]
