@@ -1,4 +1,5 @@
 [
-  { "p": "Snoek", "m": "Snoek", "type": "velomobile", "kg": 110, "url": "https://www.velomobiel.nl/snoek/" },
-  { "p": "Snoek", "m": "Snoek L", "type": "velomobile", "kg": 110, "url": "https://www.velomobiel.nl/snoek/" }
+  {"p": "Snoek", "m": "Snoek", "type": "velomobile", "kg": 110, "url": "https://www.snoek-velomobile.com/"},
+  {"p": "Snoek", "m": "Snoek L", "type": "velomobile", "kg": 110, "url": "https://www.snoek-velomobile.com/"},
+  {"p": "Snoek", "m": "Le Snoek", "type": "velomobile", "kg": 0, "url": "https://www.snoek-velomobile.com/"}
 ]
