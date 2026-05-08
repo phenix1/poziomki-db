@@ -1,1 +1,8 @@
-
+[
+  { "p": "Easy Racers", "m": "EZ-1", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2019/http://easyracers.com/" },
+  { "p": "Easy Racers", "m": "Gold Rush", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2019/http://easyracers.com/" },
+  { "p": "Easy Racers", "m": "Gold Rush Replica", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2019/http://easyracers.com/" },
+  { "p": "Easy Racers", "m": "Javelin", "type": "bike", "kg": 113, "arch": true, "url": "https://web.archive.org/web/2019/http://easyracers.com/" },
+  { "p": "Easy Racers", "m": "Ti-Rush", "type": "bike", "kg": 113, "arch": true, "url": "https://web.archive.org/web/2019/http://easyracers.com/" },
+  { "p": "Easy Racers", "m": "Tour Easy", "type": "bike", "kg": 125, "arch": true, "url": "https://web.archive.org/web/2019/http://easyracers.com/" }
+]
