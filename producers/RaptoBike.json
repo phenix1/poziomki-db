@@ -1,1 +1,4 @@
-
+[
+  { "p": "RaptoBike", "m": "Lowracer", "type": "bike", "kg": 115, "arch": true, "url": "https://web.archive.org/web/2018/http://www.raptobike.nl/" },
+  { "p": "RaptoBike", "m": "Midracer", "type": "bike", "kg": 115, "arch": true, "url": "https://web.archive.org/web/2018/http://www.raptobike.nl/" }
+]
