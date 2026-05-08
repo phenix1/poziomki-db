@@ -1,13 +1,15 @@
 [
-  { "p": "GreenSpeed", "m": "Aero", "type": "tadpole", "kg": 113, "url": "https://greenspeedtrikes.com/trikes/aero/" },
-  { "p": "GreenSpeed", "m": "Anura", "type": "delta", "kg": 136, "url": "https://greenspeedtrikes.com/" },
-  { "p": "GreenSpeed", "m": "GT16", "type": "tadpole", "kg": 113, "arch": true, "url": "https://greenspeedtrikes.com/" },
-  { "p": "GreenSpeed", "m": "GT20", "type": "tadpole", "kg": 113, "url": "https://greenspeedtrikes.com/trikes/gt20/" },
-  { "p": "GreenSpeed", "m": "GT26", "type": "tadpole", "kg": 113, "url": "https://greenspeedtrikes.com/" },
-  { "p": "GreenSpeed", "m": "GTR", "type": "tadpole", "kg": 113, "arch": true, "url": "https://greenspeedtrikes.com/" },
-  { "p": "GreenSpeed", "m": "GTS", "type": "tadpole", "kg": 113, "arch": true, "url": "https://greenspeedtrikes.com/" },
-  { "p": "GreenSpeed", "m": "GTT Tandem", "type": "tadpole", "kg": 204, "url": "https://greenspeedtrikes.com/" },
-  { "p": "GreenSpeed", "m": "Magnum", "type": "tadpole", "kg": 181, "url": "https://greenspeedtrikes.com/trikes/magnum/" },
-  { "p": "GreenSpeed", "m": "Magnum BW", "type": "tadpole", "kg": 204, "url": "https://greenspeedtrikes.com/trikes/magnum-bw/" },
-  { "p": "GreenSpeed", "m": "Magnum SD", "type": "tadpole", "kg": 181, "url": "https://greenspeedtrikes.com/trikes/magnum-sd/" }
+  {"p": "GreenSpeed", "m": "Aero", "type": "tadpole", "kg": 113, "url": "https://greenspeed-trikes.com/trikes/aero/"},
+  {"p": "GreenSpeed", "m": "Anura", "type": "delta", "kg": 136, "url": "https://greenspeed-trikes.com/trikes/anura/"},
+  {"p": "GreenSpeed", "m": "GT16", "type": "tadpole", "kg": 113, "arch": true, "url": "https://greenspeed-trikes.com/trikes/"},
+  {"p": "GreenSpeed", "m": "GT20", "type": "tadpole", "kg": 113, "url": "https://greenspeed-trikes.com/trikes/gt20/"},
+  {"p": "GreenSpeed", "m": "GT26", "type": "tadpole", "kg": 113, "url": "https://greenspeed-trikes.com/trikes/gt26/"},
+  {"p": "GreenSpeed", "m": "GTR", "type": "tadpole", "kg": 113, "arch": true, "url": "https://greenspeed-trikes.com/trikes/"},
+  {"p": "GreenSpeed", "m": "GTS", "type": "tadpole", "kg": 113, "arch": true, "url": "https://greenspeed-trikes.com/trikes/"},
+  {"p": "GreenSpeed", "m": "GTT Tandem", "type": "tadpole", "kg": 204, "url": "https://greenspeed-trikes.com/trikes/gtt/"},
+  {"p": "GreenSpeed", "m": "Magnum", "type": "tadpole", "kg": 181, "url": "https://greenspeed-trikes.com/trikes/magnum/"},
+  {"p": "GreenSpeed", "m": "Magnum BW", "type": "tadpole", "kg": 204, "url": "https://greenspeed-trikes.com/trikes/magnum-bw/"},
+  {"p": "GreenSpeed", "m": "Magnum SD", "type": "tadpole", "kg": 181, "url": "https://greenspeed-trikes.com/trikes/magnum-sd/"},
+  {"p": "GreenSpeed", "m": "Magnum XL", "type": "tadpole", "kg": 204, "url": "https://greenspeed-trikes.com/trikes/magnum-xl/"},
+  {"p": "GreenSpeed", "m": "Anura Quad", "type": "quad", "kg": 0, "url": "https://www.greenspeed.com.au/models/anura/"}
 ]
