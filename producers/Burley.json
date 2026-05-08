@@ -1,1 +1,12 @@
-
+[
+  { "p": "Burley", "m": "Canto", "type": "bike", "kg": 125, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Django", "type": "bike", "kg": 147, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Hepcat", "type": "bike", "kg": 147, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Jett Creek", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Koosah", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Limbo", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Nasoke", "type": "bike", "kg": 125, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Sand Point", "type": "bike", "kg": 125, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Spider", "type": "tadpole", "kg": 125, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Burley", "m": "Taiko", "type": "bike", "kg": 125, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" }
+]
