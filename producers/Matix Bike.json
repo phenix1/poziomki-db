@@ -1,5 +1,9 @@
 [
-  { "p": "Matix Bike", "m": "Standard", "type": "tadpole", "kg": 130, "url": "https://matixbike.eu/" },
-  { "p": "Matix Bike", "m": "FAT", "type": "tadpole", "kg": 160, "url": "https://matixbike.eu/matix-fat/" },
-  { "p": "Matix Bike", "m": "Offroad", "type": "tadpole", "kg": 150, "url": "https://matixbike.eu/" }
+  {"p": "Matix Bike", "m": "Standard", "type": "tadpole", "kg": 130, "url": "https://matixbike.eu/"},
+  {"p": "Matix Bike", "m": "Offroad", "type": "tadpole", "kg": 150, "url": "https://matixbike.eu/"},
+  {"p": "Matix Bike", "m": "FAT", "type": "tadpole", "kg": 160, "url": "https://matixbike.eu/"},
+  {"p": "Matix Bike", "m": "Duet", "type": "tadpole", "kg": 160, "url": "https://matixbike.eu/matix-duet/"},
+  {"p": "Matix Bike", "m": "Long", "type": "tadpole", "kg": 160, "url": "https://matixbike.eu/matix-long/"},
+  {"p": "Matix Bike", "m": "Newman", "type": "tadpole", "kg": 160, "url": "https://matixbike.eu/matix-newman/"},
+  {"p": "Matix Bike", "m": "Turist", "type": "tadpole", "kg": 160, "url": "https://matixbike.eu/matix-turist/"}
 ]
