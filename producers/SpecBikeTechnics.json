@@ -1,5 +1,9 @@
 [
-  { "p": "SpecBikeTechnics", "m": "Comfort", "type": "tadpole", "kg": 120, "url": "https://specbike.lv/" },
-  { "p": "SpecBikeTechnics", "m": "Sport", "type": "tadpole", "kg": 120, "url": "https://specbike.lv/" },
-  { "p": "SpecBikeTechnics", "m": "Gran Turismo", "type": "tadpole", "kg": 120, "url": "https://specbike.lv/" }
+  {"p": "SpecBikeTechnics", "m": "Comfort", "type": "tadpole", "kg": 120, "url": "https://specbiketechnics.com/"},
+  {"p": "SpecBikeTechnics", "m": "Gran Turismo", "type": "tadpole", "kg": 120, "url": "https://specbiketechnics.com/"},
+  {"p": "SpecBikeTechnics", "m": "Sport", "type": "tadpole", "kg": 120, "url": "https://specbiketechnics.com/"},
+  {"p": "SpecBikeTechnics", "m": "Comfort E-Trike", "type": "tadpole", "kg": 0, "check": true, "url": "https://specbiketechnics.com/all-products/comfort-e-trike/"},
+  {"p": "SpecBikeTechnics", "m": "Comfort Trike", "type": "tadpole", "kg": 0, "check": true, "url": "https://specbiketechnics.com/all-products/tricycle-comfort-with-suspension/"},
+  {"p": "SpecBikeTechnics", "m": "Fat Trike", "type": "tadpole", "kg": 0, "check": true, "url": "https://specbiketechnics.com/all-products/fat-trike/"},
+  {"p": "SpecBikeTechnics", "m": "Standard Trike", "type": "tadpole", "kg": 0, "check": true, "url": "https://specbiketechnics.com/all-products/"}
 ]
