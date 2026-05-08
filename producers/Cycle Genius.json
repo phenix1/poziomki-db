@@ -1,1 +1,5 @@
-
+[
+  { "p": "Cycle Genius", "m": "Falcon", "type": "bike", "kg": 125, "arch": true, "check": true, "url": "https://web.archive.org/web/2012/http://cyclegenius.com/" },
+  { "p": "Cycle Genius", "m": "LTX", "type": "bike", "kg": 136, "arch": true, "check": true, "url": "https://web.archive.org/web/2012/http://cyclegenius.com/" },
+  { "p": "Cycle Genius", "m": "Raven", "type": "bike", "kg": 125, "arch": true, "check": true, "url": "https://web.archive.org/web/2012/http://cyclegenius.com/" }
+]
