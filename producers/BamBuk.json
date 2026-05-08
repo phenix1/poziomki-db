@@ -1,5 +1,6 @@
 [
-  { "p": "BamBuk", "m": "E-Trike Tandem Basic", "type": "delta", "kg": 0, "check": true, "url": "https://bambuk.de/en/configurator/" },
-  { "p": "BamBuk", "m": "E-Trike Tandem Independent", "type": "delta", "kg": 0, "check": true, "url": "https://bambuk.de/en/configurator/" },
-  { "p": "BamBuk", "m": "E-Trike Tandem Exclusive", "type": "delta", "kg": 0, "check": true, "url": "https://bambuk.de/en/configurator/" }
+  {"p": "BamBuk", "m": "E-Trike Tandem Basic", "type": "delta", "kg": 0, "check": true, "url": "https://www.bambuk.de/"},
+  {"p": "BamBuk", "m": "E-Trike Tandem Exclusive", "type": "delta", "kg": 0, "check": true, "url": "https://www.bambuk.de/"},
+  {"p": "BamBuk", "m": "E-Trike Tandem Independent", "type": "delta", "kg": 0, "check": true, "url": "https://www.bambuk.de/"},
+  {"p": "BamBuk", "m": "E-Trike Tandem", "type": "delta", "kg": 0, "url": "https://www.bambuk.de/"}
 ]
