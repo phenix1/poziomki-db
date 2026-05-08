@@ -1,5 +1,7 @@
 [
-  { "p": "Sinner", "m": "Comfort", "type": "delta", "kg": 120, "arch": true, "url": "https://web.archive.org/web/2016/http://www.sinnerligfietsen.nl/" },
-  { "p": "Sinner", "m": "Mango Sport", "type": "velomobile", "kg": 120, "arch": true, "url": "https://web.archive.org/web/2016/http://www.sinnerligfietsen.nl/" },
-  { "p": "Sinner", "m": "Mango Tour", "type": "velomobile", "kg": 120, "arch": true, "url": "https://web.archive.org/web/2016/http://www.sinnerligfietsen.nl/" }
+  {"p": "Sinner", "m": "Comfort", "type": "delta", "kg": 120, "arch": true, "url": "https://www.bentrideronline.com/?tag=sinner"},
+  {"p": "Sinner", "m": "Mango Sport", "type": "velomobile", "kg": 120, "arch": true, "url": "https://www.sinner.eu/en/mango-sport/"},
+  {"p": "Sinner", "m": "Mango Tour", "type": "velomobile", "kg": 120, "arch": true, "url": "https://www.sinner.eu/en/mango-tour/"},
+  {"p": "Sinner", "m": "Mango", "type": "velomobile", "kg": 0, "url": "https://www.sinner.eu/en/mango/"},
+  {"p": "Sinner", "m": "Mango Speed", "type": "velomobile", "kg": 0, "url": "https://www.sinner.eu/en/mango-speed/"}
 ]
