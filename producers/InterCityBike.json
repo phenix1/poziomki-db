@@ -1,5 +1,6 @@
 [
-  { "p": "InterCityBike", "m": "DF", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/" },
-  { "p": "InterCityBike", "m": "DF XL", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/" },
-  { "p": "InterCityBike", "m": "Tuna", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/" }
+  {"p": "InterCityBike", "m": "DF", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/"},
+  {"p": "InterCityBike", "m": "DF XL", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/"},
+  {"p": "InterCityBike", "m": "Tuna", "type": "velomobile", "kg": 120, "url": "https://www.intercitybike.nl/"},
+  {"p": "InterCityBike", "m": "DF4", "type": "velomobile", "kg": 0, "check": true, "url": "https://www.recumbent.news/2021/01/31/sunday-video-new-four-wheel-velomobile-the-df4-some-info-from-the-designer/"}
 ]
