@@ -1,10 +1,15 @@
 [
-  { "p": "Optima", "m": "Baron", "type": "bike", "kg": 105, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Condor", "type": "bike", "kg": 120, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Cougar", "type": "bike", "kg": 115, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Dragon", "type": "bike", "kg": 115, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Falcon", "type": "bike", "kg": 105, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Orca", "type": "bike", "kg": 120, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Raptor", "type": "bike", "kg": 105, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" },
-  { "p": "Optima", "m": "Rider", "type": "bike", "kg": 115, "arch": true, "url": "https://web.archive.org/web/2012/http://www.optimabikes.com/" }
+  {"p": "Optima", "m": "Baron", "type": "bike", "kg": 105, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Condor", "type": "bike", "kg": 120, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Cougar", "type": "bike", "kg": 115, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Dragon", "type": "bike", "kg": 115, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Falcon", "type": "bike", "kg": 105, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Orca", "type": "bike", "kg": 120, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Raptor", "type": "bike", "kg": 105, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Rider", "type": "bike", "kg": 115, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Baron Elite", "type": "bike", "kg": 115, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Dolphin", "type": "bike", "kg": 125, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "HighBaron", "type": "bike", "kg": 0, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Lynx", "type": "bike", "kg": 125, "arch": true, "url": "https://ligfiets.net/brands/3"},
+  {"p": "Optima", "m": "Oryx", "type": "bike", "kg": 0, "arch": true, "url": "https://ligfiets.net/brands/3"}
 ]
