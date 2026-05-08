@@ -1,1 +1,4 @@
-
+[
+  { "p": "Rotator", "m": "Tiger", "type": "bike", "kg": 120, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" },
+  { "p": "Rotator", "m": "Pursuit", "type": "bike", "kg": 120, "arch": true, "check": true, "url": "https://www.bentrideronline.com/" }
+]
