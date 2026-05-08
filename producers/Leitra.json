@@ -1,1 +1,4 @@
-
+[
+  { "p": "Leitra", "m": "Classic", "type": "velomobile", "kg": 100, "arch": true, "url": "https://www.leitra.dk/" },
+  { "p": "Leitra", "m": "Wildcat", "type": "velomobile", "kg": 100, "arch": true, "url": "https://www.leitra.dk/" }
+]
