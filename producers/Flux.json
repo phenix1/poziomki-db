@@ -1,4 +1,7 @@
-{ "p": "Flux", "m": "C500", "type": "bike", "kg": 130, "arch": true, "url": "https://flux-fahrraeder.de/c500/" },
-    { "p": "Flux", "m": "S9 ML", "type": "bike", "kg": 130, "arch": true, "url": "https://flux-fahrraeder.de/produkte/s900/" },
-    { "p": "Flux", "m": "S9 SM", "type": "bike", "kg": 130, "arch": true, "url": "https://flux-fahrraeder.de/produkte/s9-ol-ul-sm/" },
-    { "p": "Flux", "m": "S9 XL", "type": "bike", "kg": 130, "arch": true, "url": "https://flux-fahrraeder.de/produkte/s900/" },
+[
+  {"p": "Flux", "m": "A10", "type": "bike", "kg": 0, "arch": true, "url": "https://flux-fahrraeder.de/produkte/a10/"},
+  {"p": "Flux", "m": "C500", "type": "bike", "kg": 0, "arch": true, "url": "https://flux-fahrraeder.de/c500/"},
+  {"p": "Flux", "m": "S9 ML", "type": "bike", "kg": 130, "arch": true, "url": "https://flux-fahrraeder.de/produkte/s900/"},
+  {"p": "Flux", "m": "S9 SM", "type": "bike", "kg": 0, "arch": true, "url": "https://flux-fahrraeder.de/produkte/s9-ol-ul-sm/"},
+  {"p": "Flux", "m": "S9 XL", "type": "bike", "kg": 130, "arch": true, "url": "https://flux-fahrraeder.de/produkte/s900/"}
+]
