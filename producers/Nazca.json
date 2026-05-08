@@ -1,1 +1,6 @@
-
+[
+  { "p": "Nazca", "m": "Fuego", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/fuego" },
+  { "p": "Nazca", "m": "Gaucho", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/gaucho" },
+  { "p": "Nazca", "m": "Paseo", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/paseo" },
+  { "p": "Nazca", "m": "Pioneer", "type": "bike", "kg": 120, "arch": true, "url": "https://www.nazca-ligfietsen.nl/en/pioneer" }
+]
