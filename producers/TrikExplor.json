@@ -1,1 +1,5 @@
-
+[
+  { "p": "TrikExplor", "m": "M-010", "type": "tadpole", "kg": 125, "url": "https://www.trikexplor.com/products/m-010-recumbent-trike/" },
+  { "p": "TrikExplor", "m": "Fat Tire Trike 326", "type": "tadpole", "kg": 125, "url": "https://www.trikexplor.com/" },
+  { "p": "TrikExplor", "m": "F424e Quad", "type": "quad", "kg": 150, "url": "https://www.trikexplor.com/" }
+]
