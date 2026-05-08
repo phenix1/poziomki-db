@@ -1,4 +1,6 @@
 [
-  { "p": "Utah Trikes", "m": "Annihilator Custom", "type": "tadpole", "kg": 150, "check": true, "url": "https://www.utahtrikes.com/" },
-  { "p": "Utah Trikes", "m": "Custom Quad", "type": "quad", "kg": 150, "check": true, "url": "https://www.utahtrikes.com/" }
+  {"p": "Utah Trikes", "m": "Annihilator Custom", "type": "tadpole", "kg": 150, "check": true, "url": "https://www.utahtrikes.com/"},
+  {"p": "Utah Trikes", "m": "Custom Quad", "type": "quad", "kg": 150, "check": true, "url": "https://www.utahtrikes.com/"},
+  {"p": "Utah Trikes", "m": "UTCustom Cat-4", "type": "quad", "kg": 0, "url": "https://www.utahtrikes.com/PROD-11617640.html"},
+  {"p": "Utah Trikes", "m": "UTCustom Quad Extended", "type": "quad", "kg": 0, "url": "https://www.utahtrikes.com/"}
 ]
