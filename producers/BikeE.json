@@ -1,1 +1,7 @@
-
+[
+  { "p": "BikeE", "m": "AT", "type": "bike", "kg": 113, "arch": true, "url": "https://en.wikipedia.org/wiki/BikeE" },
+  { "p": "BikeE", "m": "CT", "type": "bike", "kg": 113, "arch": true, "url": "https://en.wikipedia.org/wiki/BikeE" },
+  { "p": "BikeE", "m": "E2", "type": "bike", "kg": 160, "arch": true, "check": true, "url": "https://en.wikipedia.org/wiki/BikeE" },
+  { "p": "BikeE", "m": "NX", "type": "bike", "kg": 113, "arch": true, "url": "https://en.wikipedia.org/wiki/BikeE" },
+  { "p": "BikeE", "m": "RX", "type": "bike", "kg": 113, "arch": true, "url": "https://en.wikipedia.org/wiki/BikeE" }
+]
