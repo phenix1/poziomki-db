@@ -1,5 +1,6 @@
 [
-  { "p": "Haluzak", "m": "Horizon", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
-  { "p": "Haluzak", "m": "Hybrid", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" },
-  { "p": "Haluzak", "m": "Leprechaun", "type": "bike", "kg": 125, "arch": true, "url": "https://www.bentrideronline.com/" }
+  {"p": "Haluzak", "m": "Horizon", "type": "bike", "kg": 125, "arch": true, "url": "https://bicycleman.com/brands/haluzak-recumbents/"},
+  {"p": "Haluzak", "m": "Hybrid", "type": "bike", "kg": 125, "arch": true, "url": "https://bicycleman.com/brands/haluzak-recumbents/"},
+  {"p": "Haluzak", "m": "Leprechaun", "type": "bike", "kg": 125, "arch": true, "url": "https://bicycleman.com/brands/haluzak-recumbents/"},
+  {"p": "Haluzak", "m": "Traverse", "type": "bike", "kg": 0, "arch": true, "url": "https://bicycleman.com/brands/haluzak-recumbents/"}
 ]
