@@ -1,6 +1,10 @@
 [
-  { "p": "Lightfoot Cycles", "m": "Courier", "type": "bike", "kg": 158, "arch": true, "url": "https://web.archive.org/web/2016/http://www.lightfootcycles.com/" },
-  { "p": "Lightfoot Cycles", "m": "Greenway", "type": "bike", "kg": 158, "arch": true, "url": "https://web.archive.org/web/2016/http://www.lightfootcycles.com/" },
-  { "p": "Lightfoot Cycles", "m": "Rambler", "type": "bike", "kg": 158, "arch": true, "url": "https://web.archive.org/web/2016/http://www.lightfootcycles.com/rambler.htm" },
-  { "p": "Lightfoot Cycles", "m": "Roadrunner", "type": "quad", "kg": 181, "arch": true, "url": "https://web.archive.org/web/2016/http://www.lightfootcycles.com/roadrunner.htm" }
+  {"p": "Lightfoot Cycles", "m": "Courier", "type": "bike", "kg": 158, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Greenway", "type": "bike", "kg": 158, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Rambler", "type": "bike", "kg": 158, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Roadrunner", "type": "quad", "kg": 181, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Duo", "type": "quad", "kg": 0, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Duette", "type": "quad", "kg": 0, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Microcar", "type": "quad", "kg": 0, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"},
+  {"p": "Lightfoot Cycles", "m": "Ranger", "type": "bike", "kg": 0, "arch": true, "url": "https://web.archive.org/web/2015/http://lightfootcycles.com/"}
 ]
