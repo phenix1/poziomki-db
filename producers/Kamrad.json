@@ -1,3 +1,4 @@
 [
-  { "p": "Kamrad", "m": "Kamrad Trike", "type": "tadpole", "kg": 0, "check": true, "url": "https://www.kamrad-liegerad.de/" }
+  {"p": "Kamrad", "m": "Kamrad Trike", "type": "tadpole", "kg": 0, "check": true, "url": "https://kamrad.pl/"},
+  {"p": "Kamrad", "m": "R16", "type": "bike", "kg": 0, "check": true, "url": "https://kamrad.pl/"}
 ]
