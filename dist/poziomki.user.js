@@ -43,9 +43,9 @@
 
   // Pełna lista 91 producentów z GitHuba
   // Pełna lista 92 producentów z GitHuba
-  const fleetMakers = [
+  cconst fleetMakers = [
     "Aerorider", "Alligt", "Avatar 2000", "Avenue Trikes", "Azub", "Bacchetta", "BamBuk", "Barcroft",
-    "BerkelBike", "BikeE", "Birk", "Blackbird Bikes", "Burley", "Carbontrikes", "Catrike", "Challenge",
+    "BerkelBike", "BikeE", "Birk", "Birkenstock Bicycles", "Blackbird Bikes", "Burley", "Carbontrikes", "Catrike", "Challenge",
     "Counterpoint", "Cruzbike", "Cycle Genius", "Cycles JV Fenioux", "Dekers Bike", "Drymer", "ENVO",
     "Easy Racers", "Elan", "Flevobike", "Flux", "Freedom Ryder", "Go-One", "GreenSpeed", "HP Velotechnik",
     "Haluzak", "Hase Bikes", "ICE Trikes", "IN Trikes", "InterCityBike", "KMX", "Kamrad", "Katanga",
@@ -53,9 +53,9 @@
     "M5", "Matix Bike", "Maxarya", "MetaBikes", "MoTrike", "Nazca", "ORSA Cycles", "Optima", "Pacific Cycles",
     "Pelso", "Performer", "Podbike", "PonyFour", "Quatrotech", "RAD-Innovations", "RANS", "Radius",
     "RaptoBike", "ReActive Adaptation", "Rotator", "Ryan Recumbents", "Räderwerk", "Sinner", "Slyway",
-    "Snoek", "SpecBikeTechnics", "Sport-On", "Steintrikes", "TerraTrike", "Top End", "Toxy", "Trice",
+    "Snoek", "SpecBikeTechnics", "Sport-On", "Steintrikes", "SunSeeker", "TerraTrike", "Top End", "Toxy", "Trice",
     "Trident", "TrikExplor", "Trisled", "Utah Trikes", "Varibike", "Velokraft", "Velomobiel.nl",
-    "Velomobile World", "Vision", "Windcheetah", "Windwrap", "Wolf & Wolf", "Zockra"
+    "Velomobile World", "Velomtek", "Vision", "Windcheetah", "Windwrap", "Wolf & Wolf", "Zockra"
   ];
 
   const fleetSources = fleetMakers.map(maker => `${manifestBaseUrl}${encodeURIComponent(maker)}.json`);
