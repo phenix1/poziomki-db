@@ -8,38 +8,19 @@
     "supportBtnColor": "#ff813f"
   },
   "COLLAB": {
-    "ActionBent": "closed",
-    "Avatar": "closed",
     "Azub": "yes",
-    "BIGHA": "closed",
-    "Barcroft": "closed",
-    "BikeE": "closed",
     "Birk": "closed",
     "Blackbird Bikes": "closed",
-    "Burley": "closed",
-    "Cannondale": "closed",
     "Challenge": "closed",
-    "Easy Racers": "closed",
     "Flevobike": "closed",
     "Flux": "closed",
     "Go-One": "closed",
-    "Haluzak": "closed",
     "KMX": "closed",
     "Lightfoot Cycles": "closed",
-    "Linear": "closed",
     "Matix Bike": "yes",
-    "MetaBikes": "closed",
-    "Mochet": "closed",
-    "Nazca": "closed",
     "Optima": "closed",
     "Pacific Cycles": "closed",
     "Podbike": "closed",
-    "Rotator": "closed",
-    "Ryan": "closed",
-    "SideWinder": "closed",
-    "Trice": "closed",
-    "Vision": "closed",
-    "Volae": "closed",
     "Zockra": "closed"
   },
   "DB": [
@@ -47,15 +28,17 @@
       "p": "Alligt",
       "m": "Alleweder A4",
       "type": "velomobile",
-      "kg": 130,
-      "url": "https://www.alligt.nl/en/alleweder-a4/"
+      "kg": 0,
+      "url": "https://www.alligt.nl/en/alleweder-a4/",
+      "check": true
     },
     {
       "p": "Alligt",
       "m": "Alleweder A6",
       "type": "velomobile",
-      "kg": 130,
-      "url": "https://www.alligt.nl/en/alleweder-a6/"
+      "kg": 0,
+      "url": "https://www.alligt.nl/en/alleweder-a6/",
+      "check": true
     },
     {
       "p": "Alligt",
@@ -89,8 +72,9 @@
       "p": "Alligt",
       "m": "Sunrider",
       "type": "velomobile",
-      "kg": 125,
-      "url": "https://www.alligt.nl/en/sunrider/"
+      "kg": 0,
+      "url": "https://www.alligt.nl/en/sunrider/",
+      "check": true
     },
     {
       "p": "Alligt",
@@ -118,8 +102,9 @@
       "p": "Avenue Trikes",
       "m": "1st Avenue",
       "type": "tadpole",
-      "kg": 204,
-      "url": "https://avenuetrikes.com/1st-ave/"
+      "kg": 0,
+      "url": "https://avenuetrikes.com/1st-ave/",
+      "check": true
     },
     {
       "p": "Azub",
@@ -634,29 +619,33 @@
       "p": "Catrike",
       "m": "700",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/700"
+      "kg": 0,
+      "url": "https://www.catrike.com/700",
+      "check": true
     },
     {
       "p": "Catrike",
       "m": "All Road",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/all-road"
+      "kg": 0,
+      "url": "https://www.catrike.com/all-road",
+      "check": true
     },
     {
       "p": "Catrike",
       "m": "All Road eCAT",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/all-road-ecat"
+      "kg": 0,
+      "url": "https://www.catrike.com/all-road-ecat",
+      "check": true
     },
     {
       "p": "Catrike",
       "m": "Dumont",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/dumont"
+      "kg": 0,
+      "url": "https://www.catrike.com/dumont",
+      "check": true
     },
     {
       "p": "Catrike",
@@ -670,8 +659,9 @@
       "p": "Catrike",
       "m": "Expedition",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/expedition"
+      "kg": 0,
+      "url": "https://www.catrike.com/expedition",
+      "check": true
     },
     {
       "p": "Catrike",
@@ -699,15 +689,17 @@
       "p": "Catrike",
       "m": "Trail",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/trail"
+      "kg": 0,
+      "url": "https://www.catrike.com/trail",
+      "check": true
     },
     {
       "p": "Catrike",
       "m": "Villager",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.catrike.com/villager"
+      "kg": 0,
+      "url": "https://www.catrike.com/villager",
+      "check": true
     },
     {
       "p": "Challenge",
@@ -824,8 +816,9 @@
       "p": "Cruzbike",
       "m": "Q45",
       "type": "bike",
-      "kg": 136,
-      "url": "https://cruzbike.com/"
+      "kg": 0,
+      "url": "https://cruzbike.com/",
+      "check": true
     },
     {
       "p": "Cruzbike",
@@ -839,8 +832,9 @@
       "p": "Cruzbike",
       "m": "S40",
       "type": "bike",
-      "kg": 125,
-      "url": "https://cruzbike.com/"
+      "kg": 0,
+      "url": "https://cruzbike.com/",
+      "check": true
     },
     {
       "p": "Cruzbike",
@@ -862,8 +856,9 @@
       "p": "Cruzbike",
       "m": "T50",
       "type": "bike",
-      "kg": 125,
-      "url": "https://cruzbike.com/"
+      "kg": 0,
+      "url": "https://cruzbike.com/",
+      "check": true
     },
     {
       "p": "Cruzbike",
@@ -885,8 +880,9 @@
       "p": "Cruzbike",
       "m": "Vendetta V20c",
       "type": "bike",
-      "kg": 109,
-      "url": "https://cruzbike.com/"
+      "kg": 0,
+      "url": "https://cruzbike.com/",
+      "check": true
     },
     {
       "p": "Cycle Genius",
@@ -938,22 +934,25 @@
       "p": "Dekers Bike",
       "m": "Extreme",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://dekersbike.com/product/dekers-extreme/"
+      "kg": 0,
+      "url": "https://dekersbike.com/product/dekers-extreme/",
+      "check": true
     },
     {
       "p": "Dekers Bike",
       "m": "Fattrike",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://dekersbike.com/product/dekers-fattrike/"
+      "kg": 0,
+      "url": "https://dekersbike.com/product/dekers-fattrike/",
+      "check": true
     },
     {
       "p": "Dekers Bike",
       "m": "Hunter",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://dekersbike.com/product/dekers-hunter/"
+      "kg": 0,
+      "url": "https://dekersbike.com/product/dekers-hunter/",
+      "check": true
     },
     {
       "p": "Drymer",
@@ -1205,8 +1204,9 @@
       "p": "Hase Bikes",
       "m": "Kettwiesel ONE",
       "type": "delta",
-      "kg": 140,
-      "url": "https://www.hasebikes.com/en/kettwiesel"
+      "kg": 0,
+      "url": "https://www.hasebikes.com/en/kettwiesel",
+      "check": true
     },
     {
       "p": "Hase Bikes",
@@ -1219,8 +1219,9 @@
       "p": "Hase Bikes",
       "m": "Pino",
       "type": "bike",
-      "kg": 225,
-      "url": "https://www.hasebikes.com/en/kategorie/tandem/pino"
+      "kg": 0,
+      "url": "https://www.hasebikes.com/en/kategorie/tandem/pino",
+      "check": true
     },
     {
       "p": "Hase Bikes",
@@ -1233,15 +1234,17 @@
       "p": "Hase Bikes",
       "m": "Trigo",
       "type": "tadpole",
-      "kg": 160,
-      "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo"
+      "kg": 0,
+      "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo",
+      "check": true
     },
     {
       "p": "Hase Bikes",
       "m": "Trigo UP",
       "type": "delta",
-      "kg": 160,
-      "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo"
+      "kg": 0,
+      "url": "https://www.hasebikes.com/en/kategorie/dreirad/trigo",
+      "check": true
     },
     {
       "p": "Hase Bikes",
@@ -1396,22 +1399,25 @@
       "p": "ICE Trikes",
       "m": "Adventure",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.icetrikes.co/products/adventure"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/adventure",
+      "check": true
     },
     {
       "p": "ICE Trikes",
       "m": "Adventure HD",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://www.icetrikes.co/products/adventure-hd"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/adventure-hd",
+      "check": true
     },
     {
       "p": "ICE Trikes",
       "m": "Full Fat",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.icetrikes.co/products/full-fat"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/full-fat",
+      "check": true
     },
     {
       "p": "ICE Trikes",
@@ -1424,35 +1430,39 @@
       "p": "ICE Trikes",
       "m": "Sprint X",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.icetrikes.co/products/sprint-x-recumbent-trike"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/sprint-x-recumbent-trike",
+      "check": true
     },
     {
       "p": "ICE Trikes",
       "m": "Sprint X Pixel",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike",
+      "check": true
     },
     {
       "p": "ICE Trikes",
       "m": "Sprint X Tour",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/sprint-x-tour-recumbent-trike",
+      "check": true
     },
     {
       "p": "ICE Trikes",
       "m": "VTX",
       "type": "tadpole",
-      "kg": 104,
-      "url": "https://www.icetrikes.co/products/vtx-recumbent-trike"
+      "kg": 0,
+      "url": "https://www.icetrikes.co/products/vtx-recumbent-trike",
+      "check": true
     },
     {
       "p": "IN Trikes",
       "m": "NEO",
       "type": "tadpole",
-      "kg": 150,
+      "kg": 0,
       "check": true,
       "url": "https://www.facebook.com/INTRIKES/"
     },
@@ -1491,7 +1501,7 @@
       "p": "Kamrad",
       "m": "R16",
       "type": "bike",
-      "kg": 120,
+      "kg": 0,
       "check": true,
       "url": "https://kamrad.pl/"
     },
@@ -1686,43 +1696,49 @@
       "p": "Lightning",
       "m": "F-40",
       "type": "bike",
-      "kg": 113,
-      "url": "https://www.lightningbikes.com/f40/index.html"
+      "kg": 0,
+      "url": "https://www.lightningbikes.com/f40/index.html",
+      "check": true
     },
     {
       "p": "Lightning",
       "m": "P-38",
       "type": "bike",
-      "kg": 113,
-      "url": "https://www.lightningbikes.com/p38/index.html"
+      "kg": 0,
+      "url": "https://www.lightningbikes.com/p38/index.html",
+      "check": true
     },
     {
       "p": "Lightning",
       "m": "P-38 Belt Drive",
       "type": "bike",
-      "kg": 113,
-      "url": "https://www.lightningbikes.com/p38/belt-drive.html"
+      "kg": 0,
+      "url": "https://www.lightningbikes.com/p38/belt-drive.html",
+      "check": true
     },
     {
       "p": "Lightning",
       "m": "P-38 Voyager",
       "type": "bike",
-      "kg": 113,
-      "url": "https://www.lightningbikes.com/voyager/index.html"
+      "kg": 0,
+      "url": "https://www.lightningbikes.com/voyager/index.html",
+      "check": true
     },
     {
       "p": "Lightning",
       "m": "Phantom",
       "type": "bike",
-      "kg": 113,
-      "url": "https://www.lightningbikes.com/phantom/index.html"
+      "kg": 0,
+      "url": "https://www.lightningbikes.com/phantom/index.html",
+      "check": true
     },
     {
       "p": "Lightning",
       "m": "R-84",
       "type": "bike",
-      "kg": 113,
-      "url": "https://www.lightningbikes.com/r84/index.html"
+      "kg": 0,
+      "url": "https://www.lightningbikes.com/r84/index.html",
+      "check": true
     },
     {
       "p": "Lightning",
@@ -1907,29 +1923,33 @@
       "p": "Maxarya",
       "m": "Ray 2",
       "type": "bike",
-      "kg": 136,
-      "url": "https://www.maxarya.com/ray-2-recumbent-bicycle"
+      "kg": 0,
+      "url": "https://www.maxarya.com/ray-2-recumbent-bicycle",
+      "check": true
     },
     {
       "p": "Maxarya",
       "m": "Ray 2D",
       "type": "bike",
-      "kg": 136,
-      "url": "https://www.maxarya.com/ray-2d-recumbent-bicycle"
+      "kg": 0,
+      "url": "https://www.maxarya.com/ray-2d-recumbent-bicycle",
+      "check": true
     },
     {
       "p": "Maxarya",
       "m": "Ray 2E",
       "type": "bike",
-      "kg": 136,
-      "url": "https://www.maxarya.com/ray-2e-electric-recumbent-bicycle"
+      "kg": 0,
+      "url": "https://www.maxarya.com/ray-2e-electric-recumbent-bicycle",
+      "check": true
     },
     {
       "p": "Maxarya",
       "m": "Ray 2X",
       "type": "bike",
-      "kg": 136,
-      "url": "https://www.maxarya.com/ray-2x-recumbent-bicycle"
+      "kg": 0,
+      "url": "https://www.maxarya.com/ray-2x-recumbent-bicycle",
+      "check": true
     },
     {
       "p": "Nazca",
@@ -2133,7 +2153,7 @@
       "p": "Performer",
       "m": "Cantilever",
       "type": "tadpole",
-      "kg": 140,
+      "kg": 0,
       "url": "https://www.performercycles.com/bikes-catalog/1",
       "check": true
     },
@@ -2197,15 +2217,17 @@
       "p": "Performer",
       "m": "Futuro FRP",
       "type": "tadpole",
-      "kg": 113,
-      "url": "https://www.performercycles.com/bike-detail/8"
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/8",
+      "check": true
     },
     {
       "p": "Performer",
       "m": "Futuro Mesh",
       "type": "tadpole",
-      "kg": 113,
-      "url": "https://www.performercycles.com/bike-detail/8"
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/8",
+      "check": true
     },
     {
       "p": "Performer",
@@ -2260,21 +2282,23 @@
       "p": "Performer",
       "m": "JC-26X FRP",
       "type": "tadpole",
-      "kg": 140,
-      "url": "https://www.performercycles.com/bike-detail/3"
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/3",
+      "check": true
     },
     {
       "p": "Performer",
       "m": "JC-26X Mesh",
       "type": "tadpole",
-      "kg": 140,
-      "url": "https://www.performercycles.com/bike-detail/4"
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/4",
+      "check": true
     },
     {
       "p": "Performer",
       "m": "JC20",
       "type": "tadpole",
-      "kg": 120,
+      "kg": 0,
       "url": "https://www.performercycles.com/bikes-catalog/1",
       "check": true
     },
@@ -2282,15 +2306,17 @@
       "p": "Performer",
       "m": "JC70 FRP",
       "type": "tadpole",
-      "kg": 120,
-      "url": "https://www.performercycles.com/bike-detail/1"
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/1",
+      "check": true
     },
     {
       "p": "Performer",
       "m": "JC70 Mesh",
       "type": "tadpole",
-      "kg": 120,
-      "url": "https://www.performercycles.com/bike-detail/2"
+      "kg": 0,
+      "url": "https://www.performercycles.com/bike-detail/2",
+      "check": true
     },
     {
       "p": "Performer",
@@ -2324,7 +2350,7 @@
       "p": "Performer",
       "m": "Trike-X",
       "type": "tadpole",
-      "kg": 140,
+      "kg": 0,
       "url": "https://www.performercycles.com/bikes-catalog/1",
       "check": true
     },
@@ -2347,8 +2373,9 @@
       "p": "PonyFour",
       "m": "PONY4",
       "type": "quad",
-      "kg": 200,
-      "url": "https://www.pony4.bike/"
+      "kg": 0,
+      "url": "https://www.pony4.bike/",
+      "check": true
     },
     {
       "p": "RAD-Innovations",
@@ -2553,7 +2580,7 @@
       "p": "Slyway",
       "m": "ULTRA",
       "type": "bike",
-      "kg": 130,
+      "kg": 0,
       "check": true,
       "url": "https://www.slywayprojects.com/"
     },
@@ -2575,29 +2602,33 @@
       "p": "SpecBikeTechnics",
       "m": "Comfort E-Trike",
       "type": "tadpole",
-      "kg": 170,
-      "url": "https://specbiketechnics.com/all-products/comfort-e-trike/"
+      "kg": 0,
+      "url": "https://specbiketechnics.com/all-products/comfort-e-trike/",
+      "check": true
     },
     {
       "p": "SpecBikeTechnics",
       "m": "Comfort Trike",
       "type": "tadpole",
-      "kg": 170,
-      "url": "https://specbiketechnics.com/all-products/tricycle-comfort-with-suspension/"
+      "kg": 0,
+      "url": "https://specbiketechnics.com/all-products/tricycle-comfort-with-suspension/",
+      "check": true
     },
     {
       "p": "SpecBikeTechnics",
       "m": "Fat Trike",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://specbiketechnics.com/all-products/fat-trike/"
+      "kg": 0,
+      "url": "https://specbiketechnics.com/all-products/fat-trike/",
+      "check": true
     },
     {
       "p": "SpecBikeTechnics",
       "m": "Standard Trike",
       "type": "tadpole",
-      "kg": 135,
-      "url": "https://specbiketechnics.com/all-products/"
+      "kg": 0,
+      "url": "https://specbiketechnics.com/all-products/",
+      "check": true
     },
     {
       "p": "Sport-On",
@@ -2648,8 +2679,9 @@
       "p": "Steintrikes",
       "m": "Mungo",
       "type": "tadpole",
-      "kg": 130,
-      "url": "https://steintrikes.com/product/mungo"
+      "kg": 0,
+      "url": "https://steintrikes.com/product/mungo",
+      "check": true
     },
     {
       "p": "Steintrikes",
@@ -2694,36 +2726,41 @@
       "p": "Steintrikes",
       "m": "Wild One",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://steintrikes.com/product/29-wild-one-series"
+      "kg": 0,
+      "url": "https://steintrikes.com/product/29-wild-one-series",
+      "check": true
     },
     {
       "p": "Steintrikes",
       "m": "Wild One Fat",
       "type": "tadpole",
-      "kg": 150,
-      "url": "https://steintrikes.com/product/30-wild-one-fat-series"
+      "kg": 0,
+      "url": "https://steintrikes.com/product/30-wild-one-fat-series",
+      "check": true
     },
     {
       "p": "SunSeeker",
       "m": "EZ-3 USX HD",
       "type": "delta",
-      "kg": 181,
-      "url": "https://sunseeker.bike/products/ez-3-usx-hd-trike-6125"
+      "kg": 0,
+      "url": "https://sunseeker.bike/products/ez-3-usx-hd-trike-6125",
+      "check": true
     },
     {
       "p": "SunSeeker",
       "m": "EZ-Classic SX",
       "type": "tadpole",
-      "kg": 136,
-      "url": "https://sunseeker.bike/products/ez-classic-sx-21sp-8433"
+      "kg": 0,
+      "url": "https://sunseeker.bike/products/ez-classic-sx-21sp-8433",
+      "check": true
     },
     {
       "p": "SunSeeker",
       "m": "Eco-Delta SX",
       "type": "delta",
-      "kg": 136,
-      "url": "https://sunseeker.bike/products/eco-delta-sx-11737"
+      "kg": 0,
+      "url": "https://sunseeker.bike/products/eco-delta-sx-11737",
+      "check": true
     },
     {
       "p": "TerraTrike",
@@ -2887,144 +2924,164 @@
       "p": "Trident",
       "m": "Chameleon Tandem",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/chameleon/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/chameleon/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Fat Trekker",
       "type": "tadpole",
-      "kg": 125,
+      "kg": 0,
       "offroad": true,
-      "url": "https://tridenttrikes.com/jouta-delta/products/trekker/"
+      "url": "https://tridenttrikes.com/jouta-delta/products/trekker/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Jouta Fat Quad",
       "type": "quad",
-      "kg": 159,
-      "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Jouta Quad",
       "type": "quad",
-      "kg": 159,
-      "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/jouta-quad/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Jouta Tadpole",
       "type": "tadpole",
-      "kg": 136,
-      "url": "https://tridenttrikes.com/jouta-delta/products/jouta-tadpole/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/jouta-tadpole/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Nomad",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/nomad/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/nomad/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Spike 1",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/spike/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/spike/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Spike 2",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/spike/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/spike/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Spike 380",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/spike/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/spike/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Stowaway I",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Stowaway II",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/stowaway/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "T.W.I.G",
       "type": "bike",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/t-w-i-g/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/t-w-i-g/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Terrain 20",
       "type": "tadpole",
-      "kg": 125,
+      "kg": 0,
       "offroad": true,
-      "url": "https://tridenttrikes.com/jouta-delta/products/terrain/"
+      "url": "https://tridenttrikes.com/jouta-delta/products/terrain/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Terrain 26",
       "type": "tadpole",
-      "kg": 147,
+      "kg": 0,
       "offroad": true,
-      "url": "https://tridenttrikes.com/jouta-delta/products/terrain/"
+      "url": "https://tridenttrikes.com/jouta-delta/products/terrain/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Titan",
       "type": "tadpole",
-      "kg": 181,
-      "url": "https://tridenttrikes.com/jouta-delta/products/titan/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/titan/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Tomcat",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Tomcat 380",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Tomcat E",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/tomcat/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Trekker 20",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/trekker/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/trekker/",
+      "check": true
     },
     {
       "p": "Trident",
       "m": "Trekker 26",
       "type": "tadpole",
-      "kg": 125,
-      "url": "https://tridenttrikes.com/jouta-delta/products/trekker/"
+      "kg": 0,
+      "url": "https://tridenttrikes.com/jouta-delta/products/trekker/",
+      "check": true
     },
     {
       "p": "TrikExplor",
@@ -3161,57 +3218,65 @@
       "p": "Velomobile World",
       "m": "Alpha 7",
       "type": "tadpole",
-      "kg": 120,
-      "url": "https://www.velomobileworld.com/product/3-alpha-7/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/product/3-alpha-7/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "Alpha 7 Electra",
       "type": "tadpole",
-      "kg": 120,
-      "url": "https://www.velomobileworld.com/product/alpha-7/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/product/alpha-7/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "Alpha 9",
       "type": "velomobile",
-      "kg": 120,
-      "url": "https://www.velomobileworld.com/velomobiles/alpha-9-velomobile/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/velomobiles/alpha-9-velomobile/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "Alpha 9.2",
       "type": "tadpole",
-      "kg": 120,
-      "url": "https://www.velomobileworld.com/velomobiles/alpha-9-velomobile/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/velomobiles/alpha-9-velomobile/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "Alpha W9",
       "type": "tadpole",
-      "kg": 90,
-      "url": "https://www.velomobileworld.com/velomobiles/alpha-w9-velomobile/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/velomobiles/alpha-w9-velomobile/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "Alpha W9S",
       "type": "tadpole",
-      "kg": 90,
-      "url": "https://www.velomobileworld.com/velomobiles/alpha-w9s-velomobile/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/velomobiles/alpha-w9s-velomobile/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "Bülk MK1",
       "type": "tadpole",
-      "kg": 120,
-      "url": "https://www.velomobileworld.com/velomobiles/bulk-mk-1-velomobile/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/velomobiles/bulk-mk-1-velomobile/",
+      "check": true
     },
     {
       "p": "Velomobile World",
       "m": "M9",
       "type": "velomobile",
-      "kg": 120,
-      "url": "https://www.velomobileworld.com/velomobiles/m9-velomobile/"
+      "kg": 0,
+      "url": "https://www.velomobileworld.com/velomobiles/m9-velomobile/",
+      "check": true
     },
     {
       "p": "Velomobile World",
@@ -3342,344 +3407,6 @@
       "kg": 0,
       "arch": true,
       "url": "https://www.bentrideronline.com/?tag=zockra"
-    },
-    {
-      "p": "ActionBent",
-      "m": "MidRacer",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
-    },
-    {
-      "p": "ActionBent",
-      "m": "HighRacer",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
-    },
-    {
-      "p": "ActionBent",
-      "m": "JetStream",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
-    },
-    {
-      "p": "ActionBent",
-      "m": "Road Runner",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
-    },
-    {
-      "p": "ActionBent",
-      "m": "Tadpole Trike",
-      "type": "tadpole",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://actionbent.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Tour",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Century",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Expedition",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Club",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Team",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Sport",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "Voyager",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Volae",
-      "m": "ES",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://www.volaerecumbents.com/"
-    },
-    {
-      "p": "Linear Recumbents",
-      "m": "Limo",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.linearrecumbents.com/limo"
-    },
-    {
-      "p": "Linear Recumbents",
-      "m": "Roadster",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.linearrecumbents.com/roadster"
-    },
-    {
-      "p": "Longbikes",
-      "m": "Slipstream",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.longbikes.com/slipstream"
-    },
-    {
-      "p": "Longbikes",
-      "m": "Eliminator",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.longbikes.com/eliminator"
-    },
-    {
-      "p": "Avatar",
-      "m": "Avatar 2000",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://recumbents.com/"
-    },
-    {
-      "p": "Ryan",
-      "m": "Vanguard",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://recumbents.com/"
-    },
-    {
-      "p": "Ryan",
-      "m": "Tandem",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://web.archive.org/web/2010/http://recumbents.com/"
-    },
-    {
-      "p": "Rotator",
-      "m": "Pursuit",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://www.bentrideronline.com/?tag=rotator"
-    },
-    {
-      "p": "Rotator",
-      "m": "Avatar",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://www.bentrideronline.com/?tag=rotator"
-    },
-    {
-      "p": "SideWinder",
-      "m": "SideWinder",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://www.bentrideronline.com/?tag=sidewinder"
-    },
-    {
-      "p": "MetaBikes",
-      "m": "MetaBike",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://www.bentrideronline.com/?tag=metabikes"
-    },
-    {
-      "p": "Cannondale",
-      "m": "Semi",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://www.bentrideronline.com/?tag=cannondale"
-    },
-    {
-      "p": "Sun Recumbents",
-      "m": "EZ-1 SC",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://sunbicycles.com/collections/recumbent"
-    },
-    {
-      "p": "Sun Recumbents",
-      "m": "EZ-1 SX",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://sunbicycles.com/collections/recumbent"
-    },
-    {
-      "p": "Sun Recumbents",
-      "m": "EZ-3 USX",
-      "type": "tadpole",
-      "kg": 0,
-      "url": "https://sunbicycles.com/collections/recumbent"
-    },
-    {
-      "p": "Sun Recumbents",
-      "m": "EZ-3 HD",
-      "type": "tadpole",
-      "kg": 0,
-      "url": "https://sunbicycles.com/collections/recumbent"
-    },
-    {
-      "p": "Sun Recumbents",
-      "m": "EZ Sport",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://sunbicycles.com/collections/recumbent"
-    },
-    {
-      "p": "BIGHA",
-      "m": "BIGHA",
-      "type": "bike",
-      "kg": 0,
-      "arch": true,
-      "url": "https://www.bentrideronline.com/?tag=bigha"
-    },
-    {
-      "p": "Velomo",
-      "m": "Quadvelo",
-      "type": "quad",
-      "kg": 200,
-      "url": "https://velomo.de/quadvelo/"
-    },
-    {
-      "p": "Velomo",
-      "m": "Quadvelo Cargo",
-      "type": "quad",
-      "kg": 200,
-      "url": "https://velomo.de/quadvelo/"
-    },
-    {
-      "p": "Passion-Velomobile",
-      "m": "Alleweder A4",
-      "type": "velomobile",
-      "kg": 0,
-      "url": "https://passion-velomobile.com/"
-    },
-    {
-      "p": "TWOZERO",
-      "m": "Classic",
-      "type": "velomobile",
-      "kg": 0,
-      "url": "https://www.twozero.no/"
-    },
-    {
-      "p": "TrikExplor",
-      "m": "H420E",
-      "type": "quad",
-      "kg": 0,
-      "url": "https://www.trikexplor.com/pages/trikexplor-recumbent-quad"
-    },
-    {
-      "p": "Mochet",
-      "m": "Velocar",
-      "type": "quad",
-      "kg": 0,
-      "arch": true,
-      "url": "https://en.wikipedia.org/wiki/Velocar"
-    },
-    {
-      "p": "Hase Bikes",
-      "m": "Pino Steps",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.hasebikes.com/en/tandem/pino-steps"
-    },
-    {
-      "p": "Hase Bikes",
-      "m": "Pino Cargo",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.hasebikes.com/en/tandem/pino-cargo"
-    },
-    {
-      "p": "Performer",
-      "m": "Family Tandem",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.performercycles.com/bike-detail/23"
-    },
-    {
-      "p": "New Age Bikes",
-      "m": "Family Tandem Recumbent",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://newagebikes.com/products/family-tandem-recumbent"
-    },
-    {
-      "p": "CargoCycle",
-      "m": "Nanuk",
-      "type": "bike",
-      "kg": 0,
-      "url": "https://www.recumbent.news/tag/cargo-recumbent/"
-    },
-    {
-      "p": "Leiba",
-      "m": "Leiba Cargo",
-      "type": "velomobile",
-      "kg": 200,
-      "url": "http://www.leiba.de/leiba_cargo.html"
-    },
-    {
-      "p": "TrikExplor",
-      "m": "2-Person Quad",
-      "type": "quad",
-      "kg": 0,
-      "url": "https://www.trikexplor.com/"
-    },
-    {
-      "p": "TrikExplor",
-      "m": "4-Person Quad",
-      "type": "quad",
-      "kg": 0,
-      "url": "https://www.trikexplor.com/"
     }
   ]
 }
