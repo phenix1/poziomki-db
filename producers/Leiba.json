@@ -1,1 +1,5 @@
-
+[
+  { "p": "Leiba", "m": "Classic", "type": "velomobile", "kg": 120, "url": "https://www.leiba.de/index.php/leiba-classic" },
+  { "p": "Leiba", "m": "Hybrid", "type": "velomobile", "kg": 120, "url": "https://www.leiba.de/index.php/leiba-hybrid" },
+  { "p": "Leiba", "m": "X-Stream", "type": "velomobile", "kg": 120, "url": "https://www.leiba.de/index.php/leiba-x-stream" }
+]
