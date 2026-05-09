@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki DB v3.0 (Fleet Edition)
+// @name         Poziomki DB v3.4 (Fleet Edition)
 // @namespace    https://poziomki.info
-// @version      3.0
+// @version      3.4
 // @description  Recumbent bikes database (Stealth Ads, Async Engine, Google Only)
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @license      MIT
@@ -20,7 +20,52 @@
   'use strict';
 
   // ==========================================
-  // 1. KONFIGURACJA ZASOBÓW
+  // 1. DYNAMICZNA SZATA GRAFICZNA (SEASONS)
+  // ==========================================
+  const currentMonth = new Date().getMonth(); // 0 = Jan, 11 = Dec
+  let theme = {
+    hdrBg: 'linear-gradient(135deg, #162b45 0%, #2a6090 100%)', // Default Summer Deep Blue
+    thColor: '#2a6090',
+    thBg: '#eef3fa',
+    btnBg: '#f0f6ff',
+    btnColor: '#1a4494',
+    btnBorder: '#c0d0e4'
+  };
+
+  if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) {
+    // Winter (December, January, February): Cool Ice & Dark Twilight
+    theme = {
+      hdrBg: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
+      thColor: '#203a43',
+      thBg: '#f0f4f8',
+      btnBg: '#f0f4f8',
+      btnColor: '#2c5364',
+      btnBorder: '#cbd5e1'
+    };
+  } else if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) {
+    // Spring (March, April, May): Fresh Forest Green & Light Sprout
+    theme = {
+      hdrBg: 'linear-gradient(135deg, #1b4d3e 0%, #57b85d 100%)',
+      thColor: '#1b4d3e',
+      thBg: '#eef9f1',
+      btnBg: '#eef9f1',
+      btnColor: '#1b4d3e',
+      btnBorder: '#c2e9cb'
+    };
+  } else if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) {
+    // Autumn (September, October, November): Golden Amber & Cozy Copper
+    theme = {
+      hdrBg: 'linear-gradient(135deg, #870f0f 0%, #d35400 100%)',
+      thColor: '#870f0f',
+      thBg: '#fff5f5',
+      btnBg: '#fffbf0',
+      btnColor: '#b33939',
+      btnBorder: '#ebd07f'
+    };
+  }
+
+  // ==========================================
+  // 2. KONFIGURACJA ZASOBÓW
   // ==========================================
   const manifestBaseUrl = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/producers/";
   const ADS_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/ads.json?t=' + Date.now();
@@ -29,9 +74,12 @@
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
-  let CONFIG = { version: "3.0", author: "MBFeniks" };
+  let CONFIG = { version: "3.4", author: "MBFeniks" };
   let ADS = {};
   let DB = [];
+
+  // Storage for active intervals for ad rotation to prevent duplicates and memory leaks
+  let adIntervals = {};
 
   // Odtworzona lista współprac z oryginalnego pliku (do kolorowania wierszy)
   const COLLAB = {
@@ -129,7 +177,7 @@
     "SunSeeker": { c: "US", f: "🇺🇸" },
     "Velomtek": { c: "CA", f: "🇨🇦" },
     "Birkenstock Bicycles": { c: "CH", f: "🇨🇭" },
-    
+
     // Domyślna flaga dla ew. przyszłych braków
     "default": { c: "UN", f: "🏳️" }
   };
@@ -141,7 +189,7 @@
   let host, shadow;
 
   // ==========================================
-  // 2. SILNIK POBIERANIA (Z ODKURZACZEM JSON)
+  // 3. SILNIK POBIERANIA (Z ODKURZACZEM JSON)
   // ==========================================
   function fetchJSON(url) {
       return new Promise((resolve, reject) => {
@@ -163,13 +211,32 @@
   }
 
   // ==========================================
-  // 3. STYLE CSS (Twoje oryginalne)
+  // 4. STYLE CSS (Zintegrowane z Porami Roku)
   // ==========================================
   const styleCSS = `
-    #pdb-wrap { position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e; display: flex; flex-direction: column; background: transparent; filter: drop-shadow(0 10px 30px rgba(0,30,80,.2)); resize: horizontal; min-width: 450px; max-width: 95vw; }
+    #pdb-wrap {
+      position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px;
+      font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e;
+      display: flex; flex-direction: column; background: transparent; filter: drop-shadow(0 10px 30px rgba(0,30,80,.2));
+      resize: horizontal; min-width: 450px; max-width: 95vw;
+
+      /* Dynamiczne Zmienne Pór Roku */
+      --pz-hdr-bg: ${theme.hdrBg};
+      --pz-th-color: ${theme.thColor};
+      --pz-th-bg: ${theme.thBg};
+      --pz-btn-bg: ${theme.btnBg};
+      --pz-btn-color: ${theme.btnColor};
+      --pz-btn-border: ${theme.btnBorder};
+    }
     #pdb-wrap.col { height: 50px; min-height: 50px; max-height: 50px; }
-    #pdb-hdr { background: linear-gradient(135deg, #162b45 0%, #2a6090 100%); color: #fff; padding: 8px 14px; display: flex; align-items: center; gap: 10px; cursor: grab; user-select: none; flex-shrink: 0; height: 34px; border-radius: 12px 12px 0 0; border: 1px solid #162b45; border-bottom: none; }
-    #pdb-wrap.col #pdb-hdr { border-radius: 12px; border-bottom: 1px solid #162b45; }
+
+    #pdb-hdr {
+      background: var(--pz-hdr-bg); color: #fff; padding: 8px 14px;
+      display: flex; align-items: center; gap: 10px; cursor: grab; user-select: none;
+      flex-shrink: 0; height: 34px; border-radius: 12px 12px 0 0;
+      border: 1px solid rgba(0,0,0,0.15); border-bottom: none;
+    }
+    #pdb-wrap.col #pdb-hdr { border-radius: 12px; border-bottom: 1px solid rgba(0,0,0,0.15); }
     #pdb-hdr:active { cursor: grabbing; }
 
     .logo-wrap { width: 26px; height: 26px; position: relative; flex-shrink: 0; }
@@ -194,17 +261,24 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
 
-    .pdb-sys-card { background: #f8fafc; flex-shrink: 0; padding: 6px 12px; display: none; justify-content: center; align-items: center; }
+    /* Ulepszone Pudełko Reklamowe - przezroczyste, z ładnymi marginesami */
+    .pdb-sys-card {
+      background: transparent; flex-shrink: 0; padding: 0;
+      margin: 10px 12px 0 12px; display: none; justify-content: center; align-items: center;
+      box-sizing: border-box;
+    }
     .pdb-sys-card img { max-width: 100%; max-height: 90px; object-fit: contain; border-radius: 6px; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: opacity 0.2s; }
     .pdb-sys-card a { display: block; width: 100%; transition: opacity 0.2s, transform 0.1s; text-decoration: none; }
     .pdb-sys-card a:hover { opacity: 0.9; transform: translateY(-1px); }
     .pdb-sys-card a:active { transform: translateY(1px); }
-    #pdb-sys-inf1 { border-bottom: 1px solid #e0e8f0; }
-    #pdb-sys-inf2 { border-top: 1px solid #e0e8f0; }
 
-    #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; }
+    #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; margin-top: 10px; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
-    #pdb-tbl thead th { position: sticky; top: 0; background: #eef3fa; font-size: 11px; font-weight: 700; padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #2a6090; text-transform: uppercase; }
+    #pdb-tbl thead th {
+      position: sticky; top: 0; background: var(--pz-th-bg); font-size: 11px; font-weight: 700;
+      padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--pz-th-color); text-transform: uppercase;
+    }
     #pdb-tbl tbody tr { border-bottom: 1px solid #f0f4f8; }
     #pdb-tbl tbody tr:hover td { background: #f8fafc; }
     #pdb-tbl tbody tr.row-collab-yes td { background: #f0fdf4; }
@@ -226,13 +300,17 @@
     .kg-150plus { color: #1a4494; }
     .kg-200plus { color: #6a10a0; }
 
-    .pdb-link a { font-size: 11px; padding: 3px 8px; border: 1px solid #c0d0e4; border-radius: 5px; text-decoration: none; background: #f0f6ff; color: #1a4494; display: inline-block; text-align: center; min-width: 45px; font-weight: 600; }
+    .pdb-link a {
+      font-size: 11px; padding: 3px 8px; border-radius: 5px; text-decoration: none;
+      background: var(--pz-btn-bg); color: var(--pz-btn-color); border: 1px solid var(--pz-btn-border);
+      display: inline-block; text-align: center; min-width: 45px; font-weight: 600;
+    }
     .pdb-link.arch a { background: #fdf5d8; border-color: #e4d498; color: #8a6a1c; }
     .pdb-link.check a { background: #f0e0fe; border-color: #d0b0f0; color: #6a10a0; }
     .f-offroad { font-size: 9px; background: #e0d0b0; padding: 2px 5px; border-radius: 4px; margin-left: 6px; color: #5a4010; font-weight: bold; }
 
     .pdb-foot { padding: 10px 14px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
-    .pdb-loading { padding: 30px; text-align: center; font-size: 14px; font-weight: bold; color: #2a6090; }
+    .pdb-loading { padding: 30px; text-align: center; font-size: 14px; font-weight: bold; color: var(--pz-th-color); }
     .error-msg { font-size: 12px; color: #cc0000; padding: 15px; background: #fff0f0; border: 1px solid #ffcccc; margin: 15px; border-radius: 8px; line-height: 1.5; }
   `;
 
@@ -253,6 +331,33 @@
       let primary = state.sortDir * ((state.sortCol === 'kg') ? ((a.kg||0) - (b.kg||0)) : ((a[state.sortCol]||'').localeCompare(b[state.sortCol]||'', 'en')));
       return primary !== 0 ? primary : a.p.localeCompare(b.p, 'en') || a.m.localeCompare(b.m, 'en');
     });
+  }
+
+  // Helper to determine if the ad is active on current date and weekday
+  function isAdSchedulable(schedule) {
+    if (!schedule) return true;
+
+    const now = new Date();
+    // Normalize today to local midnight for accurate date comparison
+    const todayMs = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+
+    // Check date range
+    if (schedule.startDate) {
+      const startMs = new Date(schedule.startDate).getTime();
+      if (todayMs < startMs) return false;
+    }
+    if (schedule.endDate) {
+      const endMs = new Date(schedule.endDate).getTime();
+      if (todayMs > endMs) return false;
+    }
+
+    // Check weekdays (0 = Sunday, 1 = Monday, etc.)
+    if (schedule.weekdays && schedule.weekdays.length > 0) {
+      const currentDay = now.getDay();
+      if (!schedule.weekdays.includes(currentDay)) return false;
+    }
+
+    return true;
   }
 
   function render() {
@@ -297,26 +402,95 @@
     }).join('');
   }
 
-  function renderAdBlock(adData, elementId, defaultHTML = '') {
-      const el = shadow.getElementById(elementId);
-      if (!el) return;
+  // Advanced ad renderer with scheduling and real-time carousel rotation
+  function renderAdBlock(placementGroup, elementId, defaultHTML = '') {
+    const el = shadow.getElementById(elementId);
+    if (!el) return;
 
-      if (!adData || !adData.active) {
-          if (defaultHTML) {
-              el.innerHTML = defaultHTML;
-              el.style.display = 'flex';
+    // Clear any existing rotation interval for this container
+    if (adIntervals[elementId]) {
+      clearInterval(adIntervals[elementId]);
+      delete adIntervals[elementId];
+    }
+
+    // Backwards compatibility: If legacy ad structure is loaded, parse it on the fly
+    let group = placementGroup;
+    if (group && !group.items && (group.active !== undefined || group.type !== undefined)) {
+      group = {
+        rotationInterval: 0,
+        items: [ { ...group, id: 'legacy_fallback', schedule: null } ]
+      };
+    }
+
+    // If no ad data, show default HTML
+    if (!group || !Array.isArray(group.items) || group.items.length === 0) {
+      if (defaultHTML) {
+        el.innerHTML = defaultHTML;
+        el.style.display = 'flex';
+      } else {
+        el.style.display = 'none';
+      }
+      return;
+    }
+
+    // Filter items that are active and match schedule criteria
+    const activeItems = group.items.filter(item => {
+      if (!item.active) return false;
+      return isAdSchedulable(item.schedule);
+    });
+
+    if (activeItems.length === 0) {
+      if (defaultHTML) {
+        el.innerHTML = defaultHTML;
+        el.style.display = 'flex';
+      } else {
+        el.style.display = 'none';
+      }
+      return;
+    }
+
+    el.style.display = 'flex';
+    let currentIndex = 0;
+
+    // Inject individual ad content based on its type
+    const displayAd = (ad) => {
+      if (ad.type === 'html') {
+        // Auto-Belka Engine: Wraps simple HTML/text in structured seasonal layouts
+        if (ad.content && !ad.content.includes('background') && !ad.content.includes('class=')) {
+          if (elementId === 'pdb-sys-inf1') {
+            // Top Slot: Premium rich high-contrast seasonal banner
+            el.innerHTML = `
+              <div style="width: 100%; display: flex; justify-content: center; align-items: center; background: var(--pz-hdr-bg); color: #fff; padding: 12px; border-radius: 6px; font-weight: bold; font-size: 13px; text-shadow: 0 1px 2px rgba(0,0,0,0.4); box-shadow: 0 2px 8px rgba(0,0,0,0.15); text-align: center; box-sizing: border-box;">
+                ${ad.content}
+              </div>
+            `;
           } else {
-              el.style.display = 'none';
+            // Bottom Slot: Soft, highly readable seasonal card style
+            el.innerHTML = `
+              <div style="width: 100%; display: flex; justify-content: center; align-items: center; background: var(--pz-btn-bg); color: var(--pz-btn-color); border: 1px solid var(--pz-btn-border); padding: 12px; border-radius: 6px; font-weight: bold; font-size: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); text-align: center; box-sizing: border-box;">
+                ${ad.content}
+              </div>
+            `;
           }
-          return;
+        } else {
+          el.innerHTML = ad.content || '';
+        }
+      } else if (ad.type === 'image') {
+        el.innerHTML = `<a href="${ad.link}" target="_blank"><img src="${ad.image}" alt="Promo"></a>`;
       }
+    };
 
-      el.style.display = 'flex';
-      if (adData.type === 'html') {
-          el.innerHTML = adData.content || '';
-      } else if (adData.type === 'image') {
-          el.innerHTML = `<a href="${adData.link}" target="_blank"><img src="${adData.image}" alt="Info"></a>`;
-      }
+    // Render the first matched ad immediately
+    displayAd(activeItems[currentIndex]);
+
+    // Setup active rotation carousel if interval is set and we have multiple ads
+    const interval = parseInt(group.rotationInterval) || 0;
+    if (interval > 0 && activeItems.length > 1) {
+      adIntervals[elementId] = setInterval(() => {
+        currentIndex = (currentIndex + 1) % activeItems.length;
+        displayAd(activeItems[currentIndex]);
+      }, interval * 1000); // Convert seconds to milliseconds
+    }
   }
 
   function buildUI() {
@@ -344,7 +518,7 @@
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
       <div id="pdb-body">
-        
+
         ${pzTopMetaHTML}
 
         <div class="pdb-ctrl">
@@ -381,8 +555,9 @@
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
 
+    // Domyślna reklama górna zintegrowana z porami roku
     const defaultHTMLTop = `
-       <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank" style="display:flex; justify-content:center; align-items:center; background:linear-gradient(90deg, #162b45 0%, #2a6090 100%); color:#fff; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,0.4); box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+       <a href="https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1" target="_blank" style="display:flex; width: 100%; justify-content:center; align-items:center; background: var(--pz-hdr-bg); color:#fff; padding:12px; border-radius:6px; font-weight:bold; font-size:13px; text-shadow:0 1px 2px rgba(0,0,0,0.4); box-shadow:0 2px 8px rgba(0,0,0,0.15); text-decoration: none; text-align: center; box-sizing: border-box;">
           🎯 Warsztaty z podstaw rzucania nożem - Kliknij i sprawdź!
        </a>
     `;
@@ -438,7 +613,7 @@
   }
 
   // ==========================================
-  // 4. INICJALIZACJA APLIKACJI
+  // 5. INICJALIZACJA APLIKACJI
   // ==========================================
   async function initApp() {
     if (!document.body) { setTimeout(initApp, 50); return; }
