@@ -41,9 +41,8 @@
     "Pacific Cycles": "closed", "Podbike": "closed", "Zockra": "closed"
   };
 
-  // Pełna lista 91 producentów z GitHuba
   // Pełna lista 92 producentów z GitHuba
-  cconst fleetMakers = [
+  const fleetMakers = [
     "Aerorider", "Alligt", "Avatar 2000", "Avenue Trikes", "Azub", "Bacchetta", "BamBuk", "Barcroft",
     "BerkelBike", "BikeE", "Birk", "Birkenstock Bicycles", "Blackbird Bikes", "Burley", "Carbontrikes", "Catrike", "Challenge",
     "Counterpoint", "Cruzbike", "Cycle Genius", "Cycles JV Fenioux", "Dekers Bike", "Drymer", "ENVO",
@@ -111,7 +110,7 @@
     // Chiny
     "MoTrike": { c: "CN", f: "🇨🇳" }, "TrikExplor": { c: "CN", f: "🇨🇳" },
 
-      // Francja
+    // Francja
     "Cycles JV Fenioux": { c: "FR", f: "🇫🇷" }, "Zockra": { c: "FR", f: "🇫🇷" },
 
     // Pozostałe Kraje
@@ -327,6 +326,13 @@
 
     const producers = ['all', ...new Set(DB.map(r => r.p))].sort((a,b) => a === 'all' ? -1 : a.localeCompare(b,'en'));
 
+    // Tarcza anty-AdBlock: nasza bezpieczna, nieblokowalna sekcja informacyjna
+    const pzTopMetaHTML = `
+      <div class="pz-top-meta" style="background-color: #fff3cd; color: #856404; padding: 10px 15px; border: 1px solid #ffeeba; border-radius: 4px; font-size: 11px; line-height: 1.4; margin: 10px 12px 0 12px; text-align: center; font-family: sans-serif; box-sizing: border-box;">
+        <strong>Notice:</strong> This database is for reference only and may contain errors. Please verify all technical data (especially weight limits) directly on the manufacturer's official website.
+      </div>
+    `;
+
     wrap.innerHTML = `
       <div id="pdb-hdr">
         <div class="logo-wrap"><img src="${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
@@ -338,6 +344,9 @@
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
       <div id="pdb-body">
+        
+        ${pzTopMetaHTML}
+
         <div class="pdb-ctrl">
           <select id="pdb-prod">${producers.map(p => `<option value="${p}"${p===state.filterProd?' selected':''}>${p==='all'?'All producers':p}</option>`).join('')}</select>
           <select id="pdb-type">
@@ -429,7 +438,7 @@
   }
 
   // ==========================================
-  // 4. INICJALIZACJA APLIKACJI (Główna Zmiana)
+  // 4. INICJALIZACJA APLIKACJI
   // ==========================================
   async function initApp() {
     if (!document.body) { setTimeout(initApp, 50); return; }
@@ -457,7 +466,7 @@
       // Tworzenie promise'ów dla wszystkich plików floty
       const fleetPromises = fleetSources.map(url => fetchJSON(url).catch(() => []));
 
-      // Uruchomienie JEDNOCZEŚNIE wszystkich zapytań (91 firm + reklamy)
+      // Uruchomienie JEDNOCZEŚNIE wszystkich zapytań (92 firmy + reklamy)
       const [adsResponse, ...fleetResponses] = await Promise.all([adPromise, ...fleetPromises]);
 
       ADS = adsResponse || {};
