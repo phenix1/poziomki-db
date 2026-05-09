@@ -1,12 +1,46 @@
 {
   "top": {
-    "active": true,
-    "type": "html",
-    "content": "<a href='https://sites.google.com/view/rzucamy-nozem/warsztaty-z-podstaw-rzucania-no%C5%BCem?pli=1' target='_blank' style='display:flex; justify-content:center; align-items:center; background:linear-gradient(90deg, #162b45 0%, #2a6090 100%); color:#fff; padding:12px; border-radius:6px; font-weight:bold; font-size:14px; text-shadow:0 1px 2px rgba(0,0,0,0.4); box-shadow:0 2px 8px rgba(0,0,0,0.15);'>🎯 Warsztaty z podstaw rzucania nożem - Kliknij i sprawdź!</a>"
+    "rotationInterval": 300,
+    "items": [
+      {
+        "id": "matix_monday_fat",
+        "active": true,
+        "type": "image",
+        "image": "https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/matix_fat.png",
+        "link": "https://matixbike.pl/fat",
+        "schedule": {
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-15",
+          "weekdays": [1]
+        }
+      },
+      {
+        "id": "azub_may_promo",
+        "active": true,
+        "type": "html",
+        "content": "<div style='color: white; font-weight: bold; text-align: center;'>🔥 Special AZUB Ti-FLY Offer! Contact your local dealer.</div>",
+        "schedule": {
+          "startDate": "2026-05-01",
+          "endDate": "2026-05-31",
+          "weekdays": [1, 2, 3, 4, 5, 6, 0]
+        }
+      }
+    ]
   },
   "bottom": {
-    "active": true,
-    "type": "html",
-    "content": "Tu może być Twoja reklama"
+    "rotationInterval": 10,
+    "items": [
+      {
+        "id": "kofi_support_widget",
+        "active": true,
+        "type": "html",
+        "content": "<div style='color: #6a10a0; font-size: 11px;'>Support Poziomki DB! Click the button below!</div>",
+        "schedule": {
+          "startDate": "2026-01-01",
+          "endDate": "2026-12-31",
+          "weekdays": [6, 0]
+        }
+      }
+    ]
   }
 }
