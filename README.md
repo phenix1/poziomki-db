@@ -4,6 +4,12 @@
 
 The database is designed for maximum performance and resistance to ad blockers (AdBlock/uBlock) using Stealth Mode techniques.
 
+> ⚠️ **IMPORTANT NOTICE / DISCLAIMER**
+> The "Poziomki Archive & Lab" database is a private, community-focused archive of models, weight limits, and technical specifications for recumbent trikes, quads, velomobiles, and other specialized cycles. 
+> 
+> While we make every effort to ensure accuracy, **this data is compiled from various historical archives, manuals, and correspondence, and may contain errors, discrepancies, or outdated information.** Manufacturer specifications are subject to change without notice.
+> **You must always verify all technical specifications—especially weight capacities—on the manufacturer's official website before making any purchase, modification, or safety decisions.**
+
 ## ✨ Key Features
 
 * 🚀 **Asynchronous Engine (Promise.all):** Fetches dozens of manufacturer `.json` files simultaneously, loading a database of hundreds of models in a fraction of a second without slowing down your browser.
