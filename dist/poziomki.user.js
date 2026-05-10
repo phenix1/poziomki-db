@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v3.5.12 (Ultimate Edition + Ads + Full UI)
+// @name         Poziomki DB v3.5.13 (Ultimate Edition + Ads + Offline Cache)
 // @namespace    https://poziomki.info
-// @version      3.5.12
-// @description  Recumbent bikes database with Google Sheets Backend, Tokens, Ads and Full UI
+// @version      3.5.13
+// @description  Recumbent bikes database with Google Sheets Backend, Ads and Offline Anti-Ban Cache
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @license      MIT
 // @match        *://www.google.com/*
@@ -22,33 +22,33 @@
   'use strict';
 
   // ==========================================
-  // 1. KONFIGURACJA API BACKENDU (Google Sheets)
+  // 1. KONFIGURACJA API BACKENDU
   // ==========================================
   const MODERATION_URL = "https://script.google.com/macros/s/AKfycbyrdgmIVwD2rM3W-pf3CXo1zx924Ibyg5mJrjXwkMyO20kGU7XVxWZyq5he38iJ3s7meQ/exec";
   
   // ==========================================
-  // 2. DYNAMICZNA SZATA GRAFICZNA (SEASONS)
+  // 2. DYNAMICZNA SZATA GRAFICZNA
   // ==========================================
   const currentMonth = new Date().getMonth();
   let theme = { hdrBg: 'linear-gradient(135deg, #162b45 0%, #2a6090 100%)', thColor: '#2a6090', thBg: '#eef3fa', btnBg: '#f0f6ff', btnColor: '#1a4494', btnBorder: '#c0d0e4' };
 
-  if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) { // Winter
+  if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) { 
     theme = { hdrBg: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)', thColor: '#203a43', thBg: '#f0f4f8', btnBg: '#f0f4f8', btnColor: '#2c5364', btnBorder: '#cbd5e1' };
-  } else if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) { // Spring
+  } else if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) { 
     theme = { hdrBg: 'linear-gradient(135deg, #1b4d3e 0%, #57b85d 100%)', thColor: '#1b4d3e', thBg: '#eef9f1', btnBg: '#eef9f1', btnColor: '#1b4d3e', btnBorder: '#c2e9cb' };
-  } else if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) { // Autumn
+  } else if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) { 
     theme = { hdrBg: 'linear-gradient(135deg, #870f0f 0%, #d35400 100%)', thColor: '#870f0f', thBg: '#fff5f5', btnBg: '#fffbf0', btnColor: '#b33939', btnBorder: '#ebd07f' };
   }
 
   // ==========================================
-  // 3. KONFIGURACJA ZASOBÓW
+  // 3. ZASOBY I FLOTA
   // ==========================================
   const manifestBaseUrl = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/producers/";
   const LOGO_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/logo.png';
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
-  let CONFIG = { version: "3.5.12", author: "MBFeniks" };
+  let CONFIG = { version: "3.5.13", author: "MBFeniks" };
   let ADS = [];
   let DB = [];
 
@@ -85,7 +85,7 @@
   const TYPE_LABEL = { tadpole: 'Tadpole', delta: 'Delta', bike: '2-wheel', quad: 'Quad', velomobile: 'Velomobile', handcycle: 'Handcycle' };
   const TYPE_CLASS = { tadpole: 't-tadpole', delta: 't-delta', bike: 't-bike', quad: 't-quad' };
 
-  const SK = 'poziomki_state_v3_5_12';
+  const SK = 'poziomki_state_v3_5_13';
   let state = GM_getValue(SK, { 
     collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', 
     sortCol: 'p', sortDir: 1, searchStr: '', modToken: '', modProducer: ''
@@ -95,7 +95,7 @@
   let host, shadow;
 
   // ==========================================
-  // API FETCHERS
+  // FETCHERS (Zabezpieczone)
   // ==========================================
   function fetchAPI(action, method = "GET", body = null) {
     return new Promise((resolve) => {
@@ -125,51 +125,33 @@
   }
 
   // ==========================================
-  // STYLE CSS
+  // STYL CSS
   // ==========================================
   const styleCSS = `
-    #pdb-wrap { 
-      position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px; 
-      font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e; 
-      display: flex; flex-direction: column; background: transparent; filter: drop-shadow(0 10px 30px rgba(0,30,80,.2)); 
-      resize: horizontal; min-width: 450px; max-width: 95vw;
-      --pz-hdr-bg: ${theme.hdrBg}; --pz-th-color: ${theme.thColor}; --pz-th-bg: ${theme.thBg};
-      --pz-btn-bg: ${theme.btnBg}; --pz-btn-color: ${theme.btnColor}; --pz-btn-border: ${theme.btnBorder};
-    }
+    #pdb-wrap { position: fixed; top: 54px; right: 12px; width: 620px; height: 85vh; max-height: 800px; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; color: #1a1a2e; display: flex; flex-direction: column; background: transparent; filter: drop-shadow(0 10px 30px rgba(0,30,80,.2)); resize: horizontal; min-width: 450px; max-width: 95vw; --pz-hdr-bg: ${theme.hdrBg}; --pz-th-color: ${theme.thColor}; --pz-th-bg: ${theme.thBg}; --pz-btn-bg: ${theme.btnBg}; --pz-btn-color: ${theme.btnColor}; --pz-btn-border: ${theme.btnBorder}; }
     #pdb-wrap.col { height: 50px; min-height: 50px; max-height: 50px; }
-    
     #pdb-hdr { background: var(--pz-hdr-bg); color: #fff; padding: 8px 14px; display: flex; align-items: center; gap: 10px; cursor: grab; user-select: none; flex-shrink: 0; height: 34px; border-radius: 12px 12px 0 0; border: 1px solid rgba(0,0,0,0.15); border-bottom: none; }
     #pdb-wrap.col #pdb-hdr { border-radius: 12px; border-bottom: 1px solid rgba(0,0,0,0.15); }
     #pdb-hdr:active { cursor: grabbing; }
-
     .logo-wrap { width: 26px; height: 26px; position: relative; flex-shrink: 0; }
     .hdr-logo { width: 65px; height: 65px; position: absolute; top: 0; left: 0; transform: scale(0.4); transform-origin: top left; border-radius: 15px; background: #fff; padding: 5px; object-fit: contain; transition: transform 0.2s; box-sizing: border-box; cursor: pointer; }
     .hdr-logo:hover { transform: scale(1); z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-
     #pdb-hdr .title { font-weight: 700; font-size: 14px; white-space: nowrap; pointer-events: none; }
     #pdb-search { flex: 1; padding: 5px 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); font-size: 12px; background: rgba(0,0,0,0.2); color: #fff; outline: none; transition: 0.2s; }
-    #pdb-search::placeholder { color: rgba(255,255,255,0.6); }
     #pdb-search:focus { background: #fff; color: #000; border-color: #fff; }
     #pdb-hdr .badge { background: rgba(255,255,255,.2); border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 700; pointer-events: none; }
-    
     .hdr-btn { background: rgba(255,255,255,0.15); border: none; border-radius: 4px; color: #fff; cursor: pointer; padding: 4px 6px; font-size: 14px; transition: 0.2s; margin-left: 5px; }
     .hdr-btn:hover { background: rgba(255,255,255,0.3); }
     .hdr-btn.pending { background: #ef4444; font-weight: bold; animation: pulse 2s infinite; font-size: 12px; }
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
-
     #pdb-hdr .xbtn { background: none; border: none; color: rgba(255,255,255,.6); font-size: 16px; cursor: pointer; padding: 0 4px; }
-    #pdb-hdr .xbtn:hover { color: #fff; }
-
     #pdb-body { display: flex; flex-direction: column; flex: 1; overflow: hidden; background: #fff; border: 1px solid #c0cce0; border-top: none; border-radius: 0 0 12px 12px; }
     #pdb-wrap.col #pdb-body { display: none; }
-
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
-
     .pdb-ad-box { margin: 10px 12px 0 12px; border-radius: 8px; overflow: hidden; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
     .pdb-ad-box img { max-width: 100%; max-height: 90px; object-fit: contain; display: block; }
     .pdb-ad-box a { display: block; width: 100%; text-decoration: none; }
-
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; margin-top: 10px; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
     #pdb-tbl thead th { position: sticky; top: 0; background: var(--pz-th-bg); font-size: 11px; font-weight: 700; padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--pz-th-color); text-transform: uppercase; }
@@ -180,7 +162,6 @@
     #pdb-tbl tbody tr.row-collab-closed td { background: #fff5f5; }
     #pdb-tbl tbody tr.row-collab-closed td.pdb-prod { border-left: 3px solid #f87171; }
     #pdb-tbl td { padding: 7px 10px; }
-
     .pdb-prod { font-weight: 600; font-size: 12px; color: #1a3a5c; }
     .pdb-model { font-size: 13px; font-weight: 500; }
     .pdb-type { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
@@ -189,14 +170,11 @@
     .pdb-kg { font-weight: 700; font-size: 12px; }
     .kg-none { color: #aaa; font-weight: normal; font-style: italic; }
     .kg-low { color: #994020; } .kg-120plus { color: #1a6e40; } .kg-150plus { color: #1a4494; } .kg-200plus { color: #6a10a0; }
-
     .pdb-link a { font-size: 11px; padding: 3px 8px; border-radius: 5px; text-decoration: none; background: var(--pz-btn-bg); color: var(--pz-btn-color); border: 1px solid var(--pz-btn-border); display: inline-block; text-align: center; min-width: 45px; font-weight: 600; }
     .pdb-link.arch a { background: #fdf5d8; border-color: #e4d498; color: #8a6a1c; }
     .pdb-link.check a { background: #f0e0fe; border-color: #d0b0f0; color: #6a10a0; }
-    
     .btn-edit { font-size: 9px; text-transform: uppercase; padding: 2px 5px; border-radius: 4px; background: #e2e8f0; color: #475569; border: 1px solid #cbd5e1; cursor: pointer; font-weight: bold; margin-left: 5px; transition: 0.2s; }
     .btn-edit:hover { background: var(--pz-th-color); color: #fff; }
-
     .pdb-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 10000; backdrop-filter: blur(2px); border-radius: 12px; }
     .pdb-modal { background: #fff; width: 400px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); padding: 20px; position: relative; max-height: 85%; overflow-y: auto; }
     .pdb-modal h3 { margin: 0 0 15px 0; font-size: 16px; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
@@ -206,15 +184,12 @@
     .pdb-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
     .btn-save { background: #10b981; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     .btn-cancel { background: #f1f5f9; color: #64748b; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
-    
     .pending-row { font-size: 11px; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
     .pending-row strong { color: #1e293b; font-size: 12px; }
-
     .pdb-foot { padding: 10px 14px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
     .foot-avatar-wrap { width: 26px; height: 26px; position: relative; flex-shrink: 0; margin-right: 6px; }
     .foot-avatar { width: 65px; height: 65px; position: absolute; bottom: 0; left: 0; transform: scale(0.4); transform-origin: bottom left; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.15); object-fit: cover; background: #fff; transition: transform 0.2s; box-sizing: border-box; cursor: pointer; z-index: 100; }
     .foot-avatar:hover { transform: scale(1); box-shadow: 0 5px 25px rgba(0,0,0,0.3); z-index: 9999; border-color: var(--pz-th-color); }
-
     .pdb-loading { padding: 40px 20px; text-align: center; font-size: 13px; font-weight: bold; color: var(--pz-th-color); background: #fff; border: 1px solid #c0cce0; border-top: none; border-radius: 0 0 12px 12px; }
     .error-msg { font-size: 12px; color: #cc0000; padding: 15px; background: #fff0f0; border: 1px solid #ffcccc; margin: 15px; border-radius: 8px; line-height: 1.5; }
     .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid rgba(42,96,144,0.3); border-radius: 50%; border-top-color: var(--pz-th-color); animation: spin 1s ease-in-out infinite; margin-bottom: 10px; }
@@ -421,7 +396,7 @@
     shadow.getElementById('edit-close').onclick = () => overlay.remove();
     shadow.getElementById('edit-save').onclick = async () => {
       const btn = shadow.getElementById('edit-save'); btn.textContent = "Sending..."; btn.disabled = true;
-      const changes = \`Name: \${shadow.getElementById('edit-name').value}, KG: \${shadow.getElementById('edit-kg').value}, URL: \${shadow.getElementById('edit-url').value}\`;
+      const changes = `Name: ${shadow.getElementById('edit-name').value}, KG: ${shadow.getElementById('edit-kg').value}, URL: ${shadow.getElementById('edit-url').value}`;
       const res = await fetchAPI("submit_edit", "POST", { producer: row.p, model: row.m, changes: changes, userToken: state.modToken });
       if (res.status === "success") { alert("Submission sent for approval!"); overlay.remove(); } else { alert("Connection error."); btn.textContent = "Submit to Admin"; btn.disabled = false; }
     };
@@ -478,14 +453,14 @@
       const canEdit = state.modProducer === 'ALL' || state.modProducer === r.p;
       const editBtnHtml = canEdit ? `<button class="btn-edit" data-idx="${idx}">Edit</button>` : '';
 
-      return \`
-      <tr class="\${collab === 'yes' ? 'row-collab-yes' : collab === 'closed' ? 'row-collab-closed' : ''}">
-        <td class="pdb-prod" title="\${origin.c}">\${origin.f} \${r.p}</td>
-        <td class="pdb-model">\${r.m} \${editBtnHtml}</td>
-        <td><span class="pdb-type \${TYPE_CLASS[r.type]||''} ">\${TYPE_LABEL[r.type]||r.type}</span></td>
-        <td><span class="pdb-kg \${kgClass}">\${kgText}</span></td>
-        <td class="pdb-link \${linkClass}"><a href="\${r.url}" target="_blank" title="\${r.url}">\${linkText}</a></td>
-      </tr>\`;
+      return `
+      <tr class="${collab === 'yes' ? 'row-collab-yes' : collab === 'closed' ? 'row-collab-closed' : ''}">
+        <td class="pdb-prod" title="${origin.c}">${origin.f} ${r.p}</td>
+        <td class="pdb-model">${r.m} ${editBtnHtml}</td>
+        <td><span class="pdb-type ${TYPE_CLASS[r.type]||''} ">${TYPE_LABEL[r.type]||r.type}</span></td>
+        <td><span class="pdb-kg ${kgClass}">${kgText}</span></td>
+        <td class="pdb-link ${linkClass}"><a href="${r.url}" target="_blank" title="${r.url}">${linkText}</a></td>
+      </tr>`;
     }).join('');
 
     tbody.querySelectorAll('.btn-edit').forEach(btn => {
@@ -507,9 +482,9 @@
       
       el.style.display = 'flex';
       if(ad.type === 'html') {
-        el.innerHTML = \`<a href="\${ad.link}" target="_blank" style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; text-decoration:none;">\${ad.content}</a>\`;
+        el.innerHTML = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; text-decoration:none;">${ad.content}</a>`;
       } else {
-        el.innerHTML = \`<a href="\${ad.link}" target="_blank" style="width:100%; display:block;"><img src="\${ad.content}" style="width:100%; height:auto;"></a>\`;
+        el.innerHTML = `<a href="${ad.link}" target="_blank" style="width:100%; display:block;"><img src="${ad.content}" style="width:100%; height:auto;"></a>`;
       }
     };
 
@@ -529,35 +504,35 @@
     const loginIcon = state.modToken ? '🔓' : '🔐';
     const isAdmin = state.modProducer === 'ALL';
 
-    const pzTopMetaHTML = \`
+    const pzTopMetaHTML = `
       <div class="pz-top-meta" style="background-color: #fff3cd; color: #856404; padding: 10px 15px; border: 1px solid #ffeeba; border-radius: 4px; font-size: 11px; line-height: 1.4; margin: 10px 12px 0 12px; text-align: center; font-family: sans-serif; box-sizing: border-box;">
         <strong>Notice:</strong> This database is for reference only and may contain errors. Please verify directly on the manufacturer's official website.
-      </div>\`;
+      </div>`;
 
-    wrap.innerHTML = \`
+    wrap.innerHTML = `
       <div id="pdb-hdr">
-        <div class="logo-wrap"><img src="\${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
+        <div class="logo-wrap"><img src="${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
         <span class="title">Poziomki DB</span>
-        <input type="text" id="pdb-search" placeholder="Search..." value="\${state.searchStr || ''}">
+        <input type="text" id="pdb-search" placeholder="Search..." value="${state.searchStr || ''}">
         <span class="badge" id="pdb-cnt">0</span>
-        \${isAdmin ? \`
+        ${isAdmin ? `
           <button class="hdr-btn pending" id="admin-dash-btn" title="Pending Queue">🔔 Pending</button>
           <button class="hdr-btn" id="admin-tok-btn" style="background:#f59e0b;" title="Token Manager">🔑 Tokens</button>
           <button class="hdr-btn" id="admin-ads-btn" style="background:#8b5cf6;" title="Ads Manager">📢 Ads</button>
-        \` : ''}
-        <button class="hdr-btn" id="cms-login-btn" title="Moderator Login">\${loginIcon}</button>
-        <span id="pdb-arr" style="cursor:pointer; margin-left:5px;">\${state.collapsed?'▲':'▼'}</span>
+        ` : ''}
+        <button class="hdr-btn" id="cms-login-btn" title="Moderator Login">${loginIcon}</button>
+        <span id="pdb-arr" style="cursor:pointer; margin-left:5px;">${state.collapsed?'▲':'▼'}</span>
         <button class="xbtn" id="pdb-x">✕</button>
       </div>
       <div id="pdb-body">
-        \${pzTopMetaHTML}
+        ${pzTopMetaHTML}
         <div class="pdb-ad-box" id="pdb-ad-top" style="display:none"></div>
         <div class="pdb-ctrl">
-          <select id="pdb-prod">\${producers.map(p => \`<option value="\${p}"\${p===state.filterProd?' selected':''}>\${p==='all'?'All producers':p}</option>\`).join('')}</select>
+          <select id="pdb-prod">${producers.map(p => `<option value="${p}"${p===state.filterProd?' selected':''}>${p==='all'?'All producers':p}</option>`).join('')}</select>
           <select id="pdb-type">
             <option value="all">All types</option><option value="tadpole">Tadpole</option><option value="delta">Delta</option><option value="bike">Bike (2-wheel)</option><option value="quad">Quad</option><option value="velomobile">Velomobile</option><option value="handcycle">Handcycle</option>
           </select>
-          <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="\${state.minKg || ''}">
+          <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
         </div>
         <div id="pdb-tbl-wrap">
           <table id="pdb-tbl">
@@ -575,12 +550,12 @@
         
         <div class="pdb-foot">
           <div style="display: flex; align-items: center;">
-            <div class="foot-avatar-wrap"><img src="\${AVATAR_URL}" class="foot-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}"></div>
-            <span>Author: <strong>\${CONFIG.author}</strong> | Mode: <strong>\${state.modProducer || 'Viewer'}</strong></span>
+            <div class="foot-avatar-wrap"><img src="${AVATAR_URL}" class="foot-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}"></div>
+            <span>Author: <strong>${CONFIG.author}</strong> | Mode: <strong>${state.modProducer || 'Viewer'}</strong></span>
           </div>
-          <a href="\${KOFI_URL}" target="_blank" style="color:var(--pz-btn-color); font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">☕ Support</a>
+          <a href="${KOFI_URL}" target="_blank" style="color:var(--pz-btn-color); font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">☕ Support</a>
         </div>
-      </div>\`;
+      </div>`;
 
     shadow.appendChild(wrap);
     shadow.getElementById('pdb-type').value = state.filterType;
@@ -651,7 +626,7 @@
   }
 
   // ==========================================
-  // INICJALIZACJA APLIKACJI
+  // INICJALIZACJA Z CACHEM!
   // ==========================================
   async function initApp() {
     if (!document.body) { setTimeout(initApp, 50); return; }
@@ -669,17 +644,17 @@
 
     const loadingWrap = document.createElement('div');
     loadingWrap.id = 'pdb-wrap';
-    loadingWrap.innerHTML = \`
+    loadingWrap.innerHTML = `
       <div id="pdb-hdr">
-        <div class="logo-wrap"><img src="\${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
+        <div class="logo-wrap"><img src="${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
         <span class="title">Poziomki DB</span>
         <button class="xbtn" style="margin-left:auto;" onclick="document.getElementById('poziomki-host').remove()">✕</button>
       </div>
       <div class="pdb-loading" id="load-msg">
         <div class="spinner"></div><br>
-        Initializing and fetching fleet data...
+        Fetching fleet and checking cache...
       </div>
-    \`;
+    `;
     shadow.appendChild(loadingWrap);
 
     try {
@@ -692,18 +667,30 @@
       DB = [];
       fleetResponses.forEach(part => { if (Array.isArray(part)) DB = DB.concat(part); });
 
+      // NOWY SYSTEM CACHE!
+      const cachedDB = GM_getValue('pdb_offline_fleet', []);
+
+      if (DB.length > 0) {
+        GM_setValue('pdb_offline_fleet', DB); // Aktualizujemy lokalny magazyn
+      } else if (cachedDB.length > 0) {
+        DB = cachedDB; // Ratuje nas offline cache!
+        console.warn("Wczytano bazę z pamięci podręcznej z powodu limitu GitHuba!");
+      } else {
+        throw new Error("GitHub zablokował na chwilę Twój adres IP za zbyt dużo odświeżeń (Rate Limit). Zrób sobie kawkę, odczekaj 5-10 minut i odśwież stronę, a skrypt zbuduje cache!");
+      }
+
       loadingWrap.remove();
       buildUI();
     } catch (error) {
       console.error("Poziomki DB Error:", error);
-      loadingWrap.innerHTML = \`
+      loadingWrap.innerHTML = `
         <div id="pdb-hdr">
-          <div class="logo-wrap"><img src="\${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
+          <div class="logo-wrap"><img src="${LOGO_URL}" class="hdr-logo" alt="Logo"></div>
           <span class="title">Poziomki DB Error</span>
           <button class="xbtn" style="margin-left:auto;" onclick="document.getElementById('poziomki-host').remove()">✕</button>
         </div>
-        <div class="error-msg" style="background:#fff;"><strong>Critical database error:</strong><br>\${error.message}</div>
-      \`;
+        <div class="error-msg" style="background:#fff;"><strong>Wykryto problem:</strong><br>${error.message}</div>
+      `;
     }
   }
 
