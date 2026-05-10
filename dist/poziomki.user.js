@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki DB v3.5.20 (Ultimate Edition + Drive Hotlinker + Assistant)
+// @name         Poziomki DB v3.5.21 (Ultimate Edition + Drive Hotlinker + Assistant)
 // @namespace    https://poziomki.info
-// @version      3.5.20
+// @version      3.5.21
 // @description  Recumbent bikes database with Google Sheets Backend, Ad Scheduler, Carousel, Auto Drive Hotlinker and Cache
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @license      MIT
@@ -15,6 +15,8 @@
 // @connect      raw.githubusercontent.com
 // @connect      script.google.com
 // @connect      script.googleusercontent.com
+// @connect      get.geojs.io
+// @connect      api.open-meteo.com
 // @run-at       document-end
 // ==/UserScript==
 
@@ -48,7 +50,7 @@
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
-  let CONFIG = { version: "3.5.20", author: "MBFeniks" };
+  let CONFIG = { version: "3.5.21", author: "MBFeniks" };
   let ADS = [];
   let DB = [];
   let carouselIntervals = [];
@@ -126,7 +128,55 @@
   }
 
   // ==========================================
-  // POMOCNICZE: PARSER KONFIGURACJI REKLAMY (JSON PACKING)
+  // WIDŻET POGODOWY (Asynchroniczny)
+  // ==========================================
+  async function loadPoziomkiWeather() {
+      const weatherContainer = shadow.getElementById('poziomki-weather-widget');
+      if (!weatherContainer) return;
+
+      const cacheKey = 'poziomki_weather_data';
+      const cached = JSON.parse(localStorage.getItem(cacheKey));
+      const now = new Date().getTime();
+
+      let temp, city, icon;
+
+      if (cached && now - cached.timestamp < 3600000) {
+          temp = cached.temp;
+          city = cached.city;
+          icon = cached.icon;
+      } else {
+          try {
+              // 1. Geolokalizacja po IP
+              const geoRes = await fetch('https://get.geojs.io/v1/ip/geo.json');
+              const geoData = await geoRes.json();
+              city = geoData.city;
+
+              // 2. Pobranie pogody dla współrzędnych
+              const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${geoData.latitude}&longitude=${geoData.longitude}&current_weather=true`);
+              const weatherData = await weatherRes.json();
+              temp = Math.round(weatherData.current_weather.temperature);
+              const wcode = weatherData.current_weather.weathercode;
+
+              // 3. Ustalenie ikonki
+              if(wcode === 0) icon = '☀️';
+              else if(wcode <= 3) icon = '⛅';
+              else if(wcode <= 67) icon = '🌧️';
+              else if(wcode <= 77) icon = '❄️';
+              else icon = '🌩️';
+
+              localStorage.setItem(cacheKey, JSON.stringify({temp, city, icon, timestamp: now}));
+          } catch(error) {
+              console.warn("Poziomki DB: Błąd pogody, pracuję dalej w tle.", error);
+              weatherContainer.style.display = 'none';
+              return;
+          }
+      }
+
+      weatherContainer.innerHTML = `<span style="font-size: 14px; margin-right: 5px;">${icon}</span> ${temp}°C, ${city}`;
+  }
+
+  // ==========================================
+  // POMOCNICZE: PARSER KONFIGURACJI REKLAMY
   // ==========================================
   function parseAdConfig(activeStr) {
     let cfg = { status: 'Nie', start: '', end: '', days: [1,2,3,4,5,6,7] };
@@ -165,15 +215,12 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
 
-    /* Carousel Styles */
-    .pdb-ad-box { margin: 10px 12px 0 12px; border-radius: 8px; overflow: hidden; position: relative; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; background: #f8fafc; }
-    .carousel-wrap { width: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
-    .carousel-slide { width: 100%; flex-shrink: 0; display: none; text-align: center; animation: adFadeIn 0.8s ease-in-out; }
-    .carousel-slide.active { display: block; }
-    @keyframes adFadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .pdb-ad-box img { max-width: 100%; max-height: 90px; object-fit: contain; display: block; margin: 0 auto; }
-    .pdb-ad-box a { display: block; width: 100%; text-decoration: none; }
+    /* --- BEZPIECZNE STYLE KARUZELI --- */
+    .pdb-ad-box { margin: 10px 12px 0 12px; border-radius: 8px; overflow: hidden; position: relative; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; background: #1e293b; height: 90px; min-height: 90px; max-height: 90px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .carousel-wrap { width: 100%; height: 100%; position: relative; }
+    .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.6s ease-in-out; pointer-events: none; }
+    .carousel-slide.active { opacity: 1; z-index: 2; pointer-events: auto; }
+    .carousel-slide img { max-height: 90px !important; max-width: 100% !important; object-fit: contain; }
 
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; margin-top: 10px; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -209,7 +256,7 @@
     .btn-cancel { background: #f1f5f9; color: #64748b; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
     .pending-row { font-size: 11px; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
     .pending-row strong { color: #1e293b; font-size: 12px; }
-    .pdb-foot { padding: 10px 14px; font-size: 11px; text-align: center; border-top: 1px solid #e8eef4; background: #f8fafc; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
+    .pdb-foot { padding: 10px 15px; font-size: 11px; text-align: center; border-top: 1px solid #334155; background: #0f172a; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; border-radius: 0 0 12px 12px; }
     .foot-avatar-wrap { width: 26px; height: 26px; position: relative; flex-shrink: 0; margin-right: 6px; }
     .foot-avatar { width: 65px; height: 65px; position: absolute; bottom: 0; left: 0; transform: scale(0.4); transform-origin: bottom left; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.15); object-fit: cover; background: #fff; transition: transform 0.2s; box-sizing: border-box; cursor: pointer; z-index: 100; }
     .foot-avatar:hover { transform: scale(1); box-shadow: 0 5px 25px rgba(0,0,0,0.3); z-index: 9999; border-color: var(--pz-th-color); }
@@ -309,15 +356,15 @@
   }
 
   // ==========================================
-  // ADS MANAGER (PRO FORM UI + SCHEDULER)
+  // ADS MANAGER
   // ==========================================
   function showAdFormModal(ad) {
     const isNew = !ad;
     ad = ad || { placement: 'top', type: 'html', content: '', link: '', active: 'Tak', rowId: null };
 
     const cfg = parseAdConfig(ad.active);
-    const safeContent = ad.content.replace(/"/g, '&quot;');
-    const safeLink = (ad.link || '').replace(/"/g, '&quot;');
+    const safeContent = ad.content.replace(/"/g, '"');
+    const safeLink = (ad.link || '').replace(/"/g, '"');
 
     const overlay = document.createElement('div');
     overlay.className = 'pdb-modal-overlay';
@@ -615,7 +662,7 @@
   }
 
   // ==========================================
-  // RENDEROWANIE REKLAM (Karuzela + Harmonogram)
+  // RENDEROWANIE REKLAM (Sztywna Karuzela)
   // ==========================================
   function renderAds() {
     carouselIntervals.forEach(clearInterval);
@@ -627,7 +674,6 @@
     let currentDay = new Date().getDay();
     currentDay = currentDay === 0 ? 7 : currentDay;
 
-    // Filtrowanie aktywnych reklam na podstawie harmonogramu
     const activeAds = ADS.filter(ad => {
       const cfg = parseAdConfig(ad.active);
       if (cfg.status.toLowerCase() !== 'tak') return false;
@@ -640,23 +686,17 @@
     const topAds = activeAds.filter(a => a.placement && a.placement.trim().toLowerCase() === "top");
     const botAds = activeAds.filter(a => a.placement && a.placement.trim().toLowerCase() === "bottom");
 
-    // Inteligentny konwerter linków z Dysku Google na plik bezpośredni (Direct Hotlinker)
     const toDirectDriveUrl = (url) => {
       if (!url) return '';
       url = url.trim();
       let id = '';
       let match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-      if (match && match[1]) {
-        id = match[1];
-      } else {
+      if (match && match[1]) { id = match[1]; }
+      else {
         match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-        if (match && match[1]) {
-          id = match[1];
-        }
+        if (match && match[1]) { id = match[1]; }
       }
-      if (id) {
-        return `https://lh3.googleusercontent.com/d/${id}`;
-      }
+      if (id) return `https://lh3.googleusercontent.com/d/${id}=s800`;
       return url;
     };
 
@@ -674,19 +714,18 @@
 
         if (ad.type && ad.type.trim().toLowerCase() === 'html') {
           if (hasLink) {
-            slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; text-decoration:none; cursor:pointer;">${ad.content}</a>`;
+            slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; text-decoration:none; cursor:pointer; box-sizing:border-box;">${ad.content}</a>`;
           } else {
-            slideHtml = `<div style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px;">${ad.content}</div>`;
+            slideHtml = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; box-sizing:border-box;">${ad.content}</div>`;
           }
         } else {
-          // Wywołanie Direct Hotlinkera
           const directImgUrl = toDirectDriveUrl(ad.content);
-          const imgHtml = `<img src="${directImgUrl}" style="max-width:100%; max-height:90px; display:block; margin:0 auto;" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'color:#ef4444; padding:5px; font-size:11px;\\'>⚠️ Invalid Image URL</div>';">`;
+          const imgHtml = `<img src="${directImgUrl}" style="max-height:90px; max-width:100%; display:block; margin:0 auto;" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'color:#ef4444; padding:5px; font-size:11px;\\'>⚠️ Invalid Image URL</div>';">`;
 
           if (hasLink) {
-            slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; text-align:center;">${imgHtml}</a>`;
+            slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-decoration:none;">${imgHtml}</a>`;
           } else {
-            slideHtml = `<div style="width:100%; display:block; text-align:center;">${imgHtml}</div>`;
+            slideHtml = `<div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">${imgHtml}</div>`;
           }
         }
 
@@ -767,14 +806,28 @@
             <tbody id="pdb-tbody"></tbody>
           </table>
         </div>
-        <div class="pdb-ad-box" id="pdb-ad-bot" style="display:none"></div>
+        <div class="pdb-ad-box" id="pdb-ad-bot" style="display:none; margin-bottom: 10px;"></div>
 
         <div class="pdb-foot">
-          <div style="display: flex; align-items: center;">
+          <div style="display: flex; align-items: center; color: #cbd5e1;">
             <div class="foot-avatar-wrap"><img src="${AVATAR_URL}" class="foot-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}"></div>
             <span>Author: <strong>${CONFIG.author}</strong> | Mode: <strong>${state.modProducer || 'Viewer'}</strong></span>
           </div>
-          <a href="${KOFI_URL}" target="_blank" style="color:var(--pz-btn-color); font-weight:bold; text-decoration:none; border:1px solid currentColor; padding:4px 10px; border-radius:6px; background:#fff;">☕ Support</a>
+
+          <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="poziomki-weather-widget" style="color: #cbd5e1; font-size: 12px; font-weight: 500; display: flex; align-items: center; border-right: 1px solid rgba(255,255,255,0.15); padding-right: 15px;">
+                </div>
+
+            <a href="${KOFI_URL}" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background-color: #FF5E5B; color: #ffffff; padding: 5px 12px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 12px; box-shadow: 0 2px 5px rgba(255, 94, 91, 0.4); transition: transform 0.2s;">
+              <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;">
+                <path d="M8 5c0-1.5 1-1.5 1-3 M11.5 5c0-1.5 1-1.5 1-3 M15 5c0-1.5 1-1.5 1-3" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" fill="none" />
+                <path d="M5.5 8h11a1 1 0 0 1 1 1v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9a1 1 0 0 1 1-1z" fill="#ffffff" />
+                <path d="M17.5 10h1.5a2.5 2.5 0 0 1 2.5 2.5v1a2.5 2.5 0 0 1-2.5 2.5H17.5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                <path d="M11 15l-.4-.36C8.5 12.8 7 11.4 7 9.7c0-1.2 1-2.2 2.2-2.2.7 0 1.3.3 1.8.8.5-.5 1.1-.8 1.8-.8 1.2 0 2.2 1 2.2 2.2 0 1.7-1.5 3.1-3.6 4.9l-.4.36z" fill="#FF5E5B" />
+              </svg>
+              Buy me a coffee
+            </a>
+          </div>
         </div>
       </div>`;
 
@@ -782,6 +835,7 @@
     shadow.getElementById('pdb-type').value = state.filterType;
 
     renderAds();
+    setTimeout(loadPoziomkiWeather, 500); // Uruchomienie pobierania pogody
 
     if (isAdmin) {
       shadow.getElementById('admin-dash-btn').onclick = async () => {
