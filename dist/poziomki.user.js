@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v3.5.13 (Ultimate Edition + Ads + Offline Cache)
+// @name         Poziomki DB v3.5.19 (Ultimate Edition + Ad Scheduler + Carousel)
 // @namespace    https://poziomki.info
-// @version      3.5.13
-// @description  Recumbent bikes database with Google Sheets Backend, Ads and Offline Anti-Ban Cache
+// @version      3.5.19
+// @description  Recumbent bikes database with Google Sheets Backend, Ad Scheduler, Carousel and Cache
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @license      MIT
 // @match        *://www.google.com/*
@@ -25,18 +25,18 @@
   // 1. KONFIGURACJA API BACKENDU
   // ==========================================
   const MODERATION_URL = "https://script.google.com/macros/s/AKfycbyrdgmIVwD2rM3W-pf3CXo1zx924Ibyg5mJrjXwkMyO20kGU7XVxWZyq5he38iJ3s7meQ/exec";
-  
+
   // ==========================================
   // 2. DYNAMICZNA SZATA GRAFICZNA
   // ==========================================
   const currentMonth = new Date().getMonth();
   let theme = { hdrBg: 'linear-gradient(135deg, #162b45 0%, #2a6090 100%)', thColor: '#2a6090', thBg: '#eef3fa', btnBg: '#f0f6ff', btnColor: '#1a4494', btnBorder: '#c0d0e4' };
 
-  if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) { 
+  if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) {
     theme = { hdrBg: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)', thColor: '#203a43', thBg: '#f0f4f8', btnBg: '#f0f4f8', btnColor: '#2c5364', btnBorder: '#cbd5e1' };
-  } else if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) { 
+  } else if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) {
     theme = { hdrBg: 'linear-gradient(135deg, #1b4d3e 0%, #57b85d 100%)', thColor: '#1b4d3e', thBg: '#eef9f1', btnBg: '#eef9f1', btnColor: '#1b4d3e', btnBorder: '#c2e9cb' };
-  } else if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) { 
+  } else if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) {
     theme = { hdrBg: 'linear-gradient(135deg, #870f0f 0%, #d35400 100%)', thColor: '#870f0f', thBg: '#fff5f5', btnBg: '#fffbf0', btnColor: '#b33939', btnBorder: '#ebd07f' };
   }
 
@@ -48,9 +48,10 @@
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
-  let CONFIG = { version: "3.5.13", author: "MBFeniks" };
+  let CONFIG = { version: "3.5.19", author: "MBFeniks" };
   let ADS = [];
   let DB = [];
+  let carouselIntervals = [];
 
   const COLLAB = {
     "Azub": "yes", "Birk": "closed", "Blackbird Bikes": "closed", "Challenge": "closed",
@@ -85,9 +86,9 @@
   const TYPE_LABEL = { tadpole: 'Tadpole', delta: 'Delta', bike: '2-wheel', quad: 'Quad', velomobile: 'Velomobile', handcycle: 'Handcycle' };
   const TYPE_CLASS = { tadpole: 't-tadpole', delta: 't-delta', bike: 't-bike', quad: 't-quad' };
 
-  const SK = 'poziomki_state_v3_5_13';
-  let state = GM_getValue(SK, { 
-    collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all', 
+  const SK = 'poziomki_state_v3_5_19';
+  let state = GM_getValue(SK, {
+    collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all',
     sortCol: 'p', sortDir: 1, searchStr: '', modToken: '', modProducer: ''
   });
   function save() { GM_setValue(SK, state); }
@@ -95,7 +96,7 @@
   let host, shadow;
 
   // ==========================================
-  // FETCHERS (Zabezpieczone)
+  // FETCHERS
   // ==========================================
   function fetchAPI(action, method = "GET", body = null) {
     return new Promise((resolve) => {
@@ -125,6 +126,20 @@
   }
 
   // ==========================================
+  // POMOCNICZE: PARSER KONFIGURACJI REKLAMY (JSON PACKING)
+  // ==========================================
+  function parseAdConfig(activeStr) {
+    let cfg = { status: 'Nie', start: '', end: '', days: [1,2,3,4,5,6,7] };
+    if (!activeStr) return cfg;
+    if (activeStr.trim().startsWith('{')) {
+      try { cfg = { ...cfg, ...JSON.parse(activeStr) }; } catch(e) {}
+    } else {
+      cfg.status = activeStr.trim(); // Dla starych reklam kompatybilność wsteczna
+    }
+    return cfg;
+  }
+
+  // ==========================================
   // STYL CSS
   // ==========================================
   const styleCSS = `
@@ -149,9 +164,17 @@
     #pdb-wrap.col #pdb-body { display: none; }
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
-    .pdb-ad-box { margin: 10px 12px 0 12px; border-radius: 8px; overflow: hidden; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; }
-    .pdb-ad-box img { max-width: 100%; max-height: 90px; object-fit: contain; display: block; }
+
+    /* Carousel Styles */
+    .pdb-ad-box { margin: 10px 12px 0 12px; border-radius: 8px; overflow: hidden; position: relative; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; background: #f8fafc; }
+    .carousel-wrap { width: 100%; position: relative; display: flex; align-items: center; justify-content: center; }
+    .carousel-slide { width: 100%; flex-shrink: 0; display: none; text-align: center; animation: adFadeIn 0.8s ease-in-out; }
+    .carousel-slide.active { display: block; }
+    @keyframes adFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .pdb-ad-box img { max-width: 100%; max-height: 90px; object-fit: contain; display: block; margin: 0 auto; }
     .pdb-ad-box a { display: block; width: 100%; text-decoration: none; }
+
     #pdb-tbl-wrap { flex: 1; overflow-y: auto; background: #fff; margin-top: 10px; }
     #pdb-tbl { width: 100%; border-collapse: collapse; table-layout: fixed; }
     #pdb-tbl thead th { position: sticky; top: 0; background: var(--pz-th-bg); font-size: 11px; font-weight: 700; padding: 8px 10px; text-align: left; cursor: pointer; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: var(--pz-th-color); text-transform: uppercase; }
@@ -176,11 +199,11 @@
     .btn-edit { font-size: 9px; text-transform: uppercase; padding: 2px 5px; border-radius: 4px; background: #e2e8f0; color: #475569; border: 1px solid #cbd5e1; cursor: pointer; font-weight: bold; margin-left: 5px; transition: 0.2s; }
     .btn-edit:hover { background: var(--pz-th-color); color: #fff; }
     .pdb-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 10000; backdrop-filter: blur(2px); border-radius: 12px; }
-    .pdb-modal { background: #fff; width: 400px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); padding: 20px; position: relative; max-height: 85%; overflow-y: auto; }
+    .pdb-modal { background: #fff; width: 420px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); padding: 20px; position: relative; max-height: 85%; overflow-y: auto; }
     .pdb-modal h3 { margin: 0 0 15px 0; font-size: 16px; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
     .pdb-form-group { margin-bottom: 12px; }
     .pdb-form-group label { display: block; font-size: 11px; font-weight: bold; color: #64748b; margin-bottom: 4px; }
-    .pdb-form-group input, .pdb-form-group select { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; }
+    .pdb-form-group input[type="text"], .pdb-form-group input[type="date"], .pdb-form-group select { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; }
     .pdb-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
     .btn-save { background: #10b981; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     .btn-cancel { background: #f1f5f9; color: #64748b; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
@@ -202,7 +225,7 @@
   function showAdminDashboard(pendingData) {
     const overlay = document.createElement('div');
     overlay.className = 'pdb-modal-overlay';
-    
+
     let listHtml = pendingData.filter(d => d.Status === "Pending").map(d => `
       <div class="pending-row" id="pending-row-${d.rowId}">
         <div><strong>${d.Producent}</strong> — ${d.Model}</div>
@@ -246,7 +269,7 @@
   function showTokenDashboard(tokensData) {
     const overlay = document.createElement('div');
     overlay.className = 'pdb-modal-overlay';
-    
+
     let listHtml = tokensData.map(d => `
       <div class="pending-row" style="display:flex; justify-content:space-between; align-items:center;">
         <div style="width:130px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"><strong>${d.producer}</strong></div>
@@ -285,22 +308,148 @@
     shadow.getElementById('tok-close').onclick = () => overlay.remove();
   }
 
+  // ==========================================
+  // ADS MANAGER (PRO FORM UI + SCHEDULER)
+  // ==========================================
+  function showAdFormModal(ad) {
+    const isNew = !ad;
+    ad = ad || { placement: 'top', type: 'html', content: '', link: '', active: 'Tak', rowId: null };
+
+    const cfg = parseAdConfig(ad.active);
+    const safeContent = ad.content.replace(/"/g, '&quot;');
+    const safeLink = (ad.link || '').replace(/"/g, '&quot;');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'pdb-modal-overlay';
+    overlay.style.zIndex = "10001";
+
+    overlay.innerHTML = `
+      <div class="pdb-modal" style="width: 420px;">
+        <h3>${isNew ? 'Create New Ad' : 'Edit Ad'}</h3>
+
+        <div style="display:flex; gap:10px; margin-bottom:12px;">
+          <div class="pdb-form-group" style="flex:1; margin:0;">
+            <label>Placement</label>
+            <select id="ad-placement">
+              <option value="top" ${ad.placement==='top'?'selected':''}>Top Banner</option>
+              <option value="bottom" ${ad.placement==='bottom'?'selected':''}>Bottom Banner</option>
+            </select>
+          </div>
+          <div class="pdb-form-group" style="flex:1; margin:0;">
+            <label>Type</label>
+            <select id="ad-type">
+              <option value="html" ${ad.type==='html'?'selected':''}>HTML Text</option>
+              <option value="image" ${ad.type==='image'?'selected':''}>Image URL</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pdb-form-group">
+          <label>Content (Text or Image URL)</label>
+          <input type="text" id="ad-content" value="${safeContent}">
+        </div>
+        <div class="pdb-form-group">
+          <label>Target Link (optional)</label>
+          <input type="text" id="ad-link" value="${safeLink}" placeholder="Leave empty for non-clickable text">
+        </div>
+
+        <h4 style="margin: 15px 0 8px 0; font-size: 12px; color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px;">📅 Advanced Scheduling</h4>
+
+        <div style="display:flex; gap:10px; margin-bottom:12px;">
+          <div class="pdb-form-group" style="flex:1; margin:0;">
+            <label>Start Date</label>
+            <input type="date" id="ad-start" value="${cfg.start}">
+          </div>
+          <div class="pdb-form-group" style="flex:1; margin:0;">
+            <label>End Date</label>
+            <input type="date" id="ad-end" value="${cfg.end}">
+          </div>
+        </div>
+
+        <div class="pdb-form-group">
+          <label>Active Days of the Week</label>
+          <div style="display:flex; justify-content:space-between; background:#f8fafc; padding:8px; border-radius:6px; border:1px solid #cbd5e1;" id="ad-days-wrap">
+            ${[1,2,3,4,5,6,7].map(d => `<label style="display:inline-flex; align-items:center; font-size:11px; font-weight:normal;"><input type="checkbox" value="${d}" ${cfg.days.includes(d)?'checked':''} style="margin:0 4px 0 0;"> ${['Mo','Tu','We','Th','Fr','Sa','Su'][d-1]}</label>`).join('')}
+          </div>
+        </div>
+
+        <div class="pdb-form-group" style="margin-top:15px;">
+          <label>Status</label>
+          <select id="ad-active">
+            <option value="Tak" ${cfg.status==='Tak'?'selected':''}>Active</option>
+            <option value="Nie" ${cfg.status==='Nie'?'selected':''}>Inactive</option>
+          </select>
+        </div>
+
+        <div class="pdb-modal-actions">
+          <button class="btn-cancel" id="ad-cancel">Cancel</button>
+          <button class="btn-save" id="ad-save">Save</button>
+        </div>
+      </div>
+    `;
+    shadow.getElementById('pdb-body').appendChild(overlay);
+
+    shadow.getElementById('ad-cancel').onclick = () => overlay.remove();
+
+    shadow.getElementById('ad-save').onclick = async () => {
+      const btn = shadow.getElementById('ad-save');
+      btn.textContent = "Saving..."; btn.disabled = true;
+
+      const placement = shadow.getElementById('ad-placement').value;
+      const type = shadow.getElementById('ad-type').value;
+      const content = shadow.getElementById('ad-content').value;
+      const link = shadow.getElementById('ad-link').value;
+
+      const status = shadow.getElementById('ad-active').value;
+      const start = shadow.getElementById('ad-start').value;
+      const end = shadow.getElementById('ad-end').value;
+      const days = Array.from(shadow.querySelectorAll('#ad-days-wrap input:checked')).map(cb => parseInt(cb.value));
+
+      // Pakowanie zaawansowanych danych w format JSON dla kompatybilności wstecznej!
+      const activeJSON = JSON.stringify({ status, start, end, days });
+
+      await fetchAPI("save_ad", "POST", { rowId: ad.rowId, placement, type, content, link, active: activeJSON });
+
+      ADS = await fetchAPI("get_ads");
+      overlay.remove();
+
+      const dashOverlay = shadow.getElementById('ads-dash-overlay');
+      if (dashOverlay) { dashOverlay.remove(); showAdsDashboard(); }
+
+      renderAds();
+    };
+  }
+
   function showAdsDashboard() {
     const overlay = document.createElement('div');
     overlay.className = 'pdb-modal-overlay';
-    
-    let listHtml = ADS.map(ad => `
+    overlay.id = 'ads-dash-overlay';
+
+    let listHtml = ADS.map((ad, idx) => {
+      const cfg = parseAdConfig(ad.active);
+      const isActive = cfg.status.toLowerCase() === 'tak';
+      const dateStr = (cfg.start || cfg.end) ? ` | 📅 ${cfg.start||'∞'} ➔ ${cfg.end||'∞'}` : '';
+      const dayMap = {1:'Mo',2:'Tu',3:'We',4:'Th',5:'Fr',6:'Sa',7:'Su'};
+      const daysStr = cfg.days.length === 7 ? '' : ` | 🗓️ ${cfg.days.map(d=>dayMap[d]).join(',')}`;
+
+      return `
       <div class="pending-row" style="display:flex; justify-content:space-between; align-items:center;">
-        <div style="flex:1">
-          <div style="font-weight:bold; font-size:11px;">[${ad.placement.toUpperCase()}] ${ad.type}</div>
+        <div style="flex:1; padding-right:10px;">
+          <div style="font-weight:bold; font-size:11px;">
+            [${(ad.placement||'').toUpperCase()}] ${(ad.type||'').toUpperCase()}
+            ${isActive ? '<span style="color:#10b981; font-weight:normal;">(Active)</span>' : '<span style="color:#ef4444; font-weight:normal;">(Inactive)</span>'}
+          </div>
+          <div style="font-size:10px; color:#8b5cf6; font-weight:bold; margin: 3px 0;">
+            ${dateStr} ${daysStr}
+          </div>
           <div style="font-size:10px; color:#666; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:280px;">${ad.content}</div>
         </div>
         <div style="display:flex; gap:5px;">
-          <button class="hdr-btn" style="background:#3b82f6; color:#fff;" onclick="this.parentElement.dataset.ad='${JSON.stringify(ad).replace(/'/g,"&apos;")}'; window.editAd(JSON.parse(this.parentElement.dataset.ad))">Edit</button>
-          <button class="hdr-btn" style="background:#ef4444; color:#fff;" onclick="window.deleteAd(${ad.rowId})">Del</button>
+          <button class="hdr-btn btn-ad-edit" style="background:#3b82f6; color:#fff;" data-idx="${idx}">Edit</button>
+          <button class="hdr-btn btn-ad-del" style="background:#ef4444; color:#fff;" data-idx="${idx}">Del</button>
         </div>
       </div>
-    `).join('') || '<div style="text-align:center; padding:20px; color:#94a3b8;">No ads in database.</div>';
+    `}).join('') || '<div style="text-align:center; padding:20px; color:#94a3b8;">No ads in database.</div>';
 
     overlay.innerHTML = `
       <div class="pdb-modal" style="width: 480px;">
@@ -314,29 +463,23 @@
     `;
     shadow.getElementById('pdb-body').appendChild(overlay);
 
-    window.editAd = (ad) => {
-       const content = prompt("Ad Content (HTML string or Image URL):", ad ? ad.content : "");
-       if (content === null) return;
-       const link = prompt("Target Link URL:", ad ? ad.link : "");
-       const placement = prompt("Placement (top / bottom):", ad ? ad.placement : "top");
-       const type = prompt("Type (html / image):", ad ? ad.type : "html");
-       const active = confirm("Should this ad be Active?") ? "Tak" : "Nie";
-       
-       fetchAPI("save_ad", "POST", { rowId: ad ? ad.rowId : null, placement, type, content, link, active }).then(async () => {
-         alert("Saved!"); ADS = await fetchAPI("get_ads"); overlay.remove(); showAdsDashboard();
-       });
-    };
+    overlay.querySelectorAll('.btn-ad-edit').forEach(btn => {
+       btn.onclick = () => showAdFormModal(ADS[btn.dataset.idx]);
+    });
 
-    window.deleteAd = (rowId) => {
-      if(confirm("Delete this ad forever?")) {
-        fetchAPI("delete_ad", "POST", { rowId }).then(async () => {
-          ADS = await fetchAPI("get_ads"); overlay.remove(); showAdsDashboard();
-        });
-      }
-    };
+    overlay.querySelectorAll('.btn-ad-del').forEach(btn => {
+       btn.onclick = async () => {
+         if(confirm("Delete this ad forever?")) {
+           btn.textContent = "...";
+           await fetchAPI("delete_ad", "POST", { rowId: ADS[btn.dataset.idx].rowId });
+           ADS = await fetchAPI("get_ads");
+           overlay.remove(); showAdsDashboard(); renderAds();
+         }
+       };
+    });
 
-    shadow.getElementById('btn-new-ad').onclick = () => window.editAd(null);
-    shadow.getElementById('ads-close').onclick = () => { overlay.remove(); renderAds(); };
+    shadow.getElementById('btn-new-ad').onclick = () => showAdFormModal(null);
+    shadow.getElementById('ads-close').onclick = () => { overlay.remove(); };
   }
 
   function showLoginModal() {
@@ -358,17 +501,17 @@
     `;
     shadow.getElementById('pdb-body').appendChild(overlay);
     shadow.getElementById('login-close').onclick = () => overlay.remove();
-    
+
     shadow.getElementById('login-submit').onclick = async () => {
       const btn = shadow.getElementById('login-submit');
       const val = shadow.getElementById('mod-token-input').value;
       if (!val) return;
-      
+
       btn.textContent = "Checking..."; btn.disabled = true;
       const res = await fetchAPI("verify_token", "POST", { token: val });
-      
+
       if (res.status === "success") {
-        state.modToken = val; state.modProducer = res.producer; save(); overlay.remove(); buildUI(); 
+        state.modToken = val; state.modProducer = res.producer; save(); overlay.remove(); buildUI();
       } else {
         shadow.getElementById('login-error').textContent = res.message || "Invalid token!";
         shadow.getElementById('login-error').style.display = 'block';
@@ -447,7 +590,7 @@
       let linkClass = ''; let linkText = '↗ Link';
       if (r.arch) { linkClass = 'arch'; linkText = '🗄 Arch'; }
       if (r.check) { linkClass = 'check'; linkText = '❓ Check'; }
-      
+
       let origin = originMap[r.p] || originMap["default"];
 
       const canEdit = state.modProducer === 'ALL' || state.modProducer === r.p;
@@ -469,27 +612,82 @@
   }
 
   // ==========================================
-  // RENDEROWANIE REKLAM
+  // RENDEROWANIE REKLAM (Karuzela + Harmonogram)
   // ==========================================
   function renderAds() {
-    const topAd = ADS.find(a => a.placement === "top" && a.active === "Tak");
-    const botAd = ADS.find(a => a.placement === "bottom" && a.active === "Tak");
+    carouselIntervals.forEach(clearInterval);
+    carouselIntervals = [];
 
-    const injectAd = (ad, elId) => {
+    // Pobranie dzisiejszej daty lokalnej (bez błędów strefy UTC)
+    const tzOffset = (new Date()).getTimezoneOffset() * 60000;
+    const localDate = (new Date(Date.now() - tzOffset)).toISOString().split('T')[0]; // Format: YYYY-MM-DD
+
+    // Obliczenie aktualnego dnia tygodnia (1 = Poniedziałek ... 7 = Niedziela)
+    let currentDay = new Date().getDay();
+    currentDay = currentDay === 0 ? 7 : currentDay;
+
+    // Filtrowanie aktywnych reklam na podstawie harmonogramu
+    const activeAds = ADS.filter(ad => {
+      const cfg = parseAdConfig(ad.active);
+      if (cfg.status.toLowerCase() !== 'tak') return false; // Wyłączona
+      if (cfg.start && localDate < cfg.start) return false; // Jeszcze nie ten czas
+      if (cfg.end && localDate > cfg.end) return false; // Czas minął
+      if (cfg.days && cfg.days.length > 0 && !cfg.days.includes(currentDay)) return false; // Nie ten dzień tygodnia
+      return true;
+    });
+
+    const topAds = activeAds.filter(a => a.placement && a.placement.trim().toLowerCase() === "top");
+    const botAds = activeAds.filter(a => a.placement && a.placement.trim().toLowerCase() === "bottom");
+
+    const injectCarousel = (adArray, elId) => {
       const el = shadow.getElementById(elId);
       if(!el) return;
-      if(!ad) { el.style.display = 'none'; return; }
-      
+      if(adArray.length === 0) { el.style.display = 'none'; return; }
+
       el.style.display = 'flex';
-      if(ad.type === 'html') {
-        el.innerHTML = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; text-decoration:none;">${ad.content}</a>`;
-      } else {
-        el.innerHTML = `<a href="${ad.link}" target="_blank" style="width:100%; display:block;"><img src="${ad.content}" style="width:100%; height:auto;"></a>`;
+
+      let html = '<div class="carousel-wrap">';
+      adArray.forEach((ad, index) => {
+        const hasLink = ad.link && ad.link.trim() !== '';
+        let slideHtml = '';
+
+        if (ad.type && ad.type.trim().toLowerCase() === 'html') {
+          if (hasLink) {
+            slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px; text-decoration:none; cursor:pointer;">${ad.content}</a>`;
+          } else {
+            slideHtml = `<div style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px;">${ad.content}</div>`;
+          }
+        } else {
+          const imgHtml = `<img src="${ad.content}" style="max-width:100%; max-height:90px; display:block; margin:0 auto;" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'color:#ef4444; padding:5px; font-size:11px;\\'>⚠️ Invalid Image URL</div>';">`;
+          if (hasLink) {
+            slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; text-align:center;">${imgHtml}</a>`;
+          } else {
+            slideHtml = `<div style="width:100%; display:block; text-align:center;">${imgHtml}</div>`;
+          }
+        }
+
+        html += `<div class="carousel-slide ${index === 0 ? 'active' : ''}">${slideHtml}</div>`;
+      });
+      html += '</div>';
+      el.innerHTML = html;
+
+      // Karuzela co 5 sekund
+      if (adArray.length > 1) {
+        let currentIdx = 0;
+        const slides = el.querySelectorAll('.carousel-slide');
+
+        const intervalId = setInterval(() => {
+          slides[currentIdx].classList.remove('active');
+          currentIdx = (currentIdx + 1) % slides.length;
+          slides[currentIdx].classList.add('active');
+        }, 5000);
+
+        carouselIntervals.push(intervalId);
       }
     };
 
-    injectAd(topAd, 'pdb-ad-top');
-    injectAd(botAd, 'pdb-ad-bot');
+    injectCarousel(topAds, 'pdb-ad-top');
+    injectCarousel(botAds, 'pdb-ad-bot');
   }
 
   // ==========================================
@@ -547,7 +745,7 @@
           </table>
         </div>
         <div class="pdb-ad-box" id="pdb-ad-bot" style="display:none"></div>
-        
+
         <div class="pdb-foot">
           <div style="display: flex; align-items: center;">
             <div class="foot-avatar-wrap"><img src="${AVATAR_URL}" class="foot-avatar" alt="Author" onerror="if(this.src.includes('.jpg')){this.src=this.src.replace('.jpg','.png');}"></div>
@@ -660,20 +858,19 @@
     try {
       const adsPromise = fetchAPI("get_ads");
       const fleetPromises = fleetSources.map(url => fetchJSON(url).catch(() => []));
-      
+
       const [adsResponse, ...fleetResponses] = await Promise.all([adsPromise, ...fleetPromises]);
 
       ADS = adsResponse || [];
       DB = [];
       fleetResponses.forEach(part => { if (Array.isArray(part)) DB = DB.concat(part); });
 
-      // NOWY SYSTEM CACHE!
       const cachedDB = GM_getValue('pdb_offline_fleet', []);
 
       if (DB.length > 0) {
-        GM_setValue('pdb_offline_fleet', DB); // Aktualizujemy lokalny magazyn
+        GM_setValue('pdb_offline_fleet', DB);
       } else if (cachedDB.length > 0) {
-        DB = cachedDB; // Ratuje nas offline cache!
+        DB = cachedDB;
         console.warn("Wczytano bazę z pamięci podręcznej z powodu limitu GitHuba!");
       } else {
         throw new Error("GitHub zablokował na chwilę Twój adres IP za zbyt dużo odświeżeń (Rate Limit). Zrób sobie kawkę, odczekaj 5-10 minut i odśwież stronę, a skrypt zbuduje cache!");
