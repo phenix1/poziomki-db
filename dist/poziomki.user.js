@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v3.5.19 (Ultimate Edition + Ad Scheduler + Carousel)
+// @name         Poziomki DB v3.5.20 (Ultimate Edition + Drive Hotlinker + Assistant)
 // @namespace    https://poziomki.info
-// @version      3.5.19
-// @description  Recumbent bikes database with Google Sheets Backend, Ad Scheduler, Carousel and Cache
+// @version      3.5.20
+// @description  Recumbent bikes database with Google Sheets Backend, Ad Scheduler, Carousel, Auto Drive Hotlinker and Cache
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @license      MIT
 // @match        *://www.google.com/*
@@ -48,7 +48,7 @@
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
-  let CONFIG = { version: "3.5.19", author: "MBFeniks" };
+  let CONFIG = { version: "3.5.20", author: "MBFeniks" };
   let ADS = [];
   let DB = [];
   let carouselIntervals = [];
@@ -86,7 +86,7 @@
   const TYPE_LABEL = { tadpole: 'Tadpole', delta: 'Delta', bike: '2-wheel', quad: 'Quad', velomobile: 'Velomobile', handcycle: 'Handcycle' };
   const TYPE_CLASS = { tadpole: 't-tadpole', delta: 't-delta', bike: 't-bike', quad: 't-quad' };
 
-  const SK = 'poziomki_state_v3_5_19';
+  const SK = 'poziomki_state_v3_5_20';
   let state = GM_getValue(SK, {
     collapsed: false, minKg: 0, filterType: 'all', filterProd: 'all',
     sortCol: 'p', sortDir: 1, searchStr: '', modToken: '', modProducer: ''
@@ -134,7 +134,7 @@
     if (activeStr.trim().startsWith('{')) {
       try { cfg = { ...cfg, ...JSON.parse(activeStr) }; } catch(e) {}
     } else {
-      cfg.status = activeStr.trim(); // Dla starych reklam kompatybilność wsteczna
+      cfg.status = activeStr.trim();
     }
     return cfg;
   }
@@ -347,6 +347,10 @@
         <div class="pdb-form-group">
           <label>Content (Text or Image URL)</label>
           <input type="text" id="ad-content" value="${safeContent}">
+          <span style="font-size:10px; color:#64748b; display:block; margin-top:4px; line-height:1.3;">
+            💡 <strong>HTML Text:</strong> plain text / HTML.<br>
+            💡 <strong>Image URL:</strong> wide banner (e.g. 728x90, ratio ~8:1). Google Drive sharing links are auto-converted!
+          </span>
         </div>
         <div class="pdb-form-group">
           <label>Target Link (optional)</label>
@@ -405,7 +409,6 @@
       const end = shadow.getElementById('ad-end').value;
       const days = Array.from(shadow.querySelectorAll('#ad-days-wrap input:checked')).map(cb => parseInt(cb.value));
 
-      // Pakowanie zaawansowanych danych w format JSON dla kompatybilności wstecznej!
       const activeJSON = JSON.stringify({ status, start, end, days });
 
       await fetchAPI("save_ad", "POST", { rowId: ad.rowId, placement, type, content, link, active: activeJSON });
@@ -618,26 +621,44 @@
     carouselIntervals.forEach(clearInterval);
     carouselIntervals = [];
 
-    // Pobranie dzisiejszej daty lokalnej (bez błędów strefy UTC)
     const tzOffset = (new Date()).getTimezoneOffset() * 60000;
-    const localDate = (new Date(Date.now() - tzOffset)).toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    const localDate = (new Date(Date.now() - tzOffset)).toISOString().split('T')[0];
 
-    // Obliczenie aktualnego dnia tygodnia (1 = Poniedziałek ... 7 = Niedziela)
     let currentDay = new Date().getDay();
     currentDay = currentDay === 0 ? 7 : currentDay;
 
     // Filtrowanie aktywnych reklam na podstawie harmonogramu
     const activeAds = ADS.filter(ad => {
       const cfg = parseAdConfig(ad.active);
-      if (cfg.status.toLowerCase() !== 'tak') return false; // Wyłączona
-      if (cfg.start && localDate < cfg.start) return false; // Jeszcze nie ten czas
-      if (cfg.end && localDate > cfg.end) return false; // Czas minął
-      if (cfg.days && cfg.days.length > 0 && !cfg.days.includes(currentDay)) return false; // Nie ten dzień tygodnia
+      if (cfg.status.toLowerCase() !== 'tak') return false;
+      if (cfg.start && localDate < cfg.start) return false;
+      if (cfg.end && localDate > cfg.end) return false;
+      if (cfg.days && cfg.days.length > 0 && !cfg.days.includes(currentDay)) return false;
       return true;
     });
 
     const topAds = activeAds.filter(a => a.placement && a.placement.trim().toLowerCase() === "top");
     const botAds = activeAds.filter(a => a.placement && a.placement.trim().toLowerCase() === "bottom");
+
+    // Inteligentny konwerter linków z Dysku Google na plik bezpośredni (Direct Hotlinker)
+    const toDirectDriveUrl = (url) => {
+      if (!url) return '';
+      url = url.trim();
+      let id = '';
+      let match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) {
+        id = match[1];
+      } else {
+        match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+        if (match && match[1]) {
+          id = match[1];
+        }
+      }
+      if (id) {
+        return `https://lh3.googleusercontent.com/d/${id}`;
+      }
+      return url;
+    };
 
     const injectCarousel = (adArray, elId) => {
       const el = shadow.getElementById(elId);
@@ -658,7 +679,10 @@
             slideHtml = `<div style="width:100%; display:block; background:var(--pz-hdr-bg); color:#fff; padding:12px; text-align:center; font-weight:bold; font-size:13px;">${ad.content}</div>`;
           }
         } else {
-          const imgHtml = `<img src="${ad.content}" style="max-width:100%; max-height:90px; display:block; margin:0 auto;" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'color:#ef4444; padding:5px; font-size:11px;\\'>⚠️ Invalid Image URL</div>';">`;
+          // Wywołanie Direct Hotlinkera
+          const directImgUrl = toDirectDriveUrl(ad.content);
+          const imgHtml = `<img src="${directImgUrl}" style="max-width:100%; max-height:90px; display:block; margin:0 auto;" onerror="this.style.display='none'; this.parentElement.innerHTML += '<div style=\\'color:#ef4444; padding:5px; font-size:11px;\\'>⚠️ Invalid Image URL</div>';">`;
+
           if (hasLink) {
             slideHtml = `<a href="${ad.link}" target="_blank" style="width:100%; display:block; text-align:center;">${imgHtml}</a>`;
           } else {
@@ -671,7 +695,6 @@
       html += '</div>';
       el.innerHTML = html;
 
-      // Karuzela co 5 sekund
       if (adArray.length > 1) {
         let currentIdx = 0;
         const slides = el.querySelectorAll('.carousel-slide');
