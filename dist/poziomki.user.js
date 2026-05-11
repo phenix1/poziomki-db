@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Poziomki DB v3.5.21 (Ultimate Edition + Drive Hotlinker + Assistant)
+// @name         Poziomki DB v3.5.24 (Ultimate Final Edition)
 // @namespace    https://poziomki.info
-// @version      3.5.21
-// @description  Recumbent bikes database with Google Sheets Backend, Ad Scheduler, Carousel, Auto Drive Hotlinker and Cache
+// @version      3.5.24
+// @description  Recumbent bikes database with Google Sheets Backend, Ad Scheduler, Carousel, Auto Drive Hotlinker, Live Link Scanner and Cache
 // @author       MBFeniks — Michał Berliński (phenix29@gmail.com)
 // @license      MIT
 // @match        *://www.google.com/*
@@ -17,6 +17,7 @@
 // @connect      script.googleusercontent.com
 // @connect      get.geojs.io
 // @connect      api.open-meteo.com
+// @connect      *
 // @run-at       document-end
 // ==/UserScript==
 
@@ -50,17 +51,25 @@
   const AVATAR_URL = 'https://raw.githubusercontent.com/phenix1/poziomki-db/main/assets/me.jpg';
   const KOFI_URL = 'https://ko-fi.com/mbfeniks';
 
-  let CONFIG = { version: "3.5.21", author: "MBFeniks" };
+  let CONFIG = { version: "3.5.24", author: "MBFeniks" };
   let ADS = [];
   let DB = [];
   let carouselIntervals = [];
 
   const COLLAB = {
-    "Azub": "yes", "Birk": "closed", "Blackbird Bikes": "closed", "Challenge": "closed",
-    "Flevobike": "closed", "Flux": "closed", "Go-One": "closed", "KMX": "closed",
-    "Lightfoot Cycles": "closed", "Matix Bike": "yes", "Optima": "closed",
-    "Pacific Cycles": "closed", "Podbike": "closed", "Zockra": "closed"
-  };
+    // Aktywne partnerstwa (Zielone)
+    "Azub": "yes", "Matix Bike": "yes",
+
+    // Firmy Historyczne / Zamknięte / Wyłączone z produkcji poziomek (Czerwone)
+    "Aerorider": "closed", "Avatar 2000": "closed", "BikeE": "closed", "Birk": "closed",
+    "Birkenstock Bicycles": "closed", "Blackbird Bikes": "closed", "Burley": "closed",
+    "Challenge": "closed", "Counterpoint": "closed", "Cycle Genius": "closed",
+    "Easy Racers": "closed", "Flevobike": "closed", "Flux": "closed", "Go-One": "closed",
+    "Haluzak": "closed", "KMX": "closed", "Kingcycle": "closed", "Lightfoot Cycles": "closed",
+    "Optima": "closed", "Pacific Cycles": "closed", "Podbike": "closed", "Quatrotech": "closed",
+    "Radius": "closed", "RaptoBike": "closed", "Rotator": "closed", "Ryan Recumbents": "closed",
+    "Trice": "closed", "Velokraft": "closed", "Vision": "closed", "Windcheetah": "closed", "Zockra": "closed"
+   };
 
   const fleetMakers = [
     "Aerorider", "Alligt", "Avatar 2000", "Avenue Trikes", "Azub", "Bacchetta", "BamBuk", "Barcroft",
@@ -79,9 +88,101 @@
   const fleetSources = fleetMakers.map(maker => `${manifestBaseUrl}${encodeURIComponent(maker)}.json`);
 
   const originMap = {
-    "Matix Bike": { c: "PL", f: "🇵🇱" }, "Dekers Bike": { c: "PL", f: "🇵🇱" }, "Kamrad": { c: "PL", f: "🇵🇱" },
-    "Sport-On": { c: "PL", f: "🇵🇱" }, "Velokraft": { c: "PL", f: "🇵🇱" }, "IN Trikes": { c: "PL", f: "🇵🇱" },
-    "Azub": { c: "CZ", f: "🇨🇿" }, "Katanga": { c: "CZ", f: "🇨🇿" },
+    "Aerorider": { c: "NL", f: "🇳🇱" },
+    "Alligt": { c: "NL", f: "🇳🇱" },
+    "Avatar 2000": { c: "US", f: "🇺🇸" },
+    "Avenue Trikes": { c: "US", f: "🇺🇸" },
+    "Azub": { c: "CZ", f: "🇨🇿" },
+    "Bacchetta": { c: "US", f: "🇺🇸" },
+    "BamBuk": { c: "DE", f: "🇩🇪" },
+    "Barcroft": { c: "US", f: "🇺🇸" },
+    "BerkelBike": { c: "NL", f: "🇳🇱" },
+    "BikeE": { c: "US", f: "🇺🇸" },
+    "Birk": { c: "CH", f: "🇨🇭" },
+    "Birkenstock Bicycles": { c: "CH", f: "🇨🇭" },
+    "Blackbird Bikes": { c: "US", f: "🇺🇸" },
+    "Burley": { c: "US", f: "🇺🇸" },
+    "Carbontrikes": { c: "SE", f: "🇸🇪" },
+    "Catrike": { c: "US", f: "🇺🇸" },
+    "Challenge": { c: "NL", f: "🇳🇱" },
+    "Counterpoint": { c: "US", f: "🇺🇸" },
+    "Cruzbike": { c: "US", f: "🇺🇸" },
+    "Cycle Genius": { c: "US", f: "🇺🇸" },
+    "Cycles JV Fenioux": { c: "FR", f: "🇫🇷" },
+    "Dekers Bike": { c: "PL", f: "🇵🇱" },
+    "Drymer": { c: "NL", f: "🇳🇱" },
+    "ENVO": { c: "CA", f: "🇨🇦" },
+    "Easy Racers": { c: "US", f: "🇺🇸" },
+    "Elan": { c: "NL", f: "🇳🇱" },
+    "Flevobike": { c: "NL", f: "🇳🇱" },
+    "Flux": { c: "DE", f: "🇩🇪" },
+    "Freedom Ryder": { c: "US", f: "🇺🇸" },
+    "Go-One": { c: "DE", f: "🇩🇪" },
+    "GreenSpeed": { c: "AU", f: "🇦🇺" },
+    "HP Velotechnik": { c: "DE", f: "🇩🇪" },
+    "Haluzak": { c: "US", f: "🇺🇸" },
+    "Hase Bikes": { c: "DE", f: "🇩🇪" },
+    "ICE Trikes": { c: "GB", f: "🇬🇧" },
+    "IN Trikes": { c: "PL", f: "🇵🇱" },
+    "InterCityBike": { c: "NL", f: "🇳🇱" },
+    "KMX": { c: "GB", f: "🇬🇧" },
+    "Kamrad": { c: "PL", f: "🇵🇱" },
+    "Katanga": { c: "CZ", f: "🇨🇿" },
+    "Kingcycle": { c: "GB", f: "🇬🇧" },
+    "Lasher Sport": { c: "US", f: "🇺🇸" },
+    "Leiba": { c: "DE", f: "🇩🇪" },
+    "Leitra": { c: "DK", f: "🇩🇰" },
+    "Lightfoot Cycles": { c: "US", f: "🇺🇸" },
+    "Lightning": { c: "US", f: "🇺🇸" },
+    "Linear": { c: "US", f: "🇺🇸" },
+    "Longbikes": { c: "US", f: "🇺🇸" },
+    "M5": { c: "NL", f: "🇳🇱" },
+    "Matix Bike": { c: "PL", f: "🇵🇱" },
+    "Maxarya": { c: "CA", f: "🇨🇦" },
+    "MetaBikes": { c: "ES", f: "🇪🇸" },
+    "MoTrike": { c: "CN", f: "🇨🇳" },
+    "Nazca": { c: "NL", f: "🇳🇱" },
+    "ORSA Cycles": { c: "FR", f: "🇫🇷" },
+    "Optima": { c: "NL", f: "🇳🇱" },
+    "Pacific Cycles": { c: "TW", f: "🇹🇼" },
+    "Pelso": { c: "HU", f: "🇭🇺" },
+    "Performer": { c: "TW", f: "🇹🇼" },
+    "Podbike": { c: "NO", f: "🇳🇴" },
+    "PonyFour": { c: "CZ", f: "🇨🇿" },
+    "Quatrotech": { c: "UN", f: "🏳️" },
+    "RAD-Innovations": { c: "US", f: "🇺🇸" },
+    "RANS": { c: "US", f: "🇺🇸" },
+    "Radius": { c: "DE", f: "🇩🇪" },
+    "RaptoBike": { c: "NL", f: "🇳🇱" },
+    "ReActive Adaptation": { c: "US", f: "🇺🇸" },
+    "Rotator": { c: "US", f: "🇺🇸" },
+    "Ryan Recumbents": { c: "US", f: "🇺🇸" },
+    "Räderwerk": { c: "DE", f: "🇩🇪" },
+    "Sinner": { c: "NL", f: "🇳🇱" },
+    "Slyway": { c: "IT", f: "🇮🇹" },
+    "Snoek": { c: "NL", f: "🇳🇱" },
+    "SpecBikeTechnics": { c: "LV", f: "🇱🇻" },
+    "Sport-On": { c: "PL", f: "🇵🇱" },
+    "Steintrikes": { c: "RS", f: "🇷🇸" },
+    "SunSeeker": { c: "US", f: "🇺🇸" },
+    "TerraTrike": { c: "US", f: "🇺🇸" },
+    "Top End": { c: "US", f: "🇺🇸" },
+    "Toxy": { c: "DE", f: "🇩🇪" },
+    "Trice": { c: "GB", f: "🇬🇧" },
+    "Trident": { c: "US", f: "🇺🇸" },
+    "TrikExplor": { c: "CN", f: "🇨🇳" },
+    "Trisled": { c: "AU", f: "🇦🇺" },
+    "Utah Trikes": { c: "US", f: "🇺🇸" },
+    "Varibike": { c: "DE", f: "🇩🇪" },
+    "Velokraft": { c: "PL", f: "🇵🇱" },
+    "Velomobiel.nl": { c: "NL", f: "🇳🇱" },
+    "Velomobile World": { c: "RO", f: "🇷🇴" },
+    "Velomtek": { c: "CA", f: "🇨🇦" },
+    "Vision": { c: "US", f: "🇺🇸" },
+    "Windcheetah": { c: "GB", f: "🇬🇧" },
+    "Windwrap": { c: "US", f: "🇺🇸" },
+    "Wolf & Wolf": { c: "CH", f: "🇨🇭" },
+    "Zockra": { c: "FR", f: "🇫🇷" },
     "default": { c: "UN", f: "🏳️" }
   };
 
@@ -146,18 +247,15 @@
           icon = cached.icon;
       } else {
           try {
-              // 1. Geolokalizacja po IP
               const geoRes = await fetch('https://get.geojs.io/v1/ip/geo.json');
               const geoData = await geoRes.json();
               city = geoData.city;
 
-              // 2. Pobranie pogody dla współrzędnych
               const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${geoData.latitude}&longitude=${geoData.longitude}&current_weather=true`);
               const weatherData = await weatherRes.json();
               temp = Math.round(weatherData.current_weather.temperature);
               const wcode = weatherData.current_weather.weathercode;
 
-              // 3. Ustalenie ikonki
               if(wcode === 0) icon = '☀️';
               else if(wcode <= 3) icon = '⛅';
               else if(wcode <= 67) icon = '🌧️';
@@ -175,9 +273,6 @@
       weatherContainer.innerHTML = `<span style="font-size: 14px; margin-right: 5px;">${icon}</span> ${temp}°C, ${city}`;
   }
 
-  // ==========================================
-  // POMOCNICZE: PARSER KONFIGURACJI REKLAMY
-  // ==========================================
   function parseAdConfig(activeStr) {
     let cfg = { status: 'Nie', start: '', end: '', days: [1,2,3,4,5,6,7] };
     if (!activeStr) return cfg;
@@ -215,7 +310,6 @@
     .pdb-ctrl { padding: 8px 12px; display: flex; gap: 8px; background: #f4f7fb; border-bottom: 1px solid #e0e8f0; flex-shrink: 0; }
     .pdb-ctrl select, .pdb-ctrl input { padding: 5px 8px; border: 1px solid #c4d0e0; border-radius: 6px; min-width: 100px; font-size: 12px; }
 
-    /* --- BEZPIECZNE STYLE KARUZELI --- */
     .pdb-ad-box { margin: 10px 12px 0 12px; border-radius: 8px; overflow: hidden; position: relative; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); flex-shrink: 0; background: #1e293b; height: 90px; min-height: 90px; max-height: 90px; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .carousel-wrap { width: 100%; height: 100%; position: relative; }
     .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.6s ease-in-out; pointer-events: none; }
@@ -231,6 +325,11 @@
     #pdb-tbl tbody tr.row-collab-yes td.pdb-prod { border-left: 3px solid #22c55e; }
     #pdb-tbl tbody tr.row-collab-closed td { background: #fff5f5; }
     #pdb-tbl tbody tr.row-collab-closed td.pdb-prod { border-left: 3px solid #f87171; }
+
+    #pdb-tbl tbody tr.row-broken td { background: #fef08a !important; }
+    #pdb-tbl tbody tr.row-broken td.pdb-prod { border-left: 3px solid #eab308 !important; }
+    .pdb-link.broken a { background: #ef4444 !important; border-color: #b91c1c !important; color: #fff !important; }
+
     #pdb-tbl td { padding: 7px 10px; }
     .pdb-prod { font-weight: 600; font-size: 12px; color: #1a3a5c; }
     .pdb-model { font-size: 13px; font-weight: 500; }
@@ -250,7 +349,7 @@
     .pdb-modal h3 { margin: 0 0 15px 0; font-size: 16px; color: #1e293b; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
     .pdb-form-group { margin-bottom: 12px; }
     .pdb-form-group label { display: block; font-size: 11px; font-weight: bold; color: #64748b; margin-bottom: 4px; }
-    .pdb-form-group input[type="text"], .pdb-form-group input[type="date"], .pdb-form-group select { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; }
+    .pdb-form-group input[type="text"], .pdb-form-group input[type="number"], .pdb-form-group input[type="date"], .pdb-form-group select { width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; }
     .pdb-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
     .btn-save { background: #10b981; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
     .btn-cancel { background: #f1f5f9; color: #64748b; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
@@ -279,34 +378,38 @@
         <div style="color: #1a4494; margin: 4px 0; background: #f0f6ff; padding: 4px; border-radius: 4px;">${d["Proponowane zmiany"] || d["Proposed changes"] || "No changes specified"}</div>
         <div style="font-size: 9px; color: #94a3b8;">Date: ${new Date(d["Data zgłoszenia"] || d["Timestamp"]).toLocaleString()}</div>
         <div style="margin-top:8px;">
-           <button style="background:#10b981; color:#fff; border:none; padding:4px 10px; border-radius:4px; font-size:10px; cursor:pointer;" onclick="alert('Next stage: GitHub Integration!')">Accept</button>
-           <button class="btn-reject-pending" data-row="${d.rowId}" style="background:#f1f5f9; color:#ef4444; border:1px solid #ef4444; padding:3px 10px; border-radius:4px; font-size:10px; cursor:pointer; margin-left:5px; font-weight:bold;">Reject (Delete)</button>
+           <button class="btn-accept-pending" data-row="${d.rowId}" style="background:#10b981; color:#fff; border:none; padding:4px 10px; border-radius:4px; font-size:10px; cursor:pointer;">✔ Zrobione (Usuń z kolejki)</button>
+           <button class="btn-reject-pending" data-row="${d.rowId}" style="background:#f1f5f9; color:#ef4444; border:1px solid #ef4444; padding:3px 10px; border-radius:4px; font-size:10px; cursor:pointer; margin-left:5px; font-weight:bold;">Odrzuć (Usuń)</button>
         </div>
       </div>
-    `).join('') || '<div style="text-align:center; padding:20px; color:#94a3b8;">No pending changes. Database is clean!</div>';
+    `).join('') || '<div style="text-align:center; padding:20px; color:#94a3b8;">Kolejka jest pusta. Wszystko zrobione!</div>';
 
     overlay.innerHTML = `
       <div class="pdb-modal">
-        <h3>🔔 Pending Changes (Admin)</h3>
+        <h3>🔔 Oczekujące zmiany (Admin)</h3>
         <div style="max-height: 400px; overflow-y: auto;">${listHtml}</div>
         <div style="text-align:right; margin-top:20px;">
-          <button class="btn-cancel" id="admin-close">Close</button>
+          <button class="btn-cancel" id="admin-close">Zamknij</button>
         </div>
       </div>
     `;
     shadow.getElementById('pdb-body').appendChild(overlay);
 
     overlay.addEventListener('click', async (e) => {
-      if(e.target.classList.contains('btn-reject-pending')) {
+      if(e.target.classList.contains('btn-reject-pending') || e.target.classList.contains('btn-accept-pending')) {
+        const isAccept = e.target.classList.contains('btn-accept-pending');
         const rowId = e.target.dataset.row;
-        e.target.textContent = "Deleting..."; e.target.disabled = true;
+        e.target.textContent = "Przetwarzanie..."; e.target.disabled = true;
         const res = await fetchAPI("reject_edit", "POST", { rowId });
         if (res.status === "success") {
           const rowElement = shadow.getElementById(`pending-row-${rowId}`);
-          rowElement.style.background = "#fff0f0"; rowElement.innerHTML = "<div style='color:#ef4444; text-align:center; padding:10px;'>Deleted!</div>";
-          setTimeout(() => rowElement.remove(), 1000);
+          rowElement.style.background = isAccept ? "#f0fdf4" : "#fff0f0";
+          rowElement.innerHTML = `<div style='color:${isAccept ? "#10b981" : "#ef4444"}; text-align:center; padding:10px; font-weight:bold;'>${isAccept ? "Gotowe! Usunięto z kolejki." : "Odrzucono! Usunięto z kolejki."}</div>`;
+          setTimeout(() => rowElement.remove(), 1200);
         } else {
-          alert("Delete error. Please check connection."); e.target.textContent = "Reject (Delete)"; e.target.disabled = false;
+          alert("Błąd połączenia. Spróbuj ponownie.");
+          e.target.textContent = isAccept ? "✔ Zrobione" : "Odrzuć";
+          e.target.disabled = false;
         }
       }
     });
@@ -573,12 +676,27 @@
   function showEditModal(row) {
     const overlay = document.createElement('div');
     overlay.className = 'pdb-modal-overlay';
+
+    let currentStatus = "active";
+    if (row.arch) currentStatus = "arch";
+    else if (row.check) currentStatus = "check";
+
     overlay.innerHTML = `
       <div class="pdb-modal">
         <h3>Edit: ${row.m}</h3>
         <div class="pdb-form-group"><label>Model Name</label><input type="text" id="edit-name" value="${row.m}"></div>
         <div class="pdb-form-group"><label>Max Load (kg)</label><input type="number" id="edit-kg" value="${row.kg || ''}"></div>
         <div class="pdb-form-group"><label>Website URL</label><input type="text" id="edit-url" value="${row.url}"></div>
+
+        <div class="pdb-form-group">
+          <label>Status Linku</label>
+          <select id="edit-status">
+            <option value="active" ${currentStatus === 'active' ? 'selected' : ''}>🔗 Aktywny (Normalny)</option>
+            <option value="arch" ${currentStatus === 'arch' ? 'selected' : ''}>🗄 Archiwalny (Arch)</option>
+            <option value="check" ${currentStatus === 'check' ? 'selected' : ''}>❓ Do sprawdzenia (Check)</option>
+          </select>
+        </div>
+
         <div class="pdb-modal-actions">
           <button class="btn-cancel" id="edit-close">Cancel</button>
           <button class="btn-save" id="edit-save">Submit to Admin</button>
@@ -587,11 +705,119 @@
     `;
     shadow.getElementById('pdb-body').appendChild(overlay);
     shadow.getElementById('edit-close').onclick = () => overlay.remove();
+
     shadow.getElementById('edit-save').onclick = async () => {
-      const btn = shadow.getElementById('edit-save'); btn.textContent = "Sending..."; btn.disabled = true;
-      const changes = `Name: ${shadow.getElementById('edit-name').value}, KG: ${shadow.getElementById('edit-kg').value}, URL: ${shadow.getElementById('edit-url').value}`;
+      const btn = shadow.getElementById('edit-save');
+      btn.textContent = "Sending...";
+      btn.disabled = true;
+
+      const st = shadow.getElementById('edit-status');
+      const statVal = st ? st.value : "active";
+
+      const changes = `Name: ${shadow.getElementById('edit-name').value}, KG: ${shadow.getElementById('edit-kg').value}, URL: ${shadow.getElementById('edit-url').value}, Status: ${statVal}`;
+
       const res = await fetchAPI("submit_edit", "POST", { producer: row.p, model: row.m, changes: changes, userToken: state.modToken });
-      if (res.status === "success") { alert("Submission sent for approval!"); overlay.remove(); } else { alert("Connection error."); btn.textContent = "Submit to Admin"; btn.disabled = false; }
+
+      if (res.status === "success") {
+          alert("Submission sent for approval!");
+          overlay.remove();
+      } else {
+          alert("Connection error.");
+          btn.textContent = "Submit to Admin";
+          btn.disabled = false;
+      }
+    };
+  }
+
+  // ==========================================
+  // SKANER MARTWYCH LINKÓW
+  // ==========================================
+  function showLinkScannerModal() {
+    const overlay = document.createElement('div');
+    overlay.className = 'pdb-modal-overlay';
+    overlay.innerHTML = `
+      <div class="pdb-modal" style="width: 450px;">
+        <h3>🔗 Live Link Scanner</h3>
+        <p style="font-size: 11px; color: #64748b; margin-bottom: 15px;">Skaner sprawdzi <strong>${DB.length} linków</strong> w tle. Uszkodzone pozycje (np. błąd 404) zostaną natychmiast <strong>podświetlone na żółto</strong> na liście.</p>
+        <div style="margin-bottom: 15px;">
+            <button class="btn-save" id="start-scan-btn" style="width: 100%; background: #0ea5e9;">Rozpocznij skanowanie</button>
+            <button class="btn-cancel" id="reset-scan-btn" style="width: 100%; margin-top: 8px; font-size: 11px;">Wyczyść żółte kolory</button>
+        </div>
+        <div style="background: #1e293b; color: #cbd5e1; border-radius: 6px; height: 180px; overflow-y: auto; padding: 12px; font-size: 11px; font-family: monospace;" id="scan-log">
+            Gotowy do akcji... (Upewnij się, że dodałeś // @connect * na górze skryptu!)
+        </div>
+        <div class="pdb-modal-actions">
+          <button class="btn-cancel" id="scan-close">Zamknij to okno</button>
+        </div>
+      </div>
+    `;
+    shadow.getElementById('pdb-body').appendChild(overlay);
+    shadow.getElementById('scan-close').onclick = () => overlay.remove();
+
+    shadow.getElementById('reset-scan-btn').onclick = () => {
+        DB.forEach(r => r.brokenStatus = null);
+        renderTable();
+        shadow.getElementById('scan-log').innerHTML += `<div style="color:#10b981;">[OK] Kolory zresetowane.</div>`;
+    };
+
+    shadow.getElementById('start-scan-btn').onclick = async () => {
+        const btn = shadow.getElementById('start-scan-btn');
+        const log = shadow.getElementById('scan-log');
+
+        btn.disabled = true; btn.style.background = "#64748b";
+        log.innerHTML = "Skanowanie w toku. Gdy Tampermonkey zapyta o zgodę, kliknij 'Zawsze zezwalaj'.<br><br>";
+
+        DB.forEach(r => r.brokenStatus = null);
+        renderTable();
+
+        let brokenCount = 0;
+        let checkedCount = 0;
+
+        for (let i = 0; i < DB.length; i += 5) {
+            const chunk = DB.slice(i, i + 5);
+            const promises = chunk.map(r => {
+                return new Promise((resolve) => {
+                    if(!r.url || r.url.trim() === '') {
+                        resolve({ row: r, status: "PUSTY", ok: false }); return;
+                    }
+                    GM_xmlhttpRequest({
+                        method: "HEAD",
+                        url: r.url,
+                        timeout: 8000,
+                        onload: (res) => {
+                            if (res.status >= 400 && res.status !== 405 && res.status !== 403 && res.status !== 0) {
+                                resolve({ row: r, status: res.status, ok: false });
+                            } else {
+                                resolve({ row: r, status: null, ok: true });
+                            }
+                        },
+                        onerror: () => resolve({ row: r, status: "BŁĄD POŁĄCZENIA", ok: true }),
+                        ontimeout: () => resolve({ row: r, status: "TIMEOUT", ok: true })
+                    });
+                });
+            });
+
+            const results = await Promise.all(promises);
+            checkedCount += results.length;
+            btn.textContent = `Skanowanie... (${checkedCount} / ${DB.length})`;
+
+            results.forEach(res => {
+                if (!res.ok) {
+                    brokenCount++;
+                    res.row.brokenStatus = res.status;
+                    log.innerHTML += `<div style="color:#ef4444;">[BŁĄD: ${res.status}] ${res.row.p} ${res.row.m}</div>`;
+                }
+            });
+            log.scrollTop = log.scrollHeight;
+            renderTable();
+        }
+
+        btn.textContent = "Skanowanie Zakończone";
+        if (brokenCount === 0) {
+            log.innerHTML += `<br><div style="color: #10b981; font-weight: bold; font-size: 13px;">🎉 Zero potwierdzonych błędów (np. 404)!</div>`;
+        } else {
+            log.innerHTML += `<br><div style="color: #eab308; font-weight: bold; font-size: 13px;">⚠️ Wyłapano ${brokenCount} uszkodzonych linków. Zostały zaznaczone na liście.</div>`;
+        }
     };
   }
 
@@ -630,6 +856,8 @@
     const tbody = shadow.getElementById('pdb-tbody');
     if (!tbody) return;
 
+    const isAdmin = state.modProducer === 'ALL';
+
     tbody.innerHTML = rows.map((r, idx) => {
       const collab = COLLAB[r.p] || '';
       let kgClass = 'kg-none'; let kgText = 'N/A';
@@ -637,17 +865,25 @@
         kgText = r.kg + ' kg';
         if (r.kg < 120) kgClass = 'kg-low'; else if (r.kg < 150) kgClass = 'kg-120plus'; else if (r.kg < 200) kgClass = 'kg-150plus'; else kgClass = 'kg-200plus';
       }
+
       let linkClass = ''; let linkText = '↗ Link';
       if (r.arch) { linkClass = 'arch'; linkText = '🗄 Arch'; }
       if (r.check) { linkClass = 'check'; linkText = '❓ Check'; }
 
+      if (isAdmin && r.brokenStatus) {
+         linkClass = 'broken'; linkText = '❌ ' + r.brokenStatus;
+      }
+
       let origin = originMap[r.p] || originMap["default"];
 
-      const canEdit = state.modProducer === 'ALL' || state.modProducer === r.p;
+      const canEdit = isAdmin || state.modProducer === r.p;
       const editBtnHtml = canEdit ? `<button class="btn-edit" data-idx="${idx}">Edit</button>` : '';
 
+      let trClass = collab === 'yes' ? 'row-collab-yes' : collab === 'closed' ? 'row-collab-closed' : '';
+      if (isAdmin && r.brokenStatus) trClass += ' row-broken';
+
       return `
-      <tr class="${collab === 'yes' ? 'row-collab-yes' : collab === 'closed' ? 'row-collab-closed' : ''}">
+      <tr class="${trClass}">
         <td class="pdb-prod" title="${origin.c}">${origin.f} ${r.p}</td>
         <td class="pdb-model">${r.m} ${editBtnHtml}</td>
         <td><span class="pdb-type ${TYPE_CLASS[r.type]||''} ">${TYPE_LABEL[r.type]||r.type}</span></td>
@@ -662,7 +898,7 @@
   }
 
   // ==========================================
-  // RENDEROWANIE REKLAM (Sztywna Karuzela)
+  // RENDEROWANIE REKLAM
   // ==========================================
   function renderAds() {
     carouselIntervals.forEach(clearInterval);
@@ -779,6 +1015,7 @@
           <button class="hdr-btn pending" id="admin-dash-btn" title="Pending Queue">🔔 Pending</button>
           <button class="hdr-btn" id="admin-tok-btn" style="background:#f59e0b;" title="Token Manager">🔑 Tokens</button>
           <button class="hdr-btn" id="admin-ads-btn" style="background:#8b5cf6;" title="Ads Manager">📢 Ads</button>
+          <button class="hdr-btn" id="admin-link-btn" style="background:#0ea5e9;" title="Link Scanner">🔗 Links</button>
         ` : ''}
         <button class="hdr-btn" id="cms-login-btn" title="Moderator Login">${loginIcon}</button>
         <span id="pdb-arr" style="cursor:pointer; margin-left:5px;">${state.collapsed?'▲':'▼'}</span>
@@ -835,7 +1072,7 @@
     shadow.getElementById('pdb-type').value = state.filterType;
 
     renderAds();
-    setTimeout(loadPoziomkiWeather, 500); // Uruchomienie pobierania pogody
+    setTimeout(loadPoziomkiWeather, 500);
 
     if (isAdmin) {
       shadow.getElementById('admin-dash-btn').onclick = async () => {
@@ -847,6 +1084,7 @@
         const data = await fetchAPI("get_tokens"); btn.textContent = "🔑 Tokens"; showTokenDashboard(data);
       };
       shadow.getElementById('admin-ads-btn').onclick = () => showAdsDashboard();
+      shadow.getElementById('admin-link-btn').onclick = () => showLinkScannerModal();
     }
 
     const header = shadow.getElementById('pdb-hdr');
