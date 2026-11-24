@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source_commit": "3c6a7a8b69b3483d376b1dad274b4c496757206d",
+  "source_file": "data/db.json",
+  "source_sha256": "a72582c1886ff4e624daefc55ca88cabc2ebb5b6e9e021023fcc166d022c2092",
+  "legacy_rows_sha256": "e3e24f27a999ed8dd9a48df12c51d6fa623173877046da3217ba3e1eb460e81c",
+  "migrated_at": "2026-11-24",
+  "legacy_records": 524,
+  "legacy_model_producers": 90,
+  "catalog_producers": 91,
+  "legacy_load_known": 109,
+  "essential_limits_known": 0,
+  "rules": {
+    "missing_values": "null",
+    "legacy_kg": "preserved as legacy_load_kg without semantic mapping",
+    "verification": "legacy_unverified unless legacy check flag was set"
+  }
+}

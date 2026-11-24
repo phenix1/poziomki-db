@@ -1,0 +1,2854 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "catalog_models": 524,
+    "producer_models": 567,
+    "missing_from_catalog": 59,
+    "missing_from_producers": 16,
+    "changed_common_models": 327,
+    "duplicate_producer_keys": 0,
+    "possible_aliases": 4
+  },
+  "missing_from_catalog": [
+    {
+      "p": "Avatar 2000",
+      "m": "Avatar 2000"
+    },
+    {
+      "p": "BamBuk",
+      "m": "E-Trike Tandem Basic"
+    },
+    {
+      "p": "BamBuk",
+      "m": "E-Trike Tandem Exclusive"
+    },
+    {
+      "p": "BamBuk",
+      "m": "E-Trike Tandem Independent"
+    },
+    {
+      "p": "Barcroft",
+      "m": "Dakota S"
+    },
+    {
+      "p": "Flevobike",
+      "m": "Flevobike"
+    },
+    {
+      "p": "Flevobike",
+      "m": "Flevoracer"
+    },
+    {
+      "p": "Flevobike",
+      "m": "Flevotrike"
+    },
+    {
+      "p": "Flevobike",
+      "m": "GreenMachine"
+    },
+    {
+      "p": "Go-One",
+      "m": "Go-One Evo K"
+    },
+    {
+      "p": "Go-One",
+      "m": "Go-One Evo Ks"
+    },
+    {
+      "p": "Go-One",
+      "m": "Go-One Evo R"
+    },
+    {
+      "p": "Go-One",
+      "m": "Go-One Evolution"
+    },
+    {
+      "p": "Go-One",
+      "m": "Go-One Evolution R"
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "GT16"
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "GTR"
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "GTS"
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "GTT Tandem"
+    },
+    {
+      "p": "Haluzak",
+      "m": "Hybrid"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Kettwiesel Allround"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Kettwiesel Cross"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Kettwiesel Evo"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Kettwiesel One"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Lepus"
+    },
+    {
+      "p": "Katanga",
+      "m": "VM45"
+    },
+    {
+      "p": "KMX",
+      "m": "Cobra"
+    },
+    {
+      "p": "Leiba",
+      "m": "Classic"
+    },
+    {
+      "p": "Leiba",
+      "m": "Classic L"
+    },
+    {
+      "p": "Leiba",
+      "m": "Hybrid"
+    },
+    {
+      "p": "Leiba",
+      "m": "Record"
+    },
+    {
+      "p": "Leiba",
+      "m": "X-Stream"
+    },
+    {
+      "p": "Leiba",
+      "m": "X-Stream XXL"
+    },
+    {
+      "p": "Leitra",
+      "m": "Classic"
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Rambler"
+    },
+    {
+      "p": "Longbikes",
+      "m": "Eliminator"
+    },
+    {
+      "p": "Longbikes",
+      "m": "Slipstream"
+    },
+    {
+      "p": "Matix Bike",
+      "m": "Offroad"
+    },
+    {
+      "p": "Matix Bike",
+      "m": "Standard"
+    },
+    {
+      "p": "Maxarya",
+      "m": "Ray 2x"
+    },
+    {
+      "p": "MetaBikes",
+      "m": "MetaFlight"
+    },
+    {
+      "p": "MetaBikes",
+      "m": "MetaPhysic"
+    },
+    {
+      "p": "ReActive Adaptation",
+      "m": "Bomber"
+    },
+    {
+      "p": "ReActive Adaptation",
+      "m": "Nuke"
+    },
+    {
+      "p": "ReActive Adaptation",
+      "m": "Nuke Off-Road"
+    },
+    {
+      "p": "ReActive Adaptation",
+      "m": "Wildcat"
+    },
+    {
+      "p": "Rotator",
+      "m": "Pursuit"
+    },
+    {
+      "p": "Rotator",
+      "m": "Tiger"
+    },
+    {
+      "p": "Ryan Recumbents",
+      "m": "Duplex Tandem"
+    },
+    {
+      "p": "Ryan Recumbents",
+      "m": "Vanguard"
+    },
+    {
+      "p": "Snoek",
+      "m": "Snoek"
+    },
+    {
+      "p": "SpecBikeTechnics",
+      "m": "Comfort"
+    },
+    {
+      "p": "SpecBikeTechnics",
+      "m": "Gran Turismo"
+    },
+    {
+      "p": "SpecBikeTechnics",
+      "m": "Sport"
+    },
+    {
+      "p": "TerraTrike",
+      "m": "GTS"
+    },
+    {
+      "p": "TrikExplor",
+      "m": "F424e Quad"
+    },
+    {
+      "p": "TrikExplor",
+      "m": "Fat Tire Trike 326"
+    },
+    {
+      "p": "TrikExplor",
+      "m": "M-010"
+    },
+    {
+      "p": "Utah Trikes",
+      "m": "Annihilator Custom"
+    },
+    {
+      "p": "Utah Trikes",
+      "m": "Custom Quad"
+    }
+  ],
+  "missing_from_producers": [
+    {
+      "p": "Flevobike",
+      "m": "Greenmachine"
+    },
+    {
+      "p": "Go-One",
+      "m": "Evo K"
+    },
+    {
+      "p": "Go-One",
+      "m": "Evo Ks"
+    },
+    {
+      "p": "Go-One",
+      "m": "Evo R"
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Kettwiesel ONE"
+    },
+    {
+      "p": "KMX",
+      "m": "Kobra"
+    },
+    {
+      "p": "Leiba",
+      "m": "Leiba Classic"
+    },
+    {
+      "p": "Leiba",
+      "m": "Leiba Classic L"
+    },
+    {
+      "p": "Leiba",
+      "m": "Leiba Hybrid"
+    },
+    {
+      "p": "Leiba",
+      "m": "Leiba Record"
+    },
+    {
+      "p": "Leiba",
+      "m": "Leiba Xstream"
+    },
+    {
+      "p": "Leiba",
+      "m": "x-stream XXL"
+    },
+    {
+      "p": "Maxarya",
+      "m": "Ray 2X"
+    },
+    {
+      "p": "ReActive Adaptations",
+      "m": "Bomber"
+    },
+    {
+      "p": "ReActive Adaptations",
+      "m": "Nuke Off-Road"
+    },
+    {
+      "p": "ReActive Adaptations",
+      "m": "Wildcat"
+    }
+  ],
+  "changed_common_models": [
+    {
+      "p": "Aerorider",
+      "m": "Aerorider Sport",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder A10",
+      "changed_fields": [
+        "type",
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder A4",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder A6",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder A7",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder A8",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Alleweder A9",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Sunrider",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "Veloquad",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Alligt",
+      "m": "WAW",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Avenue Trikes",
+      "m": "1st Avenue",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch",
+        "check"
+      ]
+    },
+    {
+      "p": "Azub",
+      "m": "TWIN",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Aero",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Agio",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Bella ATT",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Bella Evo",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Bellandare",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Carbon Aero 2.0",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Carbon Aero 650c",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Carbon Basso GS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Carbon Corsa",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Corsa 24",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Corsa 700",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Corsa A65",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Corsa Evo",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Corsa SS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Giro 20",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Giro 26",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Giro 26 ATT",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Giro 26 Evo",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Giro A20",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Pronto",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Pronto Alto",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Pronto Bella",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Quattro",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Bacchetta",
+      "m": "Strada",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Barcroft",
+      "m": "Dakota",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Barcroft",
+      "m": "Va Va Voom",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Barcroft",
+      "m": "Virginia Ti",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "BerkelBike",
+      "m": "BerkelBike Pro",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "BerkelBike",
+      "m": "BerkelBike Sport",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "BikeE",
+      "m": "AT",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "BikeE",
+      "m": "CT",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "BikeE",
+      "m": "E2",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "BikeE",
+      "m": "NX",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "BikeE",
+      "m": "RX",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Birk",
+      "m": "Butterfly",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Birk",
+      "m": "Comet",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Birk",
+      "m": "Peregrin",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Blackbird Bikes",
+      "m": "EZ Quadribent",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Burley",
+      "m": "Canto",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Burley",
+      "m": "Nasoke",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Burley",
+      "m": "Sand Point",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Burley",
+      "m": "Spider",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Burley",
+      "m": "Taiko",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Carbontrikes",
+      "m": "CT2.0",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Carbontrikes",
+      "m": "CT2e",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "5.5.9",
+      "changed_fields": [
+        "kg",
+        "arch"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "700",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "All Road",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "All Road eCAT",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "Dumont",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "Expedition",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "Road",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "Trail",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Catrike",
+      "m": "Villager",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Challenge",
+      "m": "Chamsin",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Challenge",
+      "m": "Fujin SL",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Challenge",
+      "m": "Jester",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Challenge",
+      "m": "Seiran SL",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Challenge",
+      "m": "Taifun compact",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Challenge",
+      "m": "Ventus",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Counterpoint",
+      "m": "Opus Tandem",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Counterpoint",
+      "m": "Presto",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "A4x Complete",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Freerider",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Q45",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Quest",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "S40",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Silvio",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Sofrider",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "T50",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "V20c",
+      "changed_fields": [
+        "kg",
+        "arch"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Vendetta",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Cruzbike",
+      "m": "Vendetta V20c",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Cycle Genius",
+      "m": "Falcon",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Cycle Genius",
+      "m": "LTX",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Cycle Genius",
+      "m": "Raven",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Cycles JV Fenioux",
+      "m": "LeMans",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Cycles JV Fenioux",
+      "m": "Mulsanne",
+      "changed_fields": [
+        "check"
+      ]
+    },
+    {
+      "p": "Dekers Bike",
+      "m": "Extreme",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Dekers Bike",
+      "m": "Fattrike",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Dekers Bike",
+      "m": "Hunter",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Drymer",
+      "m": "Hilgo",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Easy Racers",
+      "m": "EZ-1",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Easy Racers",
+      "m": "Gold Rush",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Easy Racers",
+      "m": "Gold Rush Replica",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Easy Racers",
+      "m": "Javelin",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Easy Racers",
+      "m": "Ti-Rush",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Easy Racers",
+      "m": "Tour Easy",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Elan",
+      "m": "Boomer",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "ENVO",
+      "m": "Veemo",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Freedom Ryder",
+      "m": "FR-1",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Freedom Ryder",
+      "m": "LC-1",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Freedom Ryder",
+      "m": "Super Interceptor",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Go-One",
+      "m": "Go-One 3",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "Magnum BW",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "GreenSpeed",
+      "m": "Magnum SD",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Haluzak",
+      "m": "Horizon",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Haluzak",
+      "m": "Leprechaun",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Pino",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Trets",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Hase Bikes",
+      "m": "Trix",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "HP Velotechnik",
+      "m": "Gekko 20",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "HP Velotechnik",
+      "m": "Gekko 26",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "HP Velotechnik",
+      "m": "Scorpion",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "HP Velotechnik",
+      "m": "Scorpion fx 20",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Adventure",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Adventure HD",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Full Fat",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Handcycle",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Sprint X",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Sprint X Pixel",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "Sprint X Tour",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ICE Trikes",
+      "m": "VTX",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "InterCityBike",
+      "m": "DF",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "InterCityBike",
+      "m": "DF XL",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "InterCityBike",
+      "m": "Tuna",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Katanga",
+      "m": "WAW",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Kingcycle",
+      "m": "Kingcycle",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "KMX",
+      "m": "K-3",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "KMX",
+      "m": "Kolt",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "KMX",
+      "m": "Tornado",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "KMX",
+      "m": "Typhoon",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "KMX",
+      "m": "Venom",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "KMX",
+      "m": "Viper",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Lasher Sport",
+      "m": "Athlepede",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Lasher Sport",
+      "m": "H2",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Leitra",
+      "m": "Wildcat",
+      "changed_fields": [
+        "kg",
+        "arch"
+      ]
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Courier",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Greenway",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Lightfoot Cycles",
+      "m": "Roadrunner",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Lightning",
+      "m": "F-40",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Lightning",
+      "m": "P-38",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Lightning",
+      "m": "Phantom",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Linear",
+      "m": "Limo",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Linear",
+      "m": "Roadster",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "26/26 high bar",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "26/26 low bar",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Carbon High Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Carbon Low Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Carbon Medium Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "City Cruiser",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "City Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "CMPCT",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "CrMo Low Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "CroMo Low Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "M-Racer",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Shock Proof 406",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Shock Proof 451",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Shock Proof 559",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "M5",
+      "m": "Tandem",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Matix Bike",
+      "m": "FAT",
+      "changed_fields": [
+        "url",
+        "offroad"
+      ]
+    },
+    {
+      "p": "Maxarya",
+      "m": "Ray 1",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Maxarya",
+      "m": "Ray 2",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "MoTrike",
+      "m": "F420 Quad",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "MoTrike",
+      "m": "M-009",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "MoTrike",
+      "m": "M-F010 Fat",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Nazca",
+      "m": "Fuego",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Nazca",
+      "m": "Gaucho",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Nazca",
+      "m": "Paseo",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Nazca",
+      "m": "Pioneer",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Baron",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Condor",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Cougar",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Dragon",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Falcon",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Orca",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Raptor",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Optima",
+      "m": "Rider",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "ORSA Cycles",
+      "m": "Bugg-E",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Pacific Cycles",
+      "m": "Handy",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Pacific Cycles",
+      "m": "Micropb",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Pelso",
+      "m": "Brevet",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Cantilever",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Cantus",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Defender",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "E-Family",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "E-Futuro",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "E-JC-26X",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "E-JC70",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Folding E-JC-26X",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Folding JC-26X",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Futuro FRP",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Futuro Mesh",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Goal 20-26x OSS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Goal 20-26x USS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Goal 26x OSS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Goal 26x USS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Hero FRP",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Hero Mesh",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "High Racer (Lacka)",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "JC-26X FRP",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "JC-26X Mesh",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "JC20",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "JC70 FRP",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "JC70 Mesh",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Low Racer (X-Low)",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Muses",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Tandem Recumbent",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Trike-F",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Trike-X",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Performer",
+      "m": "Unicorn",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Podbike",
+      "m": "Frikar",
+      "changed_fields": [
+        "type",
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "PonyFour",
+      "m": "PONY4",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Quatrotech",
+      "m": "Quatro Quad",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "RAD-Innovations",
+      "m": "Dual Drive",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Räderwerk",
+      "m": "Milan GT",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Räderwerk",
+      "m": "Milan SL",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Radius",
+      "m": "Dino",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Radius",
+      "m": "Hornet",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Radius",
+      "m": "Peer Gynt",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "RaptoBike",
+      "m": "Lowracer",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "RaptoBike",
+      "m": "Midracer",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Sinner",
+      "m": "Comfort",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Sinner",
+      "m": "Mango Sport",
+      "changed_fields": [
+        "kg",
+        "arch"
+      ]
+    },
+    {
+      "p": "Sinner",
+      "m": "Mango Tour",
+      "changed_fields": [
+        "kg",
+        "arch"
+      ]
+    },
+    {
+      "p": "Slyway",
+      "m": "Team",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Slyway",
+      "m": "Ultrateam",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Snoek",
+      "m": "Snoek L",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Explorer",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Explorer Ultimate",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Fat Explorer",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Fat Jeetrike",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Jeetrike",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Quantum",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "Troublemaker",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "XCR",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Sport-On",
+      "m": "XCR Gravel",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Alien",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Kobold",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "MadMax",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Mungo",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Nomad",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Rebel",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "RoadShark",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Tuareg",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Viper",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Wild One",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Steintrikes",
+      "m": "Wild One Fat",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "TerraTrike",
+      "m": "Charge",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "TerraTrike",
+      "m": "Maverick",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "TerraTrike",
+      "m": "Rambler",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "TerraTrike",
+      "m": "Rover",
+      "changed_fields": [
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "TerraTrike",
+      "m": "Spyder",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "TerraTrike",
+      "m": "Traveler",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Top End",
+      "m": "Excelerator XLT",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Top End",
+      "m": "Force 3",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Top End",
+      "m": "Force RX",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Toxy",
+      "m": "Flite",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Toxy",
+      "m": "Lite-S",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Toxy",
+      "m": "TT",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Toxy",
+      "m": "ZR",
+      "changed_fields": [
+        "kg",
+        "url",
+        "check"
+      ]
+    },
+    {
+      "p": "Trice",
+      "m": "Micro",
+      "changed_fields": [
+        "kg",
+        "arch",
+        "check"
+      ]
+    },
+    {
+      "p": "Trice",
+      "m": "Monster",
+      "changed_fields": [
+        "kg",
+        "arch",
+        "check"
+      ]
+    },
+    {
+      "p": "Trice",
+      "m": "Pioneer",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Chameleon Tandem",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Fat Trekker",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Jouta Fat Quad",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Jouta Quad",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Jouta Tadpole",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Nomad",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Spike 1",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Spike 2",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Spike 380",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Stowaway I",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Stowaway II",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "T.W.I.G",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Terrain 20",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Terrain 26",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Titan",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Tomcat",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Tomcat 380",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Tomcat E",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Trekker 20",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trident",
+      "m": "Trekker 26",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Trisled",
+      "m": "Fastback",
+      "changed_fields": [
+        "type",
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Trisled",
+      "m": "Gizmo",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch",
+        "check"
+      ]
+    },
+    {
+      "p": "Trisled",
+      "m": "Rotovelo",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Trisled",
+      "m": "Rotovelo Carbon",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Varibike",
+      "m": "FR3",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Varibike",
+      "m": "Varibike Trike",
+      "changed_fields": [
+        "type",
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Velokraft",
+      "m": "NoCom",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Velokraft",
+      "m": "VK2",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Velokraft",
+      "m": "VK3",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "DuoQuest",
+      "changed_fields": [
+        "type",
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Quattrovelo",
+      "changed_fields": [
+        "type",
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Quattrovelo XL",
+      "changed_fields": [
+        "type",
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Quest",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Quest VS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Quest XS",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Snoek",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Snoek L",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobiel.nl",
+      "m": "Strada",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Velomobile World",
+      "m": "Alpha 7",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Velomobile World",
+      "m": "Alpha 9",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Velomobile World",
+      "m": "Bülk MK1",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Velomobile World",
+      "m": "M9",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Velomobile World",
+      "m": "Milan GT",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Velomobile World",
+      "m": "Milan SL",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Vision",
+      "m": "R-40",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Vision",
+      "m": "R-42",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Vision",
+      "m": "R-44",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Vision",
+      "m": "R-45",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Vision",
+      "m": "R-80 Double Vision",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Vision",
+      "m": "Sabre",
+      "changed_fields": [
+        "kg"
+      ]
+    },
+    {
+      "p": "Windcheetah",
+      "m": "Club",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Windcheetah",
+      "m": "Hypersport",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Windcheetah",
+      "m": "Superpoint",
+      "changed_fields": [
+        "kg",
+        "url",
+        "arch"
+      ]
+    },
+    {
+      "p": "Windwrap",
+      "m": "WGX Fairing",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Windwrap",
+      "m": "XT Fairing",
+      "changed_fields": [
+        "url"
+      ]
+    },
+    {
+      "p": "Wolf & Wolf",
+      "m": "Alpentourer AT1",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Wolf & Wolf",
+      "m": "Alpentourer AT2",
+      "changed_fields": [
+        "kg",
+        "url"
+      ]
+    },
+    {
+      "p": "Zockra",
+      "m": "High Racer",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Zockra",
+      "m": "Kouign Amann",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    },
+    {
+      "p": "Zockra",
+      "m": "Low Racer",
+      "changed_fields": [
+        "kg",
+        "check"
+      ]
+    }
+  ],
+  "duplicate_producer_keys": [],
+  "possible_aliases": [
+    {
+      "producer_model": {
+        "p": "Flevobike",
+        "m": "GreenMachine"
+      },
+      "catalog_model": {
+        "p": "Flevobike",
+        "m": "Greenmachine"
+      }
+    },
+    {
+      "producer_model": {
+        "p": "Hase Bikes",
+        "m": "Kettwiesel One"
+      },
+      "catalog_model": {
+        "p": "Hase Bikes",
+        "m": "Kettwiesel ONE"
+      }
+    },
+    {
+      "producer_model": {
+        "p": "Leiba",
+        "m": "X-Stream XXL"
+      },
+      "catalog_model": {
+        "p": "Leiba",
+        "m": "x-stream XXL"
+      }
+    },
+    {
+      "producer_model": {
+        "p": "Maxarya",
+        "m": "Ray 2x"
+      },
+      "catalog_model": {
+        "p": "Maxarya",
+        "m": "Ray 2X"
+      }
+    }
+  ]
+}

@@ -28,6 +28,8 @@
   // DATABASE SECURE API URL
   // ==========================================
   const MODERATION_URL = "https://script.google.com/macros/s/AKfycbyrdgmIVwD2rM3W-pf3CXo1zx924Ibyg5mJrjXwkMyO20kGU7XVxWZyq5he38iJ3s7meQ/exec";
+  const CATALOG_URL = "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/db.json";
+  const PUBLIC_DB_CACHE_KEY = 'poziomki_public_db_v2';
 
   // ==========================================
   // SEASONAL VISUAL THEME
@@ -126,6 +128,144 @@
         onerror: () => resolve([])
       });
     });
+  }
+
+  function normalizePublicDatabase(payload) {
+    if (Array.isArray(payload)) return { DB: payload };
+    if (payload && Array.isArray(payload.DB)) return payload;
+    throw new Error('Public database response must contain a DB array');
+  }
+
+  function slug(value) {
+    return String(value || '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function findPublicMatch(apiRow, publicRows) {
+    return publicRows.find((row) => {
+      if (apiRow.id && row.id) return apiRow.id === row.id;
+      return String(row.p || '').toLowerCase() === String(apiRow.p || '').toLowerCase()
+        && String(row.m || '').toLowerCase() === String(apiRow.m || '').toLowerCase();
+    });
+  }
+
+  function mergeEssentialFields(apiRow, publicRow) {
+    const known = publicRow || {};
+    const legacyLoad = 'kg' in apiRow
+      ? (apiRow.kg > 0 ? apiRow.kg : null)
+      : (known.legacy_load_kg > 0 ? known.legacy_load_kg : null);
+    const status = apiRow.arch
+      ? 'archived'
+      : (apiRow.check
+        ? 'unknown'
+        : (known.status === 'archived' ? 'current' : (known.status || 'unknown')));
+    const verification = apiRow.check
+      ? 'needs_review'
+      : (known.verification_status || 'legacy_unverified');
+
+    return {
+      ...apiRow,
+      id: apiRow.id || known.id || `${slug(apiRow.p)}--${slug(apiRow.m)}`,
+      producer_id: apiRow.producer_id || known.producer_id || slug(apiRow.p),
+      status,
+      verification_status: verification,
+      wheel_front_in: known.wheel_front_in ?? null,
+      wheel_rear_in: known.wheel_rear_in ?? null,
+      curb_weight_kg: known.curb_weight_kg ?? null,
+      max_rider_kg: known.max_rider_kg ?? null,
+      max_system_kg: known.max_system_kg ?? null,
+      max_rack_kg: known.max_rack_kg ?? null,
+      legacy_load_kg: legacyLoad,
+      arch: Boolean(apiRow.arch),
+      offroad: Boolean(apiRow.offroad ?? known.offroad),
+      check: Boolean(apiRow.check),
+      sources: known.sources || [],
+    };
+  }
+
+  function resolveRuntimeDatabase(apiData, publicData, cachedData) {
+    const apiRows = Array.isArray(apiData)
+      ? apiData
+      : (apiData && Array.isArray(apiData.DB) ? apiData.DB : []);
+    const publicSource = publicData || cachedData;
+    const publicRows = publicSource && Array.isArray(publicSource.DB) ? publicSource.DB : [];
+
+    if (apiRows.length > 0) {
+      return {
+        data: {
+          ...(publicSource || {}),
+          DB: apiRows.map((row) => mergeEssentialFields(row, findPublicMatch(row, publicRows))),
+        },
+        source: publicRows.length > 0
+          ? (!publicData && cachedData ? 'api+github-cache' : 'api+github')
+          : 'api',
+        stale: Boolean(!publicData && cachedData),
+      };
+    }
+    if (publicRows.length > 0) {
+      return {
+        data: publicSource,
+        source: 'github-readonly',
+        stale: Boolean(!publicData && cachedData),
+      };
+    }
+    return { data: { DB: [] }, source: 'none', stale: false };
+  }
+
+  function fetchPublicDatabase() {
+    return new Promise((resolve, reject) => {
+      GM_xmlhttpRequest({
+        method: 'GET',
+        url: `${CATALOG_URL}?t=${Date.now()}`,
+        timeout: 15000,
+        onload: (response) => {
+          if (response.status < 200 || response.status >= 300) {
+            reject(new Error(`Public database HTTP ${response.status}`));
+            return;
+          }
+          try {
+            resolve(normalizePublicDatabase(JSON.parse(response.responseText)));
+          } catch (error) {
+            reject(error);
+          }
+        },
+        onerror: () => reject(new Error('Public database network error')),
+        ontimeout: () => reject(new Error('Public database timeout')),
+      });
+    });
+  }
+
+  async function loadPublicDatabase() {
+    try {
+      const data = await fetchPublicDatabase();
+      GM_setValue(PUBLIC_DB_CACHE_KEY, { data, timestamp: Date.now() });
+      return { data, stale: false };
+    } catch {
+      const cached = GM_getValue(PUBLIC_DB_CACHE_KEY, null);
+      if (cached?.data && Date.now() - cached.timestamp < 7 * 24 * 60 * 60 * 1000) {
+        return { data: cached.data, stale: true };
+      }
+      return null;
+    }
+  }
+
+  async function reloadRuntimeDatabase() {
+    const [publicResult, apiFleetResponse] = await Promise.all([
+      loadPublicDatabase(),
+      fetchAPI("get_fleet"),
+    ]);
+    const selection = resolveRuntimeDatabase(
+      apiFleetResponse,
+      publicResult && !publicResult.stale ? publicResult.data : null,
+      publicResult?.stale ? publicResult.data : null,
+    );
+    DB = selection.data.DB || [];
+    CONFIG = selection.data.CONFIG || CONFIG;
+    return selection;
   }
 
   // ==========================================
@@ -269,6 +409,10 @@
     #pdb-tbl td { padding: 7px 10px; }
     .pdb-prod { font-weight: 600; font-size: 12px; color: #1a3a5c; }
     .pdb-model { font-size: 13px; font-weight: 500; }
+    .pdb-essentials { margin-top: 4px; font-size: 10px; line-height: 1.45; color: #475569; font-weight: 400; }
+    .pdb-essentials span { white-space: nowrap; }
+    .pdb-essentials span + span::before { content: " · "; color: #94a3b8; }
+    .pdb-unknown { color: #aaa; font-style: italic; }
     .pdb-type { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 600; }
     .t-tadpole { background: #e0eeff; color: #1a4494; } .t-delta { background: #fde8e0; color: #993020; }
     .t-bike { background: #e0f4e8; color: #1a6e40; } .t-quad { background: #f0e0fe; color: #6a10a0; }
@@ -368,7 +512,7 @@
           }, 1200);
 
           if (isAccept) {
-            DB = await fetchAPI("get_fleet");
+            await reloadRuntimeDatabase();
           }
           renderTable();
         } else {
@@ -554,7 +698,7 @@
           </select>
         </div>
         <div class="pdb-form-group">
-          <label>Max Load (kg)</label>
+          <label>Legacy load (kg)</label>
           <input type="number" id="add-model-kg" placeholder="e.g. 125" min="0">
         </div>
         <div class="pdb-form-group">
@@ -641,7 +785,7 @@
         alert(isAdmin ? "Model successfully saved to database!" : "Model successfully submitted for review!");
         overlay.remove();
 
-        DB = await fetchAPI("get_fleet");
+        await reloadRuntimeDatabase();
         PENDING_ITEMS = await fetchAPI("get_pending");
         updatePendingCount();
 
@@ -887,6 +1031,10 @@
     };
   }
 
+  function getEditLoadValue(row) {
+    return row.legacy_load_kg ?? row.kg ?? '';
+  }
+
   function showEditModal(row) {
     const overlay = document.createElement('div');
     overlay.className = 'pdb-modal-overlay';
@@ -896,7 +1044,7 @@
       <div class="pdb-modal">
         <h3>Edit: ${escapeHtml(row.m)}</h3>
         <div class="pdb-form-group"><label>Model Name</label><input type="text" id="edit-name"></div>
-        <div class="pdb-form-group"><label>Max Load (kg)</label><input type="number" id="edit-kg"></div>
+        <div class="pdb-form-group"><label>Legacy load (kg)</label><input type="number" id="edit-kg"></div>
         <div class="pdb-form-group"><label>Website URL</label><input type="text" id="edit-url"></div>
         <div class="pdb-form-group">
           <label>Link Status</label>
@@ -916,7 +1064,7 @@
 
     // Set values programmatically to avoid HTML-injection breaking the inputs
     shadow.getElementById('edit-name').value = row.m;
-    shadow.getElementById('edit-kg').value = row.kg || '';
+    shadow.getElementById('edit-kg').value = getEditLoadValue(row);
     shadow.getElementById('edit-url').value = row.url;
 
     shadow.getElementById('edit-close').onclick = () => overlay.remove();
@@ -1038,18 +1186,53 @@
   // ==========================================
   // TABLE CONTROLLER & RENDERER
   // ==========================================
+  function formatEssentialSpecs(row) {
+    if (!('max_rider_kg' in row) && !('wheel_front_in' in row) && !('curb_weight_kg' in row)) {
+      return '';
+    }
+
+    const unknown = '<span class="pdb-unknown">—</span>';
+    const mass = (value) => {
+      if (value === null || value === undefined || value === '') return unknown;
+      return `${escapeHtml(value)} kg`;
+    };
+    const wheel = (value) => {
+      if (value === null || value === undefined || value === '') return unknown;
+      return `${escapeHtml(value)}"`;
+    };
+    const item = (label, value) => `<span>${label}: ${value}</span>`;
+    const statusLabels = { current: 'Current', archived: 'Archived', unknown: 'Unknown' };
+    const evidenceLabels = {
+      verified: 'Verified',
+      needs_review: 'Needs review',
+      legacy_unverified: 'Legacy unverified',
+      conflict: 'Conflict',
+    };
+
+    return `<div class="pdb-essentials">${[
+      item('Front', wheel(row.wheel_front_in)),
+      item('Rear', wheel(row.wheel_rear_in)),
+      item('Bike', mass(row.curb_weight_kg)),
+      item('Rider', mass(row.max_rider_kg)),
+      item('System', mass(row.max_system_kg)),
+      item('Rack', mass(row.max_rack_kg)),
+      item('Status', statusLabels[row.status] || unknown),
+      item('Evidence', evidenceLabels[row.verification_status] || unknown),
+    ].join('')}</div>`;
+  }
+
   function getFiltered() {
     return DB.filter(r => {
       if (state.filterType !== 'all' && r.type !== state.filterType) return false;
       if (state.filterProd !== 'all' && r.p !== state.filterProd) return false;
-      if (state.minKg > 0 && r.kg < state.minKg) return false;
+      if (state.minKg > 0 && (r.legacy_load_kg ?? r.kg ?? 0) < state.minKg) return false;
       if (state.searchStr) {
           const s = state.searchStr.toLowerCase();
           if (!r.p.toLowerCase().includes(s) && !r.m.toLowerCase().includes(s)) return false;
       }
       return true;
     }).sort((a, b) => {
-      let primary = state.sortDir * ((state.sortCol === 'kg') ? ((a.kg||0) - (b.kg||0)) : ((a[state.sortCol]||'').localeCompare(b[state.sortCol]||'', 'en')));
+      let primary = state.sortDir * ((state.sortCol === 'kg') ? ((a.legacy_load_kg ?? a.kg ?? 0) - (b.legacy_load_kg ?? b.kg ?? 0)) : ((a[state.sortCol]||'').localeCompare(b[state.sortCol]||'', 'en')));
       return primary !== 0 ? primary : a.p.localeCompare(b.p, 'en') || a.m.localeCompare(b.m, 'en');
     });
   }
@@ -1078,9 +1261,10 @@
     tbody.innerHTML = rows.map((r, idx) => {
       const collab = BRANDS_STATUS[r.p] || '';
       let kgClass = 'kg-none'; let kgText = 'N/A';
-      if (r.kg > 0) {
-        kgText = r.kg + ' kg';
-        if (r.kg < 120) kgClass = 'kg-low'; else if (r.kg < 150) kgClass = 'kg-120plus'; else if (r.kg < 200) kgClass = 'kg-150plus'; else kgClass = 'kg-200plus';
+      const loadValue = r.legacy_load_kg ?? r.kg;
+      if (loadValue > 0) {
+        kgText = loadValue + ' kg';
+        if (loadValue < 120) kgClass = 'kg-low'; else if (loadValue < 150) kgClass = 'kg-120plus'; else if (loadValue < 200) kgClass = 'kg-150plus'; else kgClass = 'kg-200plus';
       }
 
       let linkClass = r.brokenStatus ? 'broken' : r.arch ? 'arch' : r.check ? 'check' : '';
@@ -1105,7 +1289,7 @@
       return `
       <tr class="${trClass}">
         <td class="pdb-prod" title="${escapeHtml(origin.c)}">${origin.f} ${escapeHtml(r.p)}</td>
-        <td class="pdb-model">${escapeHtml(r.m)} ${editBtnHtml}</td>
+        <td class="pdb-model"><div>${escapeHtml(r.m)} ${editBtnHtml}</div>${formatEssentialSpecs(r)}</td>
         <td><span class="pdb-type ${TYPE_CLASS[r.type]||''} ">${escapeHtml(TYPE_LABEL[r.type]||r.type)}</span></td>
         <td><span class="pdb-kg ${kgClass}">${escapeHtml(kgText)}</span></td>
         <td class="pdb-link ${linkClass}"><a href="${escapeHtml(r.url)}" target="_blank">${escapeHtml(linkText)}</a></td>
@@ -1231,7 +1415,7 @@
             <option value="velomobile">Velomobile</option>
             <option value="handcycle">Handcycle</option>
           </select>
-          <input type="number" id="pdb-kg" placeholder="Min load (kg)" min="0" step="5" value="${state.minKg || ''}">
+          <input type="number" id="pdb-kg" placeholder="Min legacy load (kg)" min="0" step="5" value="${state.minKg || ''}">
           ${addBtnHtml}
         </div>
         <div id="pdb-tbl-wrap">
@@ -1240,7 +1424,7 @@
               <th id="sort-p" style="width:25%;">Producer</th>
               <th id="sort-m" style="width:35%;">Model</th>
               <th id="sort-t" style="width:15%;">Type</th>
-              <th id="sort-k" style="width:15%;">Max Load</th>
+              <th id="sort-k" style="width:15%;">Legacy load</th>
               <th style="width:10%;">Link</th>
             </tr></thead>
             <tbody id="pdb-tbody"></tbody>
@@ -1435,23 +1619,33 @@
     try {
       const isAdmin = state.modProducer === 'ALL';
 
-      // Fetch everything in parallel (Including Brand statuses from database!)
-      const [adsResponse, fleetResponse, pendingResponse, brandsResponse] = await Promise.all([
-        fetchAPI("get_ads"),
+      const [publicResult, apiFleetResponse, adsResponse, pendingResponse, brandsResponse] = await Promise.all([
+        loadPublicDatabase(),
         fetchAPI("get_fleet"),
+        fetchAPI("get_ads"),
         fetchAPI("get_pending"),
         fetchAPI("get_brands")
       ]);
+      const selection = resolveRuntimeDatabase(
+        apiFleetResponse,
+        publicResult && !publicResult.stale ? publicResult.data : null,
+        publicResult?.stale ? publicResult.data : null,
+      );
 
       ADS = adsResponse || [];
-      DB = fleetResponse || [];
+      DB = selection.data.DB || [];
       PENDING_ITEMS = pendingResponse || [];
+      CONFIG = selection.data.CONFIG || CONFIG;
 
-      BRANDS_STATUS = {};
-      if (brandsResponse) {
-        brandsResponse.forEach(b => {
-          BRANDS_STATUS[b.brand] = b.status; // 'yes', 'closed', or 'none'
-        });
+      if (selection.source === 'github-readonly') {
+        BRANDS_STATUS = { ...(selection.data.COLLAB || {}) };
+      } else {
+        BRANDS_STATUS = {};
+        if (brandsResponse) {
+          brandsResponse.forEach(b => {
+            BRANDS_STATUS[b.brand] = b.status;
+          });
+        }
       }
 
       if (isAdmin && PENDING_ITEMS) {
