@@ -1,7 +1,9 @@
 // ==UserScript==
-// @name         Poziomki DB v4.2.3
+// @name         Poziomki DB v4.2.4
 // @namespace    https://poziomki.info
-// @version      4.2.3
+// @version      4.2.4
+// @updateURL    https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
+// @downloadURL  https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
 // @description  Recumbent bikes database with fixed header alignment and optimized space.
 // @author       MBFeniks — Michał Berliński
 // @license      MIT
