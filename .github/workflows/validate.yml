@@ -1,0 +1,32 @@
+name: Validate catalog and runtime data
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Run tests
+        run: node --test
+
+      - name: Check runtime database
+        run: node tools/build-db.mjs --check
+
+      - name: Check reconciliation report
+        run: node tools/reconcile-db.mjs --check
+
+      - name: Check userscript syntax
+        run: node --check dist/poziomki.user.js

@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/phenix1/poziomki-db/main/data/catalog.schema.json",
+  "title": "Poziomki DB catalog",
+  "type": "object",
+  "required": ["schema_version", "CONFIG", "COLLAB", "PRODUCERS", "MODELS"],
+  "properties": {
+    "schema_version": { "const": 2 },
+    "CONFIG": { "type": "object" },
+    "COLLAB": { "type": "object" },
+    "PRODUCERS": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/producer" }
+    },
+    "MODELS": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/model" }
+    }
+  },
+  "$defs": {
+    "nullablePositiveNumber": {
+      "type": ["number", "null"],
+      "exclusiveMinimum": 0
+    },
+    "httpUrl": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "producer": {
+      "type": "object",
+      "required": ["id", "name", "collaboration_status", "official_url", "country_code", "aliases"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "collaboration_status": { "type": "string" },
+        "official_url": { "anyOf": [{ "$ref": "#/$defs/httpUrl" }, { "type": "null" }] },
+        "country_code": { "anyOf": [{ "type": "string" }, { "type": "null" }] },
+        "aliases": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["url", "kind", "retrieved_at", "quote"],
+      "properties": {
+        "url": { "$ref": "#/$defs/httpUrl" },
+        "kind": {
+          "enum": ["official", "manual", "archive", "community", "unclassified"]
+        },
+        "retrieved_at": {
+          "anyOf": [
+            { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}(?:T.*)?$" },
+            { "type": "null" }
+          ]
+        },
+        "quote": { "anyOf": [{ "type": "string" }, { "type": "null" }] }
+      }
+    },
+    "completeEvidenceSource": {
+      "type": "object",
+      "required": ["url", "kind", "retrieved_at", "quote"],
+      "properties": {
+        "url": { "$ref": "#/$defs/httpUrl" },
+        "kind": { "enum": ["official", "manual", "archive", "community"] },
+        "retrieved_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}(?:T.*)?$" },
+        "quote": { "type": "string", "minLength": 1 }
+      }
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "id",
+        "producer_id",
+        "name",
+        "type",
+        "status",
+        "verification_status",
+        "wheels",
+        "curb_weight_kg",
+        "limits",
+        "legacy_load_kg",
+        "url",
+        "arch",
+        "offroad",
+        "check",
+        "sources"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "producer_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "type": {
+          "enum": ["tadpole", "delta", "bike", "quad", "velomobile", "handcycle"]
+        },
+        "status": {
+          "enum": ["current", "archived", "unknown"],
+          "x-essential": true
+        },
+        "verification_status": {
+          "enum": ["verified", "needs_review", "legacy_unverified", "conflict"],
+          "x-essential": true
+        },
+        "wheels": {
+          "type": "object",
+          "required": ["front_in", "rear_in"],
+          "x-essential": true,
+          "properties": {
+            "front_in": { "$ref": "#/$defs/nullablePositiveNumber", "x-essential": true },
+            "rear_in": { "$ref": "#/$defs/nullablePositiveNumber", "x-essential": true }
+          }
+        },
+        "curb_weight_kg": {
+          "$ref": "#/$defs/nullablePositiveNumber",
+          "x-essential": true
+        },
+        "limits": {
+          "type": "object",
+          "required": ["rider_kg", "system_kg", "rack_kg"],
+          "x-essential": true,
+          "properties": {
+            "rider_kg": { "$ref": "#/$defs/nullablePositiveNumber", "x-essential": true },
+            "system_kg": { "$ref": "#/$defs/nullablePositiveNumber", "x-essential": true },
+            "rack_kg": { "$ref": "#/$defs/nullablePositiveNumber", "x-essential": true }
+          }
+        },
+        "legacy_load_kg": { "$ref": "#/$defs/nullablePositiveNumber" },
+        "url": { "$ref": "#/$defs/httpUrl" },
+        "arch": { "type": "boolean" },
+        "offroad": { "type": "boolean" },
+        "check": { "type": "boolean" },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/source" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "archived" } },
+            "required": ["status"]
+          },
+          "then": { "properties": { "arch": { "const": true } } },
+          "else": { "properties": { "arch": { "const": false } } }
+        },
+        {
+          "if": {
+            "properties": { "verification_status": { "enum": ["needs_review", "conflict"] } },
+            "required": ["verification_status"]
+          },
+          "then": { "properties": { "check": { "const": true } } },
+          "else": { "properties": { "check": { "const": false } } }
+        },
+        {
+          "if": {
+            "properties": { "verification_status": { "const": "verified" } },
+            "required": ["verification_status"]
+          },
+          "then": {
+            "properties": {
+              "sources": {
+                "minItems": 1,
+                "contains": { "$ref": "#/$defs/completeEvidenceSource" }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
