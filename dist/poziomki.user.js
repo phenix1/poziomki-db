@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki DB v4.2.4
+// @name         Poziomki DB v4.2.5
 // @namespace    https://poziomki.info
-// @version      4.2.4
+// @version      4.2.5
 // @updateURL    https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
 // @downloadURL  https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
 // @description  Recumbent bikes database with fixed header alignment and optimized space.
@@ -160,11 +160,13 @@
     const legacyLoad = 'kg' in apiRow
       ? (apiRow.kg > 0 ? apiRow.kg : null)
       : (known.legacy_load_kg > 0 ? known.legacy_load_kg : null);
-    const status = apiRow.arch
+    const status = known.status === 'archived'
       ? 'archived'
-      : (apiRow.check
-        ? 'unknown'
-        : (known.status === 'archived' ? 'current' : (known.status || 'unknown')));
+      : (apiRow.arch
+        ? 'archived'
+        : (apiRow.check
+          ? 'unknown'
+          : (known.status || 'unknown')));
     const verification = apiRow.check
       ? 'needs_review'
       : (known.verification_status || 'legacy_unverified');
@@ -182,7 +184,7 @@
       max_system_kg: known.max_system_kg ?? null,
       max_rack_kg: known.max_rack_kg ?? null,
       legacy_load_kg: legacyLoad,
-      arch: Boolean(apiRow.arch),
+      arch: Boolean(apiRow.arch || known.status === 'archived'),
       offroad: Boolean(apiRow.offroad ?? known.offroad),
       check: Boolean(apiRow.check),
       sources: known.sources || [],

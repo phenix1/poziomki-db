@@ -5,7 +5,7 @@
     "producer_models": 567,
     "missing_from_catalog": 59,
     "missing_from_producers": 16,
-    "changed_common_models": 327,
+    "changed_common_models": 329,
     "duplicate_producer_keys": 0,
     "possible_aliases": 4
   },
@@ -956,8 +956,7 @@
       "m": "Falcon",
       "changed_fields": [
         "kg",
-        "url",
-        "arch"
+        "url"
       ]
     },
     {
@@ -965,8 +964,7 @@
       "m": "LTX",
       "changed_fields": [
         "kg",
-        "url",
-        "arch"
+        "url"
       ]
     },
     {
@@ -974,8 +972,7 @@
       "m": "Raven",
       "changed_fields": [
         "kg",
-        "url",
-        "arch"
+        "url"
       ]
     },
     {
@@ -1021,6 +1018,7 @@
       "m": "Hilgo",
       "changed_fields": [
         "kg",
+        "arch",
         "check"
       ]
     },
@@ -1721,7 +1719,8 @@
       "m": "Brevet",
       "changed_fields": [
         "kg",
-        "url"
+        "url",
+        "arch"
       ]
     },
     {
@@ -1999,6 +1998,20 @@
         "kg",
         "url",
         "check"
+      ]
+    },
+    {
+      "p": "RANS",
+      "m": "Dynamik",
+      "changed_fields": [
+        "arch"
+      ]
+    },
+    {
+      "p": "RANS",
+      "m": "Stratus XP",
+      "changed_fields": [
+        "arch"
       ]
     },
     {
@@ -2281,6 +2294,7 @@
       "changed_fields": [
         "kg",
         "url",
+        "arch",
         "check"
       ]
     },

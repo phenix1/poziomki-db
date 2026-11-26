@@ -10,6 +10,16 @@
   "catalog_producers": 91,
   "legacy_load_known": 109,
   "essential_limits_known": 0,
+  "curated_archived_models": [
+    "rans--dynamik",
+    "rans--stratus-xp",
+    "cycle-genius--falcon",
+    "cycle-genius--ltx",
+    "cycle-genius--raven",
+    "pelso--brevet",
+    "drymer--hilgo",
+    "top-end--force-3"
+  ],
   "rules": {
     "missing_values": "null",
     "legacy_kg": "preserved as legacy_load_kg without semantic mapping",

@@ -265,6 +265,8 @@ test('runtime keeps moderation writes and enriches rows from GitHub', () => {
   assert.equal(result.data.DB[0].legacy_load_kg, 150);
   assert.equal(result.data.DB[0].max_rider_kg, 140);
   assert.equal(result.data.DB[0].wheel_front_in, 20);
+  assert.equal(result.data.DB[0].status, 'archived');
+  assert.equal(result.data.DB[0].arch, true);
 });
 
 test('new moderation rows receive visible unknown essential fields', () => {

@@ -213,10 +213,61 @@ test('catalog preserves the complete legacy migration baseline', () => {
   );
 
   assert.ok(catalog.MODELS.length >= manifest.legacy_records);
-  assert.equal(legacyRowsSha256(catalog), manifest.legacy_rows_sha256);
+  const baselineCatalog = structuredClone(catalog);
+  for (const model of baselineCatalog.MODELS) {
+    if (manifest.curated_archived_models.includes(model.id)) {
+      model.arch = false;
+    }
+  }
+  assert.equal(legacyRowsSha256(baselineCatalog), manifest.legacy_rows_sha256);
+  for (const modelId of manifest.curated_archived_models) {
+    const model = catalog.MODELS.find((item) => item.id === modelId);
+    assert.equal(model.status, 'archived');
+    assert.equal(model.arch, true);
+  }
   assert.equal(new Set(catalog.MODELS.map((model) => model.id)).size, catalog.MODELS.length);
   assert.equal(report.summary.catalog_models, catalog.MODELS.length);
   assert.deepEqual(validateCatalog(catalog), []);
+});
+
+test('curated archived models require exact membership and complete evidence', () => {
+  const catalog = JSON.parse(
+    fs.readFileSync(new URL('../data/catalog.json', import.meta.url), 'utf8'),
+  );
+  const manifest = JSON.parse(
+    fs.readFileSync(new URL('../data/migration-manifest.json', import.meta.url), 'utf8'),
+  );
+  const archivalContext = {
+    'rans--dynamik': /end to us building RANS branded bicycles/i,
+    'rans--stratus-xp': /end to us building RANS branded bicycles/i,
+    'cycle-genius--falcon': /ceased production in 2012/i,
+    'cycle-genius--ltx': /ceased production in 2012/i,
+    'cycle-genius--raven': /ceased production in 2012/i,
+    'pelso--brevet': /end of the road/i,
+    'drymer--hilgo': /stop her activities/i,
+    'top-end--force-3': /discontinued product/i,
+  };
+  const expectedIds = Object.keys(archivalContext).sort();
+
+  assert.deepEqual([...manifest.curated_archived_models].sort(), expectedIds);
+  assert.equal(new Set(manifest.curated_archived_models).size, expectedIds.length);
+
+  const civo = catalog.MODELS.find((item) => item.id === 'rans--civo');
+  assert.equal(civo.status, 'unknown');
+  assert.equal(civo.arch, false);
+
+  for (const modelId of expectedIds) {
+    const model = catalog.MODELS.find((item) => item.id === modelId);
+    const modelName = model.name.toLowerCase();
+    const hasModelEvidence = model.sources.some((source) =>
+      source.quote?.toLowerCase().includes(modelName),
+    );
+    const hasArchivalContext = model.sources.some((source) =>
+      archivalContext[modelId].test(source.quote || ''),
+    );
+    assert.ok(hasModelEvidence, `${modelId} requires a model-specific quote`);
+    assert.ok(hasArchivalContext, `${modelId} requires closure or discontinuation evidence`);
+  }
 });
 
 test('producer metadata and collaboration keys must stay consistent', () => {
