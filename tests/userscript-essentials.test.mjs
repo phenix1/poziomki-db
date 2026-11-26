@@ -87,7 +87,7 @@ const model = {
   sources: [],
 };
 
-test('essential formatter exposes all key values without expanding a model', () => {
+test('essential formatter shows only known values without verification metadata', () => {
   const client = loadClient();
   assert.equal(typeof client.formatEssentialSpecs, 'function');
 
@@ -98,12 +98,10 @@ test('essential formatter exposes all key values without expanding a model', () 
   assert.match(html, /Rider: 140 kg/);
   assert.match(html, /System: 180 kg/);
   assert.match(html, /Rack: 25 kg/);
-  assert.match(html, /Status: Archived/);
-  assert.match(html, /Evidence: Legacy unverified/);
-  assert.doesNotMatch(html, /pdb-unknown/);
+  assert.doesNotMatch(html, /Status:|Evidence:|pdb-unknown/);
 });
 
-test('essential formatter keeps every unsupported value visibly unknown', () => {
+test('essential formatter omits the subtitle when no values are known', () => {
   const client = loadClient();
   const unknown = {
     ...model,
@@ -115,11 +113,25 @@ test('essential formatter keeps every unsupported value visibly unknown', () => 
     max_rack_kg: null,
   };
 
-  const html = client.formatEssentialSpecs(unknown);
-  assert.equal((html.match(/pdb-unknown/g) || []).length, 6);
-  assert.match(html, /Front: <span class="pdb-unknown">—<\/span>/);
-  assert.match(html, /Rear: <span class="pdb-unknown">—<\/span>/);
-  assert.match(html, /Rider: <span class="pdb-unknown">—<\/span>/);
+  assert.equal(client.formatEssentialSpecs(unknown), '');
+});
+
+test('essential formatter omits unsupported fields from partial records', () => {
+  const client = loadClient();
+  const partial = {
+    ...model,
+    wheel_front_in: 20,
+    wheel_rear_in: null,
+    curb_weight_kg: null,
+    max_rider_kg: 140,
+    max_system_kg: null,
+    max_rack_kg: null,
+  };
+
+  const html = client.formatEssentialSpecs(partial);
+  assert.match(html, /Front: 20"/);
+  assert.match(html, /Rider: 140 kg/);
+  assert.doesNotMatch(html, /Rear:|Bike:|System:|Rack:|pdb-unknown/);
 });
 
 test('main table renders essential values for v2 records', () => {
@@ -160,8 +172,7 @@ test('main table renders essential values for v2 records', () => {
   assert.match(tbody.innerHTML, /Front: 20"/);
   assert.match(tbody.innerHTML, /Rear: 26"/);
   assert.match(tbody.innerHTML, /Rider: 140 kg/);
-  assert.match(tbody.innerHTML, /Status: Archived/);
-  assert.match(tbody.innerHTML, /Evidence: Legacy unverified/);
+  assert.doesNotMatch(tbody.innerHTML, /Status:|Evidence:/);
   assert.match(tbody.innerHTML, /135 kg/);
 });
 
