@@ -4487,7 +4487,7 @@
       "producer_id": "cycle-genius",
       "name": "Falcon",
       "type": "bike",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "needs_review",
       "wheels": {
         "front_in": null,
@@ -4501,15 +4501,21 @@
       },
       "legacy_load_kg": null,
       "url": "https://www.cyclegenius.com.tw/",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": true,
       "sources": [
         {
-          "url": "https://www.cyclegenius.com.tw/",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://bicycleman.com/reviews/cycle-genius-falcon-recumbent-trike/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "The Cycle Genius Falcon has durable 26 & 20 Wheels, All Weather Disc Brakes and their six Way Adjustable Foam base, mesh back Seat."
+        },
+        {
+          "url": "https://bicycleman.com/reviews/cycle-genius-falcon-recumbent-trike/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Cycle Genius ceased production in 2012."
         }
       ]
     },
@@ -4518,7 +4524,7 @@
       "producer_id": "cycle-genius",
       "name": "LTX",
       "type": "bike",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "needs_review",
       "wheels": {
         "front_in": null,
@@ -4532,15 +4538,27 @@
       },
       "legacy_load_kg": null,
       "url": "https://www.cyclegenius.com.tw/",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": true,
       "sources": [
         {
-          "url": "https://www.cyclegenius.com.tw/",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://rcnpdf.com/RCN_087.pdf",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Those considering an EZ-Rider should also check out the Burley Koosah ($999)/Jett Creek ($1,299), the Cycle Genius LTX ($1,049) and the Sun EZ-Sport AX ($1599)"
+        },
+        {
+          "url": "https://products.roadbikereview.com/product/latest-bikes/recumbent-bike/cycle-genius/ltx-falcon.html",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "I bought a new Cycle Genius LTX/Falcon about three months ago for commuting to work."
+        },
+        {
+          "url": "https://bicycleman.com/brand-review/cycle-genius-reviews/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Cycle Genius ceased production in 2012."
         }
       ]
     },
@@ -4549,7 +4567,7 @@
       "producer_id": "cycle-genius",
       "name": "Raven",
       "type": "bike",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "needs_review",
       "wheels": {
         "front_in": null,
@@ -4563,15 +4581,21 @@
       },
       "legacy_load_kg": null,
       "url": "https://www.cyclegenius.com.tw/",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": true,
       "sources": [
         {
-          "url": "https://www.cyclegenius.com.tw/",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://bicycleman.com/reviews/cycle-genius-raven-recumbent-bike/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "New for 2008 the Cycle Genius Raven has dual 700c wheels."
+        },
+        {
+          "url": "https://bicycleman.com/reviews/cycle-genius-raven-recumbent-bike/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Cycle Genius ceased production in 2012."
         }
       ]
     },
@@ -4766,7 +4790,7 @@
       "producer_id": "drymer",
       "name": "Hilgo",
       "type": "velomobile",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "legacy_unverified",
       "wheels": {
         "front_in": null,
@@ -4780,15 +4804,21 @@
       },
       "legacy_load_kg": null,
       "url": "https://velowerk.info/produkt-kategorie/velomobile/hilgo/",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": false,
       "sources": [
         {
-          "url": "https://velowerk.info/produkt-kategorie/velomobile/hilgo/",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://www.recumbent.news/2022/01/05/drymer-is-going-out-of-the-business/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Drymer also bought the Sinner brand in 2014, so they also made the legendary Mango velomobile, Hilgo velomobile, and a delta trike called Sinner Comfort."
+        },
+        {
+          "url": "https://www.recumbent.news/2022/01/05/drymer-is-going-out-of-the-business/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Drymer BV will stop her activities at February 1 2022."
         }
       ]
     },
@@ -10284,7 +10314,7 @@
       "producer_id": "pelso",
       "name": "Brevet",
       "type": "bike",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "legacy_unverified",
       "wheels": {
         "front_in": null,
@@ -10298,15 +10328,21 @@
       },
       "legacy_load_kg": null,
       "url": "https://www.pelsobrevet.com/products/pelso-brevet-complete-bike",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": false,
       "sources": [
         {
-          "url": "https://www.pelsobrevet.com/products/pelso-brevet-complete-bike",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://www.recumbent.news/2026/05/31/the-end-of-pelso-brevet-the-rise-and-fall-of-hungarys-carbon-high-racer-brand/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "At the same time, the company launched a new brand, Pelso, and introduced its sole model, the Brevet."
+        },
+        {
+          "url": "https://www.recumbent.news/2026/05/31/the-end-of-pelso-brevet-the-rise-and-fall-of-hungarys-carbon-high-racer-brand/",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "For now, however, one of the more ambitious carbon high racer projects of the last decade appears to have reached the end of the road."
         }
       ]
     },
@@ -11586,7 +11622,7 @@
       "producer_id": "rans",
       "name": "Dynamik",
       "type": "bike",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "needs_review",
       "wheels": {
         "front_in": null,
@@ -11600,15 +11636,27 @@
       },
       "legacy_load_kg": null,
       "url": "http://www.ransbikes.com/bicycles/",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": true,
       "sources": [
         {
-          "url": "http://www.ransbikes.com/bicycles/",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://rcnpdf.com/RCN_098.pdf",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "BIKE: 2007 RANS Dynamik"
+        },
+        {
+          "url": "https://phoenixbikewrx.com/products/metallic-red-dynamik",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "SOLD OUT!"
+        },
+        {
+          "url": "https://phoenixbikewrx.com/pages/about-us",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "This brings an end to us building RANS branded bicycles."
         }
       ]
     },
@@ -11834,7 +11882,7 @@
       "producer_id": "rans",
       "name": "Stratus XP",
       "type": "bike",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "needs_review",
       "wheels": {
         "front_in": null,
@@ -11848,15 +11896,21 @@
       },
       "legacy_load_kg": null,
       "url": "http://www.ransbikes.com/bicycles/",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": true,
       "sources": [
         {
-          "url": "http://www.ransbikes.com/bicycles/",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://phoenixbikewrx.com/pages/phoenix-recumbent",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "Jerrell had picked up four “new” old stock RANS Stratus XP AL unpainted frames from the former RANS Bike Factory in Hays, Kansas."
+        },
+        {
+          "url": "https://phoenixbikewrx.com/pages/about-us",
+          "kind": "archive",
+          "retrieved_at": "2026-11-26",
+          "quote": "This brings an end to us building RANS branded bicycles."
         }
       ]
     },
@@ -13787,7 +13841,7 @@
       "producer_id": "top-end",
       "name": "Force 3",
       "type": "handcycle",
-      "status": "unknown",
+      "status": "archived",
       "verification_status": "needs_review",
       "wheels": {
         "front_in": null,
@@ -13801,15 +13855,15 @@
       },
       "legacy_load_kg": null,
       "url": "https://www.invacare.com/cgi-bin/imhqprd/inv_catalog/prod_list.jsp",
-      "arch": false,
+      "arch": true,
       "offroad": false,
       "check": true,
       "sources": [
         {
-          "url": "https://www.invacare.com/cgi-bin/imhqprd/inv_catalog/prod_list.jsp",
-          "kind": "unclassified",
-          "retrieved_at": null,
-          "quote": null
+          "url": "https://invacaredocs.com/uk-en/2103_GB/PVI000162/",
+          "kind": "manual",
+          "retrieved_at": "2026-11-26",
+          "quote": "Top End Force 3 Handcycle. Discontinued product."
         }
       ]
     },
