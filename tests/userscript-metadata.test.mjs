@@ -14,7 +14,7 @@ function metadata(name) {
 }
 
 test('userscript declares a new version for update checks', () => {
-  assert.equal(metadata('version'), '4.2.5');
+  assert.equal(metadata('version'), '4.2.6');
 });
 
 test('userscript downloads updates from the canonical GitHub file', () => {

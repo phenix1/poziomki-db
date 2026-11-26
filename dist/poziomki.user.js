@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Poziomki DB v4.2.5
+// @name         Poziomki DB v4.2.6
 // @namespace    https://poziomki.info
-// @version      4.2.5
+// @version      4.2.6
 // @updateURL    https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
 // @downloadURL  https://raw.githubusercontent.com/phenix1/poziomki-db/main/dist/poziomki.user.js
 // @description  Recumbent bikes database with fixed header alignment and optimized space.
@@ -1191,38 +1191,20 @@
   // TABLE CONTROLLER & RENDERER
   // ==========================================
   function formatEssentialSpecs(row) {
-    if (!('max_rider_kg' in row) && !('wheel_front_in' in row) && !('curb_weight_kg' in row)) {
-      return '';
-    }
-
-    const unknown = '<span class="pdb-unknown">—</span>';
-    const mass = (value) => {
-      if (value === null || value === undefined || value === '') return unknown;
-      return `${escapeHtml(value)} kg`;
-    };
-    const wheel = (value) => {
-      if (value === null || value === undefined || value === '') return unknown;
-      return `${escapeHtml(value)}"`;
-    };
+    const hasValue = (value) => value !== null && value !== undefined && value !== '';
+    const mass = (value) => `${escapeHtml(value)} kg`;
+    const wheel = (value) => `${escapeHtml(value)}"`;
     const item = (label, value) => `<span>${label}: ${value}</span>`;
-    const statusLabels = { current: 'Current', archived: 'Archived', unknown: 'Unknown' };
-    const evidenceLabels = {
-      verified: 'Verified',
-      needs_review: 'Needs review',
-      legacy_unverified: 'Legacy unverified',
-      conflict: 'Conflict',
-    };
+    const items = [
+      hasValue(row.wheel_front_in) ? item('Front', wheel(row.wheel_front_in)) : '',
+      hasValue(row.wheel_rear_in) ? item('Rear', wheel(row.wheel_rear_in)) : '',
+      hasValue(row.curb_weight_kg) ? item('Bike', mass(row.curb_weight_kg)) : '',
+      hasValue(row.max_rider_kg) ? item('Rider', mass(row.max_rider_kg)) : '',
+      hasValue(row.max_system_kg) ? item('System', mass(row.max_system_kg)) : '',
+      hasValue(row.max_rack_kg) ? item('Rack', mass(row.max_rack_kg)) : '',
+    ].filter(Boolean);
 
-    return `<div class="pdb-essentials">${[
-      item('Front', wheel(row.wheel_front_in)),
-      item('Rear', wheel(row.wheel_rear_in)),
-      item('Bike', mass(row.curb_weight_kg)),
-      item('Rider', mass(row.max_rider_kg)),
-      item('System', mass(row.max_system_kg)),
-      item('Rack', mass(row.max_rack_kg)),
-      item('Status', statusLabels[row.status] || unknown),
-      item('Evidence', evidenceLabels[row.verification_status] || unknown),
-    ].join('')}</div>`;
+    return items.length ? `<div class="pdb-essentials">${items.join('')}</div>` : '';
   }
 
   function getFiltered() {
